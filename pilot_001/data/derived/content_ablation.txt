@@ -1,0 +1,34 @@
+==============================================================================
+CONTENT-WORD ABLATION: how much of each finding is *meaning*?
+==============================================================================
+
+CALIBRATION — ablation applied to a passage paired with *itself*
+   unit 2: cos(self) = 1.0000 -> after full ablation 1.0000   (self-identity is preserved by construction)
+   unit 73: cos(self) = 1.0000 -> after full ablation 1.0000   (self-identity is preserved by construction)
+   unit 39: cos(self) = 1.0000 -> after full ablation 1.0000   (self-identity is preserved by construction)
+   unit 58: cos(self) = 1.0000 -> after full ablation 1.0000   (self-identity is preserved by construction)
+
+CANDIDATE PAIRS — cosine before / after full content-word ablation
+   pair        before    after     drop   note
+   2&73         0.719    0.843   -0.123   'snow frame' (fails cross-model)
+   30&39        0.443    0.865   -0.422   religion / Church thread
+   55&58        0.666    0.842   -0.176   song lyric vs. song name
+   12&16        0.637    0.842   -0.205   Mr Browne & Freddy
+   71&74        0.761    0.903   -0.142   cold interrogation vs. Gretta sobbing
+   37&58        0.574    0.865   -0.290   singers past vs. song name
+   69&72        0.679    0.916   -0.237   Gabriel asks / Gretta's revelation
+
+NULL DISTRIBUTION — the same ablation on 60 random distant pairs
+   drop: mean -0.335, sd 0.083, min -0.503, max -0.123
+   mean raw cos of those pairs: 0.493
+   -> a pair whose drop is *far below* this mean has its similarity
+      carried by form, not content.
+
+   Where each candidate sits in that null distribution:
+      (2,73) drop -0.123  -> percentile  98.3%  content-driven
+      (30,39) drop -0.422  -> percentile  15.0%  form-driven
+      (55,58) drop -0.176  -> percentile  98.3%  content-driven
+      (12,16) drop -0.205  -> percentile  95.0%  content-driven
+      (71,74) drop -0.142  -> percentile  98.3%  content-driven
+      (37,58) drop -0.290  -> percentile  68.3%  content-driven
+      (69,72) drop -0.237  -> percentile  91.7%  content-driven

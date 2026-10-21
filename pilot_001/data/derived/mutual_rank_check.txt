@@ -1,0 +1,52 @@
+==============================================================================
+MUTUAL-RANK CHECK (correction-free)
+==============================================================================
+
+   78 units.  A pair is a genuine link if each unit ranks the other
+   high inside its own row — this needs no hub correction at all.
+
+--- MiniLM-pooled ---
+   pair        i->j   j->i  worse of two   note
+   2&73           3      5             5   'snow frame'
+   30&39         11      1            11   religion / Church thread
+   55&58          1      1             1   song lyric vs. song name
+   12&16          5      1             5   Mr Browne & Freddy
+   71&74          2      2             2   cold interrogation vs. Gretta sobbing
+   37&58          5      4             5   singers past vs. song name
+   69&72          7      5             7   Gabriel asks / Gretta's revelation
+
+--- bge-small ---
+   pair        i->j   j->i  worse of two   note
+   2&73          37     55            55   'snow frame'
+   30&39          2      2             2   religion / Church thread
+   55&58          1      2             2   song lyric vs. song name
+   12&16          4      1             4   Mr Browne & Freddy
+   71&74          9      2             9   cold interrogation vs. Gretta sobbing
+   37&58          7     33            33   singers past vs. song name
+   69&72          8      2             8   Gabriel asks / Gretta's revelation
+
+REFERENCE — distribution of max(row-rank_i(j), row-rank_j(i)) over
+            1000 random pairs, per model
+   MiniLM-pooled: median 48, 10th pct 14, 5th pct 7, 1st pct 2
+   bge-small: median 51, 10th pct 15, 5th pct 10, 1st pct 3
+
+   A pair is convincing only if its 'worse of two' rank is near the
+   1st percentile of this null (roughly <= 5 of 78).
+
+DIAGNOSTIC — are the two units of each pair peripheral?
+--- MiniLM-pooled (global mean 0.500) ---
+   (2,73) centrality ranks 73 and 70 of 78 (1 = most peripheral)   'snow frame'
+   (30,39) centrality ranks  5 and  1 of 78 (1 = most peripheral)   religion / Church thread
+   (55,58) centrality ranks 33 and 11 of 78 (1 = most peripheral)   song lyric vs. song name
+   (12,16) centrality ranks  8 and  3 of 78 (1 = most peripheral)   Mr Browne & Freddy
+   (71,74) centrality ranks 42 and 55 of 78 (1 = most peripheral)   cold interrogation vs. Gretta sobbing
+   (37,58) centrality ranks 10 and 11 of 78 (1 = most peripheral)   singers past vs. song name
+   (69,72) centrality ranks 62 and 71 of 78 (1 = most peripheral)   Gabriel asks / Gretta's revelation
+--- bge-small (global mean 0.711) ---
+   (2,73) centrality ranks 13 and 36 of 78 (1 = most peripheral)   'snow frame'
+   (30,39) centrality ranks  6 and 21 of 78 (1 = most peripheral)   religion / Church thread
+   (55,58) centrality ranks 20 and 52 of 78 (1 = most peripheral)   song lyric vs. song name
+   (12,16) centrality ranks  5 and  3 of 78 (1 = most peripheral)   Mr Browne & Freddy
+   (71,74) centrality ranks 58 and 12 of 78 (1 = most peripheral)   cold interrogation vs. Gretta sobbing
+   (37,58) centrality ranks 11 and 52 of 78 (1 = most peripheral)   singers past vs. song name
+   (69,72) centrality ranks 76 and 69 of 78 (1 = most peripheral)   Gabriel asks / Gretta's revelation

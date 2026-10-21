@@ -1,0 +1,26 @@
+==============================================================================
+IS 'THE SAME CAST' A GENERAL DRIVER OF SIMILARITY?
+==============================================================================
+
+   name ablation replaces every character name/title with 'person'.
+   matched control ablates the same NUMBER of random content types.
+
+   pair         cos  after names    drop  control mean  below ctrl?
+   55&58      0.666        0.630   0.036         0.707          YES
+   37&58      0.574        0.507   0.068         0.684          YES
+   69&72      0.679        0.570   0.109         0.691          YES
+   30&39      0.443        0.478  -0.035         0.560          YES
+   12&16      0.637        0.655  -0.018         0.704          YES
+   71&74      0.761        0.671   0.090         0.728          YES
+   72&73      0.718        0.683   0.035         0.679           no
+   55&56      0.612        0.578   0.034         0.678          YES
+   56&58      0.618        0.499   0.119         0.713          YES
+   49&72      0.593        0.529   0.064         0.588          YES
+
+NULL SAMPLE — 40 random distant pairs (gap>=3)
+   relative drop from name ablation: mean 2.6%, median 2.3%, max 31.5%
+   share of pairs where name ablation goes BELOW the matched control range: 82%
+
+   -> If most pairs behave this way, SBERT at 150-word scale is to a
+      large extent a cast-of-characters detector, and 'the same scene'
+      rather than 'the same theme' is what it measures.

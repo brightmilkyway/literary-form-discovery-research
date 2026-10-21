@@ -1,0 +1,79 @@
+==============================================================================
+ADJUDICATING THE (2, 73) 'SNOW FRAME' PAIR
+==============================================================================
+
+unit 2  (paras 5-9, 152 words):
+   He stood on the mat, scraping the snow from his goloshes, while Lily led his wife to the foot of the stairs and called out: “Miss Kate, here’s Mrs Conroy.” Kate and Julia came toddling down the dark stairs at once. Both of them kissed Gabriel’s wife, said she must be perished alive and asked was Gab…
+unit 73  (paras 442-447, 184 words):
+   She paused for a moment to get her voice under control and then went on: “Then the night before I left I was in my grandmother’s house in Nuns’ Island, packing up, and I heard gravel thrown up against the window. The window was so wet I couldn’t see so I ran downstairs as I was and slipped out the b…
+
+------------------------------------------------------------------------------
+TEST A — IS IT EXTREME AMONG *DISTANT* PAIRS, BEFORE AND AFTER
+         HUB CORRECTION?
+------------------------------------------------------------------------------
+   raw cos        all pairs  rank   32/3003  percentile  98.9%
+   raw cos        gap>=40    rank    5/741   percentile  99.3%
+   raw cos        gap>=60    rank    2/171   percentile  98.8%
+   hub-corrected  all pairs  rank  164/3003  percentile  94.5%
+   hub-corrected  gap>=40    rank   20/741   percentile  97.3%
+   hub-corrected  gap>=60    rank    6/171   percentile  96.5%
+
+   Interpretation: a *high* percentile restricted to distant pairs is
+   the fair test for a claim about a distant echo.
+
+------------------------------------------------------------------------------
+TEST B — LEAVE-ONE-OUT HUB CORRECTION
+         (row means recomputed with the pair itself excluded)
+------------------------------------------------------------------------------
+   centrality of unit 2: 0.5518 (leave-one-out) vs 0.5540 (full)
+   centrality of unit 73: 0.5480 (leave-one-out) vs 0.5502 (full)
+   residual of the pair, leave-one-out = +0.1168; full = +0.1125
+   leave-one-out residual   rank among gap>=40: 17/741
+   full residual            rank among gap>=40: 20/741
+
+------------------------------------------------------------------------------
+TEST C — CROSS-CHUNKING REPLICATION (does the *passage block* recur?)
+------------------------------------------------------------------------------
+   [group100] n=106
+      units covering paras 5-9: [3, 4]
+      units covering paras 442-447: [100, 101]
+      pair (3,100) [paras 3-7 x 440-443]  cos=0.562 (pct among earlyxlate 86%)   resid=+0.019 (pct 64%)
+      pair (3,101) [paras 3-7 x 444-447]  cos=0.607 (pct among earlyxlate 94%)   resid=+0.143 (pct 98%)
+      pair (4,100) [paras 8-10 x 440-443]  cos=0.645 (pct among earlyxlate 98%)   resid=+0.066 (pct 85%)
+      pair (4,101) [paras 8-10 x 444-447]  cos=0.505 (pct among earlyxlate 61%)   resid=+0.005 (pct 53%)
+      baseline earlyxlate pairs: 192, mean cos 0.458, mean resid -0.003
+
+   [group80] n=126
+      units covering paras 5-9: [3, 4]
+      units covering paras 442-447: [119, 120]
+      pair (3,119) [paras 3-7 x 440-443]  cos=0.562 (pct among earlyxlate 87%)   resid=+0.023 (pct 59%)
+      pair (3,120) [paras 3-7 x 444-447]  cos=0.607 (pct among earlyxlate 94%)   resid=+0.146 (pct 97%)
+      pair (4,119) [paras 8-9 x 440-443]  cos=0.630 (pct among earlyxlate 96%)   resid=+0.056 (pct 77%)
+      pair (4,120) [paras 8-9 x 444-447]  cos=0.526 (pct among earlyxlate 74%)   resid=+0.030 (pct 64%)
+      baseline earlyxlate pairs: 300, mean cos 0.446, mean resid +0.003
+
+------------------------------------------------------------------------------
+TEST D — CROSS-MODEL REPLICATION
+         (a second encoder from a different family)
+------------------------------------------------------------------------------
+   BAAI/bge-small-en-v1.5: max_seq_length=512, 156 sub-chunks, max 404 tokens, over limit 0
+   cos(2,73) = 0.687
+   raw cos        all pairs  rank 2053/3003  percentile  31.6%
+   raw cos        gap>=40    rank  457/741   percentile  38.3%
+   hub-corrected  all pairs  rank 1318/3003  percentile  56.1%
+   hub-corrected  gap>=40    rank  282/741   percentile  61.9%
+   agreement of the two models' matrices (upper triangle Pearson): +0.671
+
+------------------------------------------------------------------------------
+TEST E — LEXICAL ABLATION (is the link the weather semantics?)
+------------------------------------------------------------------------------
+   cos(2,73) before ablation = 0.719
+   cos(2,73) after  ablation = 0.724   (drop -0.004)
+   words replaced in unit 2: ['air', 'cold', 'fragrant', 'snow']
+   words replaced in unit 73: ['garden', 'rain', 'shivering', 'wet', 'window']
+   control pairs (same ablation):
+      (30,39) gap  9: cos 0.443 -> 0.445  (drop -0.002)
+      (55,58) gap  3: cos 0.666 -> 0.660  (drop +0.006)
+      (12,16) gap  4: cos 0.637 -> 0.637  (drop +0.000)
+      (71,74) gap  3: cos 0.761 -> 0.760  (drop +0.001)
+      (37,58) gap 21: cos 0.574 -> 0.573  (drop +0.001)

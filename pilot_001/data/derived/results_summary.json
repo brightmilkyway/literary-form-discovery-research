@@ -1,0 +1,3320 @@
+{
+  "meta": {
+    "source": "James Joyce, The Dead (Project Gutenberg text)",
+    "seed": 42,
+    "source_chars": 85692,
+    "body_chars": 85683,
+    "n_paragraphs": 455,
+    "n_words": 15732,
+    "title_offset": 9
+  },
+  "texttiling": {
+    "sweep": {
+      "w20_k6 (main)": {
+        "params": {
+          "w": 20,
+          "k": 6,
+          "smoothing_width": 2,
+          "smoothing_rounds": 1,
+          "cutoff_policy": "HC",
+          "suppress": 4,
+          "tokenize_mode": "nltk",
+          "stopwords": 179,
+          "clip_edges": true
+        },
+        "n_boundaries": 130,
+        "threshold": 0.03345435775602771,
+        "mean_depth": 0.08308958371285766,
+        "sd_depth": 0.0992704519136599
+      },
+      "w20_k10 (NLTK default)": {
+        "params": {
+          "w": 20,
+          "k": 10,
+          "smoothing_width": 2,
+          "smoothing_rounds": 1,
+          "cutoff_policy": "HC",
+          "suppress": 4,
+          "tokenize_mode": "nltk",
+          "stopwords": 179,
+          "clip_edges": true
+        },
+        "n_boundaries": 132,
+        "threshold": 0.02674923446527476,
+        "mean_depth": 0.0743681980677448,
+        "sd_depth": 0.09523792720494009
+      },
+      "w10_k6": {
+        "params": {
+          "w": 10,
+          "k": 6,
+          "smoothing_width": 2,
+          "smoothing_rounds": 1,
+          "cutoff_policy": "HC",
+          "suppress": 4,
+          "tokenize_mode": "nltk",
+          "stopwords": 179,
+          "clip_edges": true
+        },
+        "n_boundaries": 271,
+        "threshold": 0.03319827791048924,
+        "mean_depth": 0.09072134790173121,
+        "sd_depth": 0.11504613998248395
+      },
+      "w40_k6": {
+        "params": {
+          "w": 40,
+          "k": 6,
+          "smoothing_width": 2,
+          "smoothing_rounds": 1,
+          "cutoff_policy": "HC",
+          "suppress": 4,
+          "tokenize_mode": "nltk",
+          "stopwords": 179,
+          "clip_edges": true
+        },
+        "n_boundaries": 66,
+        "threshold": 0.0333998818747604,
+        "mean_depth": 0.08336274649510958,
+        "sd_depth": 0.09992572924069835
+      },
+      "w20_k4": {
+        "params": {
+          "w": 20,
+          "k": 4,
+          "smoothing_width": 2,
+          "smoothing_rounds": 1,
+          "cutoff_policy": "HC",
+          "suppress": 4,
+          "tokenize_mode": "nltk",
+          "stopwords": 179,
+          "clip_edges": true
+        },
+        "n_boundaries": 138,
+        "threshold": 0.039515610961121654,
+        "mean_depth": 0.093438083795971,
+        "sd_depth": 0.1078449456696987
+      },
+      "w20_k6 no-smoothing": {
+        "params": {
+          "w": 20,
+          "k": 6,
+          "smoothing_width": 2,
+          "smoothing_rounds": 0,
+          "cutoff_policy": "HC",
+          "suppress": 4,
+          "tokenize_mode": "nltk",
+          "stopwords": 179,
+          "clip_edges": true
+        },
+        "n_boundaries": 137,
+        "threshold": 0.03320951630856632,
+        "mean_depth": 0.08496858882424363,
+        "sd_depth": 0.10351814503135462
+      },
+      "w20_k6 LC cutoff": {
+        "params": {
+          "w": 20,
+          "k": 6,
+          "smoothing_width": 2,
+          "smoothing_rounds": 1,
+          "cutoff_policy": "LC",
+          "suppress": 4,
+          "tokenize_mode": "nltk",
+          "stopwords": 179,
+          "clip_edges": true
+        },
+        "n_boundaries": 160,
+        "threshold": -0.016180868200802237,
+        "mean_depth": 0.08308958371285766,
+        "sd_depth": 0.0992704519136599
+      },
+      "w20_k6 word-tokenised": {
+        "params": {
+          "w": 20,
+          "k": 6,
+          "smoothing_width": 2,
+          "smoothing_rounds": 1,
+          "cutoff_policy": "HC",
+          "suppress": 4,
+          "tokenize_mode": "word",
+          "stopwords": 179,
+          "clip_edges": true
+        },
+        "n_boundaries": 128,
+        "threshold": 0.03551292142193366,
+        "mean_depth": 0.0840422578622381,
+        "sd_depth": 0.09705867288060888
+      }
+    },
+    "main": {
+      "params": {
+        "w": 20,
+        "k": 6,
+        "smoothing_width": 2,
+        "smoothing_rounds": 1,
+        "cutoff_policy": "HC",
+        "suppress": 4,
+        "tokenize_mode": "nltk",
+        "stopwords": 179,
+        "clip_edges": true
+      },
+      "n_boundaries": 130,
+      "threshold": 0.03345435775602771,
+      "mean_depth": 0.08308958371285766,
+      "sd_depth": 0.0992704519136599,
+      "boundaries": [
+        {
+          "gap_index": 5,
+          "word_pos": 120,
+          "char_pos": 665,
+          "depth": 0.14767590135992734,
+          "block_sim": 0.06667259338283311,
+          "left_unit": null,
+          "right_unit": 1
+        },
+        {
+          "gap_index": 9,
+          "word_pos": 200,
+          "char_pos": 1082,
+          "depth": 0.04889530354655375,
+          "block_sim": 0.12949975419051468,
+          "left_unit": null,
+          "right_unit": 1
+        },
+        {
+          "gap_index": 15,
+          "word_pos": 320,
+          "char_pos": 1701,
+          "depth": 0.1252738019425742,
+          "block_sim": 0.06766649524509584,
+          "left_unit": null,
+          "right_unit": 1
+        },
+        {
+          "gap_index": 19,
+          "word_pos": 400,
+          "char_pos": 2152,
+          "depth": 0.12493348603752116,
+          "block_sim": 0.05723638070321425,
+          "left_unit": null,
+          "right_unit": 1
+        },
+        {
+          "gap_index": 26,
+          "word_pos": 540,
+          "char_pos": 2903,
+          "depth": 0.15789233095232913,
+          "block_sim": 0.15257207121423155,
+          "left_unit": 0,
+          "right_unit": 2
+        },
+        {
+          "gap_index": 32,
+          "word_pos": 660,
+          "char_pos": 3561,
+          "depth": 0.06341252784909068,
+          "block_sim": 0.2805120283003653,
+          "left_unit": 1,
+          "right_unit": 3
+        },
+        {
+          "gap_index": 36,
+          "word_pos": 740,
+          "char_pos": 3998,
+          "depth": 0.1848425421889781,
+          "block_sim": 0.1646463899845355,
+          "left_unit": 1,
+          "right_unit": 3
+        },
+        {
+          "gap_index": 40,
+          "word_pos": 820,
+          "char_pos": 4440,
+          "depth": 0.03786731084985545,
+          "block_sim": 0.16079397020628872,
+          "left_unit": 2,
+          "right_unit": 4
+        },
+        {
+          "gap_index": 48,
+          "word_pos": 980,
+          "char_pos": 5269,
+          "depth": 0.20533059847772184,
+          "block_sim": 0.04839339184958273,
+          "left_unit": 3,
+          "right_unit": 5
+        },
+        {
+          "gap_index": 55,
+          "word_pos": 1120,
+          "char_pos": 6041,
+          "depth": 0.18548280138351975,
+          "block_sim": 0.0,
+          "left_unit": 4,
+          "right_unit": 6
+        },
+        {
+          "gap_index": 62,
+          "word_pos": 1260,
+          "char_pos": 6842,
+          "depth": 0.220918421958555,
+          "block_sim": 0.024112141108520602,
+          "left_unit": 4,
+          "right_unit": 6
+        },
+        {
+          "gap_index": 69,
+          "word_pos": 1400,
+          "char_pos": 7612,
+          "depth": 0.3034877661697943,
+          "block_sim": 0.0,
+          "left_unit": 4,
+          "right_unit": 6
+        },
+        {
+          "gap_index": 76,
+          "word_pos": 1540,
+          "char_pos": 8355,
+          "depth": 0.1904827202846892,
+          "block_sim": 0.15414426947773893,
+          "left_unit": 5,
+          "right_unit": 7
+        },
+        {
+          "gap_index": 84,
+          "word_pos": 1700,
+          "char_pos": 9243,
+          "depth": 0.2848089360215596,
+          "block_sim": 0.0883991392175728,
+          "left_unit": 6,
+          "right_unit": 8
+        },
+        {
+          "gap_index": 91,
+          "word_pos": 1840,
+          "char_pos": 10015,
+          "depth": 0.16380942657599462,
+          "block_sim": 0.25175440748900674,
+          "left_unit": 7,
+          "right_unit": 9
+        },
+        {
+          "gap_index": 102,
+          "word_pos": 2060,
+          "char_pos": 11293,
+          "depth": 0.1866141955922554,
+          "block_sim": 0.24217235620703023,
+          "left_unit": 8,
+          "right_unit": 10
+        },
+        {
+          "gap_index": 107,
+          "word_pos": 2160,
+          "char_pos": 11836,
+          "depth": 0.044094573504044554,
+          "block_sim": 0.24767003304602012,
+          "left_unit": 9,
+          "right_unit": 11
+        },
+        {
+          "gap_index": 111,
+          "word_pos": 2240,
+          "char_pos": 12282,
+          "depth": 0.19921636112673746,
+          "block_sim": 0.15809198812733244,
+          "left_unit": 9,
+          "right_unit": 11
+        },
+        {
+          "gap_index": 118,
+          "word_pos": 2380,
+          "char_pos": 13073,
+          "depth": 0.24369156968311445,
+          "block_sim": 0.10056022847309863,
+          "left_unit": 10,
+          "right_unit": 12
+        },
+        {
+          "gap_index": 124,
+          "word_pos": 2500,
+          "char_pos": 13738,
+          "depth": 0.12290963492253681,
+          "block_sim": 0.1784242303962928,
+          "left_unit": 11,
+          "right_unit": 13
+        },
+        {
+          "gap_index": 132,
+          "word_pos": 2660,
+          "char_pos": 14614,
+          "depth": 0.26514446729610275,
+          "block_sim": 0.25509819019042246,
+          "left_unit": 11,
+          "right_unit": 13
+        },
+        {
+          "gap_index": 136,
+          "word_pos": 2740,
+          "char_pos": 15053,
+          "depth": 0.0937467862908965,
+          "block_sim": 0.3643962629999657,
+          "left_unit": 12,
+          "right_unit": 14
+        },
+        {
+          "gap_index": 143,
+          "word_pos": 2880,
+          "char_pos": 15853,
+          "depth": 0.24667011099142833,
+          "block_sim": 0.20004940101347418,
+          "left_unit": 13,
+          "right_unit": 15
+        },
+        {
+          "gap_index": 147,
+          "word_pos": 2960,
+          "char_pos": 16309,
+          "depth": 0.537169347665428,
+          "block_sim": 0.03813696271356911,
+          "left_unit": 13,
+          "right_unit": 15
+        },
+        {
+          "gap_index": 154,
+          "word_pos": 3100,
+          "char_pos": 17072,
+          "depth": 0.2406436811362429,
+          "block_sim": 0.134790966504298,
+          "left_unit": 13,
+          "right_unit": 15
+        },
+        {
+          "gap_index": 162,
+          "word_pos": 3260,
+          "char_pos": 17965,
+          "depth": 0.24325051854865087,
+          "block_sim": 0.17715299831526518,
+          "left_unit": 15,
+          "right_unit": 17
+        },
+        {
+          "gap_index": 169,
+          "word_pos": 3400,
+          "char_pos": 18769,
+          "depth": 0.2950701890191247,
+          "block_sim": 0.031540528018792126,
+          "left_unit": 15,
+          "right_unit": 17
+        },
+        {
+          "gap_index": 175,
+          "word_pos": 3520,
+          "char_pos": 19416,
+          "depth": 0.09467904283223852,
+          "block_sim": 0.027441064997422587,
+          "left_unit": 16,
+          "right_unit": 18
+        },
+        {
+          "gap_index": 184,
+          "word_pos": 3700,
+          "char_pos": 20390,
+          "depth": 0.08147775511848196,
+          "block_sim": 0.031497039417435604,
+          "left_unit": 16,
+          "right_unit": 18
+        },
+        {
+          "gap_index": 190,
+          "word_pos": 3820,
+          "char_pos": 21045,
+          "depth": 0.10446843955416699,
+          "block_sim": 0.03289758474798845,
+          "left_unit": 16,
+          "right_unit": 18
+        },
+        {
+          "gap_index": 196,
+          "word_pos": 3940,
+          "char_pos": 21666,
+          "depth": 0.2524319959055325,
+          "block_sim": 0.0597081434026532,
+          "left_unit": 17,
+          "right_unit": 19
+        },
+        {
+          "gap_index": 200,
+          "word_pos": 4020,
+          "char_pos": 22101,
+          "depth": 0.071393335726815,
+          "block_sim": 0.13575075259135658,
+          "left_unit": 18,
+          "right_unit": 20
+        },
+        {
+          "gap_index": 207,
+          "word_pos": 4160,
+          "char_pos": 22876,
+          "depth": 0.2576312708241883,
+          "block_sim": 0.06984984452838908,
+          "left_unit": 18,
+          "right_unit": 20
+        },
+        {
+          "gap_index": 216,
+          "word_pos": 4340,
+          "char_pos": 23869,
+          "depth": 0.22199431924189694,
+          "block_sim": 0.09534625892455924,
+          "left_unit": 19,
+          "right_unit": 21
+        },
+        {
+          "gap_index": 223,
+          "word_pos": 4480,
+          "char_pos": 24633,
+          "depth": 0.3673893844341695,
+          "block_sim": 0.1183892660110542,
+          "left_unit": 19,
+          "right_unit": 21
+        },
+        {
+          "gap_index": 227,
+          "word_pos": 4560,
+          "char_pos": 25079,
+          "depth": 0.07209592934207287,
+          "block_sim": 0.41230369375278014,
+          "left_unit": 20,
+          "right_unit": 22
+        },
+        {
+          "gap_index": 233,
+          "word_pos": 4680,
+          "char_pos": 25780,
+          "depth": 0.16051341263518004,
+          "block_sim": 0.36748704599204934,
+          "left_unit": 21,
+          "right_unit": 23
+        },
+        {
+          "gap_index": 237,
+          "word_pos": 4760,
+          "char_pos": 26225,
+          "depth": 0.43953059453631915,
+          "block_sim": 0.09380984679830706,
+          "left_unit": 21,
+          "right_unit": 23
+        },
+        {
+          "gap_index": 241,
+          "word_pos": 4840,
+          "char_pos": 26651,
+          "depth": 0.09303967378934733,
+          "block_sim": 0.11476952126219177,
+          "left_unit": 22,
+          "right_unit": 24
+        },
+        {
+          "gap_index": 250,
+          "word_pos": 5020,
+          "char_pos": 27603,
+          "depth": 0.1685164271177998,
+          "block_sim": 0.12487810821089254,
+          "left_unit": 22,
+          "right_unit": 24
+        },
+        {
+          "gap_index": 254,
+          "word_pos": 5100,
+          "char_pos": 28036,
+          "depth": 0.04032480377292491,
+          "block_sim": 0.24312628128362712,
+          "left_unit": 23,
+          "right_unit": 25
+        },
+        {
+          "gap_index": 259,
+          "word_pos": 5200,
+          "char_pos": 28554,
+          "depth": 0.08676320489374989,
+          "block_sim": 0.21325442607213338,
+          "left_unit": 24,
+          "right_unit": 26
+        },
+        {
+          "gap_index": 265,
+          "word_pos": 5320,
+          "char_pos": 29202,
+          "depth": 0.12248654867719794,
+          "block_sim": 0.14774635277549272,
+          "left_unit": 24,
+          "right_unit": 26
+        },
+        {
+          "gap_index": 269,
+          "word_pos": 5400,
+          "char_pos": 29660,
+          "depth": 0.317246935692727,
+          "block_sim": 0.06567586718659173,
+          "left_unit": 24,
+          "right_unit": 26
+        },
+        {
+          "gap_index": 273,
+          "word_pos": 5480,
+          "char_pos": 30087,
+          "depth": 0.037536406712943116,
+          "block_sim": 0.18451321063618936,
+          "left_unit": 25,
+          "right_unit": 27
+        },
+        {
+          "gap_index": 279,
+          "word_pos": 5600,
+          "char_pos": 30738,
+          "depth": 0.07117819139431608,
+          "block_sim": 0.13974077116002082,
+          "left_unit": 25,
+          "right_unit": 27
+        },
+        {
+          "gap_index": 286,
+          "word_pos": 5740,
+          "char_pos": 31493,
+          "depth": 0.033862005033425846,
+          "block_sim": 0.12501205807170124,
+          "left_unit": 26,
+          "right_unit": 28
+        },
+        {
+          "gap_index": 294,
+          "word_pos": 5900,
+          "char_pos": 32402,
+          "depth": 0.4725172314787055,
+          "block_sim": 0.07262730392025629,
+          "left_unit": 26,
+          "right_unit": 28
+        },
+        {
+          "gap_index": 298,
+          "word_pos": 5980,
+          "char_pos": 32812,
+          "depth": 0.18625548400947406,
+          "block_sim": 0.2581988897471611,
+          "left_unit": 27,
+          "right_unit": 29
+        },
+        {
+          "gap_index": 306,
+          "word_pos": 6140,
+          "char_pos": 33695,
+          "depth": 0.1590781781128381,
+          "block_sim": 0.26207120918047955,
+          "left_unit": 28,
+          "right_unit": 30
+        },
+        {
+          "gap_index": 312,
+          "word_pos": 6260,
+          "char_pos": 34344,
+          "depth": 0.06442042850455287,
+          "block_sim": 0.28168113585237115,
+          "left_unit": 28,
+          "right_unit": 30
+        },
+        {
+          "gap_index": 317,
+          "word_pos": 6360,
+          "char_pos": 34854,
+          "depth": 0.06651309006968276,
+          "block_sim": 0.3509885473947301,
+          "left_unit": 29,
+          "right_unit": 31
+        },
+        {
+          "gap_index": 323,
+          "word_pos": 6480,
+          "char_pos": 35516,
+          "depth": 0.23591687533482308,
+          "block_sim": 0.2825986526270952,
+          "left_unit": 30,
+          "right_unit": 32
+        },
+        {
+          "gap_index": 327,
+          "word_pos": 6560,
+          "char_pos": 35953,
+          "depth": 0.052598322154628674,
+          "block_sim": 0.42962254917468923,
+          "left_unit": 30,
+          "right_unit": 32
+        },
+        {
+          "gap_index": 335,
+          "word_pos": 6720,
+          "char_pos": 36820,
+          "depth": 0.21211510355788643,
+          "block_sim": 0.24845199749997662,
+          "left_unit": 31,
+          "right_unit": 33
+        },
+        {
+          "gap_index": 339,
+          "word_pos": 6800,
+          "char_pos": 37266,
+          "depth": 0.36327102628898644,
+          "block_sim": 0.12139284012153827,
+          "left_unit": 32,
+          "right_unit": 34
+        },
+        {
+          "gap_index": 343,
+          "word_pos": 6880,
+          "char_pos": 37703,
+          "depth": 0.5530147633857361,
+          "block_sim": 0.04291904786436015,
+          "left_unit": 32,
+          "right_unit": 34
+        },
+        {
+          "gap_index": 353,
+          "word_pos": 7080,
+          "char_pos": 38787,
+          "depth": 0.17374567785325726,
+          "block_sim": 0.049698069547042624,
+          "left_unit": 32,
+          "right_unit": 34
+        },
+        {
+          "gap_index": 360,
+          "word_pos": 7220,
+          "char_pos": 39528,
+          "depth": 0.2487576577758312,
+          "block_sim": 0.06859943405700353,
+          "left_unit": 33,
+          "right_unit": 35
+        },
+        {
+          "gap_index": 364,
+          "word_pos": 7300,
+          "char_pos": 39950,
+          "depth": 0.1024451281115823,
+          "block_sim": 0.2041241452319315,
+          "left_unit": 33,
+          "right_unit": 35
+        },
+        {
+          "gap_index": 368,
+          "word_pos": 7380,
+          "char_pos": 40401,
+          "depth": 0.04447944566958484,
+          "block_sim": 0.20987654320987653,
+          "left_unit": 33,
+          "right_unit": 35
+        },
+        {
+          "gap_index": 372,
+          "word_pos": 7460,
+          "char_pos": 40849,
+          "depth": 0.14407128906590078,
+          "block_sim": 0.1177703825827981,
+          "left_unit": 34,
+          "right_unit": 36
+        },
+        {
+          "gap_index": 376,
+          "word_pos": 7540,
+          "char_pos": 41305,
+          "depth": 0.1559054832163118,
+          "block_sim": 0.11223917161691231,
+          "left_unit": 34,
+          "right_unit": 36
+        },
+        {
+          "gap_index": 387,
+          "word_pos": 7760,
+          "char_pos": 42534,
+          "depth": 0.19899116013223456,
+          "block_sim": 0.06652718791768567,
+          "left_unit": 35,
+          "right_unit": 37
+        },
+        {
+          "gap_index": 393,
+          "word_pos": 7880,
+          "char_pos": 43200,
+          "depth": 0.3819450009421306,
+          "block_sim": 0.07325928087547756,
+          "left_unit": 35,
+          "right_unit": 37
+        },
+        {
+          "gap_index": 397,
+          "word_pos": 7960,
+          "char_pos": 43653,
+          "depth": 0.03709917053073375,
+          "block_sim": 0.42339019740572553,
+          "left_unit": 36,
+          "right_unit": 38
+        },
+        {
+          "gap_index": 405,
+          "word_pos": 8120,
+          "char_pos": 44535,
+          "depth": 0.21569478388551744,
+          "block_sim": 0.26424909878161656,
+          "left_unit": 37,
+          "right_unit": 39
+        },
+        {
+          "gap_index": 409,
+          "word_pos": 8200,
+          "char_pos": 44982,
+          "depth": 0.06514350480189662,
+          "block_sim": 0.1813690625275029,
+          "left_unit": 37,
+          "right_unit": 39
+        },
+        {
+          "gap_index": 413,
+          "word_pos": 8280,
+          "char_pos": 45400,
+          "depth": 0.3403303833000785,
+          "block_sim": 0.14804664203952106,
+          "left_unit": 37,
+          "right_unit": 39
+        },
+        {
+          "gap_index": 417,
+          "word_pos": 8360,
+          "char_pos": 45807,
+          "depth": 0.05514627472475475,
+          "block_sim": 0.26172302710603734,
+          "left_unit": 38,
+          "right_unit": 40
+        },
+        {
+          "gap_index": 422,
+          "word_pos": 8460,
+          "char_pos": 46345,
+          "depth": 0.05549408582341264,
+          "block_sim": 0.2371296597419439,
+          "left_unit": 38,
+          "right_unit": 40
+        },
+        {
+          "gap_index": 426,
+          "word_pos": 8540,
+          "char_pos": 46762,
+          "depth": 0.22369065146377293,
+          "block_sim": 0.11751911201153428,
+          "left_unit": 39,
+          "right_unit": 41
+        },
+        {
+          "gap_index": 430,
+          "word_pos": 8620,
+          "char_pos": 47215,
+          "depth": 0.24067616675237302,
+          "block_sim": 0.07145774380937868,
+          "left_unit": 39,
+          "right_unit": 41
+        },
+        {
+          "gap_index": 434,
+          "word_pos": 8700,
+          "char_pos": 47669,
+          "depth": 0.30798846082674713,
+          "block_sim": 0.05636039340537305,
+          "left_unit": 40,
+          "right_unit": 42
+        },
+        {
+          "gap_index": 439,
+          "word_pos": 8800,
+          "char_pos": 48249,
+          "depth": 0.03569217168004733,
+          "block_sim": 0.03156365013686852,
+          "left_unit": 40,
+          "right_unit": 42
+        },
+        {
+          "gap_index": 447,
+          "word_pos": 8960,
+          "char_pos": 49101,
+          "depth": 0.13128226148266225,
+          "block_sim": 0.05175491695067657,
+          "left_unit": 41,
+          "right_unit": 43
+        },
+        {
+          "gap_index": 457,
+          "word_pos": 9160,
+          "char_pos": 50167,
+          "depth": 0.19134125091339854,
+          "block_sim": 0.055724360224630815,
+          "left_unit": 42,
+          "right_unit": 44
+        },
+        {
+          "gap_index": 464,
+          "word_pos": 9300,
+          "char_pos": 50954,
+          "depth": 0.19442480396841888,
+          "block_sim": 0.07228915662650602,
+          "left_unit": 42,
+          "right_unit": 44
+        },
+        {
+          "gap_index": 475,
+          "word_pos": 9520,
+          "char_pos": 52176,
+          "depth": 0.19677225277035387,
+          "block_sim": 0.03782648023955171,
+          "left_unit": 43,
+          "right_unit": 45
+        },
+        {
+          "gap_index": 480,
+          "word_pos": 9620,
+          "char_pos": 52748,
+          "depth": 0.07464301573339899,
+          "block_sim": 0.08947924869885988,
+          "left_unit": 44,
+          "right_unit": 46
+        },
+        {
+          "gap_index": 486,
+          "word_pos": 9740,
+          "char_pos": 53391,
+          "depth": 0.17396841340504954,
+          "block_sim": 0.03686048903872429,
+          "left_unit": 44,
+          "right_unit": 46
+        },
+        {
+          "gap_index": 491,
+          "word_pos": 9840,
+          "char_pos": 53961,
+          "depth": 0.3689789286651836,
+          "block_sim": 0.07257747386024231,
+          "left_unit": 45,
+          "right_unit": 47
+        },
+        {
+          "gap_index": 499,
+          "word_pos": 10000,
+          "char_pos": 54865,
+          "depth": 0.4072915471559412,
+          "block_sim": 0.15325782987912928,
+          "left_unit": 46,
+          "right_unit": 48
+        },
+        {
+          "gap_index": 503,
+          "word_pos": 10080,
+          "char_pos": 55310,
+          "depth": 0.15561701943145012,
+          "block_sim": 0.24795914953354387,
+          "left_unit": 46,
+          "right_unit": 48
+        },
+        {
+          "gap_index": 509,
+          "word_pos": 10200,
+          "char_pos": 55966,
+          "depth": 0.4147706744417229,
+          "block_sim": 0.21053798026662973,
+          "left_unit": 47,
+          "right_unit": 49
+        },
+        {
+          "gap_index": 517,
+          "word_pos": 10360,
+          "char_pos": 56888,
+          "depth": 0.22986041215501252,
+          "block_sim": 0.3210121189111166,
+          "left_unit": 48,
+          "right_unit": 50
+        },
+        {
+          "gap_index": 524,
+          "word_pos": 10500,
+          "char_pos": 57688,
+          "depth": 0.15026365906908667,
+          "block_sim": 0.28930831738097756,
+          "left_unit": 49,
+          "right_unit": 51
+        },
+        {
+          "gap_index": 529,
+          "word_pos": 10600,
+          "char_pos": 58254,
+          "depth": 0.10707220065334822,
+          "block_sim": 0.3025472148252798,
+          "left_unit": 50,
+          "right_unit": 52
+        },
+        {
+          "gap_index": 534,
+          "word_pos": 10700,
+          "char_pos": 58820,
+          "depth": 0.544489240196958,
+          "block_sim": 0.05027834887607842,
+          "left_unit": 50,
+          "right_unit": 52
+        },
+        {
+          "gap_index": 538,
+          "word_pos": 10780,
+          "char_pos": 59280,
+          "depth": 0.12861993984937226,
+          "block_sim": 0.34484040007458117,
+          "left_unit": 51,
+          "right_unit": 53
+        },
+        {
+          "gap_index": 543,
+          "word_pos": 10880,
+          "char_pos": 59807,
+          "depth": 0.10736117808762491,
+          "block_sim": 0.3822993376055434,
+          "left_unit": 51,
+          "right_unit": 53
+        },
+        {
+          "gap_index": 547,
+          "word_pos": 10960,
+          "char_pos": 60259,
+          "depth": 0.21606910636560517,
+          "block_sim": 0.19162614060773447,
+          "left_unit": 51,
+          "right_unit": 53
+        },
+        {
+          "gap_index": 551,
+          "word_pos": 11040,
+          "char_pos": 60721,
+          "depth": 0.5542032143092901,
+          "block_sim": 0.03241018617760823,
+          "left_unit": 52,
+          "right_unit": 54
+        },
+        {
+          "gap_index": 557,
+          "word_pos": 11160,
+          "char_pos": 61342,
+          "depth": 0.0826464366733276,
+          "block_sim": 0.1940376314265832,
+          "left_unit": 53,
+          "right_unit": 55
+        },
+        {
+          "gap_index": 563,
+          "word_pos": 11280,
+          "char_pos": 61950,
+          "depth": 0.17387993836087,
+          "block_sim": 0.1647514946169983,
+          "left_unit": 53,
+          "right_unit": 55
+        },
+        {
+          "gap_index": 571,
+          "word_pos": 11440,
+          "char_pos": 62837,
+          "depth": 0.16120693935454666,
+          "block_sim": 0.2565749812494094,
+          "left_unit": 54,
+          "right_unit": 56
+        },
+        {
+          "gap_index": 576,
+          "word_pos": 11540,
+          "char_pos": 63375,
+          "depth": 0.13994487608604755,
+          "block_sim": 0.38360591691755724,
+          "left_unit": 54,
+          "right_unit": 56
+        },
+        {
+          "gap_index": 582,
+          "word_pos": 11660,
+          "char_pos": 64040,
+          "depth": 0.035799987895879126,
+          "block_sim": 0.46369464375417413,
+          "left_unit": 55,
+          "right_unit": 57
+        },
+        {
+          "gap_index": 586,
+          "word_pos": 11740,
+          "char_pos": 64488,
+          "depth": 0.442542980461092,
+          "block_sim": 0.1800482537716208,
+          "left_unit": 56,
+          "right_unit": 58
+        },
+        {
+          "gap_index": 591,
+          "word_pos": 11840,
+          "char_pos": 64983,
+          "depth": 0.06644234580264835,
+          "block_sim": 0.10312498426437737,
+          "left_unit": 56,
+          "right_unit": 58
+        },
+        {
+          "gap_index": 595,
+          "word_pos": 11920,
+          "char_pos": 65418,
+          "depth": 0.5695855663981035,
+          "block_sim": 0.07058295211289752,
+          "left_unit": 57,
+          "right_unit": 59
+        },
+        {
+          "gap_index": 601,
+          "word_pos": 12040,
+          "char_pos": 66132,
+          "depth": 0.4092549585659515,
+          "block_sim": 0.044891427404617934,
+          "left_unit": 58,
+          "right_unit": 60
+        },
+        {
+          "gap_index": 610,
+          "word_pos": 12220,
+          "char_pos": 67126,
+          "depth": 0.21028823435472793,
+          "block_sim": 0.02903433525697707,
+          "left_unit": 58,
+          "right_unit": 60
+        },
+        {
+          "gap_index": 617,
+          "word_pos": 12360,
+          "char_pos": 67847,
+          "depth": 0.2837630223243759,
+          "block_sim": 0.050981274193458166,
+          "left_unit": 59,
+          "right_unit": 61
+        },
+        {
+          "gap_index": 626,
+          "word_pos": 12540,
+          "char_pos": 68792,
+          "depth": 0.1650854283920215,
+          "block_sim": 0.06700703342736218,
+          "left_unit": 60,
+          "right_unit": 62
+        },
+        {
+          "gap_index": 630,
+          "word_pos": 12620,
+          "char_pos": 69232,
+          "depth": 0.22347747426290956,
+          "block_sim": 0.06133315160574595,
+          "left_unit": 60,
+          "right_unit": 62
+        },
+        {
+          "gap_index": 639,
+          "word_pos": 12800,
+          "char_pos": 70246,
+          "depth": 0.1486842917357102,
+          "block_sim": 0.09868274229828967,
+          "left_unit": 61,
+          "right_unit": 63
+        },
+        {
+          "gap_index": 644,
+          "word_pos": 12900,
+          "char_pos": 70766,
+          "depth": 0.22958393381532394,
+          "block_sim": 0.015278308283803521,
+          "left_unit": 61,
+          "right_unit": 63
+        },
+        {
+          "gap_index": 652,
+          "word_pos": 13060,
+          "char_pos": 71607,
+          "depth": 0.16006292062002003,
+          "block_sim": 0.14285714285714282,
+          "left_unit": 62,
+          "right_unit": 64
+        },
+        {
+          "gap_index": 659,
+          "word_pos": 13200,
+          "char_pos": 72346,
+          "depth": 0.035601366696502657,
+          "block_sim": 0.2373897691724491,
+          "left_unit": 63,
+          "right_unit": 65
+        },
+        {
+          "gap_index": 664,
+          "word_pos": 13300,
+          "char_pos": 72884,
+          "depth": 0.03438857806361567,
+          "block_sim": 0.25660011963983365,
+          "left_unit": 64,
+          "right_unit": 66
+        },
+        {
+          "gap_index": 668,
+          "word_pos": 13380,
+          "char_pos": 73328,
+          "depth": 0.1318615230718044,
+          "block_sim": 0.111956569275048,
+          "left_unit": 64,
+          "right_unit": 66
+        },
+        {
+          "gap_index": 673,
+          "word_pos": 13480,
+          "char_pos": 73865,
+          "depth": 0.06444666242900243,
+          "block_sim": 0.09652341781316803,
+          "left_unit": 65,
+          "right_unit": 67
+        },
+        {
+          "gap_index": 677,
+          "word_pos": 13560,
+          "char_pos": 74281,
+          "depth": 0.09062919574761585,
+          "block_sim": 0.06905795747278488,
+          "left_unit": 65,
+          "right_unit": 67
+        },
+        {
+          "gap_index": 686,
+          "word_pos": 13740,
+          "char_pos": 75255,
+          "depth": 0.13897546033254723,
+          "block_sim": 0.09544271444636666,
+          "left_unit": 66,
+          "right_unit": 68
+        },
+        {
+          "gap_index": 690,
+          "word_pos": 13820,
+          "char_pos": 75677,
+          "depth": 0.07729572644444574,
+          "block_sim": 0.09456150270769184,
+          "left_unit": 67,
+          "right_unit": 69
+        },
+        {
+          "gap_index": 696,
+          "word_pos": 13940,
+          "char_pos": 76308,
+          "depth": 0.2355719604151244,
+          "block_sim": 0.11877113736973435,
+          "left_unit": 67,
+          "right_unit": 69
+        },
+        {
+          "gap_index": 703,
+          "word_pos": 14080,
+          "char_pos": 77036,
+          "depth": 0.0955193040534209,
+          "block_sim": 0.27096567310831304,
+          "left_unit": 68,
+          "right_unit": 70
+        },
+        {
+          "gap_index": 709,
+          "word_pos": 14200,
+          "char_pos": 77678,
+          "depth": 0.11280050642761952,
+          "block_sim": 0.22209417713972582,
+          "left_unit": 69,
+          "right_unit": 71
+        },
+        {
+          "gap_index": 713,
+          "word_pos": 14280,
+          "char_pos": 78103,
+          "depth": 0.28381558795981154,
+          "block_sim": 0.059092511569691655,
+          "left_unit": 69,
+          "right_unit": 71
+        },
+        {
+          "gap_index": 719,
+          "word_pos": 14400,
+          "char_pos": 78789,
+          "depth": 0.21707466314440654,
+          "block_sim": 0.016543055566182168,
+          "left_unit": 70,
+          "right_unit": 72
+        },
+        {
+          "gap_index": 728,
+          "word_pos": 14580,
+          "char_pos": 79732,
+          "depth": 0.23719634335846013,
+          "block_sim": 0.07292037568309725,
+          "left_unit": 71,
+          "right_unit": 73
+        },
+        {
+          "gap_index": 735,
+          "word_pos": 14720,
+          "char_pos": 80445,
+          "depth": 0.10774075594584848,
+          "block_sim": 0.14888750009563953,
+          "left_unit": 71,
+          "right_unit": 73
+        },
+        {
+          "gap_index": 740,
+          "word_pos": 14820,
+          "char_pos": 80930,
+          "depth": 0.04272532227336895,
+          "block_sim": 0.2422507915557546,
+          "left_unit": 72,
+          "right_unit": 74
+        },
+        {
+          "gap_index": 744,
+          "word_pos": 14900,
+          "char_pos": 81296,
+          "depth": 0.056229876191974504,
+          "block_sim": 0.17079427586224766,
+          "left_unit": 72,
+          "right_unit": 74
+        },
+        {
+          "gap_index": 748,
+          "word_pos": 14980,
+          "char_pos": 81723,
+          "depth": 0.18867941836434898,
+          "block_sim": 0.08549819600709617,
+          "left_unit": 73,
+          "right_unit": 75
+        },
+        {
+          "gap_index": 754,
+          "word_pos": 15100,
+          "char_pos": 82333,
+          "depth": 0.07372803432462066,
+          "block_sim": 0.06839855680567693,
+          "left_unit": 73,
+          "right_unit": 75
+        },
+        {
+          "gap_index": 760,
+          "word_pos": 15220,
+          "char_pos": 82957,
+          "depth": 0.19540385493551626,
+          "block_sim": 0.05553948742635308,
+          "left_unit": 74,
+          "right_unit": 76
+        },
+        {
+          "gap_index": 769,
+          "word_pos": 15400,
+          "char_pos": 83918,
+          "depth": 0.2748493587121266,
+          "block_sim": 0.036313651960128146,
+          "left_unit": 75,
+          "right_unit": 77
+        },
+        {
+          "gap_index": 776,
+          "word_pos": 15540,
+          "char_pos": 84661,
+          "depth": 0.34723143120791455,
+          "block_sim": 0.011904761904761902,
+          "left_unit": 75,
+          "right_unit": 77
+        }
+      ],
+      "top20_by_depth": [
+        {
+          "gap_index": 595,
+          "word_pos": 11920,
+          "char_pos": 65418,
+          "depth": 0.5695855663981035,
+          "block_sim": 0.07058295211289752,
+          "left_unit": 57,
+          "right_unit": 59
+        },
+        {
+          "gap_index": 551,
+          "word_pos": 11040,
+          "char_pos": 60721,
+          "depth": 0.5542032143092901,
+          "block_sim": 0.03241018617760823,
+          "left_unit": 52,
+          "right_unit": 54
+        },
+        {
+          "gap_index": 343,
+          "word_pos": 6880,
+          "char_pos": 37703,
+          "depth": 0.5530147633857361,
+          "block_sim": 0.04291904786436015,
+          "left_unit": 32,
+          "right_unit": 34
+        },
+        {
+          "gap_index": 534,
+          "word_pos": 10700,
+          "char_pos": 58820,
+          "depth": 0.544489240196958,
+          "block_sim": 0.05027834887607842,
+          "left_unit": 50,
+          "right_unit": 52
+        },
+        {
+          "gap_index": 147,
+          "word_pos": 2960,
+          "char_pos": 16309,
+          "depth": 0.537169347665428,
+          "block_sim": 0.03813696271356911,
+          "left_unit": 13,
+          "right_unit": 15
+        },
+        {
+          "gap_index": 294,
+          "word_pos": 5900,
+          "char_pos": 32402,
+          "depth": 0.4725172314787055,
+          "block_sim": 0.07262730392025629,
+          "left_unit": 26,
+          "right_unit": 28
+        },
+        {
+          "gap_index": 586,
+          "word_pos": 11740,
+          "char_pos": 64488,
+          "depth": 0.442542980461092,
+          "block_sim": 0.1800482537716208,
+          "left_unit": 56,
+          "right_unit": 58
+        },
+        {
+          "gap_index": 237,
+          "word_pos": 4760,
+          "char_pos": 26225,
+          "depth": 0.43953059453631915,
+          "block_sim": 0.09380984679830706,
+          "left_unit": 21,
+          "right_unit": 23
+        },
+        {
+          "gap_index": 509,
+          "word_pos": 10200,
+          "char_pos": 55966,
+          "depth": 0.4147706744417229,
+          "block_sim": 0.21053798026662973,
+          "left_unit": 47,
+          "right_unit": 49
+        },
+        {
+          "gap_index": 601,
+          "word_pos": 12040,
+          "char_pos": 66132,
+          "depth": 0.4092549585659515,
+          "block_sim": 0.044891427404617934,
+          "left_unit": 58,
+          "right_unit": 60
+        },
+        {
+          "gap_index": 499,
+          "word_pos": 10000,
+          "char_pos": 54865,
+          "depth": 0.4072915471559412,
+          "block_sim": 0.15325782987912928,
+          "left_unit": 46,
+          "right_unit": 48
+        },
+        {
+          "gap_index": 393,
+          "word_pos": 7880,
+          "char_pos": 43200,
+          "depth": 0.3819450009421306,
+          "block_sim": 0.07325928087547756,
+          "left_unit": 35,
+          "right_unit": 37
+        },
+        {
+          "gap_index": 491,
+          "word_pos": 9840,
+          "char_pos": 53961,
+          "depth": 0.3689789286651836,
+          "block_sim": 0.07257747386024231,
+          "left_unit": 45,
+          "right_unit": 47
+        },
+        {
+          "gap_index": 223,
+          "word_pos": 4480,
+          "char_pos": 24633,
+          "depth": 0.3673893844341695,
+          "block_sim": 0.1183892660110542,
+          "left_unit": 19,
+          "right_unit": 21
+        },
+        {
+          "gap_index": 339,
+          "word_pos": 6800,
+          "char_pos": 37266,
+          "depth": 0.36327102628898644,
+          "block_sim": 0.12139284012153827,
+          "left_unit": 32,
+          "right_unit": 34
+        },
+        {
+          "gap_index": 776,
+          "word_pos": 15540,
+          "char_pos": 84661,
+          "depth": 0.34723143120791455,
+          "block_sim": 0.011904761904761902,
+          "left_unit": 75,
+          "right_unit": 77
+        },
+        {
+          "gap_index": 413,
+          "word_pos": 8280,
+          "char_pos": 45400,
+          "depth": 0.3403303833000785,
+          "block_sim": 0.14804664203952106,
+          "left_unit": 37,
+          "right_unit": 39
+        },
+        {
+          "gap_index": 269,
+          "word_pos": 5400,
+          "char_pos": 29660,
+          "depth": 0.317246935692727,
+          "block_sim": 0.06567586718659173,
+          "left_unit": 24,
+          "right_unit": 26
+        },
+        {
+          "gap_index": 434,
+          "word_pos": 8700,
+          "char_pos": 47669,
+          "depth": 0.30798846082674713,
+          "block_sim": 0.05636039340537305,
+          "left_unit": 40,
+          "right_unit": 42
+        },
+        {
+          "gap_index": 69,
+          "word_pos": 1400,
+          "char_pos": 7612,
+          "depth": 0.3034877661697943,
+          "block_sim": 0.0,
+          "left_unit": 4,
+          "right_unit": 6
+        }
+      ]
+    }
+  },
+  "ncd": {
+    "group150_zlib": {
+      "n_pairs": 3003,
+      "size_stats": {
+        "min": 427.0,
+        "median": 547.5,
+        "max": 1213.0
+      },
+      "length_confound": {
+        "corr_ncd_index_distance": 0.15532701621547707,
+        "corr_ncd_size_difference": 0.6894413601735309,
+        "corr_index_distance_size_difference": 0.021336566296838902
+      },
+      "top_non_adjacent": [
+        {
+          "i": 69,
+          "j": 72,
+          "distance": 0.7543520309477756,
+          "gap": 3,
+          "i_span": [
+            76391,
+            77241
+          ],
+          "j_span": [
+            79687,
+            80632
+          ],
+          "i_preview": "“Why, Gretta?” he asked. “I am thinking about a person long ago who used to sing that song.” “And who was the person lon…",
+          "j_preview": "“It was in the winter,” she said, “about the beginning of the winter when I was going to leave my grandmother’s and come…"
+        },
+        {
+          "i": 22,
+          "j": 32,
+          "distance": 0.7810077519379846,
+          "gap": 10,
+          "i_span": [
+            25611,
+            26489
+          ],
+          "j_span": [
+            36374,
+            37222
+          ],
+          "i_preview": "“And haven’t you your own land to visit,” continued Miss Ivors, “that you know nothing of, your own people, and your own…",
+          "j_preview": "“But how can you get home?” asked Mrs Conroy. “O, it’s only two steps up the quay.” Gabriel hesitated a moment and said:…"
+        },
+        {
+          "i": 37,
+          "j": 58,
+          "distance": 0.7854166666666667,
+          "gap": 21,
+          "i_span": [
+            43303,
+            44126
+          ],
+          "j_span": [
+            65055,
+            65945
+          ],
+          "i_preview": "“Oh, well,” said Mr Bartell D’Arcy, “I presume there are as good singers today as there were then.” “Where are they?” as…",
+          "j_preview": "“Mr D’Arcy,” she said, “what is the name of that song you were singing?” “It’s called The Lass of Aughrim,” said Mr D’Ar…"
+        },
+        {
+          "i": 49,
+          "j": 72,
+          "distance": 0.7869481765834933,
+          "gap": 23,
+          "i_span": [
+            56274,
+            57161
+          ],
+          "j_span": [
+            79687,
+            80632
+          ],
+          "i_preview": "“Someone is fooling at the piano anyhow,” said Gabriel. Mary Jane glanced at Gabriel and Mr Browne and said with a shive…",
+          "j_preview": "“It was in the winter,” she said, “about the beginning of the winter when I was going to leave my grandmother’s and come…"
+        },
+        {
+          "i": 37,
+          "j": 56,
+          "distance": 0.7883064516129032,
+          "gap": 19,
+          "i_span": [
+            43303,
+            44126
+          ],
+          "j_span": [
+            63416,
+            64272
+          ],
+          "i_preview": "“Oh, well,” said Mr Bartell D’Arcy, “I presume there are as good singers today as there were then.” “Where are they?” as…",
+          "j_preview": "“O, Mr D’Arcy,” said Aunt Kate, “now that was a great fib to tell.” “Can’t you see that I’m as hoarse as a crow?” said M…"
+        },
+        {
+          "i": 24,
+          "j": 56,
+          "distance": 0.7887323943661971,
+          "gap": 32,
+          "i_span": [
+            27647,
+            28461
+          ],
+          "j_span": [
+            63416,
+            64272
+          ],
+          "i_preview": "He saw his wife making her way towards him through the waltzing couples. When she reached him she said into his ear: “Ga…",
+          "j_preview": "“O, Mr D’Arcy,” said Aunt Kate, “now that was a great fib to tell.” “Can’t you see that I’m as hoarse as a crow?” said M…"
+        },
+        {
+          "i": 55,
+          "j": 58,
+          "distance": 0.7893700787401575,
+          "gap": 3,
+          "i_span": [
+            62542,
+            63414
+          ],
+          "j_span": [
+            65055,
+            65945
+          ],
+          "i_preview": "O, the rain falls on my heavy locks And the dew wets my skin, My babe lies cold.... “O,” exclaimed Mary Jane. “It’s Bart…",
+          "j_preview": "“Mr D’Arcy,” she said, “what is the name of that song you were singing?” “It’s called The Lass of Aughrim,” said Mr D’Ar…"
+        },
+        {
+          "i": 37,
+          "j": 49,
+          "distance": 0.7907869481765835,
+          "gap": 12,
+          "i_span": [
+            43303,
+            44126
+          ],
+          "j_span": [
+            56274,
+            57161
+          ],
+          "i_preview": "“Oh, well,” said Mr Bartell D’Arcy, “I presume there are as good singers today as there were then.” “Where are they?” as…",
+          "j_preview": "“Someone is fooling at the piano anyhow,” said Gabriel. Mary Jane glanced at Gabriel and Mr Browne and said with a shive…"
+        },
+        {
+          "i": 69,
+          "j": 73,
+          "distance": 0.7914110429447853,
+          "gap": 4,
+          "i_span": [
+            76391,
+            77241
+          ],
+          "j_span": [
+            80634,
+            81515
+          ],
+          "i_preview": "“Why, Gretta?” he asked. “I am thinking about a person long ago who used to sing that song.” “And who was the person lon…",
+          "j_preview": "She paused for a moment to get her voice under control and then went on: “Then the night before I left I was in my grand…"
+        },
+        {
+          "i": 39,
+          "j": 56,
+          "distance": 0.7931034482758621,
+          "gap": 17,
+          "i_span": [
+            45601,
+            46523
+          ],
+          "j_span": [
+            63416,
+            64272
+          ],
+          "i_preview": "“And do you mean to say,” asked Mr Browne incredulously, “that a chap can go down there and put up there as if it were a…",
+          "j_preview": "“O, Mr D’Arcy,” said Aunt Kate, “now that was a great fib to tell.” “Can’t you see that I’m as hoarse as a crow?” said M…"
+        },
+        {
+          "i": 39,
+          "j": 49,
+          "distance": 0.7950191570881227,
+          "gap": 10,
+          "i_span": [
+            45601,
+            46523
+          ],
+          "j_span": [
+            56274,
+            57161
+          ],
+          "i_preview": "“And do you mean to say,” asked Mr Browne incredulously, “that a chap can go down there and put up there as if it were a…",
+          "j_preview": "“Someone is fooling at the piano anyhow,” said Gabriel. Mary Jane glanced at Gabriel and Mr Browne and said with a shive…"
+        },
+        {
+          "i": 37,
+          "j": 55,
+          "distance": 0.7952755905511811,
+          "gap": 18,
+          "i_span": [
+            43303,
+            44126
+          ],
+          "j_span": [
+            62542,
+            63414
+          ],
+          "i_preview": "“Oh, well,” said Mr Bartell D’Arcy, “I presume there are as good singers today as there were then.” “Where are they?” as…",
+          "j_preview": "O, the rain falls on my heavy locks And the dew wets my skin, My babe lies cold.... “O,” exclaimed Mary Jane. “It’s Bart…"
+        },
+        {
+          "i": 48,
+          "j": 55,
+          "distance": 0.7982142857142858,
+          "gap": 7,
+          "i_span": [
+            55345,
+            56272
+          ],
+          "j_span": [
+            62542,
+            63414
+          ],
+          "i_preview": "She laughed herself this time good-humouredly and then added quickly: “But tell him to come in, Mary Jane, and close the…",
+          "j_preview": "O, the rain falls on my heavy locks And the dew wets my skin, My babe lies cold.... “O,” exclaimed Mary Jane. “It’s Bart…"
+        },
+        {
+          "i": 37,
+          "j": 50,
+          "distance": 0.8,
+          "gap": 13,
+          "i_span": [
+            43303,
+            44126
+          ],
+          "j_span": [
+            57163,
+            57997
+          ],
+          "i_preview": "“Oh, well,” said Mr Bartell D’Arcy, “I presume there are as good singers today as there were then.” “Where are they?” as…",
+          "j_preview": "“Well, glue or starch,” said Gabriel, “the old gentleman had a horse by the name of Johnny. And Johnny used to work in t…"
+        },
+        {
+          "i": 29,
+          "j": 49,
+          "distance": 0.800383877159309,
+          "gap": 20,
+          "i_span": [
+            33576,
+            34425
+          ],
+          "j_span": [
+            56274,
+            57161
+          ],
+          "i_preview": "“Neither did I,” said Mr Browne. “I think her voice has greatly improved.” Aunt Julia shrugged her shoulders and said wi…",
+          "j_preview": "“Someone is fooling at the piano anyhow,” said Gabriel. Mary Jane glanced at Gabriel and Mr Browne and said with a shive…"
+        },
+        {
+          "i": 49,
+          "j": 56,
+          "distance": 0.8023032629558541,
+          "gap": 7,
+          "i_span": [
+            56274,
+            57161
+          ],
+          "j_span": [
+            63416,
+            64272
+          ],
+          "i_preview": "“Someone is fooling at the piano anyhow,” said Gabriel. Mary Jane glanced at Gabriel and Mr Browne and said with a shive…",
+          "j_preview": "“O, Mr D’Arcy,” said Aunt Kate, “now that was a great fib to tell.” “Can’t you see that I’m as hoarse as a crow?” said M…"
+        },
+        {
+          "i": 1,
+          "j": 39,
+          "distance": 0.8026819923371648,
+          "gap": 38,
+          "i_span": [
+            2438,
+            3289
+          ],
+          "j_span": [
+            45601,
+            46523
+          ],
+          "i_preview": "Of course they had good reason to be fussy on such a night. And then it was long after ten o’clock and yet there was no …",
+          "j_preview": "“And do you mean to say,” asked Mr Browne incredulously, “that a chap can go down there and put up there as if it were a…"
+        },
+        {
+          "i": 24,
+          "j": 72,
+          "distance": 0.8027079303675049,
+          "gap": 48,
+          "i_span": [
+            27647,
+            28461
+          ],
+          "j_span": [
+            79687,
+            80632
+          ],
+          "i_preview": "He saw his wife making her way towards him through the waltzing couples. When she reached him she said into his ear: “Ga…",
+          "j_preview": "“It was in the winter,” she said, “about the beginning of the winter when I was going to leave my grandmother’s and come…"
+        },
+        {
+          "i": 1,
+          "j": 55,
+          "distance": 0.8031496062992126,
+          "gap": 54,
+          "i_span": [
+            2438,
+            3289
+          ],
+          "j_span": [
+            62542,
+            63414
+          ],
+          "i_preview": "Of course they had good reason to be fussy on such a night. And then it was long after ten o’clock and yet there was no …",
+          "j_preview": "O, the rain falls on my heavy locks And the dew wets my skin, My babe lies cold.... “O,” exclaimed Mary Jane. “It’s Bart…"
+        },
+        {
+          "i": 10,
+          "j": 48,
+          "distance": 0.8035714285714286,
+          "gap": 38,
+          "i_span": [
+            11342,
+            12311
+          ],
+          "j_span": [
+            55345,
+            56272
+          ],
+          "i_preview": "Gabriel was about to ask his aunt some questions on this point but she broke off suddenly to gaze after her sister who h…",
+          "j_preview": "She laughed herself this time good-humouredly and then added quickly: “But tell him to come in, Mary Jane, and close the…"
+        }
+      ],
+      "adjacency_profile": {
+        "1": {
+          "mean": 0.8538834754224225,
+          "n": 77
+        },
+        "2": {
+          "mean": 0.8599310953083318,
+          "n": 76
+        },
+        "3": {
+          "mean": 0.8693620283085814,
+          "n": 75
+        },
+        "4": {
+          "mean": 0.869725463610602,
+          "n": 74
+        },
+        "5": {
+          "mean": 0.8721531186917622,
+          "n": 73
+        },
+        "6": {
+          "mean": 0.8722577305718301,
+          "n": 72
+        },
+        "7": {
+          "mean": 0.8700592402480584,
+          "n": 71
+        },
+        "8": {
+          "mean": 0.8698559687153119,
+          "n": 70
+        },
+        "9": {
+          "mean": 0.8741858590501739,
+          "n": 69
+        },
+        "10": {
+          "mean": 0.8733501248839216,
+          "n": 68
+        },
+        "11": {
+          "mean": 0.8719403230286704,
+          "n": 67
+        },
+        "12": {
+          "mean": 0.8753243567721278,
+          "n": 66
+        },
+        "13": {
+          "mean": 0.8767627602479354,
+          "n": 65
+        },
+        "14": {
+          "mean": 0.8739347283223119,
+          "n": 64
+        },
+        "15": {
+          "mean": 0.8771562249881624,
+          "n": 63
+        },
+        "16": {
+          "mean": 0.8732824733869862,
+          "n": 62
+        },
+        "17": {
+          "mean": 0.8720661884802227,
+          "n": 61
+        },
+        "18": {
+          "mean": 0.8745688343739418,
+          "n": 60
+        },
+        "19": {
+          "mean": 0.8719614498598295,
+          "n": 59
+        },
+        "20": {
+          "mean": 0.8744105693270672,
+          "n": 58
+        },
+        "21": {
+          "mean": 0.8730940961805016,
+          "n": 57
+        },
+        "22": {
+          "mean": 0.8746485556685705,
+          "n": 56
+        },
+        "23": {
+          "mean": 0.875529932088086,
+          "n": 55
+        },
+        "24": {
+          "mean": 0.8773718776993003,
+          "n": 54
+        },
+        "25": {
+          "mean": 0.8786224461720846,
+          "n": 53
+        },
+        "26": {
+          "mean": 0.8776305928133683,
+          "n": 52
+        },
+        "27": {
+          "mean": 0.8795171509264632,
+          "n": 51
+        },
+        "28": {
+          "mean": 0.8782303068500562,
+          "n": 50
+        },
+        "29": {
+          "mean": 0.879528577468188,
+          "n": 49
+        },
+        "30": {
+          "mean": 0.8803077176540218,
+          "n": 48
+        },
+        "31": {
+          "mean": 0.8815965867150131,
+          "n": 47
+        },
+        "32": {
+          "mean": 0.8817293653519261,
+          "n": 46
+        },
+        "33": {
+          "mean": 0.8832513870066094,
+          "n": 45
+        },
+        "34": {
+          "mean": 0.8792748528490809,
+          "n": 44
+        },
+        "35": {
+          "mean": 0.8780092514066403,
+          "n": 43
+        },
+        "36": {
+          "mean": 0.8768712894765133,
+          "n": 42
+        },
+        "37": {
+          "mean": 0.8764283868501553,
+          "n": 41
+        },
+        "38": {
+          "mean": 0.8801546694943868,
+          "n": 40
+        },
+        "39": {
+          "mean": 0.881588885970163,
+          "n": 39
+        },
+        "40": {
+          "mean": 0.8779925476473047,
+          "n": 38
+        },
+        "41": {
+          "mean": 0.8758109467919923,
+          "n": 37
+        },
+        "42": {
+          "mean": 0.8762208560264791,
+          "n": 36
+        },
+        "43": {
+          "mean": 0.8770139879984998,
+          "n": 35
+        },
+        "44": {
+          "mean": 0.8756011134611978,
+          "n": 34
+        },
+        "45": {
+          "mean": 0.8719044620968982,
+          "n": 33
+        },
+        "46": {
+          "mean": 0.8788754015715761,
+          "n": 32
+        },
+        "47": {
+          "mean": 0.8751295689094116,
+          "n": 31
+        },
+        "48": {
+          "mean": 0.8740025187598399,
+          "n": 30
+        },
+        "49": {
+          "mean": 0.8724528990962646,
+          "n": 29
+        },
+        "50": {
+          "mean": 0.8781099483596135,
+          "n": 28
+        },
+        "51": {
+          "mean": 0.8772313963336259,
+          "n": 27
+        },
+        "52": {
+          "mean": 0.8804139010186791,
+          "n": 26
+        },
+        "53": {
+          "mean": 0.8807099852122292,
+          "n": 25
+        },
+        "54": {
+          "mean": 0.8808766766036943,
+          "n": 24
+        },
+        "55": {
+          "mean": 0.8875759215910953,
+          "n": 23
+        },
+        "56": {
+          "mean": 0.8851017560760467,
+          "n": 22
+        },
+        "57": {
+          "mean": 0.8805767863764478,
+          "n": 21
+        },
+        "58": {
+          "mean": 0.8832752184215688,
+          "n": 20
+        },
+        "59": {
+          "mean": 0.8801157966407054,
+          "n": 19
+        },
+        "60": {
+          "mean": 0.8836500034045597,
+          "n": 18
+        },
+        "61": {
+          "mean": 0.8836115460262502,
+          "n": 17
+        },
+        "62": {
+          "mean": 0.88328492710728,
+          "n": 16
+        },
+        "63": {
+          "mean": 0.8843845257266256,
+          "n": 15
+        },
+        "64": {
+          "mean": 0.8830552249039901,
+          "n": 14
+        },
+        "65": {
+          "mean": 0.878856278237728,
+          "n": 13
+        },
+        "66": {
+          "mean": 0.8787877373743666,
+          "n": 12
+        },
+        "67": {
+          "mean": 0.8901012643841469,
+          "n": 11
+        },
+        "68": {
+          "mean": 0.8902578764216612,
+          "n": 10
+        },
+        "69": {
+          "mean": 0.8894070983287476,
+          "n": 9
+        },
+        "70": {
+          "mean": 0.8781310479059756,
+          "n": 8
+        },
+        "71": {
+          "mean": 0.8845762290223221,
+          "n": 7
+        },
+        "72": {
+          "mean": 0.8923957051239143,
+          "n": 6
+        },
+        "73": {
+          "mean": 0.9027777043310172,
+          "n": 5
+        },
+        "74": {
+          "mean": 0.9010557634924657,
+          "n": 4
+        },
+        "75": {
+          "mean": 0.890925639787077,
+          "n": 3
+        },
+        "76": {
+          "mean": 0.9125825443220332,
+          "n": 2
+        },
+        "77": {
+          "mean": 0.9422918384171476,
+          "n": 1
+        }
+      }
+    },
+    "compressor_sensitivity": {
+      "bz2": {
+        "corr_with_zlib": {
+          "pearson": 0.9273595039313062,
+          "spearman": 0.9269983272079785,
+          "top10_overlap": 3
+        },
+        "length_confound": {
+          "corr_ncd_index_distance": 0.11040240669735617,
+          "corr_ncd_size_difference": 0.7371296174152523,
+          "corr_index_distance_size_difference": 0.019533256840356464
+        }
+      },
+      "lzma": {
+        "corr_with_zlib": {
+          "pearson": 0.9124051837451115,
+          "spearman": 0.9110446712742598,
+          "top10_overlap": 4
+        },
+        "length_confound": {
+          "corr_ncd_index_distance": 0.07686275985102689,
+          "corr_ncd_size_difference": 0.8744242061822426,
+          "corr_index_distance_size_difference": 0.020650187862317138
+        }
+      }
+    },
+    "group250_zlib": {
+      "length_confound": {
+        "corr_ncd_index_distance": 0.18253661726562986,
+        "corr_ncd_size_difference": 0.6707464924228947,
+        "corr_index_distance_size_difference": 0.017275629910619955
+      },
+      "top_non_adjacent": [
+        {
+          "i": 32,
+          "j": 36,
+          "distance": 0.8083441981747066,
+          "gap": 4,
+          "i_span": [
+            54884,
+            56329
+          ],
+          "j_span": [
+            61889,
+            63274
+          ],
+          "i_preview": "The piercing morning air came into the hall where they were standing so that Aunt Kate said: “Close the door, somebody. …",
+          "j_preview": "The hall-door was closed; and Aunt Kate, Aunt Julia and Mary Jane came down the hall, still laughing. “Well, isn’t Fredd…"
+        },
+        {
+          "i": 45,
+          "j": 48,
+          "distance": 0.8246575342465754,
+          "gap": 3,
+          "i_span": [
+            75729,
+            77102
+          ],
+          "j_span": [
+            80033,
+            81302
+          ],
+          "i_preview": "She broke loose from him and ran to the bed and, throwing her arms across the bed-rail, hid her face. Gabriel stood stoc…",
+          "j_preview": "She paused for a moment and sighed. “Poor fellow,” she said. “He was very fond of me and he was such a gentle boy. We us…"
+        },
+        {
+          "i": 32,
+          "j": 40,
+          "distance": 0.8281653746770026,
+          "gap": 8,
+          "i_span": [
+            54884,
+            56329
+          ],
+          "j_span": [
+            68568,
+            70011
+          ],
+          "i_preview": "The piercing morning air came into the hall where they were standing so that Aunt Kate said: “Close the door, somebody. …",
+          "j_preview": "Like distant music these words that he had written years before were borne towards him from the past. He longed to be al…"
+        },
+        {
+          "i": 16,
+          "j": 46,
+          "distance": 0.8317535545023697,
+          "gap": 30,
+          "i_span": [
+            27647,
+            29098
+          ],
+          "j_span": [
+            77104,
+            78650
+          ],
+          "i_preview": "He saw his wife making her way towards him through the waltzing couples. When she reached him she said into his ear: “Ga…",
+          "j_preview": "“I can see him so plainly,” she said after a moment. “Such eyes as he had: big, dark eyes! And such an expression in the…"
+        },
+        {
+          "i": 27,
+          "j": 33,
+          "distance": 0.8350125944584383,
+          "gap": 6,
+          "i_span": [
+            46174,
+            47635
+          ],
+          "j_span": [
+            56331,
+            57840
+          ],
+          "i_preview": "“Yes, but why?” asked Mr Browne. Aunt Kate repeated that it was the rule, that was all. Mr Browne still seemed not to un…",
+          "j_preview": "Mary Jane glanced at Gabriel and Mr Browne and said with a shiver: “It makes me feel cold to look at you two gentlemen m…"
+        },
+        {
+          "i": 6,
+          "j": 16,
+          "distance": 0.8368794326241135,
+          "gap": 10,
+          "i_span": [
+            10467,
+            11981
+          ],
+          "j_span": [
+            27647,
+            29098
+          ],
+          "i_preview": "“O, on the continent,” murmured Aunt Julia, nodding her head slowly. Gabriel knitted his brows and said, as if he were s…",
+          "j_preview": "He saw his wife making her way towards him through the waltzing couples. When she reached him she said into his ear: “Ga…"
+        },
+        {
+          "i": 16,
+          "j": 26,
+          "distance": 0.84,
+          "gap": 10,
+          "i_span": [
+            27647,
+            29098
+          ],
+          "j_span": [
+            44866,
+            46172
+          ],
+          "i_preview": "He saw his wife making her way towards him through the waltzing couples. When she reached him she said into his ear: “Ga…",
+          "j_preview": "“Well, I hope, Miss Morkan,” said Mr Browne, “that I’m brown enough for you because, you know, I’m all brown.” All the g…"
+        },
+        {
+          "i": 27,
+          "j": 36,
+          "distance": 0.8400503778337531,
+          "gap": 9,
+          "i_span": [
+            46174,
+            47635
+          ],
+          "j_span": [
+            61889,
+            63274
+          ],
+          "i_preview": "“Yes, but why?” asked Mr Browne. Aunt Kate repeated that it was the rule, that was all. Mr Browne still seemed not to un…",
+          "j_preview": "The hall-door was closed; and Aunt Kate, Aunt Julia and Mary Jane came down the hall, still laughing. “Well, isn’t Fredd…"
+        },
+        {
+          "i": 19,
+          "j": 26,
+          "distance": 0.8410596026490066,
+          "gap": 7,
+          "i_span": [
+            32699,
+            34080
+          ],
+          "j_span": [
+            44866,
+            46172
+          ],
+          "i_preview": "“I was just telling my mother,” he said, “I never heard you sing so well, never. No, I never heard your voice so good as…",
+          "j_preview": "“Well, I hope, Miss Morkan,” said Mr Browne, “that I’m brown enough for you because, you know, I’m all brown.” All the g…"
+        },
+        {
+          "i": 36,
+          "j": 40,
+          "distance": 0.8410852713178295,
+          "gap": 4,
+          "i_span": [
+            61889,
+            63274
+          ],
+          "j_span": [
+            68568,
+            70011
+          ],
+          "i_preview": "The hall-door was closed; and Aunt Kate, Aunt Julia and Mary Jane came down the hall, still laughing. “Well, isn’t Fredd…",
+          "j_preview": "Like distant music these words that he had written years before were borne towards him from the past. He longed to be al…"
+        },
+        {
+          "i": 40,
+          "j": 43,
+          "distance": 0.8410852713178295,
+          "gap": 3,
+          "i_span": [
+            68568,
+            70011
+          ],
+          "j_span": [
+            73021,
+            74377
+          ],
+          "i_preview": "Like distant music these words that he had written years before were borne towards him from the past. He longed to be al…",
+          "j_preview": "“You looked tired,” he said. “I am a little,” she answered. “You don’t feel ill or weak?” “No, tired: that’s all.” She w…"
+        },
+        {
+          "i": 26,
+          "j": 31,
+          "distance": 0.8412921348314607,
+          "gap": 5,
+          "i_span": [
+            44866,
+            46172
+          ],
+          "j_span": [
+            53410,
+            54882
+          ],
+          "i_preview": "“Well, I hope, Miss Morkan,” said Mr Browne, “that I’m brown enough for you because, you know, I’m all brown.” All the g…",
+          "j_preview": "Gabriel glanced down at his aunts and, seeing the large smile on Aunt Julia’s face and the tears which had risen to Aunt…"
+        },
+        {
+          "i": 27,
+          "j": 31,
+          "distance": 0.8413098236775819,
+          "gap": 4,
+          "i_span": [
+            46174,
+            47635
+          ],
+          "j_span": [
+            53410,
+            54882
+          ],
+          "i_preview": "“Yes, but why?” asked Mr Browne. Aunt Kate repeated that it was the rule, that was all. Mr Browne still seemed not to un…",
+          "j_preview": "Gabriel glanced down at his aunts and, seeing the large smile on Aunt Julia’s face and the tears which had risen to Aunt…"
+        },
+        {
+          "i": 43,
+          "j": 47,
+          "distance": 0.8414795244385733,
+          "gap": 4,
+          "i_span": [
+            73021,
+            74377
+          ],
+          "j_span": [
+            78652,
+            80031
+          ],
+          "i_preview": "“You looked tired,” he said. “I am a little,” she answered. “You don’t feel ill or weak?” “No, tired: that’s all.” She w…",
+          "j_preview": "He tried to keep up his tone of cold interrogation, but his voice when he spoke was humble and indifferent. “I suppose y…"
+        },
+        {
+          "i": 35,
+          "j": 40,
+          "distance": 0.8423772609819121,
+          "gap": 5,
+          "i_span": [
+            60282,
+            61887
+          ],
+          "j_span": [
+            68568,
+            70011
+          ],
+          "i_preview": "“Do you know Trinity College?” “Yes, sir,” said the cabman. “Well, drive bang up against Trinity College gates,” said Mr…",
+          "j_preview": "Like distant music these words that he had written years before were borne towards him from the past. He longed to be al…"
+        },
+        {
+          "i": 2,
+          "j": 16,
+          "distance": 0.8425,
+          "gap": 14,
+          "i_span": [
+            4124,
+            5459
+          ],
+          "j_span": [
+            27647,
+            29098
+          ],
+          "i_preview": "“Is it snowing again, Mr Conroy?” asked Lily. She had preceded him into the pantry to help him off with his overcoat. Ga…",
+          "j_preview": "He saw his wife making her way towards him through the waltzing couples. When she reached him she said into his ear: “Ga…"
+        },
+        {
+          "i": 16,
+          "j": 21,
+          "distance": 0.8425,
+          "gap": 5,
+          "i_span": [
+            27647,
+            29098
+          ],
+          "j_span": [
+            35448,
+            36828
+          ],
+          "i_preview": "He saw his wife making her way towards him through the waltzing couples. When she reached him she said into his ear: “Ga…",
+          "j_preview": "“And besides, Aunt Kate,” said Mary Jane, “we really are all hungry and when we are hungry we are all very quarrelsome.”…"
+        },
+        {
+          "i": 21,
+          "j": 32,
+          "distance": 0.8435462842242504,
+          "gap": 11,
+          "i_span": [
+            35448,
+            36828
+          ],
+          "j_span": [
+            54884,
+            56329
+          ],
+          "i_preview": "“And besides, Aunt Kate,” said Mary Jane, “we really are all hungry and when we are hungry we are all very quarrelsome.”…",
+          "j_preview": "The piercing morning air came into the hall where they were standing so that Aunt Kate said: “Close the door, somebody. …"
+        },
+        {
+          "i": 19,
+          "j": 27,
+          "distance": 0.8438287153652393,
+          "gap": 8,
+          "i_span": [
+            32699,
+            34080
+          ],
+          "j_span": [
+            46174,
+            47635
+          ],
+          "i_preview": "“I was just telling my mother,” he said, “I never heard you sing so well, never. No, I never heard your voice so good as…",
+          "j_preview": "“Yes, but why?” asked Mr Browne. Aunt Kate repeated that it was the rule, that was all. Mr Browne still seemed not to un…"
+        },
+        {
+          "i": 12,
+          "j": 43,
+          "distance": 0.8438320209973753,
+          "gap": 31,
+          "i_span": [
+            21194,
+            22579
+          ],
+          "j_span": [
+            73021,
+            74377
+          ],
+          "i_preview": "He knew that Mary Jane must be near the end of her piece for she was playing again the opening melody with runs of scale…",
+          "j_preview": "“You looked tired,” he said. “I am a little,” she answered. “You don’t feel ill or weak?” “No, tired: that’s all.” She w…"
+        }
+      ]
+    },
+    "paragraph_zlib": {
+      "length_confound": {
+        "corr_ncd_index_distance": 0.044559324374400654,
+        "corr_ncd_size_difference": 0.7004332988197672,
+        "corr_index_distance_size_difference": 0.017865954030548033
+      }
+    }
+  },
+  "sbert": {
+    "info": {
+      "model_name": "all-MiniLM-L6-v2",
+      "max_seq_length": 256,
+      "embedding_dim": 384,
+      "n_units": 78,
+      "likely_truncated_units": 31,
+      "n_words_max": 452
+    },
+    "top_non_adjacent": [
+      {
+        "i": 65,
+        "j": 68,
+        "similarity": 0.7655817270278931,
+        "gap": 3,
+        "i_span": [
+          72807,
+          73674
+        ],
+        "j_span": [
+          75526,
+          76389
+        ],
+        "i_preview": "“Gretta!” She turned away from the mirror slowly and walked along the shaft of light towards him. Her face looked so ser…",
+        "j_preview": "“Tell me what it is, Gretta. I think I know what is the matter. Do I know?” She did not answer at once. Then she said in…"
+      },
+      {
+        "i": 71,
+        "j": 74,
+        "similarity": 0.7613798379898071,
+        "gap": 3,
+        "i_span": [
+          78652,
+          79685
+        ],
+        "j_span": [
+          81517,
+          82579
+        ],
+        "i_preview": "He tried to keep up his tone of cold interrogation, but his voice when he spoke was humble and indifferent. “I suppose y…",
+        "j_preview": "She stopped, choking with sobs and, overcome by emotion, flung herself face downward on the bed, sobbing in the quilt. G…"
+      },
+      {
+        "i": 10,
+        "j": 14,
+        "similarity": 0.7609635591506958,
+        "gap": 4,
+        "i_span": [
+          11342,
+          12311
+        ],
+        "j_span": [
+          15582,
+          17085
+        ],
+        "i_preview": "Gabriel was about to ask his aunt some questions on this point but she broke off suddenly to gaze after her sister who h…",
+        "j_preview": "“O, Miss Daly, you’re really awfully good, after playing for the last two dances, but really we’re so short of ladies to…"
+      },
+      {
+        "i": 67,
+        "j": 71,
+        "similarity": 0.7530879974365234,
+        "gap": 4,
+        "i_span": [
+          74637,
+          75524
+        ],
+        "j_span": [
+          78652,
+          79685
+        ],
+        "i_preview": "“You are a very generous person, Gabriel,” she said. Gabriel, trembling with delight at her sudden kiss and at the quain…",
+        "j_preview": "He tried to keep up his tone of cold interrogation, but his voice when he spoke was humble and indifferent. “I suppose y…"
+      },
+      {
+        "i": 61,
+        "j": 68,
+        "similarity": 0.7394356727600098,
+        "gap": 7,
+        "i_span": [
+          68568,
+          69451
+        ],
+        "j_span": [
+          75526,
+          76389
+        ],
+        "i_preview": "Like distant music these words that he had written years before were borne towards him from the past. He longed to be al…",
+        "j_preview": "“Tell me what it is, Gretta. I think I know what is the matter. Do I know?” She did not answer at once. Then she said in…"
+      },
+      {
+        "i": 14,
+        "j": 24,
+        "similarity": 0.7349444627761841,
+        "gap": 10,
+        "i_span": [
+          15582,
+          17085
+        ],
+        "j_span": [
+          27647,
+          28461
+        ],
+        "i_preview": "“O, Miss Daly, you’re really awfully good, after playing for the last two dances, but really we’re so short of ladies to…",
+        "j_preview": "He saw his wife making her way towards him through the waltzing couples. When she reached him she said into his ear: “Ga…"
+      },
+      {
+        "i": 2,
+        "j": 8,
+        "similarity": 0.7268807888031006,
+        "gap": 6,
+        "i_span": [
+          3291,
+          4122
+        ],
+        "j_span": [
+          9427,
+          10342
+        ],
+        "i_preview": "He stood on the mat, scraping the snow from his goloshes, while Lily led his wife to the foot of the stairs and called o…",
+        "j_preview": "She broke out into a peal of laughter and glanced at her husband, whose admiring and happy eyes had been wandering from …"
+      },
+      {
+        "i": 10,
+        "j": 15,
+        "similarity": 0.7251954078674316,
+        "gap": 5,
+        "i_span": [
+          11342,
+          12311
+        ],
+        "j_span": [
+          17087,
+          17951
+        ],
+        "i_preview": "Gabriel was about to ask his aunt some questions on this point but she broke off suddenly to gaze after her sister who h…",
+        "j_preview": "“Good-evening, Freddy,” said Aunt Julia. Freddy Malins bade the Misses Morkan good-evening in what seemed an offhand fas…"
+      },
+      {
+        "i": 65,
+        "j": 71,
+        "similarity": 0.7231022119522095,
+        "gap": 6,
+        "i_span": [
+          72807,
+          73674
+        ],
+        "j_span": [
+          78652,
+          79685
+        ],
+        "i_preview": "“Gretta!” She turned away from the mirror slowly and walked along the shaft of light towards him. Her face looked so ser…",
+        "j_preview": "He tried to keep up his tone of cold interrogation, but his voice when he spoke was humble and indifferent. “I suppose y…"
+      },
+      {
+        "i": 11,
+        "j": 14,
+        "similarity": 0.7221144437789917,
+        "gap": 3,
+        "i_span": [
+          12313,
+          13643
+        ],
+        "j_span": [
+          15582,
+          17085
+        ],
+        "i_preview": "“It’s such a relief,” said Aunt Kate to Mrs Conroy, “that Gabriel is here. I always feel easier in my mind when he’s her…",
+        "j_preview": "“O, Miss Daly, you’re really awfully good, after playing for the last two dances, but really we’re so short of ladies to…"
+      },
+      {
+        "i": 10,
+        "j": 24,
+        "similarity": 0.7199381589889526,
+        "gap": 14,
+        "i_span": [
+          11342,
+          12311
+        ],
+        "j_span": [
+          27647,
+          28461
+        ],
+        "i_preview": "Gabriel was about to ask his aunt some questions on this point but she broke off suddenly to gaze after her sister who h…",
+        "j_preview": "He saw his wife making her way towards him through the waltzing couples. When she reached him she said into his ear: “Ga…"
+      },
+      {
+        "i": 2,
+        "j": 73,
+        "similarity": 0.7194415330886841,
+        "gap": 71,
+        "i_span": [
+          3291,
+          4122
+        ],
+        "j_span": [
+          80634,
+          81515
+        ],
+        "i_preview": "He stood on the mat, scraping the snow from his goloshes, while Lily led his wife to the foot of the stairs and called o…",
+        "j_preview": "She paused for a moment to get her voice under control and then went on: “Then the night before I left I was in my grand…"
+      },
+      {
+        "i": 10,
+        "j": 25,
+        "similarity": 0.7183434963226318,
+        "gap": 15,
+        "i_span": [
+          11342,
+          12311
+        ],
+        "j_span": [
+          28463,
+          29968
+        ],
+        "i_preview": "Gabriel was about to ask his aunt some questions on this point but she broke off suddenly to gaze after her sister who h…",
+        "j_preview": "“O, do go, Gabriel,” she cried. “I’d love to see Galway again.” “You can go if you like,” said Gabriel coldly. She looke…"
+      },
+      {
+        "i": 70,
+        "j": 73,
+        "similarity": 0.7160462141036987,
+        "gap": 3,
+        "i_span": [
+          77243,
+          78650
+        ],
+        "j_span": [
+          80634,
+          81515
+        ],
+        "i_preview": "“O then, you were in love with him?” said Gabriel. “I used to go out walking with him,” she said, “when I was in Galway.…",
+        "j_preview": "She paused for a moment to get her voice under control and then went on: “Then the night before I left I was in my grand…"
+      },
+      {
+        "i": 61,
+        "j": 65,
+        "similarity": 0.7119041681289673,
+        "gap": 4,
+        "i_span": [
+          68568,
+          69451
+        ],
+        "j_span": [
+          72807,
+          73674
+        ],
+        "i_preview": "Like distant music these words that he had written years before were borne towards him from the past. He longed to be al…",
+        "j_preview": "“Gretta!” She turned away from the mirror slowly and walked along the shaft of light towards him. Her face looked so ser…"
+      },
+      {
+        "i": 1,
+        "j": 15,
+        "similarity": 0.7096190452575684,
+        "gap": 14,
+        "i_span": [
+          2438,
+          3289
+        ],
+        "j_span": [
+          17087,
+          17951
+        ],
+        "i_preview": "Of course they had good reason to be fussy on such a night. And then it was long after ten o’clock and yet there was no …",
+        "j_preview": "“Good-evening, Freddy,” said Aunt Julia. Freddy Malins bade the Misses Morkan good-evening in what seemed an offhand fas…"
+      },
+      {
+        "i": 25,
+        "j": 72,
+        "similarity": 0.7071925401687622,
+        "gap": 47,
+        "i_span": [
+          28463,
+          29968
+        ],
+        "j_span": [
+          79687,
+          80632
+        ],
+        "i_preview": "“O, do go, Gabriel,” she cried. “I’d love to see Galway again.” “You can go if you like,” said Gabriel coldly. She looke…",
+        "j_preview": "“It was in the winter,” she said, “about the beginning of the winter when I was going to leave my grandmother’s and come…"
+      },
+      {
+        "i": 18,
+        "j": 31,
+        "similarity": 0.7022215723991394,
+        "gap": 13,
+        "i_span": [
+          21194,
+          22094
+        ],
+        "j_span": [
+          35448,
+          36372
+        ],
+        "i_preview": "He knew that Mary Jane must be near the end of her piece for she was playing again the opening melody with runs of scale…",
+        "j_preview": "“And besides, Aunt Kate,” said Mary Jane, “we really are all hungry and when we are hungry we are all very quarrelsome.”…"
+      },
+      {
+        "i": 18,
+        "j": 27,
+        "similarity": 0.7019250988960266,
+        "gap": 9,
+        "i_span": [
+          21194,
+          22094
+        ],
+        "j_span": [
+          31103,
+          32697
+        ],
+        "i_preview": "He knew that Mary Jane must be near the end of her piece for she was playing again the opening melody with runs of scale…",
+        "j_preview": "A murmur in the room attracted his attention. Mr Browne was advancing from the door, gallantly escorting Aunt Julia, who…"
+      },
+      {
+        "i": 24,
+        "j": 72,
+        "similarity": 0.7016793489456177,
+        "gap": 48,
+        "i_span": [
+          27647,
+          28461
+        ],
+        "j_span": [
+          79687,
+          80632
+        ],
+        "i_preview": "He saw his wife making her way towards him through the waltzing couples. When she reached him she said into his ear: “Ga…",
+        "j_preview": "“It was in the winter,” she said, “about the beginning of the winter when I was going to leave my grandmother’s and come…"
+      }
+    ],
+    "adjacency_profile": {
+      "1": 0.5808325986583511,
+      "2": 0.5317261646452703,
+      "3": 0.5087925171852112,
+      "4": 0.49856996918852264,
+      "5": 0.48346813492579005,
+      "6": 0.47334174377222854,
+      "7": 0.4810022833481641,
+      "8": 0.47827099093369074,
+      "9": 0.47145563709563104,
+      "10": 0.4708091344903497,
+      "11": 0.4677859064358384,
+      "12": 0.4608200838168462,
+      "13": 0.4750460610939906,
+      "14": 0.4710855633020401,
+      "15": 0.46079464942689924,
+      "16": 0.4658243079339304,
+      "17": 0.4725101086937013,
+      "18": 0.45700106422106423,
+      "19": 0.4526968355906212,
+      "20": 0.4564572439111512,
+      "21": 0.45632942883591904,
+      "22": 0.4581616760364601,
+      "23": 0.46526141166687013,
+      "24": 0.455788297785653,
+      "25": 0.44039065995306337,
+      "26": 0.4434459794026155,
+      "27": 0.44575395654229555,
+      "28": 0.43958390176296236,
+      "29": 0.429712499282798,
+      "30": 0.43989450950175524,
+      "31": 0.4348312946076089,
+      "32": 0.440428638263889,
+      "33": 0.4430063903331757,
+      "34": 0.4403954155065797,
+      "35": 0.4485665275606998,
+      "36": 0.4551545977592468,
+      "37": 0.4565254006443954,
+      "38": 0.43973044529557226,
+      "39": 0.43536381079600406,
+      "40": 0.4537848885122098,
+      "41": 0.466048748912038,
+      "42": 0.4547559411989318,
+      "43": 0.4547541277749198,
+      "44": 0.46841829839874716,
+      "45": 0.4717542899377418,
+      "46": 0.4691138952039182,
+      "47": 0.46458171644518453,
+      "48": 0.48401652574539183,
+      "49": 0.49389088667672254,
+      "50": 0.4703561248523848,
+      "51": 0.49284339171868785,
+      "52": 0.47105648196660554,
+      "53": 0.4640966808795929,
+      "54": 0.4569495456914107,
+      "55": 0.4696946662405263,
+      "56": 0.46735136210918427,
+      "57": 0.47245154494331,
+      "58": 0.5049552991986275,
+      "59": 0.47594614719089706,
+      "60": 0.48381538440783817,
+      "61": 0.5084262139656964,
+      "62": 0.4875694792717695,
+      "63": 0.49259190758069354,
+      "64": 0.5046393275260925,
+      "65": 0.49588781939103055,
+      "66": 0.49444596221049625,
+      "67": 0.48023978959430347,
+      "68": 0.49546329379081727,
+      "69": 0.49600036276711357,
+      "70": 0.510747566819191,
+      "71": 0.4804832339286804,
+      "72": 0.4982818166414897,
+      "73": 0.47299922108650205,
+      "74": 0.4607931599020958,
+      "75": 0.48837260405222577,
+      "76": 0.3337875306606293,
+      "77": 0.20860302448272705
+    }
+  },
+  "method_agreement": {
+    "NCD|TF-IDF": {
+      "pearson": 0.43869806055174987,
+      "spearman": 0.36589625819338684,
+      "top10_overlap": 3
+    },
+    "NCD|Jaccard": {
+      "pearson": 0.6433327381545333,
+      "spearman": 0.595832716328577,
+      "top10_overlap": 4
+    },
+    "NCD|length": {
+      "pearson": 0.6554103584226522,
+      "spearman": 0.6350691176432331,
+      "top10_overlap": 0
+    },
+    "NCD|SBERT": {
+      "pearson": 0.31673551332858313,
+      "spearman": 0.3002775634656104,
+      "top10_overlap": 1
+    },
+    "TF-IDF|Jaccard": {
+      "pearson": 0.8572594200799863,
+      "spearman": 0.846177741184775,
+      "top10_overlap": 4
+    },
+    "TF-IDF|length": {
+      "pearson": -0.04383132783056,
+      "spearman": -0.07295037497326896,
+      "top10_overlap": 0
+    },
+    "TF-IDF|SBERT": {
+      "pearson": 0.48146644259180166,
+      "spearman": 0.4713930820880382,
+      "top10_overlap": 3
+    },
+    "Jaccard|length": {
+      "pearson": 0.19281217963831968,
+      "spearman": 0.15245388466120183,
+      "top10_overlap": 0
+    },
+    "Jaccard|SBERT": {
+      "pearson": 0.42809702085829904,
+      "spearman": 0.4155931688327589,
+      "top10_overlap": 2
+    },
+    "length|SBERT": {
+      "pearson": 0.0265195630680895,
+      "spearman": 0.02847191766524682,
+      "top10_overlap": 0
+    }
+  },
+  "baselines": {
+    "tfidf_top_non_adjacent": [
+      {
+        "i": 55,
+        "j": 58,
+        "similarity": 0.30980957962442485,
+        "gap": 3,
+        "i_span": [
+          62542,
+          63414
+        ],
+        "j_span": [
+          65055,
+          65945
+        ],
+        "i_preview": "O, the rain falls on my heavy locks And the dew wets my skin, My babe lies cold.... “O,” exclaimed Mary Jane. “It’s Bart…",
+        "j_preview": "“Mr D’Arcy,” she said, “what is the name of that song you were singing?” “It’s called The Lass of Aughrim,” said Mr D’Ar…"
+      },
+      {
+        "i": 26,
+        "j": 43,
+        "similarity": 0.30152597665749287,
+        "gap": 17,
+        "i_span": [
+          29970,
+          31101
+        ],
+        "j_span": [
+          50137,
+          51344
+        ],
+        "i_preview": "He ran over the headings of his speech: Irish hospitality, sad memories, the Three Graces, Paris, the quotation from Bro…",
+        "j_preview": "A hearty murmur of assent ran round the table. It shot through Gabriel’s mind that Miss Ivors was not there and that she…"
+      },
+      {
+        "i": 26,
+        "j": 42,
+        "similarity": 0.25358252104089135,
+        "gap": 16,
+        "i_span": [
+          29970,
+          31101
+        ],
+        "j_span": [
+          48534,
+          50135
+        ],
+        "i_preview": "He ran over the headings of his speech: Irish hospitality, sad memories, the Three Graces, Paris, the quotation from Bro…",
+        "j_preview": "“No, no!” said Mr Browne. “But, however that may be, I can only ask you tonight to take the will for the deed and to len…"
+      },
+      {
+        "i": 42,
+        "j": 45,
+        "similarity": 0.2503033795569286,
+        "gap": 3,
+        "i_span": [
+          48534,
+          50135
+        ],
+        "j_span": [
+          52365,
+          53408
+        ],
+        "i_preview": "“No, no!” said Mr Browne. “But, however that may be, I can only ask you tonight to take the will for the deed and to len…",
+        "j_preview": "The table burst into applause and laughter at this allusion. Aunt Julia vainly asked each of her neighbours in turn to t…"
+      },
+      {
+        "i": 37,
+        "j": 58,
+        "similarity": 0.24681762619534453,
+        "gap": 21,
+        "i_span": [
+          43303,
+          44126
+        ],
+        "j_span": [
+          65055,
+          65945
+        ],
+        "i_preview": "“Oh, well,” said Mr Bartell D’Arcy, “I presume there are as good singers today as there were then.” “Where are they?” as…",
+        "j_preview": "“Mr D’Arcy,” she said, “what is the name of that song you were singing?” “It’s called The Lass of Aughrim,” said Mr D’Ar…"
+      },
+      {
+        "i": 69,
+        "j": 72,
+        "similarity": 0.23206418045438035,
+        "gap": 3,
+        "i_span": [
+          76391,
+          77241
+        ],
+        "j_span": [
+          79687,
+          80632
+        ],
+        "i_preview": "“Why, Gretta?” he asked. “I am thinking about a person long ago who used to sing that song.” “And who was the person lon…",
+        "j_preview": "“It was in the winter,” she said, “about the beginning of the winter when I was going to leave my grandmother’s and come…"
+      },
+      {
+        "i": 32,
+        "j": 55,
+        "similarity": 0.225303711510475,
+        "gap": 23,
+        "i_span": [
+          36374,
+          37222
+        ],
+        "j_span": [
+          62542,
+          63414
+        ],
+        "i_preview": "“But how can you get home?” asked Mrs Conroy. “O, it’s only two steps up the quay.” Gabriel hesitated a moment and said:…",
+        "j_preview": "O, the rain falls on my heavy locks And the dew wets my skin, My babe lies cold.... “O,” exclaimed Mary Jane. “It’s Bart…"
+      },
+      {
+        "i": 65,
+        "j": 70,
+        "similarity": 0.2203100739811236,
+        "gap": 5,
+        "i_span": [
+          72807,
+          73674
+        ],
+        "j_span": [
+          77243,
+          78650
+        ],
+        "i_preview": "“Gretta!” She turned away from the mirror slowly and walked along the shaft of light towards him. Her face looked so ser…",
+        "j_preview": "“O then, you were in love with him?” said Gabriel. “I used to go out walking with him,” she said, “when I was in Galway.…"
+      },
+      {
+        "i": 34,
+        "j": 52,
+        "similarity": 0.21499179140348154,
+        "gap": 18,
+        "i_span": [
+          38921,
+          40833
+        ],
+        "j_span": [
+          58968,
+          60280
+        ],
+        "i_preview": "Gabriel took his seat boldly at the head of the table and, having looked to the edge of the carver, plunged his fork fir…",
+        "j_preview": "“I could only get one cab,” he said. “O, we’ll find another along the quay,” said Gabriel. “Yes,” said Aunt Kate. “Bette…"
+      },
+      {
+        "i": 61,
+        "j": 66,
+        "similarity": 0.21401027545894769,
+        "gap": 5,
+        "i_span": [
+          68568,
+          69451
+        ],
+        "j_span": [
+          73676,
+          74635
+        ],
+        "i_preview": "Like distant music these words that he had written years before were borne towards him from the past. He longed to be al…",
+        "j_preview": "He was trembling now with annoyance. Why did she seem so abstracted? He did not know how he could begin. Was she annoyed…"
+      }
+    ],
+    "jaccard_top_non_adjacent": [
+      {
+        "i": 55,
+        "j": 58,
+        "similarity": 0.2635135135135135,
+        "gap": 3,
+        "i_span": [
+          62542,
+          63414
+        ],
+        "j_span": [
+          65055,
+          65945
+        ],
+        "i_preview": "O, the rain falls on my heavy locks And the dew wets my skin, My babe lies cold.... “O,” exclaimed Mary Jane. “It’s Bart…",
+        "j_preview": "“Mr D’Arcy,” she said, “what is the name of that song you were singing?” “It’s called The Lass of Aughrim,” said Mr D’Ar…"
+      },
+      {
+        "i": 37,
+        "j": 58,
+        "similarity": 0.25,
+        "gap": 21,
+        "i_span": [
+          43303,
+          44126
+        ],
+        "j_span": [
+          65055,
+          65945
+        ],
+        "i_preview": "“Oh, well,” said Mr Bartell D’Arcy, “I presume there are as good singers today as there were then.” “Where are they?” as…",
+        "j_preview": "“Mr D’Arcy,” she said, “what is the name of that song you were singing?” “It’s called The Lass of Aughrim,” said Mr D’Ar…"
+      },
+      {
+        "i": 26,
+        "j": 43,
+        "similarity": 0.24770642201834864,
+        "gap": 17,
+        "i_span": [
+          29970,
+          31101
+        ],
+        "j_span": [
+          50137,
+          51344
+        ],
+        "i_preview": "He ran over the headings of his speech: Irish hospitality, sad memories, the Three Graces, Paris, the quotation from Bro…",
+        "j_preview": "A hearty murmur of assent ran round the table. It shot through Gabriel’s mind that Miss Ivors was not there and that she…"
+      },
+      {
+        "i": 69,
+        "j": 72,
+        "similarity": 0.23225806451612904,
+        "gap": 3,
+        "i_span": [
+          76391,
+          77241
+        ],
+        "j_span": [
+          79687,
+          80632
+        ],
+        "i_preview": "“Why, Gretta?” he asked. “I am thinking about a person long ago who used to sing that song.” “And who was the person lon…",
+        "j_preview": "“It was in the winter,” she said, “about the beginning of the winter when I was going to leave my grandmother’s and come…"
+      },
+      {
+        "i": 22,
+        "j": 69,
+        "similarity": 0.23125,
+        "gap": 47,
+        "i_span": [
+          25611,
+          26489
+        ],
+        "j_span": [
+          76391,
+          77241
+        ],
+        "i_preview": "“And haven’t you your own land to visit,” continued Miss Ivors, “that you know nothing of, your own people, and your own…",
+        "j_preview": "“Why, Gretta?” he asked. “I am thinking about a person long ago who used to sing that song.” “And who was the person lon…"
+      },
+      {
+        "i": 9,
+        "j": 56,
+        "similarity": 0.2303370786516854,
+        "gap": 47,
+        "i_span": [
+          10344,
+          11340
+        ],
+        "j_span": [
+          63416,
+          64272
+        ],
+        "i_preview": "“Yes,” said Mrs Conroy. “Guttapercha things. We both have a pair now. Gabriel says everyone wears them on the continent.…",
+        "j_preview": "“O, Mr D’Arcy,” said Aunt Kate, “now that was a great fib to tell.” “Can’t you see that I’m as hoarse as a crow?” said M…"
+      },
+      {
+        "i": 9,
+        "j": 58,
+        "similarity": 0.22839506172839505,
+        "gap": 49,
+        "i_span": [
+          10344,
+          11340
+        ],
+        "j_span": [
+          65055,
+          65945
+        ],
+        "i_preview": "“Yes,” said Mrs Conroy. “Guttapercha things. We both have a pair now. Gabriel says everyone wears them on the continent.…",
+        "j_preview": "“Mr D’Arcy,” she said, “what is the name of that song you were singing?” “It’s called The Lass of Aughrim,” said Mr D’Ar…"
+      },
+      {
+        "i": 24,
+        "j": 55,
+        "similarity": 0.22674418604651161,
+        "gap": 31,
+        "i_span": [
+          27647,
+          28461
+        ],
+        "j_span": [
+          62542,
+          63414
+        ],
+        "i_preview": "He saw his wife making her way towards him through the waltzing couples. When she reached him she said into his ear: “Ga…",
+        "j_preview": "O, the rain falls on my heavy locks And the dew wets my skin, My babe lies cold.... “O,” exclaimed Mary Jane. “It’s Bart…"
+      },
+      {
+        "i": 22,
+        "j": 68,
+        "similarity": 0.22413793103448276,
+        "gap": 46,
+        "i_span": [
+          25611,
+          26489
+        ],
+        "j_span": [
+          75526,
+          76389
+        ],
+        "i_preview": "“And haven’t you your own land to visit,” continued Miss Ivors, “that you know nothing of, your own people, and your own…",
+        "j_preview": "“Tell me what it is, Gretta. I think I know what is the matter. Do I know?” She did not answer at once. Then she said in…"
+      },
+      {
+        "i": 66,
+        "j": 73,
+        "similarity": 0.2222222222222222,
+        "gap": 7,
+        "i_span": [
+          73676,
+          74635
+        ],
+        "j_span": [
+          80634,
+          81515
+        ],
+        "i_preview": "He was trembling now with annoyance. Why did she seem so abstracted? He did not know how he could begin. Was she annoyed…",
+        "j_preview": "She paused for a moment to get her voice under control and then went on: “Then the night before I left I was in my grand…"
+      }
+    ]
+  }
+}

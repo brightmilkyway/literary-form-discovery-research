@@ -1,0 +1,85 @@
+==============================================================================
+ROBUSTNESS CHECK ACROSS ALL REPRESENTATIONS
+==============================================================================
+
+1. NCD LENGTH CONFOUND, BEFORE AND AFTER THE FIX
+   (Pearson r of the NCD matrix with |compressed-size difference|)
+   NCD group150 (original)            r = +0.689
+   NCD equal150 (structural fix)      r = +0.179
+   NCD residual (by construction)   r = +0.000
+
+2. METHOD AGREEMENT AFTER THE FIXES (upper-triangle Pearson)
+      NCD-eq(1-d)  SBERT-pooled     SBERT-g80     TF-IDF-eq     length-eq
+   NCD-eq(1-d)         1.000           n/a           n/a         0.688         0.228
+   SBERT-pooled           n/a         1.000           n/a           n/a           n/a
+   SBERT-g80             n/a           n/a         1.000           n/a           n/a
+   TF-IDF-eq           0.688           n/a           n/a         1.000         0.154
+   length-eq           0.228           n/a           n/a         0.154         1.000
+
+   (NCD-eq and SBERT-pooled use different unit sets: n=105 vs n=78,
+    so their cross-correlation is n/a; each is compared with its own
+    lexical baseline on the same units.)
+
+3. PAIR-LEVEL ROBUSTNESS (150-word units)
+   For each candidate pair: raw rank and hub-corrected rank under each
+   representation.  rank 1 = most similar of all pairs.
+   units 2&73  — 'snow' frame — the eye-catching but fragile one
+      SBERT truncated  raw rank   20/3003   hub-corrected rank   91/3003   cos=0.719
+      SBERT pooled     raw rank   32/3003   hub-corrected rank  164/3003   cos=0.717
+      NCD group150     raw rank 2271/3003   (lower = more similar)   NCD=0.855
+      NCD residual     raw rank 1633/3003   (lower = more similar)   NCD=-0.002
+
+   units 30&39  — religion / Church thread (pope vs. monks)
+      SBERT truncated  raw rank 1837/3003   hub-corrected rank   13/3003   cos=0.443
+      SBERT pooled     raw rank 1349/3003   hub-corrected rank    2/3003   cos=0.516
+      NCD group150     raw rank 2774/3003   (lower = more similar)   NCD=0.831
+      NCD residual     raw rank 2787/3003   (lower = more similar)   NCD=-0.031
+
+   units 55&58  — song lyric vs. song name
+      SBERT truncated  raw rank   79/3003   hub-corrected rank   43/3003   cos=0.666
+      SBERT pooled     raw rank   18/3003   hub-corrected rank    3/3003   cos=0.732
+      NCD group150     raw rank 2989/3003   (lower = more similar)   NCD=0.789
+      NCD residual     raw rank 2995/3003   (lower = more similar)   NCD=-0.073
+
+   units 69&72  — Gabriel asks / Gretta's revelation
+      SBERT truncated  raw rank   54/3003   hub-corrected rank  259/3003   cos=0.679
+      SBERT pooled     raw rank   59/3003   hub-corrected rank  205/3003   cos=0.698
+      NCD group150     raw rank 3002/3003   (lower = more similar)   NCD=0.754
+      NCD residual     raw rank 3002/3003   (lower = more similar)   NCD=-0.106
+
+   units 37&58  — singers past vs. song name
+      SBERT truncated  raw rank  439/3003   hub-corrected rank   46/3003   cos=0.574
+      SBERT pooled     raw rank  699/3003   hub-corrected rank   41/3003   cos=0.571
+      NCD group150     raw rank 2996/3003   (lower = more similar)   NCD=0.785
+      NCD residual     raw rank 2996/3003   (lower = more similar)   NCD=-0.073
+
+   units 12&16  — Mr Browne & Freddy (punch / lemonade)
+      SBERT truncated  raw rank  140/3003   hub-corrected rank   14/3003   cos=0.637
+      SBERT pooled     raw rank  804/3003   hub-corrected rank    8/3003   cos=0.561
+      NCD group150     raw rank 2610/3003   (lower = more similar)   NCD=0.841
+      NCD residual     raw rank 2644/3003   (lower = more similar)   NCD=-0.024
+
+   units 71&74  — cold interrogation vs. Gretta sobbing
+      SBERT truncated  raw rank    5/3003   hub-corrected rank    6/3003   cos=0.761
+      SBERT pooled     raw rank    7/3003   hub-corrected rank   12/3003   cos=0.770
+      NCD group150     raw rank 2003/3003   (lower = more similar)   NCD=0.863
+      NCD residual     raw rank 1202/3003   (lower = more similar)   NCD=0.006
+
+4. TextTiling STRONGEST BOUNDARIES vs. THE FIXED MATRICES
+   12 strongest boundaries -> 24 straddled gaps
+   NCD group150       mean at boundaries +0.854 | all adjacent +0.854 | mean percentile 49%
+   NCD residual       mean at boundaries -0.023 | all adjacent -0.022 | mean percentile 47%
+   SBERT truncated    mean at boundaries +0.608 | all adjacent +0.581 | mean percentile 56%
+   SBERT pooled       mean at boundaries +0.616 | all adjacent +0.610 | mean percentile 51%
+   TF-IDF             mean at boundaries +0.181 | all adjacent +0.173 | mean percentile 53%
+   (50% = no relation to the boundaries; the fixes do not change this.)
+
+5. PERIPHERAL UNITS ACROSS SETTINGS (1 = least similar to the rest)
+   SBERT truncated g150  : u39(paras 227-233)[0.289], u77(paras 454-454)[0.334], u30(paras 169-173)[0.364], u43(paras 248-250)[0.384], u52(paras 304-307)[0.391]
+   SBERT pooled g150     : u39(paras 227-233)[0.311], u77(paras 454-454)[0.383], u16(paras 95-96)[0.384], u33(paras 192-195)[0.405], u30(paras 169-173)[0.411]
+   SBERT g80             : u71(paras 247-247)[0.228], u65(paras 227-230)[0.243], u38(paras 118-124)[0.248], u66(paras 231-234)[0.266], u8(paras 20-20)[0.277]
+
+   monastery units (contain 'monk'/'monastery'):
+      SBERT truncated g150  : u7 rank 59/78, u17 rank 46/78, u38 rank 26/78, u39 rank 1/78, u40 rank 53/78
+      SBERT pooled g150     : u7 rank 54/78, u17 rank 72/78, u38 rank 48/78, u39 rank 1/78, u40 rank 49/78
+      SBERT g80             : u12 rank 44/126, u31 rank 85/126, u64 rank 50/126, u65 rank 2/126, u66 rank 4/126, u67 rank 109/126

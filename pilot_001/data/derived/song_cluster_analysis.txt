@@ -1,0 +1,201 @@
+==============================================================================
+THE 'SONG' CLUSTER — LITERAL REPETITION, OR A DISCURSIVE THREAD?
+==============================================================================
+
+1. MUSIC-VOCABULARY DENSITY PER UNIT
+   top 12 units by music-word density (per 100 words):
+      unit 54   5.60  paras 316-319
+      unit 27   4.12  paras 155-155
+      unit 55   4.02  paras 320-327  <-- cluster
+      unit 29   3.77  paras 161-168
+      unit 18   3.53  paras 99-100
+      unit 37   3.14  paras 213-220  <-- cluster
+      unit 35   2.84  paras 202-206
+      unit 36   2.57  paras 207-212
+      unit 41   2.50  paras 239-242
+      unit 69   2.44  paras 408-416  <-- cluster
+      unit 58   2.41  paras 338-351  <-- cluster
+      unit 28   2.40  paras 156-160
+
+   density of the cluster units:
+      unit 37   3.14  (rank 6/78)
+      unit 49   0.63  (rank 26/78)
+      unit 55   4.02  (rank 3/78)
+      unit 56   0.00  (rank 44/78)
+      unit 58   2.41  (rank 11/78)
+      unit 69   2.44  (rank 10/78)
+      unit 72   1.04  (rank 22/78)
+      unit 73   0.54  (rank 33/78)
+
+   -> If the cluster were just 'the music units', every cluster unit
+      would sit near the top.  Check the ranks above.
+
+2. ABLATING THE SUNG LYRIC FROM UNIT 55
+   lyric fragment present in unit 55: True
+   cos(55,58) before lyric ablation: 0.683
+   cos(55,58) after  lyric ablation: 0.683
+   change +0.000
+   (matched control: deleting the same NUMBER of words from unit 55, 8 reps)
+      random-deletion cos: mean 0.616, sd 0.018, range [0.599, 0.658]
+      lyric ablation sits at the 100th percentile (low = the lyric was holding the pair together)
+
+3. ABLATING WORD CLASSES FROM BOTH UNITS (target: cos(55,58) = 0.683)
+   remove music words          -> cos = 0.683  (change +0.001)
+   remove the song title       -> cos = 0.693  (change +0.010)
+   remove good-night words     -> cos = 0.664  (change -0.019)
+   remove CHARACTER NAMES      -> cos = 0.607  (change -0.076)
+   remove names + good-night   -> cos = 0.563  (change -0.119)
+   remove all content words    -> cos = 0.820  (change +0.138)
+
+   matched control: replace the same NUMBER of random content-word
+   types in both units, 8 reps
+      random-ablation cos: mean 0.695, sd 0.055, range [0.627, 0.763]
+
+4. WHAT DO UNITS 55 AND 58 ACTUALLY SHARE?
+   (55,58) shared content-word types (16): ['aunt', 'couldn’t', 'd’arcy', 'evening', 'gabriel', 'gretta', 'him', 'it’s', 'jane', 'kate', 'mary', 'miss', 'mr', 'o’callaghan', 'singing', 'song']
+   (37,58) shared content-word types (13): ['aunt', 'd’arcy', 'ever', 'him', 'jane', 'kate', 'mary', 'miss', 'morkan', 'mr', 'name', 'think', 'voice']
+   (69,72) shared content-word types (11): ['back', 'boy', 'furey', 'gabriel', 'galway', 'him', 'know', 'michael', 'moment', 'see', 'used']
+
+5. WHERE 'LASS OF AUGHRIM' AND SINGING VOCABULARY APPEAR
+   (word-boundary match; an earlier substring match produced false
+    positives on 'class' and 'glass')
+   [song named] unit 58 (paras 338-351): “Mr D’Arcy,” she said, “what is the name of that song you were singing?”
+
+“It’s called The Lass of Aughrim,” said Mr D’Arcy, “but I couldn’t remember it properly. Why? Do you know it?”
+
+“The Lass of Aughrim,” she repeate
+   [song named] unit 68 (paras 402-407): “Tell me what it is, Gretta. I think I know what is the matter. Do I know?”
+
+She did not answer at once. Then she said in an outburst of tears:
+
+“O, I am thinking about that song, The Lass of Aughrim.”
+
+She broke loose f
+   [song named] unit 69 (paras 408-416): “Why, Gretta?” he asked.
+
+“I am thinking about a person long ago who used to sing that song.”
+
+“And who was the person long ago?” asked Gabriel, smiling.
+
+“It was a person I used to know in Galway when I was living with 
+
+   every unit containing 'sing'/'song'/'sang' (with density):
+      unit  0  dens  1.52  paras 0-1  |  Lily, the caretaker’s daughter, was literally run off her feet. Hardly had she brought one
+      unit  2  dens  0.65  paras 5-9  |  He stood on the mat, scraping the snow from his goloshes, while Lily led his wife to the f
+      unit  3  dens  0.63  paras 10-14  |  “Is it snowing again, Mr Conroy?” asked Lily.
+
+She had preceded him into the pantry to hel
+      unit 11  dens  0.41  paras 59-64  |  “It’s such a relief,” said Aunt Kate to Mrs Conroy, “that Gabriel is here. I always feel e
+      unit 14  dens  1.78  paras 79-87  |  “O, Miss Daly, you’re really awfully good, after playing for the last two dances, but real
+      unit 15  dens  0.63  paras 88-94  |  “Good-evening, Freddy,” said Aunt Julia.
+
+Freddy Malins bade the Misses Morkan good-evenin
+      unit 17  dens  2.08  paras 97-98  |  Gabriel could not listen while Mary Jane was playing her Academy piece, full of runs and d
+      unit 18  dens  3.53  paras 99-100  |  He knew that Mary Jane must be near the end of her piece for she was playing again the ope
+      unit 23  dens  0.46  paras 136-137  |  “West Briton!”
+
+When the lancers were over Gabriel went away to a remote corner of the roo
+      unit 24  dens  0.61  paras 138-147  |  He saw his wife making her way towards him through the waltzing couples. When she reached 
+      unit 26  dens  0.48  paras 154-154  |  He ran over the headings of his speech: Irish hospitality, sad memories, the Three Graces,
+      unit 27  dens  4.12  paras 155-155  |  A murmur in the room attracted his attention. Mr Browne was advancing from the door, galla
+      unit 28  dens  2.40  paras 156-160  |  “I was just telling my mother,” he said, “I never heard you sing so well, never. No, I nev
+      unit 29  dens  3.77  paras 161-168  |  “Neither did I,” said Mr Browne. “I think her voice has greatly improved.”
+
+Aunt Julia shr
+      unit 33  dens  0.32  paras 192-195  |  At the moment Aunt Kate came toddling out of the supper-room, almost wringing her hands in
+      unit 34  dens  0.28  paras 196-201  |  Gabriel took his seat boldly at the head of the table and, having looked to the edge of th
+      unit 35  dens  2.84  paras 202-206  |  When everyone had been well served Gabriel said, smiling:
+
+“Now, if anyone wants a little 
+      unit 36  dens  2.57  paras 207-212  |  “Have you heard him?” he asked Mr Bartell D’Arcy across the table.
+
+“No,” answered Mr Bart
+      unit 37  dens  3.14  paras 213-220  |  “Oh, well,” said Mr Bartell D’Arcy, “I presume there are as good singers today as there we
+      unit 38  dens  1.10  paras 221-226  |  “Strange,” said Mr Bartell D’Arcy. “I never even heard of him.”
+
+“Yes, yes, Miss Morkan is
+      unit 41  dens  2.50  paras 239-242  |  The patting at once grew louder in encouragement and then ceased altogether. Gabriel leane
+      unit 42  dens  0.33  paras 243-247  |  “No, no!” said Mr Browne.
+
+“But, however that may be, I can only ask you tonight to take t
+      unit 43  dens  0.46  paras 248-250  |  A hearty murmur of assent ran round the table. It shot through Gabriel’s mind that Miss Iv
+      unit 44  dens  0.55  paras 251-253  |  “Hear, hear!” said Mr Browne loudly.
+
+“But yet,” continued Gabriel, his voice falling into
+      unit 45  dens  0.52  paras 254-258  |  The table burst into applause and laughter at this allusion. Aunt Julia vainly asked each 
+      unit 46  dens  1.60  paras 259-263  |  Gabriel glanced down at his aunts and, seeing the large smile on Aunt Julia’s face and the
+      unit 47  dens  1.91  paras 264-274  |  Unless he tells a lie,
+Unless he tells a lie.
+
+Then, turning once more towards their hoste
+      unit 49  dens  0.63  paras 285-294  |  “Someone is fooling at the piano anyhow,” said Gabriel.
+
+Mary Jane glanced at Gabriel and 
+      unit 53  dens  2.06  paras 308-315  |  “Do you know Trinity College?”
+
+“Yes, sir,” said the cabman.
+
+“Well, drive bang up against
+      unit 54  dens  5.60  paras 316-319  |  He stood still in the gloom of the hall, trying to catch the air that the voice was singin
+      unit 55  dens  4.02  paras 320-327  |  O, the rain falls on my heavy locks
+And the dew wets my skin,
+My babe lies cold....
+
+“O,” 
+      unit 57  dens  0.65  paras 336-337  |  “But poor Mr D’Arcy doesn’t like the snow,” said Aunt Kate, smiling.
+
+Mr D’Arcy came from 
+      unit 58  dens  2.41  paras 338-351  |  “Mr D’Arcy,” she said, “what is the name of that song you were singing?”
+
+“It’s called The
+      unit 59  dens  0.62  paras 352-355  |  “Good-night. Good-night.”
+
+The morning was still dark. A dull yellow light brooded over th
+      unit 61  dens  1.23  paras 359-362  |  Like distant music these words that he had written years before were borne towards him fro
+      unit 65  dens  0.61  paras 380-391  |  “Gretta!”
+
+She turned away from the mirror slowly and walked along the shaft of light towa
+      unit 68  dens  2.35  paras 402-407  |  “Tell me what it is, Gretta. I think I know what is the matter. Do I know?”
+
+She did not a
+      unit 69  dens  2.44  paras 408-416  |  “Why, Gretta?” he asked.
+
+“I am thinking about a person long ago who used to sing that son
+      unit 71  dens  1.02  paras 430-436  |  He tried to keep up his tone of cold interrogation, but his voice when he spoke was humble
+      unit 72  dens  1.04  paras 437-441  |  “It was in the winter,” she said, “about the beginning of the winter when I was going to l
+      unit 73  dens  0.54  paras 442-447  |  She paused for a moment to get her voice under control and then went on:
+
+“Then the night 
+      unit 75  dens  0.47  paras 451-451  |  Perhaps she had not told him all the story. His eyes moved to the chair over which she had
+      unit 76  dens  0.50  paras 452-453  |  The air of the room chilled his shoulders. He stretched himself cautiously along under the
+
+6. MUTUAL RANKS INSIDE THE CLUSTER (MiniLM, correction-free)
+   pair         cos   i->j   j->i  worse
+   37&49      0.507      5     49     49
+   37&55      0.545      4     23     23
+   37&56      0.379     35     58     58
+   37&58      0.460     13     42     42
+   37&69      0.449     16     58     58
+   37&72      0.467     12     60     60
+   37&73      0.348     49     76     76
+   49&55      0.510     48     41     48
+   49&56      0.464     63     26     63
+   49&58      0.505     50     22     50
+   49&69      0.566     28     16     28
+   49&72      0.609     11     14     14
+   49&73      0.614      8     17     17
+   55&56      0.653      3      2      3
+   55&58      0.683      2      1      2
+   55&69      0.542     25     24     25
+   55&72      0.597      6     18     18
+   55&73      0.503     43     45     45
+   56&58      0.583      6      5      6
+   56&69      0.411     50     67     67
+   56&72      0.541     10     40     40
+   56&73      0.405     52     62     62
+   58&69      0.490     27     45     45
+   58&72      0.482     34     57     57
+   58&73      0.425     52     59     59
+   69&72      0.632      6      9      9
+   69&73      0.521     33     41     41
+   72&73      0.746      1      2      2

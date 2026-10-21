@@ -1,0 +1,119 @@
+==============================================================================
+WHERE DOES THE FINAL SNOW PASSAGE'S PERIPHERALITY COME FROM?
+==============================================================================
+
+target unit 77 (paras 454-454, 160 words):
+   A few light taps upon the pane made him turn to the window. It had begun to snow again. He watched sleepily the flakes, silver and dark, falling obliquely against the lamplight. The time had come for him to set out on his journey westward. Yes, the newspapers were right: snow was general all over Ireland. It was fallin…
+
+Note: peripherality is measured as the MEAN cosine to all other units.
+Lower = more peripheral.  Ranks are out of 78.
+
+--------------------------------------------------------------------------
+MODEL: MiniLM-pooled   (global mean centrality 0.500)
+--------------------------------------------------------------------------
+   original centrality of unit 77: 0.383  rank 2/78
+
+   --- TARGET (final snow) ---
+    unit  original     no_weather no_death_west      no_topic    no_content  bag_of_words shuffled_sent
+      77     0.383         0.357         0.339         0.297         0.140         0.397         0.364
+
+   --- CONTROLS (other pure narration) ---
+    unit  original     no_weather no_death_west      no_topic    no_content  bag_of_words shuffled_sent
+      63     0.445         0.445         0.445         0.445         0.160         0.404         0.449
+      57     0.481         0.515         0.518         0.515         0.259         0.541         0.483
+      59     0.521         0.487         0.489         0.487         0.215         0.497         0.492
+      61     0.497         0.499         0.501         0.499         0.212         0.459         0.535
+       0     0.481         0.476         0.476         0.476         0.195         0.463         0.457
+      17     0.553         0.559         0.559         0.559         0.192         0.497         0.507
+      74     0.528         0.494         0.502         0.501         0.224         0.477         0.489
+      75     0.536         0.534         0.536         0.534         0.203         0.499         0.528
+      76     0.490         0.428         0.408         0.415         0.132         0.420         0.464
+
+   --- MOST CENTRAL UNITS ---
+    unit  original     no_weather no_death_west      no_topic    no_content  bag_of_words shuffled_sent
+      39     0.311         0.365         0.365         0.365         0.250         0.437         0.373
+      72     0.553         0.553         0.548         0.548         0.296         0.463         0.546
+      24     0.569         0.533         0.517         0.517         0.280         0.551         0.543
+      48     0.578         0.573         0.573         0.573         0.263         0.533         0.553
+      14     0.594         0.564         0.564         0.564         0.261         0.524         0.572
+
+   --- MATCHED RANDOM-ABLATION CONTROL for unit 77 ---
+   the topic lexicon hits 37 word types in unit 77;
+   control: ablate 37 RANDOM content-word types, 8 reps
+      random-ablation centrality: mean 0.285, sd 0.025, range [0.244, 0.322]
+      topic-lexicon ablation   : 0.297
+      -> topic ablation sits at the 62th percentile of the
+         random-ablation distribution.
+      original centrality: 0.383
+
+   --- TRANSPLANT CONTROL: does the snow/west/death lexicon make a
+       central passage peripheral? ---
+      unit 63: original 0.445 | +snow lexicon 0.349 | shuffled-content control 0.404
+      unit 57: original 0.481 | +snow lexicon 0.488 | shuffled-content control 0.492
+      unit 59: original 0.521 | +snow lexicon 0.493 | shuffled-content control 0.458
+      (If the lexicon caused peripherality, '+snow lexicon' should
+       be clearly BELOW both the original and the control.)
+
+   RANK of unit 77 under each variant:
+      original         centrality 0.383   rank 3/78
+      no_weather       centrality 0.357   rank 2/78
+      no_death_west    centrality 0.339   rank 2/78
+      no_topic         centrality 0.297   rank 1/78
+      no_content       centrality 0.140   rank 1/78
+      bag_of_words     centrality 0.397   rank 4/78
+      shuffled_sent    centrality 0.356   rank 2/78
+
+--------------------------------------------------------------------------
+MODEL: bge-small   (global mean centrality 0.724)
+--------------------------------------------------------------------------
+   original centrality of unit 77: 0.631  rank 1/78
+
+   --- TARGET (final snow) ---
+    unit  original     no_weather no_death_west      no_topic    no_content  bag_of_words shuffled_sent
+      77     0.631         0.636         0.628         0.630         0.568         0.683         0.632
+
+   --- CONTROLS (other pure narration) ---
+    unit  original     no_weather no_death_west      no_topic    no_content  bag_of_words shuffled_sent
+      63     0.654         0.658         0.654         0.658         0.602         0.700         0.701
+      57     0.725         0.745         0.741         0.745         0.622         0.770         0.697
+      59     0.754         0.743         0.740         0.743         0.591         0.747         0.726
+      61     0.704         0.653         0.654         0.653         0.596         0.709         0.720
+       0     0.721         0.717         0.719         0.717         0.587         0.735         0.706
+      17     0.766         0.764         0.764         0.764         0.609         0.745         0.727
+      74     0.710         0.725         0.730         0.730         0.597         0.731         0.727
+      75     0.760         0.759         0.760         0.759         0.596         0.744         0.756
+      76     0.733         0.719         0.722         0.718         0.547         0.704         0.726
+
+   --- MOST CENTRAL UNITS ---
+    unit  original     no_weather no_death_west      no_topic    no_content  bag_of_words shuffled_sent
+      39     0.702         0.713         0.713         0.713         0.599         0.734         0.689
+      72     0.748         0.744         0.742         0.742         0.650         0.713         0.751
+      24     0.693         0.682         0.683         0.683         0.641         0.709         0.721
+      48     0.748         0.755         0.755         0.755         0.625         0.769         0.713
+      14     0.766         0.777         0.777         0.777         0.611         0.776         0.757
+
+   --- MATCHED RANDOM-ABLATION CONTROL for unit 77 ---
+   the topic lexicon hits 37 word types in unit 77;
+   control: ablate 37 RANDOM content-word types, 8 reps
+      random-ablation centrality: mean 0.627, sd 0.016, range [0.603, 0.654]
+      topic-lexicon ablation   : 0.630
+      -> topic ablation sits at the 62th percentile of the
+         random-ablation distribution.
+      original centrality: 0.631
+
+   --- TRANSPLANT CONTROL: does the snow/west/death lexicon make a
+       central passage peripheral? ---
+      unit 63: original 0.654 | +snow lexicon 0.655 | shuffled-content control 0.691
+      unit 57: original 0.725 | +snow lexicon 0.720 | shuffled-content control 0.716
+      unit 59: original 0.754 | +snow lexicon 0.740 | shuffled-content control 0.737
+      (If the lexicon caused peripherality, '+snow lexicon' should
+       be clearly BELOW both the original and the control.)
+
+   RANK of unit 77 under each variant:
+      original         centrality 0.631   rank 2/78
+      no_weather       centrality 0.636   rank 2/78
+      no_death_west    centrality 0.628   rank 1/78
+      no_topic         centrality 0.630   rank 1/78
+      no_content       centrality 0.568   rank 1/78
+      bag_of_words     centrality 0.683   rank 11/78
+      shuffled_sent    centrality 0.605   rank 1/78

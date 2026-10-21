@@ -1,0 +1,48 @@
+==============================================================================
+ALTERNATIVE EXPLANATIONS — do cheap features already explain the patterns?
+==============================================================================
+
+unit length  : min 152  median 176  max 452 words
+dialogue ratio: min 0.00  median 0.23  max 0.98   (share of chars inside “ ”)
+
+A. CORRELATION OF EACH METHOD'S SIMILARITY WITH CONTENT-FREE FEATURES
+   (Pearson r on upper triangles; NCD is flipped to a similarity)
+   method                length-sim  dialogue-ratio-sim   quote-density-sim
+   NCD(1-d)                  0.655               0.108               0.018
+   SBERT                     0.027               0.120               0.059
+   TF-IDF                   -0.044               0.171               0.098
+
+B. PARTIAL CORRELATION: does NCD still track lexical content once
+   unit length is controlled for?
+   r(NCD, TF-IDF)                 = +0.439
+   r(NCD, length-sim)             = +0.655
+   r(NCD, TF-IDF | length)        = +0.619
+   r(SBERT, TF-IDF)               = +0.481
+   r(SBERT, length-sim)           = +0.027
+
+C. ARE THE STANDOUT PAIRS JUST 'DIALOGUE MATCHING DIALOGUE'?
+   NCD (closest): mean dialogue ratio of the units involved = 0.58  (all units: 0.31); units=[22, 24, 32, 37, 39, 49, 55, 56, 58, 69, 72, 73]
+   SBERT (closest): mean dialogue ratio of the units involved = 0.29  (all units: 0.31); units=[2, 8, 10, 11, 14, 15, 24, 61, 65, 67, 68, 71, 73, 74]
+
+   dialogue ratio of every unit (index: ratio):
+   0:0.00  1:0.22  2:0.11  3:0.15  4:0.22  5:0.09  6:0.00  7:0.79  8:0.38  9:0.71  10:0.23  11:0.35  12:0.27  13:0.25  14:0.26  15:0.24  16:0.10  17:0.00  18:0.00  19:0.18  20:0.46  21:0.53  22:0.23  23:0.01  24:0.68  25:0.08  26:0.31  27:0.00  28:0.58  29:0.47  30:0.69  31:0.48  32:0.38  33:0.11  34:0.08  35:0.17  36:0.15  37:0.69  38:0.18  39:0.36  40:0.17  41:0.22  42:0.98  43:0.84  44:0.91  45:0.73  46:0.27  47:0.24  48:0.33  49:0.67  50:0.81  51:0.54  52:0.09  53:0.19  54:0.04  55:0.44  56:0.46  57:0.05  58:0.74  59:0.01  60:0.16  61:0.01  62:0.12  63:0.00  64:0.12  65:0.45  66:0.12  67:0.09  68:0.20  69:0.53  70:0.24  71:0.17  72:0.90  73:0.86  74:0.00  75:0.00  76:0.00  77:0.00
+
+D. THE ONE GENUINELY DISTANT SBERT PAIR (gap > 40) IN THE TOP-20
+   cos=0.719  units 2&73 (gap 71; words 152 & 184; dialogue 0.11 & 0.86)
+      2: He stood on the mat, scraping the snow from his goloshes, while Lily led his wife to the foot of the stairs and called out: “Miss Kate, here’s Mrs Conroy.” Kate and Julia came toddling down the dark stairs at once. Both of them kissed Gabriel’s wife, said she …
+      73: She paused for a moment to get her voice under control and then went on: “Then the night before I left I was in my grandmother’s house in Nuns’ Island, packing up, and I heard gravel thrown up against the window. The window was so wet I couldn’t see so I ran d…
+   cos=0.707  units 25&72 (gap 47; words 279 & 190; dialogue 0.08 & 0.90)
+      25: “O, do go, Gabriel,” she cried. “I’d love to see Galway again.” “You can go if you like,” said Gabriel coldly. She looked at him for a moment, then turned to Mrs Malins and said: “There’s a nice husband for you, Mrs Malins.” While she was threading her way bac…
+      72: “It was in the winter,” she said, “about the beginning of the winter when I was going to leave my grandmother’s and come up here to the convent. And he was ill at the time in his lodgings in Galway and wouldn’t be let out and his people in Oughterard were writ…
+   cos=0.702  units 24&72 (gap 48; words 154 & 190; dialogue 0.68 & 0.90)
+      24: He saw his wife making her way towards him through the waltzing couples. When she reached him she said into his ear: “Gabriel, Aunt Kate wants to know won’t you carve the goose as usual. Miss Daly will carve the ham and I’ll do the pudding.” “All right,” said …
+      72: “It was in the winter,” she said, “about the beginning of the winter when I was going to leave my grandmother’s and come up here to the convent. And he was ill at the time in his lodgings in Galway and wouldn’t be let out and his people in Oughterard were writ…
+   cos=0.696  units 3&72 (gap 69; words 157 & 190; dialogue 0.15 & 0.90)
+      3: “Is it snowing again, Mr Conroy?” asked Lily. She had preceded him into the pantry to help him off with his overcoat. Gabriel smiled at the three syllables she had given his surname and glanced at her. She was a slim, growing girl, pale in complexion and with …
+      72: “It was in the winter,” she said, “about the beginning of the winter when I was going to leave my grandmother’s and come up here to the convent. And he was ill at the time in his lodgings in Galway and wouldn’t be let out and his people in Oughterard were writ…
+   cos=0.688  units 10&73 (gap 63; words 175 & 184; dialogue 0.23 & 0.86)
+      10: Gabriel was about to ask his aunt some questions on this point but she broke off suddenly to gaze after her sister who had wandered down the stairs and was craning her neck over the banisters. “Now, I ask you,” she said almost testily, “where is Julia going? J…
+      73: She paused for a moment to get her voice under control and then went on: “Then the night before I left I was in my grandmother’s house in Nuns’ Island, packing up, and I heard gravel thrown up against the window. The window was so wet I couldn’t see so I ran d…
+
+E. WHAT SHARED *CONTENT* WORDS DRIVE THE DISTANT PAIR (2, 73)?
+   units 2&73 shared content words: ['asked', 'came', 'gabriel', 'said', 'slipped', 'went']

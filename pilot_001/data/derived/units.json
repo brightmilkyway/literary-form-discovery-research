@@ -1,0 +1,3059 @@
+{
+  "group150": [
+    {
+      "index": 0,
+      "start": 0,
+      "end": 2436,
+      "n_words": 452,
+      "first_para": 0,
+      "last_para": 1,
+      "kind": "group"
+    },
+    {
+      "index": 1,
+      "start": 2438,
+      "end": 3289,
+      "n_words": 157,
+      "first_para": 2,
+      "last_para": 4,
+      "kind": "group"
+    },
+    {
+      "index": 2,
+      "start": 3291,
+      "end": 4122,
+      "n_words": 152,
+      "first_para": 5,
+      "last_para": 9,
+      "kind": "group"
+    },
+    {
+      "index": 3,
+      "start": 4124,
+      "end": 4936,
+      "n_words": 157,
+      "first_para": 10,
+      "last_para": 14,
+      "kind": "group"
+    },
+    {
+      "index": 4,
+      "start": 4938,
+      "end": 5939,
+      "n_words": 183,
+      "first_para": 15,
+      "last_para": 20,
+      "kind": "group"
+    },
+    {
+      "index": 5,
+      "start": 5941,
+      "end": 7649,
+      "n_words": 306,
+      "first_para": 21,
+      "last_para": 28,
+      "kind": "group"
+    },
+    {
+      "index": 6,
+      "start": 7651,
+      "end": 8477,
+      "n_words": 156,
+      "first_para": 29,
+      "last_para": 30,
+      "kind": "group"
+    },
+    {
+      "index": 7,
+      "start": 8479,
+      "end": 9425,
+      "n_words": 173,
+      "first_para": 31,
+      "last_para": 37,
+      "kind": "group"
+    },
+    {
+      "index": 8,
+      "start": 9427,
+      "end": 10342,
+      "n_words": 157,
+      "first_para": 38,
+      "last_para": 42,
+      "kind": "group"
+    },
+    {
+      "index": 9,
+      "start": 10344,
+      "end": 11340,
+      "n_words": 177,
+      "first_para": 43,
+      "last_para": 51,
+      "kind": "group"
+    },
+    {
+      "index": 10,
+      "start": 11342,
+      "end": 12311,
+      "n_words": 175,
+      "first_para": 52,
+      "last_para": 58,
+      "kind": "group"
+    },
+    {
+      "index": 11,
+      "start": 12313,
+      "end": 13643,
+      "n_words": 238,
+      "first_para": 59,
+      "last_para": 64,
+      "kind": "group"
+    },
+    {
+      "index": 12,
+      "start": 13645,
+      "end": 14624,
+      "n_words": 179,
+      "first_para": 65,
+      "last_para": 70,
+      "kind": "group"
+    },
+    {
+      "index": 13,
+      "start": 14626,
+      "end": 15580,
+      "n_words": 168,
+      "first_para": 71,
+      "last_para": 78,
+      "kind": "group"
+    },
+    {
+      "index": 14,
+      "start": 15582,
+      "end": 17085,
+      "n_words": 273,
+      "first_para": 79,
+      "last_para": 87,
+      "kind": "group"
+    },
+    {
+      "index": 15,
+      "start": 17087,
+      "end": 17951,
+      "n_words": 155,
+      "first_para": 88,
+      "last_para": 94,
+      "kind": "group"
+    },
+    {
+      "index": 16,
+      "start": 17953,
+      "end": 18856,
+      "n_words": 159,
+      "first_para": 95,
+      "last_para": 96,
+      "kind": "group"
+    },
+    {
+      "index": 17,
+      "start": 18858,
+      "end": 21192,
+      "n_words": 432,
+      "first_para": 97,
+      "last_para": 98,
+      "kind": "group"
+    },
+    {
+      "index": 18,
+      "start": 21194,
+      "end": 22094,
+      "n_words": 170,
+      "first_para": 99,
+      "last_para": 100,
+      "kind": "group"
+    },
+    {
+      "index": 19,
+      "start": 22096,
+      "end": 23820,
+      "n_words": 311,
+      "first_para": 101,
+      "last_para": 111,
+      "kind": "group"
+    },
+    {
+      "index": 20,
+      "start": 23822,
+      "end": 24660,
+      "n_words": 154,
+      "first_para": 112,
+      "last_para": 116,
+      "kind": "group"
+    },
+    {
+      "index": 21,
+      "start": 24662,
+      "end": 25609,
+      "n_words": 167,
+      "first_para": 117,
+      "last_para": 127,
+      "kind": "group"
+    },
+    {
+      "index": 22,
+      "start": 25611,
+      "end": 26489,
+      "n_words": 161,
+      "first_para": 128,
+      "last_para": 135,
+      "kind": "group"
+    },
+    {
+      "index": 23,
+      "start": 26491,
+      "end": 27645,
+      "n_words": 217,
+      "first_para": 136,
+      "last_para": 137,
+      "kind": "group"
+    },
+    {
+      "index": 24,
+      "start": 27647,
+      "end": 28461,
+      "n_words": 154,
+      "first_para": 138,
+      "last_para": 147,
+      "kind": "group"
+    },
+    {
+      "index": 25,
+      "start": 28463,
+      "end": 29968,
+      "n_words": 279,
+      "first_para": 148,
+      "last_para": 153,
+      "kind": "group"
+    },
+    {
+      "index": 26,
+      "start": 29970,
+      "end": 31101,
+      "n_words": 209,
+      "first_para": 154,
+      "last_para": 154,
+      "kind": "group"
+    },
+    {
+      "index": 27,
+      "start": 31103,
+      "end": 32697,
+      "n_words": 288,
+      "first_para": 155,
+      "last_para": 155,
+      "kind": "group"
+    },
+    {
+      "index": 28,
+      "start": 32699,
+      "end": 33574,
+      "n_words": 163,
+      "first_para": 156,
+      "last_para": 160,
+      "kind": "group"
+    },
+    {
+      "index": 29,
+      "start": 33576,
+      "end": 34425,
+      "n_words": 155,
+      "first_para": 161,
+      "last_para": 168,
+      "kind": "group"
+    },
+    {
+      "index": 30,
+      "start": 34427,
+      "end": 35446,
+      "n_words": 193,
+      "first_para": 169,
+      "last_para": 173,
+      "kind": "group"
+    },
+    {
+      "index": 31,
+      "start": 35448,
+      "end": 36372,
+      "n_words": 167,
+      "first_para": 174,
+      "last_para": 182,
+      "kind": "group"
+    },
+    {
+      "index": 32,
+      "start": 36374,
+      "end": 37222,
+      "n_words": 157,
+      "first_para": 183,
+      "last_para": 191,
+      "kind": "group"
+    },
+    {
+      "index": 33,
+      "start": 37224,
+      "end": 38919,
+      "n_words": 310,
+      "first_para": 192,
+      "last_para": 195,
+      "kind": "group"
+    },
+    {
+      "index": 34,
+      "start": 38921,
+      "end": 40833,
+      "n_words": 356,
+      "first_para": 196,
+      "last_para": 201,
+      "kind": "group"
+    },
+    {
+      "index": 35,
+      "start": 40835,
+      "end": 41829,
+      "n_words": 174,
+      "first_para": 202,
+      "last_para": 206,
+      "kind": "group"
+    },
+    {
+      "index": 36,
+      "start": 41831,
+      "end": 43301,
+      "n_words": 267,
+      "first_para": 207,
+      "last_para": 212,
+      "kind": "group"
+    },
+    {
+      "index": 37,
+      "start": 43303,
+      "end": 44126,
+      "n_words": 154,
+      "first_para": 213,
+      "last_para": 220,
+      "kind": "group"
+    },
+    {
+      "index": 38,
+      "start": 44128,
+      "end": 45599,
+      "n_words": 266,
+      "first_para": 221,
+      "last_para": 226,
+      "kind": "group"
+    },
+    {
+      "index": 39,
+      "start": 45601,
+      "end": 46523,
+      "n_words": 176,
+      "first_para": 227,
+      "last_para": 233,
+      "kind": "group"
+    },
+    {
+      "index": 40,
+      "start": 46525,
+      "end": 47635,
+      "n_words": 200,
+      "first_para": 234,
+      "last_para": 238,
+      "kind": "group"
+    },
+    {
+      "index": 41,
+      "start": 47637,
+      "end": 48532,
+      "n_words": 160,
+      "first_para": 239,
+      "last_para": 242,
+      "kind": "group"
+    },
+    {
+      "index": 42,
+      "start": 48534,
+      "end": 50135,
+      "n_words": 304,
+      "first_para": 243,
+      "last_para": 247,
+      "kind": "group"
+    },
+    {
+      "index": 43,
+      "start": 50137,
+      "end": 51344,
+      "n_words": 217,
+      "first_para": 248,
+      "last_para": 250,
+      "kind": "group"
+    },
+    {
+      "index": 44,
+      "start": 51346,
+      "end": 52363,
+      "n_words": 183,
+      "first_para": 251,
+      "last_para": 253,
+      "kind": "group"
+    },
+    {
+      "index": 45,
+      "start": 52365,
+      "end": 53408,
+      "n_words": 191,
+      "first_para": 254,
+      "last_para": 258,
+      "kind": "group"
+    },
+    {
+      "index": 46,
+      "start": 53410,
+      "end": 54462,
+      "n_words": 185,
+      "first_para": 259,
+      "last_para": 263,
+      "kind": "group"
+    },
+    {
+      "index": 47,
+      "start": 54464,
+      "end": 55343,
+      "n_words": 157,
+      "first_para": 264,
+      "last_para": 274,
+      "kind": "group"
+    },
+    {
+      "index": 48,
+      "start": 55345,
+      "end": 56272,
+      "n_words": 163,
+      "first_para": 275,
+      "last_para": 284,
+      "kind": "group"
+    },
+    {
+      "index": 49,
+      "start": 56274,
+      "end": 57161,
+      "n_words": 156,
+      "first_para": 285,
+      "last_para": 294,
+      "kind": "group"
+    },
+    {
+      "index": 50,
+      "start": 57163,
+      "end": 57997,
+      "n_words": 152,
+      "first_para": 295,
+      "last_para": 299,
+      "kind": "group"
+    },
+    {
+      "index": 51,
+      "start": 57999,
+      "end": 58966,
+      "n_words": 169,
+      "first_para": 300,
+      "last_para": 303,
+      "kind": "group"
+    },
+    {
+      "index": 52,
+      "start": 58968,
+      "end": 60280,
+      "n_words": 238,
+      "first_para": 304,
+      "last_para": 307,
+      "kind": "group"
+    },
+    {
+      "index": 53,
+      "start": 60282,
+      "end": 61312,
+      "n_words": 192,
+      "first_para": 308,
+      "last_para": 315,
+      "kind": "group"
+    },
+    {
+      "index": 54,
+      "start": 61314,
+      "end": 62540,
+      "n_words": 229,
+      "first_para": 316,
+      "last_para": 319,
+      "kind": "group"
+    },
+    {
+      "index": 55,
+      "start": 62542,
+      "end": 63414,
+      "n_words": 164,
+      "first_para": 320,
+      "last_para": 327,
+      "kind": "group"
+    },
+    {
+      "index": 56,
+      "start": 63416,
+      "end": 64272,
+      "n_words": 155,
+      "first_para": 328,
+      "last_para": 335,
+      "kind": "group"
+    },
+    {
+      "index": 57,
+      "start": 64274,
+      "end": 65053,
+      "n_words": 152,
+      "first_para": 336,
+      "last_para": 337,
+      "kind": "group"
+    },
+    {
+      "index": 58,
+      "start": 65055,
+      "end": 65945,
+      "n_words": 153,
+      "first_para": 338,
+      "last_para": 351,
+      "kind": "group"
+    },
+    {
+      "index": 59,
+      "start": 65947,
+      "end": 67695,
+      "n_words": 322,
+      "first_para": 352,
+      "last_para": 355,
+      "kind": "group"
+    },
+    {
+      "index": 60,
+      "start": 67697,
+      "end": 68566,
+      "n_words": 167,
+      "first_para": 356,
+      "last_para": 358,
+      "kind": "group"
+    },
+    {
+      "index": 61,
+      "start": 68568,
+      "end": 69451,
+      "n_words": 162,
+      "first_para": 359,
+      "last_para": 362,
+      "kind": "group"
+    },
+    {
+      "index": 62,
+      "start": 69453,
+      "end": 70836,
+      "n_words": 255,
+      "first_para": 363,
+      "last_para": 372,
+      "kind": "group"
+    },
+    {
+      "index": 63,
+      "start": 70838,
+      "end": 71667,
+      "n_words": 159,
+      "first_para": 373,
+      "last_para": 373,
+      "kind": "group"
+    },
+    {
+      "index": 64,
+      "start": 71669,
+      "end": 72805,
+      "n_words": 215,
+      "first_para": 374,
+      "last_para": 379,
+      "kind": "group"
+    },
+    {
+      "index": 65,
+      "start": 72807,
+      "end": 73674,
+      "n_words": 156,
+      "first_para": 380,
+      "last_para": 391,
+      "kind": "group"
+    },
+    {
+      "index": 66,
+      "start": 73676,
+      "end": 74635,
+      "n_words": 182,
+      "first_para": 392,
+      "last_para": 396,
+      "kind": "group"
+    },
+    {
+      "index": 67,
+      "start": 74637,
+      "end": 75524,
+      "n_words": 162,
+      "first_para": 397,
+      "last_para": 401,
+      "kind": "group"
+    },
+    {
+      "index": 68,
+      "start": 75526,
+      "end": 76389,
+      "n_words": 170,
+      "first_para": 402,
+      "last_para": 407,
+      "kind": "group"
+    },
+    {
+      "index": 69,
+      "start": 76391,
+      "end": 77241,
+      "n_words": 163,
+      "first_para": 408,
+      "last_para": 416,
+      "kind": "group"
+    },
+    {
+      "index": 70,
+      "start": 77243,
+      "end": 78650,
+      "n_words": 255,
+      "first_para": 417,
+      "last_para": 429,
+      "kind": "group"
+    },
+    {
+      "index": 71,
+      "start": 78652,
+      "end": 79685,
+      "n_words": 197,
+      "first_para": 430,
+      "last_para": 436,
+      "kind": "group"
+    },
+    {
+      "index": 72,
+      "start": 79687,
+      "end": 80632,
+      "n_words": 190,
+      "first_para": 437,
+      "last_para": 441,
+      "kind": "group"
+    },
+    {
+      "index": 73,
+      "start": 80634,
+      "end": 81515,
+      "n_words": 184,
+      "first_para": 442,
+      "last_para": 447,
+      "kind": "group"
+    },
+    {
+      "index": 74,
+      "start": 81517,
+      "end": 82579,
+      "n_words": 203,
+      "first_para": 448,
+      "last_para": 450,
+      "kind": "group"
+    },
+    {
+      "index": 75,
+      "start": 82581,
+      "end": 83697,
+      "n_words": 213,
+      "first_para": 451,
+      "last_para": 451,
+      "kind": "group"
+    },
+    {
+      "index": 76,
+      "start": 83699,
+      "end": 84786,
+      "n_words": 200,
+      "first_para": 452,
+      "last_para": 453,
+      "kind": "group"
+    },
+    {
+      "index": 77,
+      "start": 84788,
+      "end": 85683,
+      "n_words": 160,
+      "first_para": 454,
+      "last_para": 454,
+      "kind": "group"
+    }
+  ],
+  "group250": [
+    {
+      "index": 0,
+      "start": 0,
+      "end": 2436,
+      "n_words": 452,
+      "first_para": 0,
+      "last_para": 1,
+      "kind": "group"
+    },
+    {
+      "index": 1,
+      "start": 2438,
+      "end": 4122,
+      "n_words": 309,
+      "first_para": 2,
+      "last_para": 9,
+      "kind": "group"
+    },
+    {
+      "index": 2,
+      "start": 4124,
+      "end": 5459,
+      "n_words": 254,
+      "first_para": 10,
+      "last_para": 19,
+      "kind": "group"
+    },
+    {
+      "index": 3,
+      "start": 5461,
+      "end": 7649,
+      "n_words": 392,
+      "first_para": 20,
+      "last_para": 28,
+      "kind": "group"
+    },
+    {
+      "index": 4,
+      "start": 7651,
+      "end": 9015,
+      "n_words": 252,
+      "first_para": 29,
+      "last_para": 34,
+      "kind": "group"
+    },
+    {
+      "index": 5,
+      "start": 9017,
+      "end": 10465,
+      "n_words": 254,
+      "first_para": 35,
+      "last_para": 43,
+      "kind": "group"
+    },
+    {
+      "index": 6,
+      "start": 10467,
+      "end": 11981,
+      "n_words": 272,
+      "first_para": 44,
+      "last_para": 56,
+      "kind": "group"
+    },
+    {
+      "index": 7,
+      "start": 11983,
+      "end": 13643,
+      "n_words": 298,
+      "first_para": 57,
+      "last_para": 64,
+      "kind": "group"
+    },
+    {
+      "index": 8,
+      "start": 13645,
+      "end": 15033,
+      "n_words": 253,
+      "first_para": 65,
+      "last_para": 71,
+      "kind": "group"
+    },
+    {
+      "index": 9,
+      "start": 15035,
+      "end": 17085,
+      "n_words": 367,
+      "first_para": 72,
+      "last_para": 87,
+      "kind": "group"
+    },
+    {
+      "index": 10,
+      "start": 17087,
+      "end": 18856,
+      "n_words": 314,
+      "first_para": 88,
+      "last_para": 96,
+      "kind": "group"
+    },
+    {
+      "index": 11,
+      "start": 18858,
+      "end": 21192,
+      "n_words": 432,
+      "first_para": 97,
+      "last_para": 98,
+      "kind": "group"
+    },
+    {
+      "index": 12,
+      "start": 21194,
+      "end": 22579,
+      "n_words": 257,
+      "first_para": 99,
+      "last_para": 108,
+      "kind": "group"
+    },
+    {
+      "index": 13,
+      "start": 22581,
+      "end": 23979,
+      "n_words": 254,
+      "first_para": 109,
+      "last_para": 112,
+      "kind": "group"
+    },
+    {
+      "index": 14,
+      "start": 23981,
+      "end": 25406,
+      "n_words": 257,
+      "first_para": 113,
+      "last_para": 126,
+      "kind": "group"
+    },
+    {
+      "index": 15,
+      "start": 25408,
+      "end": 27645,
+      "n_words": 412,
+      "first_para": 127,
+      "last_para": 137,
+      "kind": "group"
+    },
+    {
+      "index": 16,
+      "start": 27647,
+      "end": 29098,
+      "n_words": 273,
+      "first_para": 138,
+      "last_para": 152,
+      "kind": "group"
+    },
+    {
+      "index": 17,
+      "start": 29100,
+      "end": 31101,
+      "n_words": 369,
+      "first_para": 153,
+      "last_para": 154,
+      "kind": "group"
+    },
+    {
+      "index": 18,
+      "start": 31103,
+      "end": 32697,
+      "n_words": 288,
+      "first_para": 155,
+      "last_para": 155,
+      "kind": "group"
+    },
+    {
+      "index": 19,
+      "start": 32699,
+      "end": 34080,
+      "n_words": 256,
+      "first_para": 156,
+      "last_para": 165,
+      "kind": "group"
+    },
+    {
+      "index": 20,
+      "start": 34082,
+      "end": 35446,
+      "n_words": 255,
+      "first_para": 166,
+      "last_para": 173,
+      "kind": "group"
+    },
+    {
+      "index": 21,
+      "start": 35448,
+      "end": 36828,
+      "n_words": 253,
+      "first_para": 174,
+      "last_para": 189,
+      "kind": "group"
+    },
+    {
+      "index": 22,
+      "start": 36830,
+      "end": 38919,
+      "n_words": 381,
+      "first_para": 190,
+      "last_para": 195,
+      "kind": "group"
+    },
+    {
+      "index": 23,
+      "start": 38921,
+      "end": 40833,
+      "n_words": 356,
+      "first_para": 196,
+      "last_para": 201,
+      "kind": "group"
+    },
+    {
+      "index": 24,
+      "start": 40835,
+      "end": 43301,
+      "n_words": 441,
+      "first_para": 202,
+      "last_para": 212,
+      "kind": "group"
+    },
+    {
+      "index": 25,
+      "start": 43303,
+      "end": 44864,
+      "n_words": 281,
+      "first_para": 213,
+      "last_para": 224,
+      "kind": "group"
+    },
+    {
+      "index": 26,
+      "start": 44866,
+      "end": 46172,
+      "n_words": 250,
+      "first_para": 225,
+      "last_para": 231,
+      "kind": "group"
+    },
+    {
+      "index": 27,
+      "start": 46174,
+      "end": 47635,
+      "n_words": 265,
+      "first_para": 232,
+      "last_para": 238,
+      "kind": "group"
+    },
+    {
+      "index": 28,
+      "start": 47637,
+      "end": 49058,
+      "n_words": 258,
+      "first_para": 239,
+      "last_para": 245,
+      "kind": "group"
+    },
+    {
+      "index": 29,
+      "start": 49060,
+      "end": 51344,
+      "n_words": 423,
+      "first_para": 246,
+      "last_para": 250,
+      "kind": "group"
+    },
+    {
+      "index": 30,
+      "start": 51346,
+      "end": 53408,
+      "n_words": 374,
+      "first_para": 251,
+      "last_para": 258,
+      "kind": "group"
+    },
+    {
+      "index": 31,
+      "start": 53410,
+      "end": 54882,
+      "n_words": 261,
+      "first_para": 259,
+      "last_para": 267,
+      "kind": "group"
+    },
+    {
+      "index": 32,
+      "start": 54884,
+      "end": 56329,
+      "n_words": 253,
+      "first_para": 268,
+      "last_para": 285,
+      "kind": "group"
+    },
+    {
+      "index": 33,
+      "start": 56331,
+      "end": 57840,
+      "n_words": 272,
+      "first_para": 286,
+      "last_para": 297,
+      "kind": "group"
+    },
+    {
+      "index": 34,
+      "start": 57842,
+      "end": 60280,
+      "n_words": 434,
+      "first_para": 298,
+      "last_para": 307,
+      "kind": "group"
+    },
+    {
+      "index": 35,
+      "start": 60282,
+      "end": 61887,
+      "n_words": 306,
+      "first_para": 308,
+      "last_para": 316,
+      "kind": "group"
+    },
+    {
+      "index": 36,
+      "start": 61889,
+      "end": 63274,
+      "n_words": 252,
+      "first_para": 317,
+      "last_para": 326,
+      "kind": "group"
+    },
+    {
+      "index": 37,
+      "start": 63276,
+      "end": 65053,
+      "n_words": 334,
+      "first_para": 327,
+      "last_para": 337,
+      "kind": "group"
+    },
+    {
+      "index": 38,
+      "start": 65055,
+      "end": 66751,
+      "n_words": 298,
+      "first_para": 338,
+      "last_para": 354,
+      "kind": "group"
+    },
+    {
+      "index": 39,
+      "start": 66753,
+      "end": 68566,
+      "n_words": 344,
+      "first_para": 355,
+      "last_para": 358,
+      "kind": "group"
+    },
+    {
+      "index": 40,
+      "start": 68568,
+      "end": 70011,
+      "n_words": 261,
+      "first_para": 359,
+      "last_para": 369,
+      "kind": "group"
+    },
+    {
+      "index": 41,
+      "start": 70013,
+      "end": 71667,
+      "n_words": 315,
+      "first_para": 370,
+      "last_para": 373,
+      "kind": "group"
+    },
+    {
+      "index": 42,
+      "start": 71669,
+      "end": 73019,
+      "n_words": 254,
+      "first_para": 374,
+      "last_para": 381,
+      "kind": "group"
+    },
+    {
+      "index": 43,
+      "start": 73021,
+      "end": 74377,
+      "n_words": 251,
+      "first_para": 382,
+      "last_para": 395,
+      "kind": "group"
+    },
+    {
+      "index": 44,
+      "start": 74379,
+      "end": 75727,
+      "n_words": 252,
+      "first_para": 396,
+      "last_para": 404,
+      "kind": "group"
+    },
+    {
+      "index": 45,
+      "start": 75729,
+      "end": 77102,
+      "n_words": 264,
+      "first_para": 405,
+      "last_para": 415,
+      "kind": "group"
+    },
+    {
+      "index": 46,
+      "start": 77104,
+      "end": 78650,
+      "n_words": 282,
+      "first_para": 416,
+      "last_para": 429,
+      "kind": "group"
+    },
+    {
+      "index": 47,
+      "start": 78652,
+      "end": 80031,
+      "n_words": 264,
+      "first_para": 430,
+      "last_para": 437,
+      "kind": "group"
+    },
+    {
+      "index": 48,
+      "start": 80033,
+      "end": 81302,
+      "n_words": 263,
+      "first_para": 438,
+      "last_para": 445,
+      "kind": "group"
+    },
+    {
+      "index": 49,
+      "start": 81304,
+      "end": 83697,
+      "n_words": 460,
+      "first_para": 446,
+      "last_para": 451,
+      "kind": "group"
+    },
+    {
+      "index": 50,
+      "start": 83699,
+      "end": 85683,
+      "n_words": 360,
+      "first_para": 452,
+      "last_para": 454,
+      "kind": "group"
+    }
+  ],
+  "window150_75": [
+    {
+      "index": 0,
+      "start": 0,
+      "end": 818,
+      "n_words": 150,
+      "first_para": 0,
+      "last_para": 1,
+      "kind": "window"
+    },
+    {
+      "index": 1,
+      "start": 400,
+      "end": 1219,
+      "n_words": 150,
+      "first_para": 0,
+      "last_para": 1,
+      "kind": "window"
+    },
+    {
+      "index": 2,
+      "start": 819,
+      "end": 1594,
+      "n_words": 150,
+      "first_para": 1,
+      "last_para": 1,
+      "kind": "window"
+    },
+    {
+      "index": 3,
+      "start": 1220,
+      "end": 2000,
+      "n_words": 150,
+      "first_para": 1,
+      "last_para": 1,
+      "kind": "window"
+    },
+    {
+      "index": 4,
+      "start": 1595,
+      "end": 2422,
+      "n_words": 150,
+      "first_para": 1,
+      "last_para": 1,
+      "kind": "window"
+    },
+    {
+      "index": 5,
+      "start": 2001,
+      "end": 2816,
+      "n_words": 150,
+      "first_para": 1,
+      "last_para": 2,
+      "kind": "window"
+    },
+    {
+      "index": 6,
+      "start": 2423,
+      "end": 3235,
+      "n_words": 150,
+      "first_para": 1,
+      "last_para": 4,
+      "kind": "window"
+    },
+    {
+      "index": 7,
+      "start": 2817,
+      "end": 3635,
+      "n_words": 150,
+      "first_para": 2,
+      "last_para": 8,
+      "kind": "window"
+    },
+    {
+      "index": 8,
+      "start": 3236,
+      "end": 4057,
+      "n_words": 150,
+      "first_para": 4,
+      "last_para": 9,
+      "kind": "window"
+    },
+    {
+      "index": 9,
+      "start": 3636,
+      "end": 4470,
+      "n_words": 150,
+      "first_para": 8,
+      "last_para": 11,
+      "kind": "window"
+    },
+    {
+      "index": 10,
+      "start": 4059,
+      "end": 4849,
+      "n_words": 150,
+      "first_para": 9,
+      "last_para": 13,
+      "kind": "window"
+    },
+    {
+      "index": 11,
+      "start": 4471,
+      "end": 5242,
+      "n_words": 150,
+      "first_para": 11,
+      "last_para": 18,
+      "kind": "window"
+    },
+    {
+      "index": 12,
+      "start": 4850,
+      "end": 5645,
+      "n_words": 150,
+      "first_para": 13,
+      "last_para": 20,
+      "kind": "window"
+    },
+    {
+      "index": 13,
+      "start": 5243,
+      "end": 6064,
+      "n_words": 150,
+      "first_para": 18,
+      "last_para": 21,
+      "kind": "window"
+    },
+    {
+      "index": 14,
+      "start": 5646,
+      "end": 6511,
+      "n_words": 150,
+      "first_para": 20,
+      "last_para": 26,
+      "kind": "window"
+    },
+    {
+      "index": 15,
+      "start": 6065,
+      "end": 6916,
+      "n_words": 150,
+      "first_para": 21,
+      "last_para": 28,
+      "kind": "window"
+    },
+    {
+      "index": 16,
+      "start": 6512,
+      "end": 7345,
+      "n_words": 150,
+      "first_para": 26,
+      "last_para": 28,
+      "kind": "window"
+    },
+    {
+      "index": 17,
+      "start": 6917,
+      "end": 7741,
+      "n_words": 150,
+      "first_para": 28,
+      "last_para": 29,
+      "kind": "window"
+    },
+    {
+      "index": 18,
+      "start": 7346,
+      "end": 8121,
+      "n_words": 150,
+      "first_para": 28,
+      "last_para": 29,
+      "kind": "window"
+    },
+    {
+      "index": 19,
+      "start": 7742,
+      "end": 8534,
+      "n_words": 150,
+      "first_para": 29,
+      "last_para": 31,
+      "kind": "window"
+    },
+    {
+      "index": 20,
+      "start": 8122,
+      "end": 8962,
+      "n_words": 150,
+      "first_para": 29,
+      "last_para": 34,
+      "kind": "window"
+    },
+    {
+      "index": 21,
+      "start": 8535,
+      "end": 9367,
+      "n_words": 150,
+      "first_para": 31,
+      "last_para": 37,
+      "kind": "window"
+    },
+    {
+      "index": 22,
+      "start": 8964,
+      "end": 9791,
+      "n_words": 150,
+      "first_para": 34,
+      "last_para": 39,
+      "kind": "window"
+    },
+    {
+      "index": 23,
+      "start": 9372,
+      "end": 10240,
+      "n_words": 150,
+      "first_para": 37,
+      "last_para": 42,
+      "kind": "window"
+    },
+    {
+      "index": 24,
+      "start": 9792,
+      "end": 10687,
+      "n_words": 150,
+      "first_para": 39,
+      "last_para": 46,
+      "kind": "window"
+    },
+    {
+      "index": 25,
+      "start": 10241,
+      "end": 11122,
+      "n_words": 150,
+      "first_para": 42,
+      "last_para": 50,
+      "kind": "window"
+    },
+    {
+      "index": 26,
+      "start": 10688,
+      "end": 11497,
+      "n_words": 150,
+      "first_para": 46,
+      "last_para": 52,
+      "kind": "window"
+    },
+    {
+      "index": 27,
+      "start": 11127,
+      "end": 11919,
+      "n_words": 150,
+      "first_para": 51,
+      "last_para": 56,
+      "kind": "window"
+    },
+    {
+      "index": 28,
+      "start": 11498,
+      "end": 12339,
+      "n_words": 150,
+      "first_para": 52,
+      "last_para": 59,
+      "kind": "window"
+    },
+    {
+      "index": 29,
+      "start": 11920,
+      "end": 12770,
+      "n_words": 150,
+      "first_para": 56,
+      "last_para": 62,
+      "kind": "window"
+    },
+    {
+      "index": 30,
+      "start": 12340,
+      "end": 13179,
+      "n_words": 150,
+      "first_para": 59,
+      "last_para": 64,
+      "kind": "window"
+    },
+    {
+      "index": 31,
+      "start": 12771,
+      "end": 13592,
+      "n_words": 150,
+      "first_para": 62,
+      "last_para": 64,
+      "kind": "window"
+    },
+    {
+      "index": 32,
+      "start": 13180,
+      "end": 14004,
+      "n_words": 150,
+      "first_para": 64,
+      "last_para": 65,
+      "kind": "window"
+    },
+    {
+      "index": 33,
+      "start": 13593,
+      "end": 14436,
+      "n_words": 150,
+      "first_para": 64,
+      "last_para": 69,
+      "kind": "window"
+    },
+    {
+      "index": 34,
+      "start": 14005,
+      "end": 14835,
+      "n_words": 150,
+      "first_para": 65,
+      "last_para": 71,
+      "kind": "window"
+    },
+    {
+      "index": 35,
+      "start": 14437,
+      "end": 15277,
+      "n_words": 150,
+      "first_para": 69,
+      "last_para": 76,
+      "kind": "window"
+    },
+    {
+      "index": 36,
+      "start": 14836,
+      "end": 15692,
+      "n_words": 150,
+      "first_para": 71,
+      "last_para": 79,
+      "kind": "window"
+    },
+    {
+      "index": 37,
+      "start": 15278,
+      "end": 16107,
+      "n_words": 150,
+      "first_para": 76,
+      "last_para": 83,
+      "kind": "window"
+    },
+    {
+      "index": 38,
+      "start": 15693,
+      "end": 16540,
+      "n_words": 150,
+      "first_para": 79,
+      "last_para": 87,
+      "kind": "window"
+    },
+    {
+      "index": 39,
+      "start": 16109,
+      "end": 16936,
+      "n_words": 150,
+      "first_para": 83,
+      "last_para": 87,
+      "kind": "window"
+    },
+    {
+      "index": 40,
+      "start": 16541,
+      "end": 17356,
+      "n_words": 150,
+      "first_para": 87,
+      "last_para": 89,
+      "kind": "window"
+    },
+    {
+      "index": 41,
+      "start": 16937,
+      "end": 17770,
+      "n_words": 150,
+      "first_para": 87,
+      "last_para": 94,
+      "kind": "window"
+    },
+    {
+      "index": 42,
+      "start": 17357,
+      "end": 18184,
+      "n_words": 150,
+      "first_para": 89,
+      "last_para": 96,
+      "kind": "window"
+    },
+    {
+      "index": 43,
+      "start": 17771,
+      "end": 18614,
+      "n_words": 150,
+      "first_para": 94,
+      "last_para": 96,
+      "kind": "window"
+    },
+    {
+      "index": 44,
+      "start": 18186,
+      "end": 19043,
+      "n_words": 150,
+      "first_para": 96,
+      "last_para": 97,
+      "kind": "window"
+    },
+    {
+      "index": 45,
+      "start": 18615,
+      "end": 19447,
+      "n_words": 150,
+      "first_para": 96,
+      "last_para": 97,
+      "kind": "window"
+    },
+    {
+      "index": 46,
+      "start": 19044,
+      "end": 19863,
+      "n_words": 150,
+      "first_para": 97,
+      "last_para": 98,
+      "kind": "window"
+    },
+    {
+      "index": 47,
+      "start": 19448,
+      "end": 20259,
+      "n_words": 150,
+      "first_para": 97,
+      "last_para": 98,
+      "kind": "window"
+    },
+    {
+      "index": 48,
+      "start": 19864,
+      "end": 20648,
+      "n_words": 150,
+      "first_para": 98,
+      "last_para": 98,
+      "kind": "window"
+    },
+    {
+      "index": 49,
+      "start": 20260,
+      "end": 21070,
+      "n_words": 150,
+      "first_para": 98,
+      "last_para": 98,
+      "kind": "window"
+    },
+    {
+      "index": 50,
+      "start": 20649,
+      "end": 21445,
+      "n_words": 150,
+      "first_para": 98,
+      "last_para": 99,
+      "kind": "window"
+    },
+    {
+      "index": 51,
+      "start": 21071,
+      "end": 21868,
+      "n_words": 150,
+      "first_para": 98,
+      "last_para": 100,
+      "kind": "window"
+    },
+    {
+      "index": 52,
+      "start": 21446,
+      "end": 22268,
+      "n_words": 150,
+      "first_para": 99,
+      "last_para": 105,
+      "kind": "window"
+    },
+    {
+      "index": 53,
+      "start": 21869,
+      "end": 22691,
+      "n_words": 150,
+      "first_para": 100,
+      "last_para": 110,
+      "kind": "window"
+    },
+    {
+      "index": 54,
+      "start": 22270,
+      "end": 23096,
+      "n_words": 150,
+      "first_para": 105,
+      "last_para": 111,
+      "kind": "window"
+    },
+    {
+      "index": 55,
+      "start": 22692,
+      "end": 23498,
+      "n_words": 150,
+      "first_para": 110,
+      "last_para": 111,
+      "kind": "window"
+    },
+    {
+      "index": 56,
+      "start": 23097,
+      "end": 23932,
+      "n_words": 150,
+      "first_para": 111,
+      "last_para": 112,
+      "kind": "window"
+    },
+    {
+      "index": 57,
+      "start": 23499,
+      "end": 24331,
+      "n_words": 150,
+      "first_para": 111,
+      "last_para": 115,
+      "kind": "window"
+    },
+    {
+      "index": 58,
+      "start": 23933,
+      "end": 24746,
+      "n_words": 150,
+      "first_para": 112,
+      "last_para": 117,
+      "kind": "window"
+    },
+    {
+      "index": 59,
+      "start": 24332,
+      "end": 25178,
+      "n_words": 150,
+      "first_para": 115,
+      "last_para": 124,
+      "kind": "window"
+    },
+    {
+      "index": 60,
+      "start": 24747,
+      "end": 25599,
+      "n_words": 150,
+      "first_para": 117,
+      "last_para": 127,
+      "kind": "window"
+    },
+    {
+      "index": 61,
+      "start": 25179,
+      "end": 26027,
+      "n_words": 150,
+      "first_para": 124,
+      "last_para": 133,
+      "kind": "window"
+    },
+    {
+      "index": 62,
+      "start": 25600,
+      "end": 26425,
+      "n_words": 150,
+      "first_para": 127,
+      "last_para": 135,
+      "kind": "window"
+    },
+    {
+      "index": 63,
+      "start": 26028,
+      "end": 26825,
+      "n_words": 150,
+      "first_para": 133,
+      "last_para": 137,
+      "kind": "window"
+    },
+    {
+      "index": 64,
+      "start": 26426,
+      "end": 27227,
+      "n_words": 150,
+      "first_para": 135,
+      "last_para": 137,
+      "kind": "window"
+    },
+    {
+      "index": 65,
+      "start": 26826,
+      "end": 27621,
+      "n_words": 150,
+      "first_para": 137,
+      "last_para": 137,
+      "kind": "window"
+    },
+    {
+      "index": 66,
+      "start": 27228,
+      "end": 28021,
+      "n_words": 150,
+      "first_para": 137,
+      "last_para": 141,
+      "kind": "window"
+    },
+    {
+      "index": 67,
+      "start": 27622,
+      "end": 28417,
+      "n_words": 150,
+      "first_para": 137,
+      "last_para": 147,
+      "kind": "window"
+    },
+    {
+      "index": 68,
+      "start": 28022,
+      "end": 28834,
+      "n_words": 150,
+      "first_para": 141,
+      "last_para": 152,
+      "kind": "window"
+    },
+    {
+      "index": 69,
+      "start": 28418,
+      "end": 29222,
+      "n_words": 150,
+      "first_para": 147,
+      "last_para": 153,
+      "kind": "window"
+    },
+    {
+      "index": 70,
+      "start": 28835,
+      "end": 29651,
+      "n_words": 150,
+      "first_para": 152,
+      "last_para": 153,
+      "kind": "window"
+    },
+    {
+      "index": 71,
+      "start": 29223,
+      "end": 30046,
+      "n_words": 150,
+      "first_para": 153,
+      "last_para": 154,
+      "kind": "window"
+    },
+    {
+      "index": 72,
+      "start": 29652,
+      "end": 30463,
+      "n_words": 150,
+      "first_para": 153,
+      "last_para": 154,
+      "kind": "window"
+    },
+    {
+      "index": 73,
+      "start": 30047,
+      "end": 30847,
+      "n_words": 150,
+      "first_para": 154,
+      "last_para": 154,
+      "kind": "window"
+    },
+    {
+      "index": 74,
+      "start": 30464,
+      "end": 31273,
+      "n_words": 150,
+      "first_para": 154,
+      "last_para": 155,
+      "kind": "window"
+    },
+    {
+      "index": 75,
+      "start": 30848,
+      "end": 31688,
+      "n_words": 150,
+      "first_para": 154,
+      "last_para": 155,
+      "kind": "window"
+    },
+    {
+      "index": 76,
+      "start": 31275,
+      "end": 32105,
+      "n_words": 150,
+      "first_para": 155,
+      "last_para": 155,
+      "kind": "window"
+    },
+    {
+      "index": 77,
+      "start": 31689,
+      "end": 32526,
+      "n_words": 150,
+      "first_para": 155,
+      "last_para": 155,
+      "kind": "window"
+    },
+    {
+      "index": 78,
+      "start": 32106,
+      "end": 32902,
+      "n_words": 150,
+      "first_para": 155,
+      "last_para": 156,
+      "kind": "window"
+    },
+    {
+      "index": 79,
+      "start": 32527,
+      "end": 33335,
+      "n_words": 150,
+      "first_para": 155,
+      "last_para": 159,
+      "kind": "window"
+    },
+    {
+      "index": 80,
+      "start": 32903,
+      "end": 33739,
+      "n_words": 150,
+      "first_para": 156,
+      "last_para": 163,
+      "kind": "window"
+    },
+    {
+      "index": 81,
+      "start": 33336,
+      "end": 34137,
+      "n_words": 150,
+      "first_para": 159,
+      "last_para": 166,
+      "kind": "window"
+    },
+    {
+      "index": 82,
+      "start": 33740,
+      "end": 34534,
+      "n_words": 150,
+      "first_para": 163,
+      "last_para": 169,
+      "kind": "window"
+    },
+    {
+      "index": 83,
+      "start": 34138,
+      "end": 34911,
+      "n_words": 150,
+      "first_para": 166,
+      "last_para": 170,
+      "kind": "window"
+    },
+    {
+      "index": 84,
+      "start": 34535,
+      "end": 35332,
+      "n_words": 150,
+      "first_para": 169,
+      "last_para": 173,
+      "kind": "window"
+    },
+    {
+      "index": 85,
+      "start": 34912,
+      "end": 35760,
+      "n_words": 150,
+      "first_para": 170,
+      "last_para": 177,
+      "kind": "window"
+    },
+    {
+      "index": 86,
+      "start": 35333,
+      "end": 36165,
+      "n_words": 150,
+      "first_para": 173,
+      "last_para": 179,
+      "kind": "window"
+    },
+    {
+      "index": 87,
+      "start": 35761,
+      "end": 36568,
+      "n_words": 150,
+      "first_para": 177,
+      "last_para": 186,
+      "kind": "window"
+    },
+    {
+      "index": 88,
+      "start": 36170,
+      "end": 36984,
+      "n_words": 150,
+      "first_para": 180,
+      "last_para": 191,
+      "kind": "window"
+    },
+    {
+      "index": 89,
+      "start": 36569,
+      "end": 37408,
+      "n_words": 150,
+      "first_para": 186,
+      "last_para": 193,
+      "kind": "window"
+    },
+    {
+      "index": 90,
+      "start": 36985,
+      "end": 37796,
+      "n_words": 150,
+      "first_para": 191,
+      "last_para": 195,
+      "kind": "window"
+    },
+    {
+      "index": 91,
+      "start": 37409,
+      "end": 38205,
+      "n_words": 150,
+      "first_para": 193,
+      "last_para": 195,
+      "kind": "window"
+    },
+    {
+      "index": 92,
+      "start": 37797,
+      "end": 38618,
+      "n_words": 150,
+      "first_para": 195,
+      "last_para": 195,
+      "kind": "window"
+    },
+    {
+      "index": 93,
+      "start": 38207,
+      "end": 39028,
+      "n_words": 150,
+      "first_para": 195,
+      "last_para": 196,
+      "kind": "window"
+    },
+    {
+      "index": 94,
+      "start": 38619,
+      "end": 39421,
+      "n_words": 150,
+      "first_para": 195,
+      "last_para": 201,
+      "kind": "window"
+    },
+    {
+      "index": 95,
+      "start": 39029,
+      "end": 39809,
+      "n_words": 150,
+      "first_para": 196,
+      "last_para": 201,
+      "kind": "window"
+    },
+    {
+      "index": 96,
+      "start": 39422,
+      "end": 40214,
+      "n_words": 150,
+      "first_para": 201,
+      "last_para": 201,
+      "kind": "window"
+    },
+    {
+      "index": 97,
+      "start": 39810,
+      "end": 40640,
+      "n_words": 150,
+      "first_para": 201,
+      "last_para": 201,
+      "kind": "window"
+    },
+    {
+      "index": 98,
+      "start": 40215,
+      "end": 41053,
+      "n_words": 150,
+      "first_para": 201,
+      "last_para": 204,
+      "kind": "window"
+    },
+    {
+      "index": 99,
+      "start": 40641,
+      "end": 41491,
+      "n_words": 150,
+      "first_para": 201,
+      "last_para": 206,
+      "kind": "window"
+    },
+    {
+      "index": 100,
+      "start": 41054,
+      "end": 41924,
+      "n_words": 150,
+      "first_para": 204,
+      "last_para": 208,
+      "kind": "window"
+    },
+    {
+      "index": 101,
+      "start": 41493,
+      "end": 42352,
+      "n_words": 150,
+      "first_para": 206,
+      "last_para": 212,
+      "kind": "window"
+    },
+    {
+      "index": 102,
+      "start": 41925,
+      "end": 42764,
+      "n_words": 150,
+      "first_para": 208,
+      "last_para": 212,
+      "kind": "window"
+    },
+    {
+      "index": 103,
+      "start": 42353,
+      "end": 43157,
+      "n_words": 150,
+      "first_para": 212,
+      "last_para": 212,
+      "kind": "window"
+    },
+    {
+      "index": 104,
+      "start": 42765,
+      "end": 43583,
+      "n_words": 150,
+      "first_para": 212,
+      "last_para": 215,
+      "kind": "window"
+    },
+    {
+      "index": 105,
+      "start": 43158,
+      "end": 43980,
+      "n_words": 150,
+      "first_para": 212,
+      "last_para": 220,
+      "kind": "window"
+    },
+    {
+      "index": 106,
+      "start": 43584,
+      "end": 44389,
+      "n_words": 150,
+      "first_para": 215,
+      "last_para": 223,
+      "kind": "window"
+    },
+    {
+      "index": 107,
+      "start": 43981,
+      "end": 44828,
+      "n_words": 150,
+      "first_para": 220,
+      "last_para": 224,
+      "kind": "window"
+    },
+    {
+      "index": 108,
+      "start": 44392,
+      "end": 45231,
+      "n_words": 150,
+      "first_para": 224,
+      "last_para": 226,
+      "kind": "window"
+    },
+    {
+      "index": 109,
+      "start": 44829,
+      "end": 45617,
+      "n_words": 150,
+      "first_para": 224,
+      "last_para": 227,
+      "kind": "window"
+    },
+    {
+      "index": 110,
+      "start": 45232,
+      "end": 46009,
+      "n_words": 150,
+      "first_para": 226,
+      "last_para": 230,
+      "kind": "window"
+    },
+    {
+      "index": 111,
+      "start": 45618,
+      "end": 46400,
+      "n_words": 150,
+      "first_para": 227,
+      "last_para": 233,
+      "kind": "window"
+    },
+    {
+      "index": 112,
+      "start": 46010,
+      "end": 46800,
+      "n_words": 150,
+      "first_para": 230,
+      "last_para": 236,
+      "kind": "window"
+    },
+    {
+      "index": 113,
+      "start": 46401,
+      "end": 47225,
+      "n_words": 150,
+      "first_para": 233,
+      "last_para": 238,
+      "kind": "window"
+    },
+    {
+      "index": 114,
+      "start": 46801,
+      "end": 47651,
+      "n_words": 150,
+      "first_para": 236,
+      "last_para": 239,
+      "kind": "window"
+    },
+    {
+      "index": 115,
+      "start": 47226,
+      "end": 48094,
+      "n_words": 150,
+      "first_para": 238,
+      "last_para": 239,
+      "kind": "window"
+    },
+    {
+      "index": 116,
+      "start": 47652,
+      "end": 48494,
+      "n_words": 150,
+      "first_para": 239,
+      "last_para": 242,
+      "kind": "window"
+    },
+    {
+      "index": 117,
+      "start": 48095,
+      "end": 48891,
+      "n_words": 150,
+      "first_para": 239,
+      "last_para": 245,
+      "kind": "window"
+    },
+    {
+      "index": 118,
+      "start": 48495,
+      "end": 49302,
+      "n_words": 150,
+      "first_para": 242,
+      "last_para": 247,
+      "kind": "window"
+    },
+    {
+      "index": 119,
+      "start": 48892,
+      "end": 49689,
+      "n_words": 150,
+      "first_para": 245,
+      "last_para": 247,
+      "kind": "window"
+    },
+    {
+      "index": 120,
+      "start": 49303,
+      "end": 50074,
+      "n_words": 150,
+      "first_para": 247,
+      "last_para": 247,
+      "kind": "window"
+    },
+    {
+      "index": 121,
+      "start": 49690,
+      "end": 50504,
+      "n_words": 150,
+      "first_para": 247,
+      "last_para": 250,
+      "kind": "window"
+    },
+    {
+      "index": 122,
+      "start": 50075,
+      "end": 50925,
+      "n_words": 150,
+      "first_para": 247,
+      "last_para": 250,
+      "kind": "window"
+    },
+    {
+      "index": 123,
+      "start": 50505,
+      "end": 51324,
+      "n_words": 150,
+      "first_para": 250,
+      "last_para": 250,
+      "kind": "window"
+    },
+    {
+      "index": 124,
+      "start": 50926,
+      "end": 51752,
+      "n_words": 150,
+      "first_para": 250,
+      "last_para": 252,
+      "kind": "window"
+    },
+    {
+      "index": 125,
+      "start": 51325,
+      "end": 52164,
+      "n_words": 150,
+      "first_para": 250,
+      "last_para": 253,
+      "kind": "window"
+    },
+    {
+      "index": 126,
+      "start": 51753,
+      "end": 52578,
+      "n_words": 150,
+      "first_para": 252,
+      "last_para": 255,
+      "kind": "window"
+    },
+    {
+      "index": 127,
+      "start": 52165,
+      "end": 52995,
+      "n_words": 150,
+      "first_para": 253,
+      "last_para": 258,
+      "kind": "window"
+    },
+    {
+      "index": 128,
+      "start": 52581,
+      "end": 53396,
+      "n_words": 150,
+      "first_para": 256,
+      "last_para": 258,
+      "kind": "window"
+    },
+    {
+      "index": 129,
+      "start": 52996,
+      "end": 53827,
+      "n_words": 150,
+      "first_para": 258,
+      "last_para": 260,
+      "kind": "window"
+    },
+    {
+      "index": 130,
+      "start": 53397,
+      "end": 54239,
+      "n_words": 150,
+      "first_para": 258,
+      "last_para": 263,
+      "kind": "window"
+    },
+    {
+      "index": 131,
+      "start": 53828,
+      "end": 54673,
+      "n_words": 150,
+      "first_para": 260,
+      "last_para": 266,
+      "kind": "window"
+    },
+    {
+      "index": 132,
+      "start": 54240,
+      "end": 55089,
+      "n_words": 150,
+      "first_para": 263,
+      "last_para": 270,
+      "kind": "window"
+    },
+    {
+      "index": 133,
+      "start": 54674,
+      "end": 55509,
+      "n_words": 150,
+      "first_para": 266,
+      "last_para": 276,
+      "kind": "window"
+    },
+    {
+      "index": 134,
+      "start": 55090,
+      "end": 55904,
+      "n_words": 150,
+      "first_para": 270,
+      "last_para": 278,
+      "kind": "window"
+    },
+    {
+      "index": 135,
+      "start": 55513,
+      "end": 56377,
+      "n_words": 150,
+      "first_para": 277,
+      "last_para": 286,
+      "kind": "window"
+    },
+    {
+      "index": 136,
+      "start": 55907,
+      "end": 56769,
+      "n_words": 150,
+      "first_para": 279,
+      "last_para": 289,
+      "kind": "window"
+    },
+    {
+      "index": 137,
+      "start": 56378,
+      "end": 57231,
+      "n_words": 150,
+      "first_para": 286,
+      "last_para": 295,
+      "kind": "window"
+    },
+    {
+      "index": 138,
+      "start": 56770,
+      "end": 57636,
+      "n_words": 150,
+      "first_para": 289,
+      "last_para": 297,
+      "kind": "window"
+    },
+    {
+      "index": 139,
+      "start": 57232,
+      "end": 58064,
+      "n_words": 150,
+      "first_para": 295,
+      "last_para": 300,
+      "kind": "window"
+    },
+    {
+      "index": 140,
+      "start": 57637,
+      "end": 58469,
+      "n_words": 150,
+      "first_para": 297,
+      "last_para": 302,
+      "kind": "window"
+    },
+    {
+      "index": 141,
+      "start": 58065,
+      "end": 58909,
+      "n_words": 150,
+      "first_para": 300,
+      "last_para": 303,
+      "kind": "window"
+    },
+    {
+      "index": 142,
+      "start": 58470,
+      "end": 59327,
+      "n_words": 150,
+      "first_para": 302,
+      "last_para": 307,
+      "kind": "window"
+    },
+    {
+      "index": 143,
+      "start": 58910,
+      "end": 59732,
+      "n_words": 150,
+      "first_para": 303,
+      "last_para": 307,
+      "kind": "window"
+    },
+    {
+      "index": 144,
+      "start": 59328,
+      "end": 60142,
+      "n_words": 150,
+      "first_para": 307,
+      "last_para": 307,
+      "kind": "window"
+    },
+    {
+      "index": 145,
+      "start": 59733,
+      "end": 60597,
+      "n_words": 150,
+      "first_para": 307,
+      "last_para": 314,
+      "kind": "window"
+    },
+    {
+      "index": 146,
+      "start": 60143,
+      "end": 60966,
+      "n_words": 150,
+      "first_para": 307,
+      "last_para": 315,
+      "kind": "window"
+    },
+    {
+      "index": 147,
+      "start": 60598,
+      "end": 61364,
+      "n_words": 150,
+      "first_para": 314,
+      "last_para": 316,
+      "kind": "window"
+    },
+    {
+      "index": 148,
+      "start": 60967,
+      "end": 61740,
+      "n_words": 150,
+      "first_para": 315,
+      "last_para": 316,
+      "kind": "window"
+    },
+    {
+      "index": 149,
+      "start": 61365,
+      "end": 62165,
+      "n_words": 150,
+      "first_para": 316,
+      "last_para": 319,
+      "kind": "window"
+    },
+    {
+      "index": 150,
+      "start": 61741,
+      "end": 62571,
+      "n_words": 150,
+      "first_para": 316,
+      "last_para": 320,
+      "kind": "window"
+    },
+    {
+      "index": 151,
+      "start": 62166,
+      "end": 62972,
+      "n_words": 150,
+      "first_para": 319,
+      "last_para": 324,
+      "kind": "window"
+    },
+    {
+      "index": 152,
+      "start": 62572,
+      "end": 63374,
+      "n_words": 150,
+      "first_para": 320,
+      "last_para": 327,
+      "kind": "window"
+    },
+    {
+      "index": 153,
+      "start": 62975,
+      "end": 63765,
+      "n_words": 150,
+      "first_para": 324,
+      "last_para": 330,
+      "kind": "window"
+    },
+    {
+      "index": 154,
+      "start": 63375,
+      "end": 64206,
+      "n_words": 150,
+      "first_para": 327,
+      "last_para": 335,
+      "kind": "window"
+    },
+    {
+      "index": 155,
+      "start": 63766,
+      "end": 64606,
+      "n_words": 150,
+      "first_para": 330,
+      "last_para": 337,
+      "kind": "window"
+    },
+    {
+      "index": 156,
+      "start": 64207,
+      "end": 64982,
+      "n_words": 150,
+      "first_para": 335,
+      "last_para": 337,
+      "kind": "window"
+    },
+    {
+      "index": 157,
+      "start": 64608,
+      "end": 65383,
+      "n_words": 150,
+      "first_para": 337,
+      "last_para": 341,
+      "kind": "window"
+    },
+    {
+      "index": 158,
+      "start": 64983,
+      "end": 65825,
+      "n_words": 150,
+      "first_para": 337,
+      "last_para": 348,
+      "kind": "window"
+    },
+    {
+      "index": 159,
+      "start": 65384,
+      "end": 66260,
+      "n_words": 150,
+      "first_para": 341,
+      "last_para": 353,
+      "kind": "window"
+    },
+    {
+      "index": 160,
+      "start": 65826,
+      "end": 66668,
+      "n_words": 150,
+      "first_para": 348,
+      "last_para": 354,
+      "kind": "window"
+    },
+    {
+      "index": 161,
+      "start": 66261,
+      "end": 67095,
+      "n_words": 150,
+      "first_para": 353,
+      "last_para": 355,
+      "kind": "window"
+    },
+    {
+      "index": 162,
+      "start": 66670,
+      "end": 67501,
+      "n_words": 150,
+      "first_para": 354,
+      "last_para": 355,
+      "kind": "window"
+    },
+    {
+      "index": 163,
+      "start": 67096,
+      "end": 67875,
+      "n_words": 150,
+      "first_para": 355,
+      "last_para": 358,
+      "kind": "window"
+    },
+    {
+      "index": 164,
+      "start": 67502,
+      "end": 68280,
+      "n_words": 150,
+      "first_para": 355,
+      "last_para": 358,
+      "kind": "window"
+    },
+    {
+      "index": 165,
+      "start": 67876,
+      "end": 68672,
+      "n_words": 150,
+      "first_para": 358,
+      "last_para": 359,
+      "kind": "window"
+    },
+    {
+      "index": 166,
+      "start": 68281,
+      "end": 69063,
+      "n_words": 150,
+      "first_para": 358,
+      "last_para": 362,
+      "kind": "window"
+    },
+    {
+      "index": 167,
+      "start": 68673,
+      "end": 69493,
+      "n_words": 150,
+      "first_para": 359,
+      "last_para": 363,
+      "kind": "window"
+    },
+    {
+      "index": 168,
+      "start": 69064,
+      "end": 69925,
+      "n_words": 150,
+      "first_para": 362,
+      "last_para": 369,
+      "kind": "window"
+    },
+    {
+      "index": 169,
+      "start": 69494,
+      "end": 70316,
+      "n_words": 150,
+      "first_para": 363,
+      "last_para": 372,
+      "kind": "window"
+    },
+    {
+      "index": 170,
+      "start": 69927,
+      "end": 70706,
+      "n_words": 150,
+      "first_para": 369,
+      "last_para": 372,
+      "kind": "window"
+    },
+    {
+      "index": 171,
+      "start": 70318,
+      "end": 71108,
+      "n_words": 150,
+      "first_para": 372,
+      "last_para": 373,
+      "kind": "window"
+    },
+    {
+      "index": 172,
+      "start": 70707,
+      "end": 71502,
+      "n_words": 150,
+      "first_para": 372,
+      "last_para": 373,
+      "kind": "window"
+    },
+    {
+      "index": 173,
+      "start": 71109,
+      "end": 71892,
+      "n_words": 150,
+      "first_para": 373,
+      "last_para": 376,
+      "kind": "window"
+    },
+    {
+      "index": 174,
+      "start": 71503,
+      "end": 72294,
+      "n_words": 150,
+      "first_para": 373,
+      "last_para": 378,
+      "kind": "window"
+    },
+    {
+      "index": 175,
+      "start": 71893,
+      "end": 72672,
+      "n_words": 150,
+      "first_para": 376,
+      "last_para": 379,
+      "kind": "window"
+    },
+    {
+      "index": 176,
+      "start": 72295,
+      "end": 73098,
+      "n_words": 150,
+      "first_para": 378,
+      "last_para": 384,
+      "kind": "window"
+    },
+    {
+      "index": 177,
+      "start": 72673,
+      "end": 73523,
+      "n_words": 150,
+      "first_para": 379,
+      "last_para": 391,
+      "kind": "window"
+    },
+    {
+      "index": 178,
+      "start": 73099,
+      "end": 73906,
+      "n_words": 150,
+      "first_para": 384,
+      "last_para": 392,
+      "kind": "window"
+    },
+    {
+      "index": 179,
+      "start": 73524,
+      "end": 74301,
+      "n_words": 150,
+      "first_para": 391,
+      "last_para": 395,
+      "kind": "window"
+    },
+    {
+      "index": 180,
+      "start": 73907,
+      "end": 74729,
+      "n_words": 150,
+      "first_para": 392,
+      "last_para": 398,
+      "kind": "window"
+    },
+    {
+      "index": 181,
+      "start": 74302,
+      "end": 75133,
+      "n_words": 150,
+      "first_para": 395,
+      "last_para": 398,
+      "kind": "window"
+    },
+    {
+      "index": 182,
+      "start": 74730,
+      "end": 75539,
+      "n_words": 150,
+      "first_para": 398,
+      "last_para": 402,
+      "kind": "window"
+    },
+    {
+      "index": 183,
+      "start": 75134,
+      "end": 75914,
+      "n_words": 150,
+      "first_para": 398,
+      "last_para": 405,
+      "kind": "window"
+    },
+    {
+      "index": 184,
+      "start": 75540,
+      "end": 76307,
+      "n_words": 150,
+      "first_para": 402,
+      "last_para": 407,
+      "kind": "window"
+    },
+    {
+      "index": 185,
+      "start": 75915,
+      "end": 76700,
+      "n_words": 150,
+      "first_para": 405,
+      "last_para": 412,
+      "kind": "window"
+    },
+    {
+      "index": 186,
+      "start": 76308,
+      "end": 77083,
+      "n_words": 150,
+      "first_para": 407,
+      "last_para": 415,
+      "kind": "window"
+    },
+    {
+      "index": 187,
+      "start": 76701,
+      "end": 77475,
+      "n_words": 150,
+      "first_para": 412,
+      "last_para": 420,
+      "kind": "window"
+    },
+    {
+      "index": 188,
+      "start": 77084,
+      "end": 77877,
+      "n_words": 150,
+      "first_para": 415,
+      "last_para": 427,
+      "kind": "window"
+    },
+    {
+      "index": 189,
+      "start": 77478,
+      "end": 78297,
+      "n_words": 150,
+      "first_para": 420,
+      "last_para": 429,
+      "kind": "window"
+    },
+    {
+      "index": 190,
+      "start": 77878,
+      "end": 78725,
+      "n_words": 150,
+      "first_para": 427,
+      "last_para": 430,
+      "kind": "window"
+    },
+    {
+      "index": 191,
+      "start": 78298,
+      "end": 79122,
+      "n_words": 150,
+      "first_para": 429,
+      "last_para": 435,
+      "kind": "window"
+    },
+    {
+      "index": 192,
+      "start": 78726,
+      "end": 79524,
+      "n_words": 150,
+      "first_para": 430,
+      "last_para": 436,
+      "kind": "window"
+    },
+    {
+      "index": 193,
+      "start": 79123,
+      "end": 79900,
+      "n_words": 150,
+      "first_para": 435,
+      "last_para": 437,
+      "kind": "window"
+    },
+    {
+      "index": 194,
+      "start": 79526,
+      "end": 80284,
+      "n_words": 150,
+      "first_para": 436,
+      "last_para": 439,
+      "kind": "window"
+    },
+    {
+      "index": 195,
+      "start": 79901,
+      "end": 80648,
+      "n_words": 150,
+      "first_para": 437,
+      "last_para": 442,
+      "kind": "window"
+    },
+    {
+      "index": 196,
+      "start": 80285,
+      "end": 81028,
+      "n_words": 150,
+      "first_para": 439,
+      "last_para": 444,
+      "kind": "window"
+    },
+    {
+      "index": 197,
+      "start": 80649,
+      "end": 81370,
+      "n_words": 150,
+      "first_para": 442,
+      "last_para": 447,
+      "kind": "window"
+    },
+    {
+      "index": 198,
+      "start": 81029,
+      "end": 81771,
+      "n_words": 150,
+      "first_para": 444,
+      "last_para": 448,
+      "kind": "window"
+    },
+    {
+      "index": 199,
+      "start": 81371,
+      "end": 82159,
+      "n_words": 150,
+      "first_para": 447,
+      "last_para": 450,
+      "kind": "window"
+    },
+    {
+      "index": 200,
+      "start": 81772,
+      "end": 82528,
+      "n_words": 150,
+      "first_para": 448,
+      "last_para": 450,
+      "kind": "window"
+    },
+    {
+      "index": 201,
+      "start": 82160,
+      "end": 82920,
+      "n_words": 150,
+      "first_para": 450,
+      "last_para": 451,
+      "kind": "window"
+    },
+    {
+      "index": 202,
+      "start": 82529,
+      "end": 83317,
+      "n_words": 150,
+      "first_para": 450,
+      "last_para": 451,
+      "kind": "window"
+    },
+    {
+      "index": 203,
+      "start": 82921,
+      "end": 83709,
+      "n_words": 150,
+      "first_para": 451,
+      "last_para": 452,
+      "kind": "window"
+    },
+    {
+      "index": 204,
+      "start": 83318,
+      "end": 84111,
+      "n_words": 150,
+      "first_para": 451,
+      "last_para": 452,
+      "kind": "window"
+    },
+    {
+      "index": 205,
+      "start": 83710,
+      "end": 84511,
+      "n_words": 150,
+      "first_para": 452,
+      "last_para": 453,
+      "kind": "window"
+    },
+    {
+      "index": 206,
+      "start": 84112,
+      "end": 84932,
+      "n_words": 150,
+      "first_para": 452,
+      "last_para": 454,
+      "kind": "window"
+    },
+    {
+      "index": 207,
+      "start": 84512,
+      "end": 85360,
+      "n_words": 150,
+      "first_para": 453,
+      "last_para": 454,
+      "kind": "window"
+    },
+    {
+      "index": 208,
+      "start": 84933,
+      "end": 85682,
+      "n_words": 132,
+      "first_para": 454,
+      "last_para": 454,
+      "kind": "window"
+    },
+    {
+      "index": 209,
+      "start": 85361,
+      "end": 85682,
+      "n_words": 57,
+      "first_para": 454,
+      "last_para": 454,
+      "kind": "window"
+    }
+  ]
+}
