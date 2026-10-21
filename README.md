@@ -79,12 +79,16 @@ literary-form-discovery-research/
    │  ├─ source/           原文（公共领域文本）
    │  └─ derived/          中间产物：矩阵、参数、数值结果、可读摘要
    ├─ results/
-   │  ├─ figures/          图（PNG + SVG）
+   │  ├─ figures/          图（PNG；矢量 SVG 可再生，通常不入库）
    │  └─ tables/           可追溯的 CSV
    └─ docs/
       ├─ candidate_findings.md   候选现象清单（含替代解释与待追问问题）
       └─ pilot_NNN_report.md     研究报告
 ```
+
+**入库原则**：保存人可核查的结果与图，**排除体积大且一条命令即可再生的中间产物**
+（如矢量图、逐间隙完整曲线）。每个实验的 `data/derived/README.md` 列出被排除的
+产物与确切的再生命令。
 
 **可复现性要求**：保存原文版本、切分规则、方法与模型版本、主要参数、
 关键数值结果与运行代码；随机种子固定并写入结果元数据。

@@ -41,13 +41,26 @@ pilot_001/
 ├─ data/
 │  ├─ source/the_dead.txt     原文（Project Gutenberg 英文正文，UTF-8）
 │  └─ derived/                中间产物（矩阵 .npy、参数与数值 .json、可读摘要 .txt）
+│                             见 data/derived/README.md：两类大产物不入库及其再生方式
 ├─ results/
-│  ├─ figures/                图（PNG + SVG）
+│  ├─ figures/                图（PNG；矢量 SVG 可一条命令再生，见上）
 │  └─ tables/                 可追溯的 CSV（边界、远距离片段对）
 └─ docs/
    ├─ candidate_findings.md   交付物 B：候选现象清单
    └─ pilot_001_report.md     交付物 C：文学研究报告
 ```
+
+### 未入库的产物
+
+为保持仓库精简并使 pull request 可审阅，以下两类**体积大且可一条命令再生**的
+产物不入库（清单与再生方式见 `data/derived/README.md`）：
+
+* `results/figures/*.svg` — 与同名 PNG 内容重复的矢量版；
+* `data/derived/texttiling_full.json` — TextTiling 逐间隙完整曲线
+  （其结论已完整保存在两个 CSV 与 `results_summary.json` 中）。
+
+因此若要先运行 `analyze_findings.py` / `verify_fixes.py`，请先执行
+`python run_all.py --only texttiling`（约 6 秒）重建后者。
 
 ### 关键可读产物（建议先看这些）
 

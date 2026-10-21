@@ -1,0 +1,3 @@
+# Derived, bulky artifacts that one command regenerates (see data/derived/README.md)
+results/figures/*.svg
+data/derived/texttiling_full.json
