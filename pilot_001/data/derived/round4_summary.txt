@@ -1,0 +1,137 @@
+================================================================================
+ROUND 4 SUMMARY — controlled experiments on the two surviving claims
+================================================================================
+
+Two claims survived the v3 adjudication:
+  (A) the "song" cluster is the only cross-model, cross-method finding;
+  (B) the final snow passage is the most peripheral unit in both encoders.
+
+This round asked, for each, WHAT the finding actually rests on, using
+controlled substitution (ablate a word class / transplant it) with matched
+random-ablation controls.  Both claims survived, but in a REVISED form, and one
+control failed.
+
+--------------------------------------------------------------------------------
+PART 1 — WHERE DOES THE FINAL SNOW PASSAGE'S PERIPHERALITY COME FROM?
+--------------------------------------------------------------------------------
+Evidence: data/derived/snow_source_experiment.txt
+
+Three hypotheses: H1 lexical field (snow/west/death), H2 form/register,
+H3 length.  Method: modify unit 77 only, re-encode, measure its mean cosine to
+the fixed embeddings of the other 77 units; compare against control units
+(other pure-narration passages) and matched random ablations.
+
+  H1 REJECTED.  Ablating the winter/west/death lexicon (37 word types) moves
+     centrality to the 62nd percentile of a matched random ablation of 37
+     content-word types — in BOTH models.  It is indistinguishable from
+     ablating arbitrary content.
+     Direction test: transplanting that lexicon into three more central
+     passages (units 63, 57, 59) does not reliably make them peripheral
+     (one small drop of three in each model, inconsistent).
+     => The finale is NOT peripheral because of its famous imagery.
+
+  H2 WEAKLY SUPPORTED.  Destroying within-sentence word order (bag-of-words)
+     raises centrality in both models (MiniLM 0.383 -> 0.397; bge 0.631 ->
+     0.683, rank 1 -> 11).  But the effect is not unique to unit 77, so it
+     indicates that *ordered form* carries part of the signal, not that unit
+     77 is special in its syntax.
+
+  H3 REJECTED.  Unit 77 is 160 words, mid-range; the control units span
+     152-217 words with no relation to peripherality (SBERT x length r = 0.027).
+
+  NET: the peripherality is a distributed property of the passage's overall
+  profile.  No single removable component explains it.
+
+--------------------------------------------------------------------------------
+PART 2 — THE 'SONG' CLUSTER: LITERAL REPETITION, OR A DISCURSIVE THREAD?
+--------------------------------------------------------------------------------
+Evidence: data/derived/song_cluster_analysis.txt
+
+  (a) The cluster is NOT "the music units".  Music-word density rank:
+      unit 54 = 3rd highest density (5.60/100w) but NOT in the cluster;
+      unit 56 = 0.00 density (rank 44/78) but IS in the cluster.
+      => the cluster is not vocabulary-driven.
+
+  (b) LITERAL REPETITION REJECTED.  Removing the sung lyric from unit 55
+      changes cos(55,58) by 0.000 — it sits at the 100th percentile of a
+      matched random-deletion control (mean 0.616, range [0.599, 0.658]).
+      Removing the song title changes it by +0.010 (slightly UP).
+      Removing music vocabulary: +0.001.
+      => neither the lyric nor the title holds the pair together.
+
+  (c) The cluster is really TWO SUB-CLUSTERS, bridged by one unit.
+      Mutual-rank table (correction-free, MiniLM; "worse of the two ranks",
+      lower = stronger):
+        (72,73) 2 | (55,58) 2 | (55,56) 3 | (56,58) 6 | (69,72) 9
+        (49,72) 14 | (49,73) 17 | (55,72) 18 | (37,55) 23 | all others 40+
+      Sub-cluster A "the moment of HEARING"  = {54, 55, 56, 58}
+        (paras 316-351: Gabriel watches Gretta on the stairs listening to the
+         distant voice; the lyric is heard; the singing stops; the song is
+         named; the good-nights are said)
+      Sub-cluster B "the moment of TELLING"  = {69, 72, 73}
+        (paras 408-447: Michael Furey, Galway, the wet window, the rain,
+         the burial in Oughterard)
+      The BRIDGE is unit 69, the only unit that names both the song and the
+      person: "I am thinking about a person long ago who used to sing that
+      song ... named Michael Furey. He used to sing that song, The Lass of
+      Aughrim."
+      => What is robust computationally is not "the song" as a textual object
+         but the pairing of two scenes and the single sentence that joins them.
+
+  (d) FAILED CONTROL, reported as such.  Character-name ablation lowers
+      cos(55,58) by 0.076, below the matched control range — but a null sample
+      of 40 random distant pairs shows the same effect in 82% of cases
+      (mean relative drop 2.6%).  So "the same cast" cannot be shown to be
+      specific to this pair.  => data/derived/name_ablation_control.txt
+
+--------------------------------------------------------------------------------
+PART 3 — THE WEATHER/SNOW MATERIAL AS A SET: INVISIBLE TO ALL SIX METHODS
+--------------------------------------------------------------------------------
+Evidence: data/derived/weather_set_test.txt
+
+Define W by content only (>=2 hits of snow/rain/wet/window/goloshes/
+shivering): 13 units.  Core set W_core (snow>=3 or goloshes>=5 or
+rain+wet+window+shivering>=4): 6 units {2, 8, 41, 56, 73, 77}.
+
+Permutation test (random sets of the same size, 10,000 / 5,000 draws):
+
+  method        within-W  W-to-rest   percentile | within-core  percentile
+  TF-IDF          0.128     0.119       80.0%    |   0.120       44.4%
+  Jaccard         0.143     0.137       71.5%    |   0.130       24.6%
+  MiniLM          0.513     0.492       67.8%    |   0.504       53.3%
+  bge             0.700     0.699       24.9%    |   0.680       12.3%
+  NCD(1-d)        0.126     0.124       59.2%    |   0.133       72.5%
+  NCD-resid      -0.002    -0.002       41.1%    |  -0.007       24.1%
+
+  => No method finds the weather set more cohesive than a random set of the
+     same size.  Percentiles straddle 50% (12-80%); bge is BELOW chance.
+
+Supporting facts:
+  * The one VERBATIM echo in the text — "the snow is general all over Ireland"
+    (unit 56, Mary Jane quoting the newspaper) vs "snow was general all over
+    Ireland" (unit 77, Gabriel) — is recovered by NO method.  Mutual rank of
+    (56,77): MiniLM 17, bge 20, TF-IDF 35, Jaccard 53, NCD 42, NCD-resid 58.
+  * But from unit 77's own side, TF-IDF's top partners are exactly
+    (2, 0.132), (73, 0.128), (56, 0.128) — the snow/rain passages.  The link
+    is real but one-directional and weak.
+  * The (56,77) pair does appear at rank 3 in bge's hub-corrected top-20 —
+    an artifact of unit 77 being the most peripheral unit (periphery
+    inflation, see the v3 hub-correction flaw).
+
+--------------------------------------------------------------------------------
+WHAT THIS MEANS
+--------------------------------------------------------------------------------
+1. The pilot's one robust positive finding is NOT "the snow motif" and NOT
+   "the song as text".  It is the pairing of the hearing scene and the
+   telling scene, joined by Gretta's single sentence.  That is a *scene*
+   structure, and it is the only thing that survives every control.
+2. The material that literary criticism has always treated as the story's
+   structural centre — the snow — is the material that all six computational
+   representations are weakest on: it forms no detectable set, its one
+   verbatim echo is recovered by nobody, and the finale's distinctiveness
+   does not come from its lexicon.
+3. That asymmetry is the most interesting result of the pilot, and it is
+   falsifiable: if the snow structure were real at this scale, at least one
+   representation should have shown a set-level effect.  None did.
+
+================================================================================

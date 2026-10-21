@@ -1,0 +1,51 @@
+==============================================================================
+MODEL-AGREEMENT CONTROL — is bge's verdict on (2,73) specific?
+==============================================================================
+
+matrix agreement between the two models (upper triangle Pearson): +0.671
+
+A. EVERY CANDIDATE PAIR UNDER BOTH MODELS
+   (rank among gap>=40 pairs; lower = more similar; 741 pairs)
+   pair        MiniLM raw  MiniLM hub   bge raw   bge hub   note
+   2&73                 5          20       457       282   'snow frame' — under adjudication
+   30&39              362           1        53         1   religion / Church thread
+   55&58                2           1        14         4   song lyric vs. song name
+   12&16              210           1       186         1   Mr Browne & Freddy
+   71&74                1           1        10         1   cold interrogation vs. Gretta sobbing
+   37&58              178           1       202        41   singers past vs. song name
+   69&72                7          27         7        44   Gabriel asks / Gretta's revelation
+
+B. DOES bge REPLICATE THE PAIRS WE CALL ROBUST?
+   (criterion: hub-corrected rank within the top 10% of distant pairs,
+    i.e. rank <= 74 of 741)
+   (30,39): bge raw 53/741, hub 1/741  -> replicated
+   (55,58): bge raw 14/741, hub 4/741  -> replicated
+   (12,16): bge raw 186/741, hub 1/741  -> replicated
+   (71,74): bge raw 10/741, hub 1/741  -> replicated
+   (2,73):  bge raw 457/741, hub 282/741  -> NOT replicated
+
+C. TOP-20 HUB-CORRECTED DISTANT PAIRS, PER MODEL — HOW MUCH OVERLAP?
+   MiniLM-L6 (384d, 256tok, pooled): [(30, 39), (55, 58), (12, 16), (12, 39), (12, 28), (71, 74), (28, 37), (26, 43), (15, 52), (67, 71), (65, 71), (12, 38), (39, 42), (29, 45), (13, 30), (47, 56), (2, 8), (29, 56), (59, 77), (63, 77)]
+   bge-small-en-v1.5 (384d, 512tok): [(12, 16), (30, 39), (56, 77), (28, 37), (67, 71), (71, 74), (17, 27), (0, 17), (2, 57), (59, 77), (28, 36), (2, 63), (7, 56), (12, 30), (12, 38), (66, 71), (55, 58), (2, 77), (22, 71), (12, 39)]
+   overlap = 9/20  [(12, 16), (12, 38), (12, 39), (28, 37), (30, 39), (55, 58), (59, 77), (67, 71), (71, 74)]
+
+D. MONASTERY AND FINAL-SNOW CENTRALITY UNDER BOTH MODELS
+   MiniLM-L6 (384d, 256tok, pooled)
+      monastery units [7, 17, 38, 39, 40] -> ranks [54, 72, 48, 1, 49] of 78 (1 = most peripheral)
+      last unit 77 (final snow) -> rank 2 of 78, centrality 0.383
+   bge-small-en-v1.5 (384d, 512tok)
+      monastery units [7, 17, 38, 39, 40] -> ranks [41, 23, 56, 21, 34] of 78 (1 = most peripheral)
+      last unit 77 (final snow) -> rank 1 of 78, centrality 0.599
+
+==============================================================================
+E. WAS THE LEXICAL ABLATION UNDERPOWERED?
+==============================================================================
+
+   baseline cos(2,73) = 0.7194
+   weather ablation (4+5 word types) -> 0.7273  (drop -0.0078)
+   random-content ablation, same size, 5 reps: drops [-0.0154, -0.0064, -0.002, -0.0109, -0.0061]
+      mean drop -0.0081, sd 0.0046
+
+   extreme ablation (ALL content word types: 66+59) -> 0.7073  (drop +0.0121)
+   (A large drop here means the link lives in the content words; a
+    small drop means it lives in function words / syntax / length.)

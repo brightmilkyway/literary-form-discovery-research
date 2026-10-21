@@ -1,0 +1,149 @@
+================================================================================
+ADJUDICATION VERDICT — the (2, 73) "snow frame" pair
+================================================================================
+
+Question
+--------
+Unit 2 (paras 5-9: Gabriel at the door, scraping snow from his goloshes, "a
+cold, fragrant air from out-of-doors") and unit 73 (paras 442-447: Gretta's
+memory of Michael Furey, "the window was so wet I couldn't see", the poor
+fellow "shivering" in the garden) are the story's opening and closing
+thresholds.  MiniLM flags them as similar; hub correction deflates them.
+
+Is this  (i) a real echo that hub correction over-corrects,
+         (ii) a pure hub artifact, or
+         (iii) something the encoder cannot really see?
+
+VERDICT: none of the three exactly.  It is a **single-encoder artifact**:
+the pair is a genuine property of the MiniLM representation, but it does not
+reproduce in a second encoder from a different family, while every other
+candidate pair does.  Under the pilot's own rule (a finding that appears in
+one method only is a candidate to explain, not a finding), (2,73) is withdrawn.
+
+--------------------------------------------------------------------------------
+Evidence
+--------------------------------------------------------------------------------
+
+TEST A — long-range-restricted percentile (MiniLM, pooled)
+  The fair baseline for a claim about a *distant* echo is other distant pairs.
+    raw cos        rank   5/741 among gap>=40   (99.3rd percentile)
+    hub-corrected  rank  20/741 among gap>=40   (97.3rd percentile)
+  -> The pair IS extreme among distant pairs, even after hub correction.
+     This part of the evidence supports (i), not (ii).
+
+TEST B — leave-one-out hub correction
+    centrality of unit 2 : 0.5518 (leave-one-out) vs 0.5540 (full)
+    centrality of unit 73: 0.5480 (leave-one-out) vs 0.5502 (full)
+    residual             : +0.1168 (leave-one-out) vs +0.1125 (full)
+    rank among gap>=40   : 17/741 (leave-one-out) vs 20/741 (full)
+  -> Self-inflation is negligible; the hub correction is legitimate.
+  -> Diagnostic: units 2 and 73 are *hubs*, not peripheries
+     (centrality ranks 73 and 70 of 78; 78 = most central).  The correction
+     is therefore doing the right thing here.
+
+TEST C — cross-chunking replication (MiniLM, 100- and 80-word units)
+  The *passage block* paras 5-9 x paras 442-447 recurs at the 96th-98th
+  percentile of all early x late pairs under both re-chunkings.
+  -> Supports (i) *within the MiniLM representation*.
+
+TEST D — cross-model replication  ***DECISIVE***
+  Second encoder: BAAI/bge-small-en-v1.5 (different family, 512-token context,
+  pooled encoding, 0/156 sub-chunks over the limit).
+  Matrix agreement with MiniLM: +0.671 (upper-triangle Pearson).
+
+  Does bge replicate the pairs we call robust?
+    (30,39) religion   : hub rank   1/741 -> replicated
+    (55,58) song       : hub rank   4/741 -> replicated
+    (12,16) Mr Browne  : hub rank   1/741 -> replicated
+    (71,74) Gabriel/.. : hub rank   1/741 -> replicated
+    (2,73)  snow       : hub rank 282/741, raw 457/741 -> NOT replicated
+
+  Top-20 hub-corrected distant pairs overlap between the two models: 9/20.
+
+  -> bge is not a weaker model; it reproduces every other finding strongly.
+     Its rejection of (2,73) is *specific*.
+
+TEST E — correction-free mutual-rank test  ***DECISIVE***
+  For a pair (i,j), how highly does each unit rank the other inside its own
+  row?  No hub correction involved.  Null (1000 random pairs):
+     MiniLM: median 48, 1st pct 2, 5th pct 7
+     bge   : median 51, 1st pct 3, 5th pct 10
+  "worse of the two ranks" (lower = more convincing):
+
+     pair        MiniLM   bge     verdict
+     (55,58) song      1      2    replicated, both models excellent
+     (71,74)           2      9    replicated
+     (12,16)           5      4    replicated
+     (69,72)           7      8    replicated
+     (30,39)          11      2    replicated (bge very strong)
+     (37,58)           5     33    partial
+     (2,73)  snow      5     55    NOT replicated (55 ~ null median 51)
+
+  -> (2,73) is a mutual near-neighbour in MiniLM but indistinguishable from a
+     random pair in bge.  Verdict: MiniLM-specific.
+
+TEST F — content-word ablation (reported as a FAILED control)
+  Replacing every content word in both passages with a placeholder:
+     (2,73)  cos 0.719 -> 0.843      (30,39) cos 0.443 -> 0.865
+     null mean over 60 random distant pairs: cos 0.493 -> 0.828
+  Two conclusions:
+
+  1. The intended metric ("drop") is CIRCULAR: because every pair converges to
+     the same post-ablation level (~0.83), drop ~ 0.83 - cos_before, i.e. it
+     merely re-expresses the raw cosine.  This control therefore CANNOT
+     adjudicate individual pairs, and is reported as failed.
+
+  2. It nevertheless yields a real methodological finding: MiniLM's cosine
+     between same-length prose passages has a FORM BASELINE of about 0.83
+     (function words, syntax, punctuation, dialogue layout, length).  All
+     observed values (0.44-0.76) lie BELOW that baseline, so absolute cosine
+     values must not be read as semantic similarity without subtracting the
+     form baseline.  Ratio to the form baseline:
+        (2,73) 0.85 (most form-like) | (71,74) 0.84 | (55,58) 0.79
+        (12,16) 0.76 | (69,72) 0.74 | (37,58) 0.66 | (30,39) 0.51
+        null   0.60
+
+--------------------------------------------------------------------------------
+Consequences for the candidate list
+--------------------------------------------------------------------------------
+
+WITHDRAWN
+  * (2,73) "snow frame" — single-encoder artifact.  Its MiniLM evidence is
+    real but not reproducible; its content-ablation profile is the most
+    form-like of all candidates.
+
+CORRECTED (this adjudication found an error in the v2 draft)
+  * Monastery peripherality (unit 39): MiniLM rank 1/78, but bge rank 21/78.
+    The v2 claim that it was "robust across all settings" was based on three
+    *MiniLM* settings; it does NOT survive a second model.  Withdrawn as a
+    cross-model claim; retained only as a MiniLM observation.
+
+STRENGTHENED
+  * (55,58) song lyric x song name — mutual rank 1 and 2, the single most
+    robust pair in the whole pilot, in BOTH models.
+  * (30,39) religion / Church thread — mutual rank 2 in bge; note that in
+    MiniLM its hub-corrected "rank 1" was inflated by the correction because
+    both units are peripheral (centrality ranks 5 and 1 of 78).  The
+    correction-free mutual-rank test in bge is what makes it credible.
+  * (12,16) Mr Browne & Freddy; (69,72); (71,74) — all replicated.
+  * Final snow passage (unit 77) peripherality — MiniLM rank 2/78, bge rank
+    1/78.  Replicates, unlike the monastery.
+  * Units 16 and 30 (the two Mr Browne scenes) are peripheral in both models
+    (ranks 3/3 and 5/6).
+
+METHODOLOGICAL ADDITIONS
+  * Hub correction has a symmetric flaw: it inflates pairs between two
+    PERIPHERAL units.  Any "top hub-corrected pair" list must be accompanied
+    by a correction-free check (mutual rank) or by reporting the centrality
+    ranks of both units.
+  * MiniLM cosine has a form baseline ~0.83 on same-length prose; absolute
+    values are not semantic similarity.
+
+--------------------------------------------------------------------------------
+Files behind this verdict
+--------------------------------------------------------------------------------
+  snow_adjudication.txt      tests A, B, C, D(partial), E(first pass)
+  model_agreement_check.txt  tests D (full control) and the ablation control
+  content_ablation.txt       test F
+  mutual_rank_check.txt      test E (correction-free, both models)
+  sbert_group150_bge.npy     the second encoder's similarity matrix

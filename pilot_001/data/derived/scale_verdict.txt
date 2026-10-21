@@ -1,0 +1,104 @@
+================================================================================
+SCALE VERDICT — the "the snow material is invisible to computation" result was
+               a SCALE ARTIFACT.  Retracted.
+================================================================================
+
+WHAT WAS CLAIMED IN v4
+----------------------
+"Snow/weather material does not form a set under any of six representations
+(permutation percentiles 12-80%); the text's one verbatim echo is recovered by
+no method."  -> concluded: the structure criticism cares about most is the one
+computation cannot see.
+
+WHAT THE SCALE TEST FOUND
+-------------------------
+Three test designs were tried at sentence scale (764 sentences) and paragraph
+scale (455).  The first two failed for instructive reasons; the third is sound.
+
+  ATTEMPT 1 — permutation null (random sets of the same size).
+    Result: weather 99.9 / 96.9 / 100.0 % (MiniLM / bge / TF-IDF) ...
+    ... but so was EVERY set: sets defined by a single random content word
+    scored at the median 99.2 / 95.4 / 100.0, and the contiguous-block
+    sensitivity check scored LOWER (87.8 / 2.0 / 64.0).
+    => the null is saturated; the test cannot discriminate.  DISCARDED.
+
+  ATTEMPT 2 — matched word-set null (300 single-word sets, size-matched).
+    Result: weather at the 0.0th percentile, z = -4.3 / -4.3 / -5.3
+    => looks like "weather is LESS cohesive than a typical word set".
+    BUT: a single word's occurrences are concentrated in one scene, while the
+    weather lexicon is spread over the whole text; a spread-out set has all
+    its pairs far apart.  The null is biased against diffuse motifs, and
+    "music" scored even lower (z = -10.8 / -32.1) purely for being diffuse.
+    DISCARDED.
+
+  ATTEMPT 3 — shape-matched null (SOUND).
+    Keep the same number of runs and the same run lengths, place them at
+    random non-overlapping positions; 500 draws.  This controls for size, run
+    count, run length and dispersion, leaving only *which* units are picked.
+    Score = mean over within-set pairs of (similarity - mean at that distance)
+            / sd at that distance   (removes the adjacency effect).
+
+    SENTENCE scale, band >= 5 units apart:
+      set            n  runs | MiniLM  obs/null/pct | bge            | TF-IDF
+      weather       51   40  | 0.49  0.02  100.0%  | 0.35  0.00  99.0% | 0.70 0.00 100.0%
+      music         85   58  | 0.77  0.00  100.0%  | 0.34  0.00  99.8% | 0.58 -0.00 100.0%
+      religion      17   10  | 0.64  0.01   98.6%  | 0.51 -0.00  97.6% | 1.00 -0.02 100.0%
+      death         24   18  | 0.88 -0.01  100.0%  | 0.77  0.01 100.0% | 0.75 -0.00 100.0%
+      food_drink    39   25  | 0.72  0.00  100.0%  | 0.26  0.01  94.4% | 0.61 -0.01 100.0%
+    Same at bands >= 30 and >= 100; same at PARAGRAPH scale.
+
+    => The weather material DOES cohere: at the 99-100th percentile of a
+       shape-matched null, in all three representations, at every band.
+       (Every other motif does too, so this is a generic property of lexical
+       motifs at fine scale - but it settles the question that was asked.)
+
+  THE DECISIVE MICRO-TEST — the verbatim echo, at sentence scale.
+    Sentence 534 (Mary Jane, quoting the newspaper):
+      "They say," said Mary Jane, "we haven't had snow like it for thirty
+       years; and I read this morning in the newspapers that the snow is
+       general all over Ireland."
+    Sentence 759 (Gabriel, closing):
+      "Yes, the newspapers were right: snow was general all over Ireland."
+
+      MiniLM : cos = 0.581   mutual rank 1 / 1   (out of 764 sentences)
+      bge    : cos = 0.761   mutual rank 1 / 1
+
+    Each sentence is the other's single most similar sentence in the whole
+    story, in BOTH encoders.
+
+    Sentence 534's mean cosine to the other 17 snow-sentences:
+      MiniLM 0.411  vs  0.175 to all sentences
+      bge    0.601  vs  0.448 to all sentences
+
+CORRECTED CONCLUSION
+--------------------
+1. RETRACTED: "the snow material is invisible to all six representations".
+   That was an artifact of the 150-word analysis unit.
+2. The verbatim echo is not merely recoverable - it is the strongest
+   sentence-level match in the text, in both models.
+3. The weather lexicon is a normal, functional motif at sentence scale; it
+   coheres significantly against a shape-matched null.
+4. What is true at 150 words is DILUTION: a 150-word unit containing this
+   sentence also contains ~140 other words, and the signal disappears.
+   The pilot's original 150-word permutation test (percentiles 12-80%) was
+   therefore measuring dilution, not the absence of structure.
+
+METHODOLOGICAL CONSEQUENCE FOR THE WHOLE PILOT
+----------------------------------------------
+The 150-word "group150" unit, chosen in the main run for cross-method
+comparability, has a systematic blind spot: it destroys signals carried by a
+single sentence.  Every negative result obtained at that scale must be
+re-examined at sentence scale before it is reported as a fact about the text.
+This applies to:
+  * the "snow does not form a set" result      -> RETRACTED here
+  * the "no method recovers the verbatim echo" -> RETRACTED here
+  * the (2,73) verdict                          -> UNAFFECTED (it failed a
+    cross-model test at its own scale, and the real snow link turns out to be
+    the verbatim phrase, not the threshold/weather schema)
+  * the TextTiling-vs-similarity orthogonality  -> UNAFFECTED (measured at
+    150 words for both sides; but worth re-running at sentence scale)
+
+Files: data/derived/scale_adjudication.txt, and the micro-test is reproducible
+from code/scale_adjudication.py's setup plus the inline check recorded in the
+session log.
+================================================================================

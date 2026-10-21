@@ -1,0 +1,96 @@
+================================================================================
+SCALE RECHECK — the two 150-word results, re-run at sentence scale
+================================================================================
+Evidence: data/derived/scale_recheck.txt
+Sentence scale: 764 sentences (726 with >= 5 words).
+
+--------------------------------------------------------------------------------
+RESULT 1 — TEXTTILING'S ORTHOGONALITY IS SCALE-ROBUST
+--------------------------------------------------------------------------------
+Same test as at 150 words: are the adjacent-sentence similarities at
+TextTiling's boundaries lower than at non-boundaries?  (50% = no relation.)
+
+  variant (a) word-based TextTiling (w=20, k=6), 130 boundaries
+      MiniLM 52%   bge 48%   TF-IDF 52%   Jaccard 50%
+  variant (b) sentence-based TextTiling (token sequences = sentences)
+      k=4,  137 boundaries : 51% / 50% / 45% / 46%
+      k=6,  123 boundaries : 47% / 50% / 46% / 48%
+      k=10, 126 boundaries : 48% / 49% / 48% / 47%
+
+All percentiles lie in 45-52%.  The 150-word result was 47-56%.
+
+  => VERDICT: orthogonality is NOT a scale artifact.  TextTiling's lexical
+     cohesion signal really is unrelated to what SBERT / TF-IDF / Jaccard
+     measure, at both scales and under both adaptations of the algorithm.
+     Candidate 4 stands unchanged.
+
+--------------------------------------------------------------------------------
+RESULT 2 — NCD'S LENGTH CONFOUND IS WORSE AT SENTENCE SCALE
+--------------------------------------------------------------------------------
+  r(NCD distance, compressed-size difference)
+      150-word units : +0.689      (size alone explains 47.5% of variance)
+      sentences      : +0.728      (size alone explains 53.1% of variance)
+  r(NCD distance, index distance)
+      150-word units : +0.155
+      sentences      : -0.012
+  residual fix (regress out the size term):
+      sentences      : D = 0.7078 + 0.001064 * |size_i - size_j|, r -> 0.000
+
+  => VERDICT: the confound is not a 150-word artifact; it is worse at finer
+     scale, as expected for short strings.  Candidate 1 stands and is
+     strengthened: at sentence scale NCD is unusable without length
+     correction.
+
+--------------------------------------------------------------------------------
+RESULT 3 (NEW) — AT SENTENCE SCALE, NCD DETECTS SYNTACTIC TEMPLATES, NOT CONTENT
+--------------------------------------------------------------------------------
+The verbatim snow echo (sentences 534 and 759, 225 sentences apart):
+
+  method      similarity   mutual rank from sentence 534 (of 764)
+  MiniLM        0.581      1        <- the echo is the top match
+  bge           0.761      1
+  TF-IDF        0.447      1
+  Jaccard       0.186      4
+  NCD (raw)     0.759 dist 123,543 / 263,175 pairs   <- bottom half
+  NCD (residual)-0.0918     10,866 / 263,175 pairs   <- top 4% after the fix
+
+  NCD does NOT find it, even after the length fix.
+
+Why not: NCD's top-10 closest non-adjacent sentence pairs are near-formulaic
+repetitions of the SAME SENTENCE TEMPLATE:
+
+  d=0.389  0 & 15    "Lily, the caretaker's daughter, was literally run off her
+                      feet."  /  "Lily, the caretaker's daughter, did
+                      housemaid's work for them."
+  d=0.405  257 & 332  "'O, do go, Gabriel,' she cried." /
+                      "'Where is Gabriel?' she cried."
+  d=0.426  637 & 651  "If she would only turn to him or come to him of her own
+                      accord!" / "Just when he was wishing for it she had come
+                      to him of her own accord."
+  d=0.441  34 & 529   "She had preceded him into the pantry to help him off
+                      with his overcoat." / "He went into the pantry hastily
+                      and put on his overcoat."
+  d=0.453  140 & 523  "'Three ladies, Mary Jane,' said Aunt Kate." /
+                      "'O do, Mary Jane,' said Aunt Kate."
+  d=0.460  502 & 601  "He was in a dark part of the hall gazing up the
+                      staircase." / "An old man was dozing in a great hooded
+                      chair in the hall."
+
+  => VERDICT (new candidate, methodological): at sentence scale NCD behaves
+     as a *formulaic-template detector*.  It finds sentences built on the same
+     frame ("X, she cried"; "said Aunt Kate"; "in the hall") and misses a
+     verbatim content repetition whose two members have different frames.
+     This is consistent with the "form baseline" result: compression sees
+     form.  It also explains why NCD and the embeddings agree so little
+     (r = 0.317 at 150 words).
+
+--------------------------------------------------------------------------------
+NET EFFECT ON THE CANDIDATE LIST
+--------------------------------------------------------------------------------
+  * Candidate 1 (NCD length confound)      -> SURVIVES, strengthened
+  * Candidate 4 (TextTiling orthogonality) -> SURVIVES, scale-robust
+  * NEW candidate: NCD as a formulaic-template detector at sentence scale
+  * Candidate 5 (verbatim snow echo)       -> strengthened by contrast: the
+    echo is recovered by the encoders and by TF-IDF as the #1 match, and
+    missed by NCD for a now-understood reason.
+================================================================================

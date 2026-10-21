@@ -1,0 +1,143 @@
+==============================================================================
+SCALE: SENTENCE   n = 764 units, 15605 words
+==============================================================================
+
+   BAND = pairs at least 5 units apart
+   score = mean over within-set pairs of (similarity - mean at that distance)/sd at that distance
+   set               n  runs  pairs                    MiniLM                       bge                    TF-IDF
+                                     score null_med  pct    z  score null_med  pct    z  score null_med  pct    z
+   weather          51    40   1246   0.49     1.66   0.0 -4.3   0.35     1.12   0.0 -4.3   0.70     1.71   0.0 -5.3
+   music            85    58   3476   0.77     1.71   0.0-10.8   0.34     1.28   0.0-32.1   0.58     1.60   0.0 -7.6
+   religion         17    10    123   0.64     0.78  36.5 -0.4   0.51     0.68  39.7 -0.3   1.00     1.96   0.0 -2.1
+   death            24    18    262   0.88     0.65  62.5 -0.0   0.77     0.59  66.7  0.2   0.75     1.71   0.0 -2.6
+   food_drink       39    25    687   0.72     1.66  14.3 -1.4   0.26     1.18   0.0 -2.4   0.61     1.71   0.0 -4.4
+
+   shape-matched null: the SAME number of runs with the SAME run
+   lengths, placed at random non-overlapping positions.  This
+   controls for size, run count, run length and dispersion, so
+   what is left is *which* units the motif picks.
+   weather          51    40   0.49     0.02 100.0   0.35     0.00  99.0   0.70     0.00 100.0
+   music            85    58   0.77     0.00 100.0   0.34     0.00  99.8   0.58    -0.00 100.0
+   religion         17    10   0.64     0.01  98.6   0.51    -0.00  97.6   1.00    -0.02 100.0
+   death            24    18   0.88    -0.01 100.0   0.77     0.01 100.0   0.75    -0.00 100.0
+   food_drink       39    25   0.72     0.00 100.0   0.26     0.01  94.4   0.61    -0.01 100.0
+                        runs   score null_med  pct   score null_med  pct   score null_med  pct
+
+   BAND = pairs at least 30 units apart
+   score = mean over within-set pairs of (similarity - mean at that distance)/sd at that distance
+   set               n  runs  pairs                    MiniLM                       bge                    TF-IDF
+                                     score null_med  pct    z  score null_med  pct    z  score null_med  pct    z
+   weather          51    40   1157   0.47     1.69   0.0 -3.9   0.33     1.13   0.0 -3.9   0.69     1.76   0.0 -5.1
+   music            85    58   3188   0.76     1.73   0.0-11.5   0.34     1.30   0.0-39.4   0.57     1.63   0.0 -8.3
+   religion         17    10    113   0.59     0.75  36.5 -0.4   0.45     0.68  34.9 -0.4   0.95     1.97   0.0 -2.2
+   death            24    18    215   0.80     0.63  62.5 -0.1   0.68     0.60  62.5  0.0   0.75     1.73   0.0 -2.5
+   food_drink       39    25    598   0.68     1.69  14.3 -1.5   0.23     1.20   0.0 -2.4   0.61     1.76   0.0 -4.3
+
+   shape-matched null: the SAME number of runs with the SAME run
+   lengths, placed at random non-overlapping positions.  This
+   controls for size, run count, run length and dispersion, so
+   what is left is *which* units the motif picks.
+   weather          51    40   0.47     0.02 100.0   0.33     0.00  99.0   0.69     0.00 100.0
+   music            85    58   0.76     0.00 100.0   0.34     0.00  99.8   0.57    -0.00 100.0
+   religion         17    10   0.59     0.01  98.4   0.45    -0.00  96.6   0.95    -0.01 100.0
+   death            24    18   0.80    -0.01 100.0   0.68     0.01 100.0   0.75    -0.01 100.0
+   food_drink       39    25   0.68     0.00 100.0   0.23     0.01  92.2   0.61    -0.01 100.0
+                        runs   score null_med  pct   score null_med  pct   score null_med  pct
+
+   BAND = pairs at least 100 units apart
+   score = mean over within-set pairs of (similarity - mean at that distance)/sd at that distance
+   set               n  runs  pairs                    MiniLM                       bge                    TF-IDF
+                                     score null_med  pct    z  score null_med  pct    z  score null_med  pct    z
+   weather          51    40    923   0.47     1.70   0.0 -3.8   0.34     1.08   0.0 -4.0   0.62     1.73   0.0 -6.0
+   music            85    58   2582   0.77     1.77   0.0-11.7   0.34     1.31   0.0-64.4   0.60     1.62   0.0 -8.2
+   religion         17    10     80   0.52     0.74  31.7 -0.6   0.38     0.67  30.2 -0.5   0.77     1.97   0.0 -2.7
+   death            24    18    134   0.80     0.61  62.5 -0.2   0.64     0.62  58.3 -0.1   0.82     1.76   0.0 -2.2
+   food_drink       39    25    388   0.59     1.74  14.3 -1.7   0.15     1.13   0.0 -2.5   0.57     1.73   0.0 -4.6
+
+   shape-matched null: the SAME number of runs with the SAME run
+   lengths, placed at random non-overlapping positions.  This
+   controls for size, run count, run length and dispersion, so
+   what is left is *which* units the motif picks.
+   weather          51    40   0.47     0.01  99.8   0.34     0.01  99.0   0.62    -0.00 100.0
+   music            85    58   0.77     0.01 100.0   0.34     0.00 100.0   0.60    -0.00 100.0
+   religion         17    10   0.52     0.00  95.4   0.38    -0.01  94.4   0.77    -0.02  99.8
+   death            24    18   0.80    -0.00 100.0   0.64     0.00 100.0   0.82    -0.01 100.0
+   food_drink       39    25   0.59     0.00 100.0   0.15     0.01  82.6   0.57    -0.00 100.0
+                        runs   score null_med  pct   score null_med  pct   score null_med  pct
+
+   null = 300 sets defined by a SINGLE random content word, matched
+   in size to the motif (+/-25%).  z = (obs - null mean)/null sd.
+   This null controls for the fact that any word's occurrences
+   already cluster into scenes.
+
+==============================================================================
+SCALE: PARAGRAPH   n = 455 units, 15605 words
+==============================================================================
+
+   BAND = pairs at least 3 units apart
+   score = mean over within-set pairs of (similarity - mean at that distance)/sd at that distance
+   set               n  runs  pairs                    MiniLM                       bge                    TF-IDF
+                                     score null_med  pct    z  score null_med  pct    z  score null_med  pct    z
+   weather          39    32    727   0.39     1.19  20.0 -1.2   0.34     0.83  20.0 -1.7   0.73     1.30   0.0 -3.0
+   music            62    49   1861   0.48     1.19   0.0 -2.1   0.46     0.82   0.0 -2.4   0.66     1.14   0.0 -3.0
+   religion         18    13    143   0.02     0.70   0.0 -1.6   0.37     0.86  10.6 -1.2   0.51     1.59   0.0 -3.7
+   death            19    14    163   0.38     0.61  25.6 -0.7   0.73     0.85  34.9 -0.3   0.72     1.57   0.0 -3.1
+   food_drink       24    20    268   0.59     0.69  40.9 -0.3   0.72     0.89  45.5 -0.5   1.10     1.57   4.5 -1.7
+
+   shape-matched null: the SAME number of runs with the SAME run
+   lengths, placed at random non-overlapping positions.  This
+   controls for size, run count, run length and dispersion, so
+   what is left is *which* units the motif picks.
+   weather          39    32   0.39     0.01  99.4   0.34     0.01  99.0   0.73    -0.02 100.0
+   music            62    49   0.48     0.00 100.0   0.46    -0.01 100.0   0.66    -0.01 100.0
+   religion         18    13   0.02    -0.02  58.8   0.37     0.00  94.8   0.51    -0.03  99.2
+   death            19    14   0.38    -0.02  96.2   0.73     0.01  99.8   0.72    -0.03 100.0
+   food_drink       24    20   0.59     0.00 100.0   0.72     0.00 100.0   1.10    -0.02 100.0
+                        runs   score null_med  pct   score null_med  pct   score null_med  pct
+
+   BAND = pairs at least 15 units apart
+   score = mean over within-set pairs of (similarity - mean at that distance)/sd at that distance
+   set               n  runs  pairs                    MiniLM                       bge                    TF-IDF
+                                     score null_med  pct    z  score null_med  pct    z  score null_med  pct    z
+   weather          39    32    675   0.38     1.22  20.0 -1.2   0.33     0.86  20.0 -1.7   0.74     1.34   0.0 -2.9
+   music            62    49   1734   0.48     1.22   0.0 -1.9   0.47     0.85   0.0 -2.1   0.67     1.16   0.0 -2.6
+   religion         18    13    119  -0.03     0.69   0.0 -1.7   0.39     0.89  10.6 -1.2   0.55     1.64   0.0 -3.8
+   death            19    14    141   0.28     0.63  25.6 -0.8   0.65     0.85  27.9 -0.5   0.65     1.61   0.0 -3.5
+   food_drink       24    20    250   0.57     0.66  40.9 -0.3   0.71     0.88  40.9 -0.5   1.12     1.61   4.5 -1.6
+
+   shape-matched null: the SAME number of runs with the SAME run
+   lengths, placed at random non-overlapping positions.  This
+   controls for size, run count, run length and dispersion, so
+   what is left is *which* units the motif picks.
+   weather          39    32   0.38     0.01  99.4   0.33     0.00  98.4   0.74    -0.02 100.0
+   music            62    49   0.48     0.00 100.0   0.47    -0.01 100.0   0.67    -0.00 100.0
+   religion         18    13  -0.03    -0.02  47.8   0.39    -0.01  95.6   0.55    -0.03  99.8
+   death            19    14   0.28    -0.01  91.6   0.65     0.00  99.2   0.65    -0.03 100.0
+   food_drink       24    20   0.57     0.00 100.0   0.71    -0.00 100.0   1.12    -0.03 100.0
+                        runs   score null_med  pct   score null_med  pct   score null_med  pct
+
+   BAND = pairs at least 40 units apart
+   score = mean over within-set pairs of (similarity - mean at that distance)/sd at that distance
+   set               n  runs  pairs                    MiniLM                       bge                    TF-IDF
+                                     score null_med  pct    z  score null_med  pct    z  score null_med  pct    z
+   weather          39    32    563   0.43     1.24  20.0 -1.2   0.35     0.87  20.0 -1.7   0.75     1.36   0.0 -2.8
+   music            62    49   1586   0.52     1.24   0.0 -1.8   0.49     0.86   0.0 -2.0   0.69     1.19   0.0 -2.8
+   religion         18    13    118  -0.03     0.70   0.0 -1.7   0.37     0.88  12.8 -1.2   0.54     1.65   0.0 -3.8
+   death            19    14    113   0.18     0.62  14.0 -1.1   0.49     0.83  16.3 -0.8   0.55     1.63   0.0 -3.9
+   food_drink       24    20    204   0.51     0.63  40.9 -0.4   0.62     0.85  31.8 -0.7   1.12     1.62   4.5 -1.8
+
+   shape-matched null: the SAME number of runs with the SAME run
+   lengths, placed at random non-overlapping positions.  This
+   controls for size, run count, run length and dispersion, so
+   what is left is *which* units the motif picks.
+   weather          39    32   0.43     0.01  99.6   0.35     0.00  98.8   0.75    -0.02 100.0
+   music            62    49   0.52     0.00 100.0   0.49    -0.00 100.0   0.69    -0.00 100.0
+   religion         18    13  -0.03    -0.01  47.0   0.37    -0.01  94.8   0.54    -0.03  99.6
+   death            19    14   0.18    -0.01  78.8   0.49     0.01  98.6   0.55    -0.03 100.0
+   food_drink       24    20   0.51     0.00 100.0   0.62    -0.00 100.0   1.12    -0.02 100.0
+                        runs   score null_med  pct   score null_med  pct   score null_med  pct
+
+   null = 300 sets defined by a SINGLE random content word, matched
+   in size to the motif (+/-25%).  z = (obs - null mean)/null sd.
+   This null controls for the fact that any word's occurrences
+   already cluster into scenes.

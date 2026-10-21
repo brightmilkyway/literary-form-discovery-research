@@ -1,0 +1,55 @@
+==============================================================================
+SET-LEVEL TEST: DOES A 'WEATHER' PASSAGE SET HANG TOGETHER?
+==============================================================================
+
+W = units with >=2 hits of ('snow', 'rain', 'wet', 'window', 'goloshes', 'shivering')
+    n_W = 13: [2, 7, 8, 25, 41, 52, 55, 56, 59, 64, 66, 73, 77]
+      unit  2 (paras 5-9): He stood on the mat, scraping the snow from his goloshes, while Lily led his wife to the foot of the stairs an
+      unit  7 (paras 31-37): “Gretta tells me you’re not going to take a cab back to Monkstown tonight, Gabriel,” said Aunt Kate. “No,” sai
+      unit  8 (paras 38-42): She broke out into a peal of laughter and glanced at her husband, whose admiring and happy eyes had been wande
+      unit 25 (paras 148-153): “O, do go, Gabriel,” she cried. “I’d love to see Galway again.” “You can go if you like,” said Gabriel coldly.
+      unit 41 (paras 239-242): The patting at once grew louder in encouragement and then ceased altogether. Gabriel leaned his ten trembling 
+      unit 52 (paras 304-307): “I could only get one cab,” he said. “O, we’ll find another along the quay,” said Gabriel. “Yes,” said Aunt Ka
+      unit 55 (paras 320-327): O, the rain falls on my heavy locks And the dew wets my skin, My babe lies cold.... “O,” exclaimed Mary Jane. 
+      unit 56 (paras 328-335): “O, Mr D’Arcy,” said Aunt Kate, “now that was a great fib to tell.” “Can’t you see that I’m as hoarse as a cro
+      unit 59 (paras 352-355): “Good-night. Good-night.” The morning was still dark. A dull yellow light brooded over the houses and the rive
+      unit 64 (paras 374-379): The porter led them along a corridor and opened a door. Then he set his unstable candle down on a toilet-table
+      unit 66 (paras 392-396): He was trembling now with annoyance. Why did she seem so abstracted? He did not know how he could begin. Was s
+      unit 73 (paras 442-447): She paused for a moment to get her voice under control and then went on: “Then the night before I left I was i
+      unit 77 (paras 454-454): A few light taps upon the pane made him turn to the window. It had begun to snow again. He watched sleepily th
+
+   For each method: mean similarity for
+     within-W pairs (i,j in W, i<j),
+     W-to-rest pairs (i in W, j not in W),
+     and the percentile of the within-W mean in a permutation null
+     (10,000 random sets of the same size).
+
+   method        within-W  W-to-rest    diff  perm pct
+   TF-IDF           0.128      0.119   0.009     80.0%
+   Jaccard          0.143      0.137   0.006     71.5%
+   MiniLM           0.513      0.492   0.021     67.8%
+   bge              0.700      0.699   0.001     24.9%
+   NCD(1-d)         0.126      0.124   0.002     59.2%
+   NCD-resid       -0.002     -0.002   0.000     41.1%
+
+   (Percentile near 100 = the weather set really does hang together
+    more than a random set of the same size; near 50 = no signal.)
+
+   CORE-SET VARIANT — only the units where weather is most salient
+   (snow>=3, or goloshes>=5, or rain+wet+window+shivering>=4):
+      W_core = [2, 8, 41, 56, 73, 77] (n=6)
+      TF-IDF       within-core mean = 0.120   permutation percentile 44.4%
+      Jaccard      within-core mean = 0.130   permutation percentile 24.6%
+      MiniLM       within-core mean = 0.504   permutation percentile 53.3%
+      bge          within-core mean = 0.680   permutation percentile 12.3%
+      NCD(1-d)     within-core mean = 0.133   permutation percentile 72.5%
+      NCD-resid    within-core mean = -0.007   permutation percentile 24.1%
+
+   CONTROL — the same statistic for a set defined by *position*: the
+   last 5 units, which are adjacent and therefore trivially similar.
+      TF-IDF       within-last-5 mean = 0.131
+      Jaccard      within-last-5 mean = 0.135
+      MiniLM       within-last-5 mean = 0.593
+      bge          within-last-5 mean = 0.722
+      NCD(1-d)     within-last-5 mean = 0.123
+      NCD-resid    within-last-5 mean = -0.012
