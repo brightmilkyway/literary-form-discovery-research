@@ -1,0 +1,98 @@
+==============================================================================
+SENTENCE SPLITTER VALIDATION
+==============================================================================
+
+A reviewer observed that the unit printed as 'sentence 534' in an
+earlier run contained three separate speeches.  Diagnosis and fix:
+
+  nltk.sent_tokenize(body) directly      : 764 units, 152 containing an internal line break (UNDER-split)
+  split_sentences(body)  [this module]   : 1023 units, 0 under-split, 0 over-split
+
+  Cause of the under-split: the text writes '.”' (period + closing
+  CURLY quote) before a blank line, and punkt does not treat '.”' as
+  a sentence end, so consecutive speeches were merged.
+  Fix: split on blank lines first, then punkt inside each paragraph.
+
+  A first fix attempt normalised curly quotes to straight.  That
+  trades the under-split for an OVER-split: punkt treats '?”' as
+  mid-sentence (correct) but '?"' as a sentence end, so every
+  dialogue tag was cut off its speech:
+      “Is it snowing again, Mr Conroy?” asked Lily.   -> 1 part (curly)
+      "Is it snowing again, Mr Conroy?" asked Lily.   -> 2 parts (straight)
+  The module therefore keeps the original curly quotes.
+
+  under-split units: 0  []
+  over-split units : 0  []
+
+------------------------------------------------------------------------------
+THE SNOW ECHO, AS NOW SPLIT
+------------------------------------------------------------------------------
+units containing 'general all over Ireland': [728, 1018]
+  [728] chars 63941-64101  (30 words)
+        “They say,” said Mary Jane, “we haven’t had snow like it for thirty years; and I read this morning in the newspapers that the snow is general all over Ireland.”
+  [1018] chars 85028-85094  (11 words)
+        Yes, the newspapers were right: snow was general all over Ireland.
+
+  Verify in data/source/the_dead.txt at the given character offsets:
+        body[63941:64101] == the line above  ->  True
+        body[85028:85094] == the line above  ->  True
+
+------------------------------------------------------------------------------
+UNIT LENGTH DISTRIBUTION
+------------------------------------------------------------------------------
+  units 1023; words 15732
+  words per unit: min 1  median 13  max 95
+  units with < 3 words: 23
+
+------------------------------------------------------------------------------
+SPLITTER COMPARISON (for the record)
+------------------------------------------------------------------------------
+   method                                  units   under   over
+   nltk.sent_tokenize(body)                  764     152      0
+   punkt on quote-normalised body           1001       5     50
+   paragraph-first + punkt (curly)          1023       0      0
+   (units are counted over the whole body; the module splits per
+    paragraph first, which is what removes the under-splits)
+
+------------------------------------------------------------------------------
+DETERMINISTIC SAMPLE FOR MANUAL INSPECTION (every 30th unit)
+------------------------------------------------------------------------------
+  [0] (10w) Lily, the caretaker’s daughter, was literally run off her feet.
+  [30] (11w) Kate and Julia came toddling down the dark stairs at once.
+  [60] (8w) “O no, sir!” cried the girl, following him.
+  [90] (16w) Cab windows rattling all the way, and the east wind blowing in after we passed Merrion.
+  [120] (8w) Gabriel says everyone wears them on the continent.”
+  [150] (10w) Gabriel went to the stairs and listened over the banisters.
+  [180] (42w) Miss Furlong, who was one of Mary Jane’s pupils, asked Miss Daly what was the name of the pretty waltz she had played; and Mr Browne, seeing that he was ignored, turned promptly to the two young men who were more appreciative.
+  [210] (6w) “Good-evening, Freddy,” said Aunt Julia.
+  [240] (18w) It was Gretta who had nursed her during all her last long illness in their house at Monkstown.
+  [270] (9w) He wanted to say that literature was above politics.
+  [300] (24w) Gabriel glanced right and left nervously and tried to keep his good humour under the ordeal which was making a blush invade his forehead.
+  [330] (11w) Miss Daly will carve the ham and I’ll do the pudding.”
+  [360] (6w) How cool it must be outside!
+  [390] (8w) Upon my word and honour that’s the truth.
+  [420] (17w) And if I were in Julia’s place I’d tell that Father Healey straight up to his face....”
+  [450] (14w) There’s everyone waiting in there, stage to let, and nobody to carve the goose!”
+  [480] (6w) “No,” answered Mr Bartell D’Arcy carelessly.
+  [510] (13w) “I remember hearing of old Parkinson but he’s too far back for me.”
+  [540] (33w) The raisins and almonds and figs and apples and oranges and chocolates and sweets were now passed about the table and Aunt Julia invited all the guests to have either port or sherry.
+  [570] (63w) As long as this one roof shelters the good ladies aforesaid—and I wish from my heart it may do so for many and many a long year to come—the tradition of genuine warm-hearted courteous Irish hospitality, which our forefathers have handed down to us and which we in turn must hand down to our descendants, is still alive among us.”
+  [600] (23w) All the guests stood up, glass in hand, and turning towards the three seated ladies, sang in unison, with Mr Browne as leader:
+  [630] (8w) “Bartell D’Arcy and Miss O’Callaghan aren’t gone yet.”
+  [660] (3w) Most extraordinary conduct!
+  [690] (4w) It was his wife.
+  [720] (14w) “O, Mr D’Arcy,” said Aunt Kate, “now that was a great fib to tell.”
+  [750] (18w) Seeing that all were ready to start she shepherded them to the door, where good-night was said:
+  [780] (23w) Her face, fragrant in the cold air, was quite close to his; and suddenly he called out to the man at the furnace:
+  [810] (10w) Then he nodded familiarly to it and waved his hand.
+  [840] (18w) A ghostly light from the street lamp lay in a long shaft from one window to the door.
+  [870] (10w) No, he must see some ardour in her eyes first.
+  [900] (13w) Gabriel stood stock-still for a moment in astonishment and then followed her.
+  [930] (4w) “How do I know?
+  [960] (4w) “Poor fellow,” she said.
+  [990] (7w) A petticoat string dangled to the floor.
+  [1020] (19w) It was falling, too, upon every part of the lonely churchyard on the hill where Michael Furey lay buried.
+
+  Every entry above should be exactly one sentence.  The reviewer's
+  check can be repeated by opening data/source/the_dead.txt and reading
+  the text at each unit's character offsets.

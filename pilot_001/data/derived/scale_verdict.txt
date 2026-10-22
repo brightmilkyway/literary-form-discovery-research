@@ -3,6 +3,27 @@ SCALE VERDICT — the "the snow material is invisible to computation" result was
                a SCALE ARTIFACT.  Retracted.
 ================================================================================
 
+*** CORRECTION (v7, after review) *********************************************
+This verdict was produced with a BROKEN sentence splitter: nltk.sent_tokenize
+called directly on the body gave 764 "sentences", 152 of which contained
+internal line breaks (they were multi-sentence blocks), because the text writes
+'.”' before a blank line and punkt does not treat '.”' as a sentence end.
+
+The conclusion of this verdict — that the snow echo is the strongest
+long-distance pair and that the earlier "invisible to computation" result was a
+150-word dilution artifact — SURVIVES and STRENGTHENS under the corrected
+splitter (1023 verified sentences):
+
+    echo sentences 728 and 1018 (not 534 and 759), 290 sentences apart
+    MiniLM cos 0.726 (was 0.581), mutual rank 1/1 of 1023
+    bge    cos 0.757,               mutual rank 1/1 of 1023
+    control: 200 random distant pairs, MiniLM max 0.437, bge max 0.720
+    -> the echo exceeds the MAXIMUM of the random control in both models
+
+All sentence counts and indices below are superseded; see
+sentence_validation.txt, sentence_spotcheck.txt and scale_recheck.txt.
+******************************************************************************
+
 WHAT WAS CLAIMED IN v4
 ----------------------
 "Snow/weather material does not form a set under any of six representations

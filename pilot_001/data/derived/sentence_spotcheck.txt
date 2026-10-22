@@ -1,0 +1,116 @@
+==============================================================================
+SENTENCE SPLITTER SPOT-CHECK
+==============================================================================
+
+units: 1023   words: 15732
+1. offset round-trip failures: 0  []
+   overlapping consecutive pairs: 0; pairs with a gap between them: 1022
+
+------------------------------------------------------------------------------
+2. FULL CONTEXT AROUND THE SNOW ECHO
+------------------------------------------------------------------------------
+   units containing 'general all over Ireland': [728, 1018]
+   --- context 725 .. 731 ---
+         [ 725] ( 9w) Mr D’Arcy stood swathing his neck carefully and frowning.
+         [ 726] ( 9w) “It’s the weather,” said Aunt Julia, after a pause.
+         [ 727] ( 9w) “Yes, everybody has colds,” said Aunt Kate readily, “everybody.”
+    <== [ 728] (30w) “They say,” said Mary Jane, “we haven’t had snow like it for thirty years; and I read this morning in the newspapers that the snow is general all over Ireland.”
+         [ 729] (10w) “I love the look of snow,” said Aunt Julia sadly.
+         [ 730] ( 6w) “So do I,” said Miss O’Callaghan.
+         [ 731] (15w) “I think Christmas is never really Christmas unless we have the snow on the ground.”
+
+   --- context 1015 .. 1021 ---
+         [1015] ( 6w) It had begun to snow again.
+         [1016] (13w) He watched sleepily the flakes, silver and dark, falling obliquely against the lamplight.
+         [1017] (13w) The time had come for him to set out on his journey westward.
+    <== [1018] (11w) Yes, the newspapers were right: snow was general all over Ireland.
+         [1019] (33w) It was falling on every part of the dark central plain, on the treeless hills, falling softly upon the Bog of Allen and, farther westward, softly falling into the dark mutinous Shannon waves.
+         [1020] (19w) It was falling, too, upon every part of the lonely churchyard on the hill where Michael Furey lay buried.
+         [1021] (21w) It lay thickly drifted on the crooked crosses and headstones, on the spears of the little gate, on the barren thorns.
+
+
+------------------------------------------------------------------------------
+3. RANDOM SAMPLE OF 30 UNITS
+------------------------------------------------------------------------------
+   [   2] (14w) It was well for her she had not to attend to the ladies also.
+   [  49] (14w) The girl glanced back at him over her shoulder and said with great bitterness:
+   [  60] ( 8w) “O no, sir!” cried the girl, following him.
+   [ 109] (11w) The next thing he’ll buy me will be a diving suit.”
+   [ 134] (16w) “What a comfort it is to have a girl like that, one you can depend on!
+   [ 153] ( 6w) He went down the stairs noisily.
+   [ 176] (14w) “O, now, Mr Browne, I’m sure the doctor never ordered anything of the kind.”
+   [ 198] (21w) As the piano had twice begun the prelude to the first figure Mary Jane led her recruits quickly from the room.
+   [ 203] ( 8w) “It’s only Freddy, Kate, and Gabriel with him.”
+   [ 235] (29w) She held an open book on her knees and was pointing out something in it to Constantine who, dressed in a man-o’-war suit, lay at her feet.
+   [ 240] (18w) It was Gretta who had nursed her during all her last long illness in their house at Monkstown.
+   [ 247] (16w) She was a frank-mannered talkative young lady, with a freckled face and prominent brown eyes.
+   [ 289] (17w) “But you will come, won’t you?” said Miss Ivors, laying her warm hand eagerly on his arm.
+   [ 315] (10w) She was a stout feeble old woman with white hair.
+   [ 361] (19w) How pleasant it would be to walk out alone, first along by the river and then through the park!
+   [ 559] (44w) “But, however that may be, I can only ask you tonight to take the will for the deed and to lend me your attention for a few moments while I endeavour to express to you in words what my feelings are on this occasion.
+   [ 593] ( 8w) I will not attempt to choose between them.
+   [ 637] (10w) “The never-to-be-forgotten Johnny,” said Mary Jane, laughing.
+   [ 654] (17w) Gabriel paced in a circle round the hall in his goloshes amid the laughter of the others.
+   [ 673] (14w) The cabman settled his rug over his knees, and bent down for the address.
+   [ 696] (21w) He asked himself what is a woman standing on the stairs in the shadow, listening to distant music, a symbol of.
+   [ 718] (25w) “O, Mr D’Arcy,” cried Mary Jane, “it’s downright mean of you to break off like that when we were all in raptures listening to you.”
+   [ 730] ( 6w) “So do I,” said Miss O’Callaghan.
+   [ 757] ( 4w) “Good-night, Mr D’Arcy.
+   [ 774] (12w) Moments of their secret life together burst like stars upon his memory.
+   [ 843] (16w) Then he turned and leaned against a chest of drawers with his back to the light.
+   [ 845] (11w) Gabriel paused for a few moments, watching her, and then said:
+   [ 849] ( 7w) No, it was not the moment yet.
+   [ 874] (18w) He longed to cry to her from his soul, to crush her body against his, to overmaster her.
+   [ 965] ( 5w) “Well; and then?” asked Gabriel.
+
+------------------------------------------------------------------------------
+4. SUSPICIOUS PATTERNS
+------------------------------------------------------------------------------
+   ending with an abbreviation : 0
+   no terminal punctuation    : 67
+      [28] He stood on the mat, scraping the snow from his goloshes, while Lily led his wife to the foot of the stairs and called out:
+      [49] The girl glanced back at him over her shoulder and said with great bitterness:
+      [64] The girl, seeing that he had gained the stairs, called out after him:
+      [112] After a pause she asked:
+      [122] Gabriel knitted his brows and said, as if he were slightly angered:
+      [142] Julia, who had gone half way down one flight, came back and announced blandly:
+      [146] Aunt Kate drew Gabriel aside hurriedly and whispered into his ear:
+      [158] A tall wizen-faced man, with a stiff grizzled moustache and swarthy skin, who was passing out with his partner said:
+   shorter than 3 words       : 23
+      [62] “Christmas-time!
+      [118] “Guttapercha things.
+      [139] Julia!
+      [140] Julia!
+      [143] “Here’s Freddy.”
+      [182] “Quadrilles!
+      [183] Quadrilles!”
+      [313] “West Briton!”
+      [337] “No row.
+      [338] Why?
+   longer than 60 words       : 7
+      [8] (73w) For years and years it had gone off in splendid style as long as anyone could remember; ever since Kate and Julia, after…
+      [223] (80w) Mr Browne, whose face was once more wrinkling with mirth, poured out for himself a glass of whisky while Freddy Malins e…
+      [372] (72w) He would say, alluding to Aunt Kate and Aunt Julia: “Ladies and Gentlemen, the generation which is now on the wane among…
+      [453] (95w) Between these rival ends ran parallel lines of side-dishes: two little minsters of jelly, red and yellow; a shallow dish…
+      [491] (75w) He told too of how the top gallery of the old Royal used to be packed night after night, of how one night an Italian ten…
+   starts with a lowercase letter : 0   <- over-split?
+   starts with a conjunction      : 122   <- over-split?
+      [3] But Miss Kate and Miss Julia had thought of that and had converted the bathroom upstairs into a ladies’ dressing-room.
+      [9] That was a good thirty years ago if it was a day.
+      [17] But Lily seldom made a mistake in the orders so that she got on well with her three mistresses.
+      [19] But the only thing they would not stand was back answers.
+      [21] And then it was long after ten o’clock and yet there was no sign of Gabriel and his wife.
+      [55] When he had flicked lustre into his shoes he stood up and pulled his waistcoat down more tightly on his plump body.
+      [56] Then he took a coin rapidly from his pocket.
+      [96] “But as for Gretta there,” said Gabriel, “she’d walk home in the snow if she were let.”
+      [101] And she simply hates the sight of it!...
+      [106] “That’s the latest.
+   starts with a comma            : 0   <- over-split?
+
+------------------------------------------------------------------------------
+5. ALL UNITS BEGINNING WITH A LOWERCASE LETTER (over-split candidates)
+------------------------------------------------------------------------------
+
+   Note: a lowercase start is normal when a sentence was broken by a
+   *paragraph* break inside a quotation.  What matters is whether the
+   preceding unit ends mid-clause.

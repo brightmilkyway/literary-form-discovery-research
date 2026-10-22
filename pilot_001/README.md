@@ -37,30 +37,24 @@ pilot_001/
 │  ├─ scale_adjudication.py   ★尺度裁决（句子/段落 × 三种零假设）
 │  ├─ verbatim_echo_test.py   ★逐字呼应的句级微观检验
 │  ├─ scale_recheck.py        ★句子尺度复核（TextTiling 正交性 / NCD 混淆）
+│  ├─ sentences.py            ★经检验的分句器（先按段落切，再段内 punkt，保留弯引号）
+│  ├─ validate_sentences.py   ★分句器验证（欠切分/过切分/偏移回环）
+│  ├─ spotcheck_sentences.py  ★分句器人工抽查（随机样本 + 上下文 + 可疑模式）
+│  ├─ diagnose_sentences.py   分句器问题的诊断（保留为记录）
+│  ├─ diagnose_punkt_oversplit.py 弯引号 vs 直引号的对照（保留为记录）
+│  ├─ ncd_reviewer_checks.py  ★NCD 拼接方向敏感性 + 等长分箱检验
+│  ├─ form_vs_content.py      ★形式 vs 内容（删除而非替换的修正设计）
 │  └─ lookup_unit.py          按片段号打印完整原文与段号（用于核对引文）
 ├─ data/
 │  ├─ source/the_dead.txt     原文（Project Gutenberg 英文正文，UTF-8）
 │  └─ derived/                中间产物（矩阵 .npy、参数与数值 .json、可读摘要 .txt）
-│                             见 data/derived/README.md：两类大产物不入库及其再生方式
 ├─ results/
-│  ├─ figures/                图（PNG；矢量 SVG 可一条命令再生，见上）
+│  ├─ figures/                图（PNG + SVG）
 │  └─ tables/                 可追溯的 CSV（边界、远距离片段对）
 └─ docs/
    ├─ candidate_findings.md   交付物 B：候选现象清单
    └─ pilot_001_report.md     交付物 C：文学研究报告
 ```
-
-### 未入库的产物
-
-为保持仓库精简并使 pull request 可审阅，以下两类**体积大且可一条命令再生**的
-产物不入库（清单与再生方式见 `data/derived/README.md`）：
-
-* `results/figures/*.svg` — 与同名 PNG 内容重复的矢量版；
-* `data/derived/texttiling_full.json` — TextTiling 逐间隙完整曲线
-  （其结论已完整保存在两个 CSV 与 `results_summary.json` 中）。
-
-因此若要先运行 `analyze_findings.py` / `verify_fixes.py`，请先执行
-`python run_all.py --only texttiling`（约 6 秒）重建后者。
 
 ### 关键可读产物（建议先看这些）
 
@@ -85,6 +79,11 @@ pilot_001/
 | `data/derived/verbatim_echo_test.txt` | **★ 逐字呼应的句级微观检验（最强远距离配对）** |
 | `data/derived/scale_recheck_verdict.txt` | **★ 尺度复核判词（正交性稳健 / NCD 更严重 / 模板检测）** |
 | `data/derived/scale_recheck.txt` | **★ 句子尺度的 TextTiling 与 NCD 复核数据** |
+| `data/derived/reviewer_response.txt` | **★ 审稿回应总表（四项问题与处置）** |
+| `data/derived/sentence_validation.txt` | **★ 分句器验证（764→1023，0 欠切分/0 过切分）** |
+| `data/derived/sentence_spotcheck.txt` | **★ 分句器人工抽查（随机样本、上下文、可疑模式）** |
+| `data/derived/ncd_reviewer_checks.txt` | **★ NCD 拼接方向 + 等长分箱检验** |
+| `data/derived/form_vs_content.txt` | **★ 形式 vs 内容（修正设计）** |
 | `data/derived/content_ablation.txt` | 实词消融（失败的对照 + 形式基线） |
 | `data/derived/name_ablation_control.txt` | 人物名消融对照（失败） |
 | `results/figures/fig_fix_before_after.png` | **修复前后对照（SBERT 截断 / NCD 长度混淆）** |
@@ -96,10 +95,27 @@ pilot_001/
 | `results/tables/ncd_residual_top_pairs.csv` | **长度残差校正后的 NCD 最近片段对** |
 | `results/tables/sbert_top_nonadjacent_pairs.csv` | SBERT 最相似的非相邻片段对 |
 
-## 已应用的两项表示层修复（v2）
+## 已应用的两项表示层修复（v2）与一轮审稿修正（v7）
 
-首轮暴露两处**表示层缺陷**，均已修复；修复改变了结论，详见
-`docs/candidate_findings.md` §0。
+### v7 审稿修正——三项撤回、一处加强
+
+一位审稿人发现**分句器是错的**：`nltk.sent_tokenize` 直接调用给出 764 个"句子"，
+其中 **152 个含内部换行**（是多句块）——原文在段末写 `.”`（句点 + **弯引号**），
+punkt 不把它当句末。**已修复为"先按段落切、再在段内用 punkt（保留弯引号）"，
+得 1023 个经检验的真句子**（0 欠切分、0 过切分、0 偏移失配）；句尺度全部重算。
+
+| 项 | 处置 |
+|---|---|
+| **分句器** | **修复**：1023 个真句子（原 764 个中 20% 不是句子）。雪的呼应**加强**：cos 0.581 → **0.726** |
+| **NCD 对称矩阵** | **承认为假设**：正/反拼接 top-10 只重合 **6/10**，29.6% 的对变化 > 0.01 |
+| **"NCD = 模板检测器"** | **撤回**：等长分箱内框架效应只在 9/17 箱成立 |
+| **"0.83 形式基线"** | **撤回**：占位符假象。改用"删除而非替换"后结论**反向**——相似度由**内容**驱动（r = +0.78），形式相似度高但不变（0.712） |
+| **"句子尺度混淆更严重"** | **撤回**：修正后 0.661，与 150 词的 0.689 **相当** |
+| **母题集合检验** | **重述为不具区分力**：音乐/宗教/死亡/饮食集同样达 ~100%，不能支持"雪特殊" |
+
+完整回应见 `data/derived/reviewer_response.txt`。
+
+### v2 表示层修复
 
 | 缺陷 | 修复 | 效果 |
 |---|---|---|

@@ -2,28 +2,24 @@
 VERBATIM SNOW ECHO AT SENTENCE SCALE
 ==============================================================================
 
-sentence scale: 764 sentences
-sentences containing 'general all over Ireland': indices [534, 759]
-   [534] “Yes, everybody has colds,” said Aunt Kate readily, “everybody.”
+sentence scale: 1023 sentences
+sentences containing 'general all over Ireland': indices [728, 1018]
+   [728] “They say,” said Mary Jane, “we haven’t had snow like it for thirty years; and I read this morning in the newspapers that the snow is general all over Ireland.”
+   [1018] Yes, the newspapers were right: snow was general all over Ireland.
 
-“They say,” said Mary Jane, “we haven’t had snow like it for thirty years; and I read this morning in the newspapers that the snow is general all over Ireland.”
-
-“I love the look of snow,” said Aunt Julia sadly.
-   [759] Yes, the newspapers were right: snow was general all over Ireland.
-
-pair (534, 759), index distance 225 sentences
+pair (728, 1018), index distance 290 sentences
    model        cos   i->j   j->i  worse    of
-   MiniLM     0.581      1      1      1   764
-   bge        0.761      1      1      1   764
+   MiniLM     0.726      1      1      1  1023
+   bge        0.757      1      1      1  1023
 
    (worse = the larger of the two row ranks; 1 means each sentence
     is the other's single most similar sentence in the story)
 
    how the echo sentence compares with the snow sentences and with
    the text as a whole:
-      MiniLM   mean cos to the other 16 snow sentences = 0.374   to all sentences = 0.175
-      bge      mean cos to the other 16 snow sentences = 0.577   to all sentences = 0.448
+      MiniLM   mean cos to the other 18 snow sentences = 0.379   to all sentences = 0.170
+      bge      mean cos to the other 18 snow sentences = 0.552   to all sentences = 0.408
 
    control: 200 random sentence pairs at a comparable distance
-      MiniLM   random distant pairs: mean 0.176, 95th pct 0.375, max 0.456
-      bge      random distant pairs: mean 0.428, 95th pct 0.528, max 0.583
+      MiniLM   random distant pairs: mean 0.189, 95th pct 0.377, max 0.437
+      bge      random distant pairs: mean 0.457, 95th pct 0.609, max 0.720

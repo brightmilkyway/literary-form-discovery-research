@@ -54,15 +54,9 @@ class Sent:
 
 
 def sentence_units(body):
-    import nltk
-    units, pos = [], 0
-    for s in nltk.sent_tokenize(body):
-        idx = body.find(s, pos)
-        if idx < 0:
-            idx = pos
-        units.append(Sent(len(units), s, idx, idx + len(s)))
-        pos = idx + len(s)
-    return units
+    import sentences as S
+    return [Sent(s.index, s.text, s.start, s.end)
+            for s in S.split_sentences(body)]
 
 
 # --------------------------------------------------------------------------
@@ -270,19 +264,27 @@ def main():
     w()
 
     # ---- does NCD find the verbatim echo at sentence scale? ------------
-    if 534 in keep and 759 in keep:
-        i, j = keep.index(534), keep.index(759)
+    PHRASE = "general all over Ireland"
+    hits = [i for i, s in enumerate(sents) if PHRASE in s.text]
+    if len(hits) >= 2 and all(h in keep for h in hits[:2]):
+        i, j = keep.index(hits[0]), keep.index(hits[1])
         r_raw = int((M[iu, ju] < M[i, j]).sum()) + 1
         r_res = int((R[iu, ju] < R[i, j]).sum()) + 1
-        w("   VERBATIM ECHO at sentence scale, under NCD:")
-        w(f"      sentences 534 & 759 -> matrix indices {i}, {j}")
+        w(f"   VERBATIM ECHO at sentence scale, under NCD:")
+        w(f"      sentences {hits[0]} & {hits[1]} -> matrix indices {i}, {j}"
+          f"  (index distance {hits[1] - hits[0]} sentences)")
         w(f"      raw NCD distance {M[i, j]:.3f}, rank {r_raw}/{len(iu)} "
           f"(lower = more similar)")
         w(f"      residual NCD {R[i, j]:+.4f}, rank {r_res}/{len(iu)}")
         for lab, S in mats.items():
-            a = int((np.delete(S[534], 534) > S[534, 759]).sum()) + 1
-            w(f"      {lab} similarity {S[534, 759]:.3f}, mutual rank "
-              f"from 534: {a}/{n}")
+            a = int((np.delete(S[hits[0]], hits[0])
+                     > S[hits[0], hits[1]]).sum()) + 1
+            b = int((np.delete(S[hits[1]], hits[1])
+                     > S[hits[1], hits[0]]).sum()) + 1
+            w(f"      {lab} similarity {S[hits[0], hits[1]]:.3f}, "
+              f"mutual rank {a} and {b} (of {n})")
+    else:
+        w("   (echo sentences not located; nothing to test)")
     w()
     w("   NCD's top-10 closest non-adjacent sentence pairs (raw):")
     pairs = [(float(M[i, j]), keep[i], keep[j]) for i in range(m)
