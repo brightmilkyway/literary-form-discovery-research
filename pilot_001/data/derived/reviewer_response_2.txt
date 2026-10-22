@@ -1,0 +1,154 @@
+================================================================================
+RESPONSE TO REVIEW — second round
+================================================================================
+Evidence: echo_matched_control.txt, sentence_validation.txt,
+sentence_spotcheck.txt, and the v8 revisions to the report, the candidate list,
+both READMEs and protocol.md.
+
+--------------------------------------------------------------------------------
+ISSUE 1 — THE SNOW ECHO: THE RESULT IS REAL, THE RANDOM CONTROL IS NOT ENOUGH
+                                                                      [ACCEPTED]
+--------------------------------------------------------------------------------
+The criticism was specific and correct:
+
+  * the control loop made 200 sampling ATTEMPTS and discarded pairs closer
+    than 200 sentences, so the effective sample was well under 200;
+  * it filtered on distance only — it did not match the target's 290-sentence
+    distance, its sentence lengths (30 and 11 words), or its lexical overlap;
+  * the pair was selected AFTER exploration, so comparing it with the maximum
+    of a small random batch does not correct for the selection effect;
+  * the two sentences share obvious lexical material and TF-IDF also finds
+    them, so encoder agreement shows the link is salient under the current
+    representations, not that the models found structure beyond literal
+    repetition.
+
+WHAT CHANGED
+  New script ``code/echo_matched_control.py``, output
+  ``data/derived/echo_matched_control.txt``.  It separates the two claims:
+
+  PART A — DESCRIPTIVE (nearest-neighbour rank; no inference)
+      MiniLM  cos 0.726   mutual rank 1/1 of 1023
+      bge     cos 0.757   mutual rank 1/1 of 1023
+      TF-IDF  cos 0.510   mutual rank 1/1 of 1023
+    This is what the pilot can legitimately claim, and it is unchanged.
+
+  PART B — EXCESS OVER A MATCHED BASELINE
+    Null = pairs matched on index distance, both sentence lengths and Jaccard
+    token overlap, with the criteria progressively relaxed:
+
+      level                                    n     MiniLM   bge    TF-IDF
+      strict  dist +-25, len +-4,  J +-0.05        5   80.0%   80.0%   80.0%
+      medium  dist +-50, len +-8,  J +-0.10      786   99.6%   99.7%   99.9%
+      loose   dist +-100,len +-12, J +-0.15   17,161  100.0%  100.0%  100.0%
+      distance only (the original control)   339,076  100.0%   99.9%  100.0%
+
+    Excess over the matched mean at the medium level:
+      MiniLM +0.438    bge +0.272    TF-IDF +0.398
+
+    Because the match includes lexical overlap, this is the quantity the
+    reviewer asked for: the pair exceeds what pairs with the same distance,
+    length and token overlap typically show.  At the medium level the target
+    is NOT the maximum (MiniLM max 0.757 > target 0.726), so it is not a
+    single lucky draw against a tiny batch.
+
+  WHAT IS STILL NOT CLAIMED
+    The pair was found by exploration and tested afterwards, so this is a
+    post-hoc matched comparison, not a pre-registered test.  Selection effects
+    cannot be removed post hoc.  The strictest matching leaves only 5 pairs,
+    which is too few to support an inference on its own.
+
+  RESULTING WORDING, now used in the report and the candidate list:
+      "a computationally very salient long-distance textual echo"
+  Wording explicitly NOT used any more:
+      "statistically proven anomalous"
+      "the structural pivot of the story"
+
+--------------------------------------------------------------------------------
+ISSUE 2 — "1023 SENTENCES, ZERO ERRORS" NEEDS QUALIFICATION         [ACCEPTED]
+--------------------------------------------------------------------------------
+Correct: the checks only find errors that match the rules that were written.
+
+  * ``over_split()`` tests a pre-listed set of opening patterns
+    (said/asked/cried/answered/repeated/exclaimed/murmured/added/continued,
+    and the pronouns he/she/they/it); it cannot cover all over-splits;
+  * the offset round-trip proves the cut maps back to the source; it does not
+    prove the boundary is correct;
+  * the random sample of 30 units is a reading aid, not a measurement.
+
+CHANGE: the wording is now, everywhere,
+      "no errors found by the defined automatic checks"
+  and never "0 under-split / 0 over-split" as a property of the data.
+  Both the pilot README and the report state what each check does and does not
+  establish, and note that a claim about splitter accuracy would require a
+  manually annotated sample covering different quotation, tag and punctuation
+  situations, with an agreement statistic.
+
+  The 1023-unit data are NOT withdrawn; only the strength of the claim about
+  them is reduced.
+
+--------------------------------------------------------------------------------
+ISSUE 3 — THE DOCUMENTS WERE NOT FULLY IN SYNC                       [ACCEPTED]
+--------------------------------------------------------------------------------
+This was the most urgent item and is now fixed.  Items found and corrected:
+
+  pilot_001_report.md title          v5 -> v8
+  report section 0                   "句子（764）" -> "句子（1023）"
+  report section 3.1                 "MiniLM 形式基线 ≈0.83" row removed and
+                                     marked withdrawn
+  report section 3.1                 "NCD 是句式模板检测器" row marked
+                                     withdrawn; the v6 row's stale numbers
+                                     (45-52%, 0.728) corrected to 41-53% and
+                                     0.661
+  report section 3.1                 new row recording the v8 evidence
+                                     qualification
+  root README pilot index            "句子 764" -> "句子 1023"
+  pilot README v5 section            echo numbers corrected (728/1018, 290,
+                                     0.726/0.757) and the control caveat added
+  pilot README v6 section            corrected and the template claim marked
+                                     withdrawn
+  pilot README                       new subsection stating the evidence
+                                     boundary of the splitter
+  protocol.md                        "待导入" replaced with the actual data
+                                     description and an implementation-status
+                                     note
+
+RULE ADOPTED for the whole repository: a withdrawn result may appear only in a
+withdrawal record, never side by side with current results.  Historical verdict
+files keep their original text and carry a correction header at the top.
+
+--------------------------------------------------------------------------------
+ISSUE 4 — THE RESEARCH STANCE NEEDS QUALIFYING                       [ACCEPTED]
+--------------------------------------------------------------------------------
+Correct: weather_set_test.py, song_cluster_analysis.py and the ablation scripts
+do use specific lexicons, topic word lists and target segments.  The claim
+"no literary labels were used as input anywhere" was too broad.
+
+CHANGE: the report and the root README now distinguish three phases and require
+every conclusion to say which phase it comes from:
+
+  1. OPEN DISCOVERY — general computational representations produce candidate
+     phenomena; no literary labels are used.  This is the only phase to which
+     the "no pre-set labels" claim applies.
+  2. TARGETED RE-CHECK — after candidates appear, candidate-specific
+     lexicons, target segments and ablation controls are legitimate; this
+     phase necessarily introduces the researcher's choices.
+  3. INTERPRETATION — deciding which phenomena deserve dialogue with existing
+     literary scholarship.
+
+CHANGE (second part): the root README's methodological section has been
+retitled from "统一的方法学约定" to
+"工作原则（由 Pilot 001 提出，待更多作品检验）", and now opens by stating
+that these are NOT established laws: one work can EXPOSE a risk but cannot
+PROVE that the same rule applies to all literary material.  The former hard
+requirements ("every pilot must use three methods"; "all negative results must
+be re-checked at a finer scale") are now framed as default practices to be
+tested and revised, with the instruction to record counter-examples.
+
+================================================================================
+NET EFFECT
+================================================================================
+  * The snow echo is KEPT, with a stronger matched control and weaker wording.
+  * The 1023-sentence data are kept; the claim about them is qualified.
+  * All documents are synced to the current state.
+  * The stance is now three-phase and the README's principles are provisional.
+================================================================================

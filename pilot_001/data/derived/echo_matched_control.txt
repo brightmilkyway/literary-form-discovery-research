@@ -1,0 +1,67 @@
+==============================================================================
+MATCHED-CONTROL TEST FOR THE SNOW ECHO
+==============================================================================
+
+target pair: sentences 728 and 1018
+  index distance   : 290
+  word counts      : 30 and 11  (sorted 11, 30)
+  Jaccard overlap  : 0.219
+  shared tokens    : ['all', 'general', 'ireland', 'newspapers', 'over', 'snow', 'the']
+
+  Selection caveat: this pair was found by exploration and then tested.
+  A matched control reduces, but cannot remove, the selection effect.
+  The honest claim is therefore descriptive (see the two parts below).
+
+------------------------------------------------------------------------------
+PART A — DESCRIPTIVE: NEAREST-NEIGHBOUR RANK (no inference)
+------------------------------------------------------------------------------
+  MiniLM   similarity 0.726   rank of 1018 in row 728: 1/1023   rank of 728 in row 1018: 1/1023   worse 1
+  bge      similarity 0.757   rank of 1018 in row 728: 1/1023   rank of 728 in row 1018: 1/1023   worse 1
+  TF-IDF   similarity 0.510   rank of 1018 in row 728: 1/1023   rank of 728 in row 1018: 1/1023   worse 1
+
+------------------------------------------------------------------------------
+PART B — EXCESS OVER A MATCHED BASELINE
+------------------------------------------------------------------------------
+
+  --- strict ---
+      matched pairs: 5
+      method     target     mean      sd      max   pctile   excess
+      MiniLM      0.726    0.400   0.182    0.726    80.0%   +0.327
+      bge         0.757    0.592   0.107    0.757    80.0%   +0.166
+      TF-IDF      0.510    0.231   0.147    0.510    80.0%   +0.279
+
+  --- medium ---
+      matched pairs: 786
+      method     target     mean      sd      max   pctile   excess
+      MiniLM      0.726    0.289   0.145    0.757    99.6%   +0.438
+      bge         0.757    0.486   0.084    0.774    99.7%   +0.272
+      TF-IDF      0.510    0.112   0.045    0.510    99.9%   +0.398
+
+  --- loose ---
+      matched pairs: 17161
+      method     target     mean      sd      max   pctile   excess
+      MiniLM      0.726    0.232   0.125    0.757   100.0%   +0.495
+      bge         0.757    0.451   0.080    0.774   100.0%   +0.306
+      TF-IDF      0.510    0.073   0.039    0.510   100.0%   +0.437
+
+  --- distance only (as in the original control) ---
+      matched pairs: 339076
+      method     target     mean      sd      max   pctile   excess
+      MiniLM      0.726    0.191   0.112    1.000   100.0%   +0.535
+      bge         0.757    0.441   0.079    1.000    99.9%   +0.317
+      TF-IDF      0.510    0.029   0.040    1.000   100.0%   +0.481
+
+------------------------------------------------------------------------------
+READING THE TWO PARTS TOGETHER
+------------------------------------------------------------------------------
+  Part A is descriptive and is what the pilot can legitimately claim:
+  under two independent encoders, each sentence is the other's single
+  most similar sentence in the text.
+  Part B is the inferential question, and it is only partly answered:
+  against pairs matched on distance, length and lexical overlap, the
+  echo's similarity can be compared with what such pairs typically
+  show.  Because the pair was chosen after exploration, this is a
+  post-hoc comparison, not a pre-registered test.
+  => The finding is reported as 'a computationally very salient
+     long-distance echo', NOT as 'statistically proven anomalous' and
+     NOT as 'the structural pivot of the story'.
