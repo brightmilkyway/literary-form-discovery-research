@@ -1,0 +1,174 @@
+================================================================================
+RESPONSE TO REVIEW — four issues raised after the first merge
+================================================================================
+Evidence: sentence_validation.txt, sentence_spotcheck.txt, scale_recheck.txt,
+scale_adjudication.txt, verbatim_echo_test.txt, ncd_reviewer_checks.txt,
+form_vs_content.txt
+
+--------------------------------------------------------------------------------
+ISSUE 1 — THE SENTENCE SPLITTER DID NOT REALLY SPLIT SENTENCES   [ACCEPTED]
+--------------------------------------------------------------------------------
+Raised: the unit printed as "sentence 534" in verbatim_echo_test.txt contained
+three separate speeches, so the whole sentence-scale analysis is suspect.
+
+Confirmed.  Diagnosis:
+
+  nltk.sent_tokenize(body)            764 units, 152 of them containing an
+                                      internal line break (UNDER-split)
+  cause                               the text writes '.”' (period + closing
+                                      CURLY quote) before a blank line, and
+                                      punkt does not treat '.”' as a sentence
+                                      end, so consecutive speeches were merged
+
+First fix attempt — normalise curly quotes to straight — was WRONG and made
+things worse in the other direction.  Measured on probe sentences:
+
+  “Is it snowing again, Mr Conroy?” asked Lily.
+      curly    -> 1 part  (correct)
+      straight -> 2 parts (over-split: the dialogue tag cut off its speech)
+
+Second fix, adopted in ``code/sentences.py``: split on blank lines first (the
+text's own paragraph structure), then punkt inside each paragraph on the
+ORIGINAL curly-quoted text.
+
+  split_sentences(body)               1023 units, 0 under-split, 0 over-split
+  offset round-trip failures          0
+  units ending in an abbreviation     0
+  units starting with a lowercase dialogue tag   0  (was 50 under the
+                                                  straight-quote attempt)
+
+Spot-check (``spotcheck_sentences.py``, full text in
+``data/derived/sentence_spotcheck.txt``): a random sample of 30 units, the full
+context around the echo sentences, and every flagged pattern are printed for
+inspection.  The remaining flags are benign: 67 units end with a colon because
+the paragraph break falls before the quoted speech they introduce; 23 units are
+genuine short exclamations ("Julia!", "“West Briton!”").
+
+Consequences for the results — everything at sentence scale was re-run:
+
+  * the echo sentences are now [728] and [1018], not [534] and [759];
+  * the echo result is STRONGER, not weaker:
+        MiniLM cos 0.726 (was 0.581), mutual rank 1/1 of 1023
+        bge    cos 0.757,               mutual rank 1/1 of 1023
+        TF-IDF cos 0.510,               mutual rank 1/1 of 1023
+        control: 200 random distant pairs, MiniLM max 0.437, bge max 0.720
+        -> the echo exceeds the MAXIMUM of the random control in both models
+  * TextTiling orthogonality at sentence scale: percentiles 41-53%
+    (was 45-52% with the broken splitter) -> unchanged conclusion
+  * sentence-scale NCD length confound: r = +0.661, 43.7% of variance
+    (was +0.728 / 53.1%) -> the earlier claim that the confound is WORSE at
+    sentence scale is withdrawn; it is comparable to the 150-word value
+    (+0.689 / 47.5%)
+
+--------------------------------------------------------------------------------
+ISSUE 2a — NCD ASSUMES C(xy) = C(yx)   [ACCEPTED]
+--------------------------------------------------------------------------------
+``ncd.py`` computes C(xy) once and mirrors it.  Compressors do not satisfy
+C(xy) = C(yx), so the symmetry was an assumption.
+
+Measured on group150 (n=78), both directions computed independently:
+
+  r(forward, reverse)                      +0.951
+  |NCD(xy) - NCD(yx)|                      mean 0.0076, max 0.0349
+  pairs changed by more than 0.01          890 of 3003  (29.6%)
+  top-10 closest pairs, overlap            6/10
+
+So the order matters for the pairs one would actually report.  The matrix
+remains symmetric by construction for comparability, but this is now documented
+as an assumption, and the reverse order is reported alongside.
+
+--------------------------------------------------------------------------------
+ISSUE 2b — "NCD IS A FORMULAIC-TEMPLATE DETECTOR" IS OVERCLAIMED   [ACCEPTED]
+--------------------------------------------------------------------------------
+The claim rested on top pairs that share a sentence frame, but sentence-scale
+NCD is strongly length-confounded.  Two checks:
+
+  (i)  the 50 closest raw-NCD pairs have a mean length difference of 1.4 words,
+       against 11.1 words for all non-adjacent pairs -> the closest pairs are
+       strongly length-matched;
+  (ii) the equal-length test the report itself proposed: within bins of
+       sentences with the SAME word count (>= 25 sentences per bin, 17 bins),
+       compare frame-sharing pairs against non-frame pairs.
+
+       result: frame-sharing pairs are more similar in only 9 of 17 bins, and
+       the differences are tiny (|delta| < 0.03 in most bins).
+
+  => Once length is held constant, sharing a dialogue-tag frame does NOT
+     predict NCD similarity.  The "formulaic-template detector" claim is
+     WITHDRAWN.  What survives is weaker and is stated as such: at sentence
+     scale NCD's closest pairs are near-repetitions, but those pairs are also
+     length-matched, and the two effects are confounded in the present data.
+
+  The verbatim lyric repetition ("For they are jolly gay fellows," x3, d=0.062
+  against 0.26 for the runner-up) is a genuine exception: NCD is not blind to
+  content, it is dominated by length.
+
+--------------------------------------------------------------------------------
+ISSUE 3 — THE 0.83 "FORM BASELINE" IS A PLACEHOLDER ARTEFACT   [ACCEPTED]
+--------------------------------------------------------------------------------
+Replacing every content word with the same token "thing" manufactures a large
+number of identical tokens across all passages, so the observed rise in cosine
+measures the shared placeholder, not shared form.  The "form baseline = 0.83"
+interpretation is RETRACTED.
+
+Corrected design — delete, do not replace:
+
+  form-only    = the passage with every content word DELETED
+  content-only = the passage with every function word DELETED
+
+No artificial token is introduced.  Applied to 120 random distant pairs:
+
+  mean cos_orig 0.475 (sd 0.100)
+  mean cos_form 0.712 (sd 0.074)
+  mean cos_content 0.413 (sd 0.106)
+
+  r(cos_orig, cos_form)    = +0.180
+  r(cos_orig, cos_content) = +0.782
+
+  => Form similarity is HIGH but nearly constant: it does not discriminate
+     between pairs, and it is best read as the "both passages are English
+     prose" prior rather than a stylistic match.
+  => The variation in the original cosine tracks CONTENT, not form
+     (r = +0.78 vs +0.18).
+
+This also reverses the direction of the withdrawn interpretation.  The pilot
+had claimed the encoder largely reads form; under the corrected design it reads
+content, while NCD is the method that is dominated by length.  That contrast
+is cleaner and is what the revised report states.
+
+--------------------------------------------------------------------------------
+ISSUE 4 — THE MOTIF-SET TEST DOES NOT SHOW SNOW IS SPECIAL   [ACCEPTED]
+--------------------------------------------------------------------------------
+The shape-matched null gives ~100th percentile to weather AND to music,
+religion, death and food/drink, so it cannot support a claim about snow in
+particular.  Confirmed on the corrected sentences (1023 units):
+
+  shape-matched null percentiles, band >= 5 units
+     weather     100.0 /  98.2 / 100.0   (MiniLM / bge / TF-IDF)
+     music       100.0 / 100.0 / 100.0
+     religion    100.0 /  98.2 / 100.0
+     death       100.0 / 100.0 / 100.0
+     food_drink   99.8 /  38.6 / 100.0
+
+The set-level test is therefore reported as what it is: evidence that these
+lexical sets are organised at sentence scale, NOT evidence that the weather
+material is more organised than any other motif.  The snow-specific evidence in
+this pilot is the verbatim echo (mutual rank 1/1 in both encoders), and nothing
+else.
+
+================================================================================
+NET EFFECT ON THE CANDIDATE LIST
+================================================================================
+  Candidate 1  NCD length confound        survives, numbers corrected
+  Candidate 2  hearing/telling + bridge   unaffected (150-word scale)
+  Candidate 3  final snow peripherality   unaffected (150-word scale)
+  Candidate 4  TextTiling orthogonality   survives, sentence-scale numbers
+                                          corrected (41-53%)
+  Candidate 5  verbatim snow echo         SURVIVES AND STRENGTHENS
+                                          (cos 0.726/0.757, rank 1/1 of 1023,
+                                          exceeds the random control maximum)
+  Candidate 6  NCD = template detector    WITHDRAWN
+  Form baseline 0.83                      WITHDRAWN, replaced by the
+                                          delete-not-replace design
+  Motif-set test                          restated as non-discriminative
+================================================================================

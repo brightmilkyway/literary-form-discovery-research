@@ -37,8 +37,9 @@ def w(*a):
 def main():
     C.set_seed(42)
     body = C.strip_title(C.load_raw())[0]
-    import nltk
-    sents = nltk.sent_tokenize(body)
+    import sentences as S
+    sunits = S.split_sentences(body)
+    sents = [s.text for s in sunits]
     n = len(sents)
 
     import torch

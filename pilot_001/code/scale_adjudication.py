@@ -70,15 +70,9 @@ def w(*a):
 
 
 def sentence_units(body):
-    import nltk
-    units, pos = [], 0
-    for s in nltk.sent_tokenize(body):
-        idx = body.find(s, pos)
-        if idx < 0:
-            idx = pos
-        units.append({"text": s, "start": idx, "end": idx + len(s)})
-        pos = idx + len(s)
-    return units
+    import sentences as S
+    return [{"text": s.text, "start": s.start, "end": s.end}
+            for s in S.split_sentences(body)]
 
 
 def para_units(body):

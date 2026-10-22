@@ -1,68 +1,68 @@
 ==============================================================================
-SCALE: SENTENCE   n = 764 units, 15605 words
+SCALE: SENTENCE   n = 1023 units, 15605 words
 ==============================================================================
 
    BAND = pairs at least 5 units apart
    score = mean over within-set pairs of (similarity - mean at that distance)/sd at that distance
    set               n  runs  pairs                    MiniLM                       bge                    TF-IDF
                                      score null_med  pct    z  score null_med  pct    z  score null_med  pct    z
-   weather          51    40   1246   0.49     1.66   0.0 -4.3   0.35     1.12   0.0 -4.3   0.70     1.71   0.0 -5.3
-   music            85    58   3476   0.77     1.71   0.0-10.8   0.34     1.28   0.0-32.1   0.58     1.60   0.0 -7.6
-   religion         17    10    123   0.64     0.78  36.5 -0.4   0.51     0.68  39.7 -0.3   1.00     1.96   0.0 -2.1
-   death            24    18    262   0.88     0.65  62.5 -0.0   0.77     0.59  66.7  0.2   0.75     1.71   0.0 -2.6
-   food_drink       39    25    687   0.72     1.66  14.3 -1.4   0.26     1.18   0.0 -2.4   0.61     1.71   0.0 -4.4
+   weather          55    41   1448   0.49     2.00   0.0 -4.3   0.24     1.15   0.0 -4.6   0.72     2.13   0.0 -5.5
+   music            87    65   3666   0.79     2.25   0.0-12.9   0.31     1.65   0.0-28.0   0.58     2.10   0.0 -8.4
+   religion         19    15    156   0.74     0.70  56.0 -0.2   0.44     0.54  44.0 -0.3   0.63     2.24   0.0 -2.2
+   death            26    19    310   0.78     0.69  58.3 -0.3   0.66     0.54  54.2 -0.2   0.66     1.97   0.0 -2.0
+   food_drink       42    27    814   0.48     2.01  16.7 -1.9  -0.04     1.28   0.0 -2.4   0.59     2.07   0.0 -4.6
 
    shape-matched null: the SAME number of runs with the SAME run
    lengths, placed at random non-overlapping positions.  This
    controls for size, run count, run length and dispersion, so
    what is left is *which* units the motif picks.
-   weather          51    40   0.49     0.02 100.0   0.35     0.00  99.0   0.70     0.00 100.0
-   music            85    58   0.77     0.00 100.0   0.34     0.00  99.8   0.58    -0.00 100.0
-   religion         17    10   0.64     0.01  98.6   0.51    -0.00  97.6   1.00    -0.02 100.0
-   death            24    18   0.88    -0.01 100.0   0.77     0.01 100.0   0.75    -0.00 100.0
-   food_drink       39    25   0.72     0.00 100.0   0.26     0.01  94.4   0.61    -0.01 100.0
+   weather          55    41   0.49    -0.00 100.0   0.24    -0.02  98.2   0.72     0.00 100.0
+   music            87    65   0.79    -0.01 100.0   0.31    -0.01 100.0   0.58    -0.00 100.0
+   religion         19    15   0.74    -0.00 100.0   0.44     0.02  98.2   0.63    -0.02 100.0
+   death            26    19   0.78    -0.00 100.0   0.66     0.01 100.0   0.66    -0.01 100.0
+   food_drink       42    27   0.48    -0.01  99.8  -0.04     0.01  38.6   0.59    -0.01 100.0
                         runs   score null_med  pct   score null_med  pct   score null_med  pct
 
    BAND = pairs at least 30 units apart
    score = mean over within-set pairs of (similarity - mean at that distance)/sd at that distance
    set               n  runs  pairs                    MiniLM                       bge                    TF-IDF
                                      score null_med  pct    z  score null_med  pct    z  score null_med  pct    z
-   weather          51    40   1157   0.47     1.69   0.0 -3.9   0.33     1.13   0.0 -3.9   0.69     1.76   0.0 -5.1
-   music            85    58   3188   0.76     1.73   0.0-11.5   0.34     1.30   0.0-39.4   0.57     1.63   0.0 -8.3
-   religion         17    10    113   0.59     0.75  36.5 -0.4   0.45     0.68  34.9 -0.4   0.95     1.97   0.0 -2.2
-   death            24    18    215   0.80     0.63  62.5 -0.1   0.68     0.60  62.5  0.0   0.75     1.73   0.0 -2.5
-   food_drink       39    25    598   0.68     1.69  14.3 -1.5   0.23     1.20   0.0 -2.4   0.61     1.76   0.0 -4.3
+   weather          55    41   1363   0.47     2.02   0.0 -4.0   0.23     1.15   0.0 -4.2   0.72     2.16   0.0 -5.1
+   music            87    65   3387   0.78     2.26   0.0-13.4   0.30     1.65   0.0-31.2   0.57     2.13   0.0 -9.1
+   religion         19    15    135   0.69     0.69  50.0 -0.2   0.40     0.52  40.0 -0.3   0.63     2.25   0.0 -2.3
+   death            26    19    268   0.72     0.67  58.3 -0.4   0.59     0.55  54.2 -0.3   0.63     2.01   0.0 -2.1
+   food_drink       42    27    714   0.47     2.02  16.7 -1.9  -0.03     1.30   0.0 -2.3   0.59     2.12   0.0 -4.5
 
    shape-matched null: the SAME number of runs with the SAME run
    lengths, placed at random non-overlapping positions.  This
    controls for size, run count, run length and dispersion, so
    what is left is *which* units the motif picks.
-   weather          51    40   0.47     0.02 100.0   0.33     0.00  99.0   0.69     0.00 100.0
-   music            85    58   0.76     0.00 100.0   0.34     0.00  99.8   0.57    -0.00 100.0
-   religion         17    10   0.59     0.01  98.4   0.45    -0.00  96.6   0.95    -0.01 100.0
-   death            24    18   0.80    -0.01 100.0   0.68     0.01 100.0   0.75    -0.01 100.0
-   food_drink       39    25   0.68     0.00 100.0   0.23     0.01  92.2   0.61    -0.01 100.0
+   weather          55    41   0.47     0.00 100.0   0.23    -0.02  96.8   0.72     0.00 100.0
+   music            87    65   0.78    -0.01 100.0   0.30    -0.01 100.0   0.57    -0.00 100.0
+   religion         19    15   0.69     0.01 100.0   0.40     0.02  97.4   0.63    -0.03 100.0
+   death            26    19   0.72    -0.01 100.0   0.59     0.01  99.8   0.63    -0.01 100.0
+   food_drink       42    27   0.47    -0.00  99.8  -0.03     0.01  39.6   0.59    -0.01 100.0
                         runs   score null_med  pct   score null_med  pct   score null_med  pct
 
    BAND = pairs at least 100 units apart
    score = mean over within-set pairs of (similarity - mean at that distance)/sd at that distance
    set               n  runs  pairs                    MiniLM                       bge                    TF-IDF
                                      score null_med  pct    z  score null_med  pct    z  score null_med  pct    z
-   weather          51    40    923   0.47     1.70   0.0 -3.8   0.34     1.08   0.0 -4.0   0.62     1.73   0.0 -6.0
-   music            85    58   2582   0.77     1.77   0.0-11.7   0.34     1.31   0.0-64.4   0.60     1.62   0.0 -8.2
-   religion         17    10     80   0.52     0.74  31.7 -0.6   0.38     0.67  30.2 -0.5   0.77     1.97   0.0 -2.7
-   death            24    18    134   0.80     0.61  62.5 -0.2   0.64     0.62  58.3 -0.1   0.82     1.76   0.0 -2.2
-   food_drink       39    25    388   0.59     1.74  14.3 -1.7   0.15     1.13   0.0 -2.5   0.57     1.73   0.0 -4.6
+   weather          55    41   1143   0.46     2.03   0.0 -4.1   0.21     1.14   0.0 -4.3   0.68     2.19   0.0 -5.7
+   music            87    65   2973   0.80     2.28   0.0-13.7   0.32     1.67   0.0-45.0   0.59     2.15   0.0 -9.6
+   religion         19    15    133   0.66     0.70  44.0 -0.3   0.39     0.52  40.0 -0.3   0.60     2.29   0.0 -2.4
+   death            26    19    176   0.69     0.65  58.3 -0.4   0.46     0.55  41.7 -0.5   0.59     2.04   0.0 -2.2
+   food_drink       42    27    503   0.34     2.03  16.7 -2.1  -0.14     1.30   0.0 -2.5   0.54     2.13   0.0 -5.0
 
    shape-matched null: the SAME number of runs with the SAME run
    lengths, placed at random non-overlapping positions.  This
    controls for size, run count, run length and dispersion, so
    what is left is *which* units the motif picks.
-   weather          51    40   0.47     0.01  99.8   0.34     0.01  99.0   0.62    -0.00 100.0
-   music            85    58   0.77     0.01 100.0   0.34     0.00 100.0   0.60    -0.00 100.0
-   religion         17    10   0.52     0.00  95.4   0.38    -0.01  94.4   0.77    -0.02  99.8
-   death            24    18   0.80    -0.00 100.0   0.64     0.00 100.0   0.82    -0.01 100.0
-   food_drink       39    25   0.59     0.00 100.0   0.15     0.01  82.6   0.57    -0.00 100.0
+   weather          55    41   0.46    -0.01 100.0   0.21    -0.02  94.4   0.68     0.00 100.0
+   music            87    65   0.80    -0.01 100.0   0.32    -0.00 100.0   0.59    -0.00 100.0
+   religion         19    15   0.66     0.01  99.8   0.39     0.02  96.0   0.60    -0.02 100.0
+   death            26    19   0.69     0.01 100.0   0.46     0.02  98.6   0.59    -0.01 100.0
+   food_drink       42    27   0.34    -0.01  98.6  -0.14     0.01  18.2   0.54    -0.01 100.0
                         runs   score null_med  pct   score null_med  pct   score null_med  pct
 
    null = 300 sets defined by a SINGLE random content word, matched

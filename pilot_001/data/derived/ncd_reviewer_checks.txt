@@ -1,0 +1,140 @@
+==============================================================================
+NCD REVIEWER CHECKS
+==============================================================================
+
+------------------------------------------------------------------------------
+1. CONCATENATION ORDER: is the symmetric matrix an assumption?
+------------------------------------------------------------------------------
+   group150 (n=78)
+      r(forward, reverse)          = +0.9509
+      |C(xy)-C(yx)| as NCD units   : mean 0.0076, max 0.0349
+      pairs whose order changes the NCD by > 0.01: 890 of 3003 (29.6%)
+      r(|NCD(xy)-NCD(yx)|, size difference) = -0.177
+      r(|NCD(xy)-NCD(yx)|, NCD forward)      = -0.127
+      top-10 closest pairs: overlap between the two orders = 6/10
+         only in forward: (22,32)
+         only in forward: (37,49)
+         only in forward: (37,56)
+         only in forward: (39,56)
+         only in reverse: (29,56)
+         only in reverse: (32,55)
+         only in reverse: (39,49)
+         only in reverse: (48,55)
+
+------------------------------------------------------------------------------
+2. IS THE 'TEMPLATE' EFFECT JUST LENGTH?
+------------------------------------------------------------------------------
+   sentences with >= 5 words: 918
+   raw NCD: r(size difference) = +0.661; variance explained = 0.437
+
+   RAW NCD, top-10 closest non-adjacent:
+      d=+0.062  |len 22 vs 22|  sents 601&606
+         For they are jolly gay fellows,
+For they are jolly gay fellows,
+For they are jolly gay f
+         For they are jolly gay fellows,
+For they are jolly gay fellows,
+For they are jolly gay f
+      d=+0.262  |len 5 vs 5|  sents 679&684
+         “Yes, sir,” said the cabman.
+         “Right, sir,” said the cabman.
+      d=+0.283  |len 7 vs 7|  sents 629&712
+         “O no, Aunt Kate,” said Mary Jane.
+         “O do, Mary Jane,” said Aunt Kate.
+      d=+0.333  |len 7 vs 7|  sents 190&712
+         “Three ladies, Mary Jane,” said Aunt Kate.
+         “O do, Mary Jane,” said Aunt Kate.
+      d=+0.345  |len 10 vs 11|  sents 802&854
+         She was looking out of the window and seemed tired.
+         She went on to the window and stood there, looking out.
+      d=+0.385  |len 5 vs 5|  sents 498&558
+         “Maybe so,” said Mr Browne.
+         “No, no!” said Mr Browne.
+      d=+0.385  |len 16 vs 15|  sents 847&932
+         She turned away from the mirror slowly and walked along the shaft of light towards him.
+         She looked away from him along the shaft of light towards the window in silence.
+      d=+0.389  |len 10 vs 9|  sents 0&15
+         Lily, the caretaker’s daughter, was literally run off her feet.
+         Lily, the caretaker’s daughter, did housemaid’s work for them.
+      d=+0.390  |len 8 vs 12|  sents 630&717
+         “Bartell D’Arcy and Miss O’Callaghan aren’t gone yet.”
+         A few steps behind her were Mr Bartell D’Arcy and Miss O’Callaghan.
+      d=+0.395  |len 6 vs 5|  sents 399&498
+         “Neither did I,” said Mr Browne.
+         “Maybe so,” said Mr Browne.
+
+   RESIDUAL NCD (length regressed out), top-10:
+      d=-0.644  |len 22 vs 22|  sents 601&606
+         For they are jolly gay fellows,
+For they are jolly gay fellows,
+For they are jolly gay f
+         For they are jolly gay fellows,
+For they are jolly gay fellows,
+For they are jolly gay f
+      d=-0.447  |len 5 vs 5|  sents 679&684
+         “Yes, sir,” said the cabman.
+         “Right, sir,” said the cabman.
+      d=-0.423  |len 7 vs 7|  sents 629&712
+         “O no, Aunt Kate,” said Mary Jane.
+         “O do, Mary Jane,” said Aunt Kate.
+      d=-0.384  |len 7 vs 7|  sents 190&712
+         “Three ladies, Mary Jane,” said Aunt Kate.
+         “O do, Mary Jane,” said Aunt Kate.
+      d=-0.362  |len 10 vs 11|  sents 802&854
+         She was looking out of the window and seemed tired.
+         She went on to the window and stood there, looking out.
+      d=-0.326  |len 8 vs 12|  sents 630&717
+         “Bartell D’Arcy and Miss O’Callaghan aren’t gone yet.”
+         A few steps behind her were Mr Bartell D’Arcy and Miss O’Callaghan.
+      d=-0.326  |len 16 vs 15|  sents 847&932
+         She turned away from the mirror slowly and walked along the shaft of light towards him.
+         She looked away from him along the shaft of light towards the window in silence.
+      d=-0.324  |len 5 vs 5|  sents 498&558
+         “Maybe so,” said Mr Browne.
+         “No, no!” said Mr Browne.
+      d=-0.321  |len 10 vs 9|  sents 0&15
+         Lily, the caretaker’s daughter, was literally run off her feet.
+         Lily, the caretaker’s daughter, did housemaid’s work for them.
+      d=-0.319  |len 6 vs 5|  sents 399&558
+         “Neither did I,” said Mr Browne.
+         “No, no!” said Mr Browne.
+
+   length difference of the 50 closest raw-NCD pairs: mean 1.4 words
+   length difference of all non-adjacent pairs          : mean 11.1 words
+   -> the closest pairs are length-matched
+
+   Same statistic for the residual matrix's 50 closest pairs:
+      mean 1.7 words  (length-matched)
+
+   of the residual top-10 pairs, 10/10 share a dialogue-tag frame or >= 2 content words
+
+------------------------------------------------------------------------------
+3. EQUAL-LENGTH TEST: within sentences of the SAME word count, do
+   frame-sharing pairs still have lower NCD?
+------------------------------------------------------------------------------
+   words     n  frame  plain  frame-frame  plain-plain  frame-plain
+       5    49     18     31        0.706        0.767        0.778
+       6    51     17     34        0.740        0.773        0.794
+       7    48     18     30        0.706        0.757        0.794
+       8    53     10     43        0.744        0.735        0.756
+       9    55     26     29        0.717        0.702        0.737
+      10    52     19     33        0.695        0.682        0.716
+      11    51     13     38        0.699        0.668        0.696
+      12    37     15     22        0.648        0.655        0.694
+      13    40      7     33        0.639        0.639        0.674
+      14    35     13     22        0.652        0.653        0.677
+      15    47      9     38        0.645        0.656        0.683
+      16    34      9     25        0.657        0.658        0.679
+      17    32     17     15        0.656        0.658        0.673
+      18    36     10     26        0.683        0.677        0.690
+      19    28      6     22        0.692        0.674        0.705
+      20    29      6     23        0.692        0.674        0.692
+      22    27      4     23        0.699        0.707        0.721
+
+   within every equal-length bin, mean(plain-plain) - mean(frame-frame):
+      [0.061, 0.033, 0.051, -0.009, -0.015, -0.013, -0.03, 0.006, -0.0, 0.001, 0.011, 0.001, 0.002, -0.006, -0.018, -0.018, 0.008]
+      positive in 9/17 bins
+
+   A positive value means frame-sharing sentences are MORE similar
+   to each other than non-frame sentences OF THE SAME LENGTH, i.e.
+   the frame effect is not a length effect.

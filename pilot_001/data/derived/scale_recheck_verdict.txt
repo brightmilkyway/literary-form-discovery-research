@@ -4,6 +4,39 @@ SCALE RECHECK — the two 150-word results, re-run at sentence scale
 Evidence: data/derived/scale_recheck.txt
 Sentence scale: 764 sentences (726 with >= 5 words).
 
+*** CORRECTION (v7, after review) *********************************************
+The sentence count above (764) came from a BROKEN splitter; the text actually
+has 1023 verified sentences.  Everything in this file was re-run.  Superseded
+numbers:
+
+  RESULT 1 (TextTiling orthogonality) — SURVIVES
+      764-sentence run : percentiles 45-52%
+      1023-sentence run: percentiles 41-53%
+      -> conclusion unchanged; orthogonality is scale-robust.
+
+  RESULT 2 (NCD length confound) — CORRECTED
+      764-sentence run : r = +0.728, 53.1% of variance
+                          -> was reported as "worse than at 150 words"
+      1023-sentence run: r = +0.661, 43.7% of variance
+      -> the confound is COMPARABLE to the 150-word value (+0.689 / 47.5%),
+         not worse.  The "worse at sentence scale" claim is WITHDRAWN.
+
+  RESULT 3 (NCD as a formulaic-template detector) — WITHDRAWN
+      The equal-length test (17 bins of >= 25 sentences with the same word
+      count) shows frame-sharing pairs are more similar in only 9 of 17 bins,
+      with tiny effect sizes.  Once length is held constant, sharing a
+      dialogue-tag frame does NOT predict NCD similarity.  See
+      ncd_reviewer_checks.txt.
+
+  The verbatim echo under NCD, corrected:
+      raw NCD rank 37,076 / 420,903   (bottom 8.8%) -> NCD misses it
+      residual NCD rank 2,207 / 420,903 (top 0.5%)  -> after removing the
+          length term NCD DOES find it, i.e. it was the length confound that
+          hid the echo, not an inability to see content.
+******************************************************************************
+
+Sentence scale: 764 sentences (726 with >= 5 words).
+
 --------------------------------------------------------------------------------
 RESULT 1 — TEXTTILING'S ORTHOGONALITY IS SCALE-ROBUST
 --------------------------------------------------------------------------------

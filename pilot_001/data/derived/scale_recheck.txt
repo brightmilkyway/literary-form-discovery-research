@@ -1,32 +1,32 @@
-body: 85683 chars; sentences: 764
+body: 85683 chars; sentences: 1023
 
 ==============================================================================
 PART 1 — IS TEXTTILING STILL ORTHOGONAL AT SENTENCE SCALE?
 ==============================================================================
 
-VARIANT (a) word-based TextTiling (w=20, k=6): 130 boundaries -> 256 straddled adjacent sentence pairs
-   MiniLM   at boundaries mean=+0.326 | all adjacent mean=+0.318 | percentile 52%
-   bge      at boundaries mean=+0.514 | all adjacent mean=+0.522 | percentile 48%
-   TF-IDF   at boundaries mean=+0.077 | all adjacent mean=+0.080 | percentile 52%
-   Jaccard  at boundaries mean=+0.078 | all adjacent mean=+0.079 | percentile 50%
+VARIANT (a) word-based TextTiling (w=20, k=6): 130 boundaries -> 260 straddled adjacent sentence pairs
+   MiniLM   at boundaries mean=+0.290 | all adjacent mean=+0.301 | percentile 49%
+   bge      at boundaries mean=+0.491 | all adjacent mean=+0.514 | percentile 44%
+   TF-IDF   at boundaries mean=+0.062 | all adjacent mean=+0.071 | percentile 49%
+   Jaccard  at boundaries mean=+0.066 | all adjacent mean=+0.069 | percentile 49%
 
-VARIANT (b) sentence-based TextTiling (k=4): 137 boundaries
-   MiniLM   at boundaries mean=+0.326 | all adjacent mean=+0.318 | percentile 51%
-   bge      at boundaries mean=+0.521 | all adjacent mean=+0.522 | percentile 50%
-   TF-IDF   at boundaries mean=+0.077 | all adjacent mean=+0.080 | percentile 45%
-   Jaccard  at boundaries mean=+0.076 | all adjacent mean=+0.079 | percentile 46%
+VARIANT (b) sentence-based TextTiling (k=4): 184 boundaries
+   MiniLM   at boundaries mean=+0.303 | all adjacent mean=+0.301 | percentile 50%
+   bge      at boundaries mean=+0.518 | all adjacent mean=+0.514 | percentile 52%
+   TF-IDF   at boundaries mean=+0.070 | all adjacent mean=+0.071 | percentile 43%
+   Jaccard  at boundaries mean=+0.066 | all adjacent mean=+0.069 | percentile 43%
 
-VARIANT (b) sentence-based TextTiling (k=6): 123 boundaries
-   MiniLM   at boundaries mean=+0.304 | all adjacent mean=+0.318 | percentile 47%
-   bge      at boundaries mean=+0.520 | all adjacent mean=+0.522 | percentile 50%
-   TF-IDF   at boundaries mean=+0.074 | all adjacent mean=+0.080 | percentile 46%
-   Jaccard  at boundaries mean=+0.079 | all adjacent mean=+0.079 | percentile 48%
+VARIANT (b) sentence-based TextTiling (k=6): 168 boundaries
+   MiniLM   at boundaries mean=+0.317 | all adjacent mean=+0.301 | percentile 52%
+   bge      at boundaries mean=+0.523 | all adjacent mean=+0.514 | percentile 53%
+   TF-IDF   at boundaries mean=+0.077 | all adjacent mean=+0.071 | percentile 45%
+   Jaccard  at boundaries mean=+0.075 | all adjacent mean=+0.069 | percentile 45%
 
-VARIANT (b) sentence-based TextTiling (k=10): 126 boundaries
-   MiniLM   at boundaries mean=+0.309 | all adjacent mean=+0.318 | percentile 48%
-   bge      at boundaries mean=+0.516 | all adjacent mean=+0.522 | percentile 49%
-   TF-IDF   at boundaries mean=+0.072 | all adjacent mean=+0.080 | percentile 48%
-   Jaccard  at boundaries mean=+0.073 | all adjacent mean=+0.079 | percentile 47%
+VARIANT (b) sentence-based TextTiling (k=10): 171 boundaries
+   MiniLM   at boundaries mean=+0.293 | all adjacent mean=+0.301 | percentile 48%
+   bge      at boundaries mean=+0.506 | all adjacent mean=+0.514 | percentile 48%
+   TF-IDF   at boundaries mean=+0.059 | all adjacent mean=+0.071 | percentile 41%
+   Jaccard  at boundaries mean=+0.059 | all adjacent mean=+0.069 | percentile 41%
 
    (50% = no relation.  At 150 words the same test gave 47-56% for
     five representations.)
@@ -35,59 +35,55 @@ VARIANT (b) sentence-based TextTiling (k=10): 126 boundaries
 PART 2 — NCD AT SENTENCE SCALE
 ==============================================================================
 
-sentences with >= 5 words: 726 of 764
-   r(NCD, compressed-size difference) = +0.728
-   r(NCD, index distance)             = -0.012
+sentences with >= 5 words: 918 of 1023
+   r(NCD, compressed-size difference) = +0.661
+   r(NCD, index distance)             = -0.003
    (at 150-word scale the first was +0.689, the second +0.155)
 
-   residual fix: D = 0.7078 + 0.001064*|size_i - size_j|; variance explained by size alone = 0.531
+   residual fix: D = 0.7059 + 0.001429*|size_i - size_j|; variance explained by size alone = 0.437
    r(residual, size difference) = +0.000  (by construction)
 
    VERBATIM ECHO at sentence scale, under NCD:
-      sentences 534 & 759 -> matrix indices 507, 721
-      raw NCD distance 0.759, rank 123543/263175 (lower = more similar)
-      residual NCD -0.0918, rank 10866/263175
-      MiniLM similarity 0.581, mutual rank from 534: 1/764
-      bge similarity 0.761, mutual rank from 534: 1/764
-      TF-IDF similarity 0.447, mutual rank from 534: 1/764
-      Jaccard similarity 0.186, mutual rank from 534: 4/764
+      sentences 728 & 1018 -> matrix indices 662, 913  (index distance 290 sentences)
+      raw NCD distance 0.659, rank 37076/420903 (lower = more similar)
+      residual NCD -0.1451, rank 2207/420903
+      MiniLM similarity 0.726, mutual rank 1 and 1 (of 1023)
+      bge similarity 0.757, mutual rank 1 and 1 (of 1023)
+      TF-IDF similarity 0.510, mutual rank 1 and 1 (of 1023)
+      Jaccard similarity 0.219, mutual rank 2 and 1 (of 1023)
 
    NCD's top-10 closest non-adjacent sentence pairs (raw):
+      d=0.062  sents 601&606 (gap 5)
+         601: For they are jolly gay fellows,
+For they are jolly gay fellows,
+For they are jolly gay fellows,
+         606: For they are jolly gay fellows,
+For they are jolly gay fellows,
+For they are jolly gay fellows,
+      d=0.262  sents 679&684 (gap 5)
+         679: “Yes, sir,” said the cabman.
+         684: “Right, sir,” said the cabman.
+      d=0.283  sents 629&712 (gap 83)
+         629: “O no, Aunt Kate,” said Mary Jane.
+         712: “O do, Mary Jane,” said Aunt Kate.
+      d=0.333  sents 190&712 (gap 522)
+         190: “Three ladies, Mary Jane,” said Aunt Kate.
+         712: “O do, Mary Jane,” said Aunt Kate.
+      d=0.345  sents 802&854 (gap 52)
+         802: She was looking out of the window and seemed tired.
+         854: She went on to the window and stood there, looking out.
+      d=0.385  sents 498&558 (gap 60)
+         498: “Maybe so,” said Mr Browne.
+         558: “No, no!” said Mr Browne.
+      d=0.385  sents 847&932 (gap 85)
+         847: She turned away from the mirror slowly and walked along the shaft of light towards him.
+         932: She looked away from him along the shaft of light towards the window in silence.
       d=0.389  sents 0&15 (gap 15)
          0: Lily, the caretaker’s daughter, was literally run off her feet.
          15: Lily, the caretaker’s daughter, did housemaid’s work for them.
-      d=0.405  sents 257&332 (gap 75)
-         257: “O, do go, Gabriel,” she cried.
-         332: “Where is Gabriel?” she cried.
-      d=0.426  sents 637&651 (gap 14)
-         637: If she would only turn to him or come to him of her own accord!
-         651: Just when he was wishing for it she had come to him of her own accord.
-      d=0.441  sents 34&529 (gap 495)
-         34: She had preceded him into the pantry to help him off with his overcoat.
-         529: He went into the pantry hastily and put on his overcoat.
-      d=0.452  sents 257&525 (gap 268)
-         257: “O, do go, Gabriel,” she cried.
-         525: “O, what a pity!” she cried.
-      d=0.453  sents 140&523 (gap 383)
-         140: O, that’ll just do now.”
-
-“Three ladies, Mary Jane,” said Aunt Kate.
-         523: O, I’ll get him to sing a song before he goes.”
-
-“O do, Mary Jane,” said Aunt Kate.
-      d=0.460  sents 502&601 (gap 99)
-         502: He was in a dark part of the hall gazing up the staircase.
-         601: An old man was dozing in a great hooded chair in the hall.
-      d=0.466  sents 355&589 (gap 234)
-         355: “No,” answered Mr Bartell D’Arcy carelessly.
-         589: “Where?” asked Mr Bartell D’Arcy.
-      d=0.466  sents 405&519 (gap 114)
-         405: The silence came and Gabriel pushed back his chair.
-         519: Gabriel held up his hand for them to be silent.
-      d=0.469  sents 450&523 (gap 73)
-         450: Mrs Malins will get her death of cold.”
-
-“Browne is out there, Aunt Kate,” said Mary Jane.
-         523: O, I’ll get him to sing a song before he goes.”
-
-“O do, Mary Jane,” said Aunt Kate.
+      d=0.390  sents 630&717 (gap 87)
+         630: “Bartell D’Arcy and Miss O’Callaghan aren’t gone yet.”
+         717: A few steps behind her were Mr Bartell D’Arcy and Miss O’Callaghan.
+      d=0.395  sents 399&498 (gap 99)
+         399: “Neither did I,” said Mr Browne.
+         498: “Maybe so,” said Mr Browne.
