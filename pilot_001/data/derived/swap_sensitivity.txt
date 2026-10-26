@@ -1,37 +1,119 @@
 ==============================================================================
-MODEL: MiniLM
+MODE: full paragraph    MODEL: MiniLM
 ==============================================================================
 
-   swap                                         partner   delta_p  |d|_unrel   excess
-   the lyric  <->  the song name                     58    -0.000      0.018   -0.018
-   Michael Furey  <->  the night before              73    -0.040      0.028   +0.012
-   Michael Furey  <->  Gabriel asks                  69    -0.112      0.028   +0.084
-   the monks  <->  the pope                          30    +0.056      0.046   +0.010
-   the lemonade  <->  the punch                      12    -0.099      0.034   +0.065
-   sobbing  <->  cold interrogation                  71    -0.078      0.033   +0.045
-   the song name  <->  the lyric                     55    -0.003      0.013   -0.010
+   swap               partner  repl%  delta_p  mean_d   sd_d    z_p  pctile
+   the lyric               58    11%   -0.000  +0.003  0.028  -0.11   44.2%
+   Michael Furey           69    28%   -0.112  -0.006  0.041  -2.57    0.0%
+   Michael Furey           73    28%   -0.040  -0.006  0.041  -0.82   20.8%
+   the monks               30    16%   +0.056  +0.045  0.022   0.52   68.8%
+   the lemonade            12    12%   -0.099  +0.027  0.050  -2.54    0.0%
+   sobbing                 71    23%   -0.078  +0.008  0.041  -2.10    0.0%
+   the song name           55    13%   -0.003  +0.010  0.013  -1.01   13.0%
 
-   delta_p     = change in cos(A,B) after swapping a paragraph in A
-   |d|_unrel   = mean |change| over 20 unrelated partners (the
-                 global shift that any swap causes)
-   excess      = |delta_p| - |d|_unrel ; large positive means the
-                 partner is specifically damaged by the swap
+   delta_p  = change in cos(A,B) after the swap (negative = the
+              partner was damaged)
+   mean_d/sd_d = mean and sd of the delta over ALL other units
+   z_p      = (delta_p - mean_d) / sd_d   <- scale-free, so it
+              is comparable across cases AND across models
+   pctile   = percentile of delta_p; low = the partner is among
+              the most damaged units
+
+   ranking by z (most damaged partner first):
+      z= -2.57  pctile   0.0%  Michael Furey      -> 69
+      z= -2.54  pctile   0.0%  the lemonade       -> 12
+      z= -2.10  pctile   0.0%  sobbing            -> 71
+      z= -1.01  pctile  13.0%  the song name      -> 55
+      z= -0.82  pctile  20.8%  Michael Furey      -> 73
+      z= -0.11  pctile  44.2%  the lyric          -> 58
+      z= +0.52  pctile  68.8%  the monks          -> 30
 
 ==============================================================================
-MODEL: bge
+MODE: full paragraph    MODEL: bge
 ==============================================================================
 
-   swap                                         partner   delta_p  |d|_unrel   excess
-   the lyric  <->  the song name                     58    +0.022      0.032   -0.011
-   Michael Furey  <->  the night before              73    -0.022      0.023   -0.001
-   Michael Furey  <->  Gabriel asks                  69    -0.063      0.023   +0.041
-   the monks  <->  the pope                          30    +0.013      0.021   -0.008
-   the lemonade  <->  the punch                      12    -0.061      0.021   +0.040
-   sobbing  <->  cold interrogation                  71    -0.040      0.019   +0.021
-   the song name  <->  the lyric                     55    -0.013      0.005   +0.008
+   swap               partner  repl%  delta_p  mean_d   sd_d    z_p  pctile
+   the lyric               58    11%   +0.022  +0.031  0.014  -0.70   15.6%
+   Michael Furey           69    28%   -0.063  -0.021  0.020  -2.09    1.3%
+   Michael Furey           73    28%   -0.022  -0.021  0.020  -0.03   53.2%
+   the monks               30    16%   +0.013  +0.020  0.010  -0.78   16.9%
+   the lemonade            12    12%   -0.061  +0.024  0.029  -2.98    0.0%
+   sobbing                 71    23%   -0.040  +0.006  0.025  -1.80    0.0%
+   the song name           55    13%   -0.013  -0.003  0.009  -1.08   13.0%
 
-   delta_p     = change in cos(A,B) after swapping a paragraph in A
-   |d|_unrel   = mean |change| over 20 unrelated partners (the
-                 global shift that any swap causes)
-   excess      = |delta_p| - |d|_unrel ; large positive means the
-                 partner is specifically damaged by the swap
+   delta_p  = change in cos(A,B) after the swap (negative = the
+              partner was damaged)
+   mean_d/sd_d = mean and sd of the delta over ALL other units
+   z_p      = (delta_p - mean_d) / sd_d   <- scale-free, so it
+              is comparable across cases AND across models
+   pctile   = percentile of delta_p; low = the partner is among
+              the most damaged units
+
+   ranking by z (most damaged partner first):
+      z= -2.98  pctile   0.0%  the lemonade       -> 12
+      z= -2.09  pctile   1.3%  Michael Furey      -> 69
+      z= -1.80  pctile   0.0%  sobbing            -> 71
+      z= -1.08  pctile  13.0%  the song name      -> 55
+      z= -0.78  pctile  16.9%  the monks          -> 30
+      z= -0.70  pctile  15.6%  the lyric          -> 58
+      z= -0.03  pctile  53.2%  Michael Furey      -> 73
+
+==============================================================================
+MODE: fixed 18 words    MODEL: MiniLM
+==============================================================================
+
+   swap               partner  repl%  delta_p  mean_d   sd_d    z_p  pctile
+   the lyric               58    11%   -0.000  +0.003  0.028  -0.11   44.2%
+   Michael Furey           69     9%   -0.023  +0.013  0.022  -1.65    2.6%
+   Michael Furey           73     9%   -0.010  +0.013  0.022  -1.09   10.4%
+   the monks               30    10%   +0.049  +0.049  0.016  -0.01   48.1%
+   the lemonade            12    11%   -0.087  +0.038  0.044  -2.84    0.0%
+   sobbing                 71     9%   -0.036  +0.010  0.026  -1.77    0.0%
+   the song name           55    12%   +0.007  +0.011  0.012  -0.29   44.2%
+
+   delta_p  = change in cos(A,B) after the swap (negative = the
+              partner was damaged)
+   mean_d/sd_d = mean and sd of the delta over ALL other units
+   z_p      = (delta_p - mean_d) / sd_d   <- scale-free, so it
+              is comparable across cases AND across models
+   pctile   = percentile of delta_p; low = the partner is among
+              the most damaged units
+
+   ranking by z (most damaged partner first):
+      z= -2.84  pctile   0.0%  the lemonade       -> 12
+      z= -1.77  pctile   0.0%  sobbing            -> 71
+      z= -1.65  pctile   2.6%  Michael Furey      -> 69
+      z= -1.09  pctile  10.4%  Michael Furey      -> 73
+      z= -0.29  pctile  44.2%  the song name      -> 55
+      z= -0.11  pctile  44.2%  the lyric          -> 58
+      z= -0.01  pctile  48.1%  the monks          -> 30
+
+==============================================================================
+MODE: fixed 18 words    MODEL: bge
+==============================================================================
+
+   swap               partner  repl%  delta_p  mean_d   sd_d    z_p  pctile
+   the lyric               58    11%   +0.022  +0.031  0.014  -0.70   15.6%
+   Michael Furey           69     9%   -0.018  -0.002  0.009  -1.82    0.0%
+   Michael Furey           73     9%   +0.000  -0.002  0.009   0.28   64.9%
+   the monks               30    10%   +0.005  +0.015  0.008  -1.17   14.3%
+   the lemonade            12    11%   -0.059  +0.023  0.028  -2.94    0.0%
+   sobbing                 71     9%   +0.001  +0.017  0.012  -1.40    6.5%
+   the song name           55    12%   -0.010  -0.001  0.008  -1.07   10.4%
+
+   delta_p  = change in cos(A,B) after the swap (negative = the
+              partner was damaged)
+   mean_d/sd_d = mean and sd of the delta over ALL other units
+   z_p      = (delta_p - mean_d) / sd_d   <- scale-free, so it
+              is comparable across cases AND across models
+   pctile   = percentile of delta_p; low = the partner is among
+              the most damaged units
+
+   ranking by z (most damaged partner first):
+      z= -2.94  pctile   0.0%  the lemonade       -> 12
+      z= -1.82  pctile   0.0%  Michael Furey      -> 69
+      z= -1.40  pctile   6.5%  sobbing            -> 71
+      z= -1.17  pctile  14.3%  the monks          -> 30
+      z= -1.07  pctile  10.4%  the song name      -> 55
+      z= -0.70  pctile  15.6%  the lyric          -> 58
+      z= +0.28  pctile  64.9%  Michael Furey      -> 73
