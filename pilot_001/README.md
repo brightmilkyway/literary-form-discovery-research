@@ -1,4 +1,4 @@
-# Pilot 001 — *The Dead* (James Joyce): open-ended computational structure probe
+﻿# Pilot 001 — *The Dead* (James Joyce): open-ended computational structure probe
 
 探索性预实验（EDA），**不是**假设验证研究。本目录是 `Pilot_001_The_Dead.md`
 所规定交付物的实现与产物。三种归纳偏置不同的现成方法在不预先标注主题、象征、
@@ -46,6 +46,7 @@ pilot_001/
 │  ├─ form_vs_content.py      ★形式 vs 内容（删除而非替换的修正设计）
 │  ├─ echo_matched_control.py ★雪呼应的匹配对照（距离/句长/词汇重叠）
 │  ├─ lyric_swap.py           ★歌词替换实验（换歌/中性填充/打乱/删掉 + 校准对照）
+│  ├─ swap_sensitivity.py     ★替换灵敏度对照（方法能否感知内容？判别性检验）
 │  ├─ show_unit55.py          打印 unit 55 的精确文本与歌词边界
 │  ├─ doc_sync_audit.py       ★文档同步审计（AGENT.md §0 的两项自查，可作门禁）
 │  └─ lookup_unit.py          按片段号打印完整原文与段号（用于核对引文）
@@ -87,6 +88,7 @@ pilot_001/
 | `data/derived/reviewer_response_2.txt` | **★ 审稿回应（第二轮：证据表述的限定）** |
 | `data/derived/echo_matched_control.txt` | **★ 雪呼应的匹配对照（距离 + 句长 + 词汇重叠）** |
 | `data/derived/lyric_swap.txt` | **★ 歌词替换实验（换歌/中性填充/打乱/删掉 + 两个校准对照）** |
+| `data/derived/swap_sensitivity.txt` | **★ 替换灵敏度对照（方法能否感知内容？判别性检验）** |
 | `data/derived/sentence_validation.txt` | **★ 分句器验证（764 → 1023；在已定义的自动检查中未发现欠/过切分）** |
 | `data/derived/sentence_spotcheck.txt` | **★ 分句器人工抽查（随机样本、上下文、可疑模式）** |
 | `data/derived/ncd_reviewer_checks.txt` | **★ NCD 拼接方向 + 等长分箱检验** |
@@ -254,7 +256,7 @@ MiniLM / bge / TF-IDF 都判 **1/1023**，Jaccard 2/1023；
 **但长度残差校正后进入前 0.5%**（2,207 / 420,903）。
 即：**正是长度混淆把这对呼应藏了起来**，而不是 NCD 看不见内容。
 
-## 歌词替换实验（v9）——"该位置的文本内容不参与"
+## 歌词替换实验（v9/v10）——"该位置的文本内容不参与"
 
 **问题**：歌簇 (55,58) 是靠"歌"这个文本对象维系的吗？
 
@@ -285,6 +287,41 @@ MiniLM / bge / TF-IDF 都判 **1/1023**，Jaccard 2/1023；
 **即：那段歌词甚至不是该位置上最好的 18 个词，任意散文都能替代它。**
 指标响应的是整个片段（场景、人物、语域），不是插入的那段文本。
 详见 `data/derived/lyric_swap.txt`。
+
+### 判别性对照：方法到底能不能感知内容？
+
+单独看上面这张表无法排除一种解释——**150 词单元本来就对任何内容替换都不敏感**。
+所以把**同一个替换操作**用在别的对上，看它是否**专门**损伤"共享母题"的搭档。
+定义 `超出量 = |Δcos(搭档)| − 无关搭档的平均 |Δcos|`：
+
+| 被替换的段落 → 搭档 | MiniLM 超出量 | bge 超出量 |
+|---|---|---|
+| **Michael Furey → Gabriel 追问（69）** | **+0.084** | **+0.041** |
+| **柠檬水 → 潘趣酒（12）** | **+0.065** | **+0.040** |
+| **啜泣 → 冷峻盘问（71）** | **+0.045** | **+0.021** |
+| Michael Furey → 前夜（73） | +0.012 | −0.001 |
+| 修道士 → 教皇（30） | +0.010 | −0.008 |
+| 歌名 → 歌词（55） | −0.010 | +0.008 |
+| **歌词 → 歌名（58）** | **−0.018** | **−0.011** |
+
+**方法在 150 词尺度上是能感知内容的**——三个对照达到 +0.04 ~ +0.084。
+而 **(55,58) 是七对里唯一超出量为负的**：把歌词换掉，对它搭档的损伤
+**比随机扰动还小**。
+
+**因此不敏感是这一对特有的，不是方法的全局性质。**
+详见 `data/derived/swap_sensitivity.txt`。
+
+### 由这个对照得到的结构性结论
+
+歌簇的两半**行为不同**：
+
+* **"听见 → 命名"（55 ↔ 58）**：换掉共享的歌材料**不影响**这一对
+  → 由**场景**（同一批人物、同一场散会）维系；
+* **"命名 → 讲述"（72 ↔ 69）**：换掉 Michael Furey 那段**强烈损伤**这一对
+  （+0.084，全表最大）→ 由**内容**维系。
+
+而桥接句 unit 69 落在**内容驱动**的一侧。也就是说：**歌把读者带到
+"讲述"，但"听见"与"命名"之间靠的不是歌，是那场散会本身。**
 
 ## 数据与切分
 
@@ -366,6 +403,7 @@ python ncd_reviewer_checks.py    # NCD 拼接方向 + 等长分箱检验
 python form_vs_content.py        # 形式 vs 内容（修正设计）
 python echo_matched_control.py   # 雪呼应的匹配对照
 python lyric_swap.py             # 歌词替换实验
+python swap_sensitivity.py       # 替换灵敏度对照（判别性检验）
 python doc_sync_audit.py         # 文档同步审计（应输出 RESULT: PASS）
 python make_report_figures.py    # 报告用图
 python lookup_unit.py 2 73 39    # 打印指定片段的完整原文与段号

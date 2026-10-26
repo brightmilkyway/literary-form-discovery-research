@@ -1,0 +1,37 @@
+==============================================================================
+MODEL: MiniLM
+==============================================================================
+
+   swap                                         partner   delta_p  |d|_unrel   excess
+   the lyric  <->  the song name                     58    -0.000      0.018   -0.018
+   Michael Furey  <->  the night before              73    -0.040      0.028   +0.012
+   Michael Furey  <->  Gabriel asks                  69    -0.112      0.028   +0.084
+   the monks  <->  the pope                          30    +0.056      0.046   +0.010
+   the lemonade  <->  the punch                      12    -0.099      0.034   +0.065
+   sobbing  <->  cold interrogation                  71    -0.078      0.033   +0.045
+   the song name  <->  the lyric                     55    -0.003      0.013   -0.010
+
+   delta_p     = change in cos(A,B) after swapping a paragraph in A
+   |d|_unrel   = mean |change| over 20 unrelated partners (the
+                 global shift that any swap causes)
+   excess      = |delta_p| - |d|_unrel ; large positive means the
+                 partner is specifically damaged by the swap
+
+==============================================================================
+MODEL: bge
+==============================================================================
+
+   swap                                         partner   delta_p  |d|_unrel   excess
+   the lyric  <->  the song name                     58    +0.022      0.032   -0.011
+   Michael Furey  <->  the night before              73    -0.022      0.023   -0.001
+   Michael Furey  <->  Gabriel asks                  69    -0.063      0.023   +0.041
+   the monks  <->  the pope                          30    +0.013      0.021   -0.008
+   the lemonade  <->  the punch                      12    -0.061      0.021   +0.040
+   sobbing  <->  cold interrogation                  71    -0.040      0.019   +0.021
+   the song name  <->  the lyric                     55    -0.013      0.005   +0.008
+
+   delta_p     = change in cos(A,B) after swapping a paragraph in A
+   |d|_unrel   = mean |change| over 20 unrelated partners (the
+                 global shift that any swap causes)
+   excess      = |delta_p| - |d|_unrel ; large positive means the
+                 partner is specifically damaged by the swap
