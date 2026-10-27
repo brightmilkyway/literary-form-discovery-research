@@ -1,0 +1,35 @@
+model all-MiniLM-L6-v2; units 78; names from spaCy 3.8.15 / en_core_web_sm
+
+population: all pairs with gap >= 5 (2701), taking the top 500 by cosine
+  cosine range of the selected pairs: 0.577 .. 0.773
+
+variants built: 4720  (avg 9.4 per pair)
+
+==============================================================================
+FULL-TEXT SCAN — top 500 non-adjacent pairs (gap >= 5), K = 2 draws per level
+==============================================================================
+
+   classification rule: finest level with mean z <= -1.5
+   order tried: G1 word -> G1b name -> G3 sentence -> G5 paragraph
+
+   word         67  ( 13.4%)
+   name         51  ( 10.2%)
+   sentence     15  (  3.0%)
+   paragraph    21  (  4.2%)
+   none        346  ( 69.2%)
+
+   pairs whose target paragraph shares NO content word (sh = 0): 5 (1.0%)  -- the word-level rungs do not apply
+
+   G1    n= 462  mean z -0.41  median -0.39  z<-1.5 in 67
+   G1b   n= 403  mean z -0.75  median -0.81  z<-1.5 in 90
+   G2    n= 495  mean z -0.72  median -0.76  z<-1.5 in 109
+   G3    n= 500  mean z -0.53  median -0.55  z<-1.5 in 73
+   G5    n= 500  mean z -0.60  median -0.64  z<-1.5 in 72
+
+   depth vs. observable pair properties (means):
+   depth          n    cos0   gap   sh   th   nm
+   word          67   0.638    31  5.3  4.1  2.2
+   name          51   0.630    25  5.4  2.9  4.0
+   sentence      15   0.628    32  4.1  2.9  1.5
+   paragraph     21   0.643    29  4.9  2.9  2.9
+   none         346   0.617    30  4.7  3.1  2.7

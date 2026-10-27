@@ -1,0 +1,18 @@
+==============================================================================
+PROBE OF THE 'none' PAIRS — maximal lexical removal (BAAI/bge-small-en-v1.5)
+==============================================================================
+
+  pairs probed: 389 of 389
+  replaced, per pair: mean 4.7 paragraphs = 94% of the unit's words
+
+  mean z after maximal removal: -0.65
+  median z                    : -0.65
+  z <= -1.5 in 56 of 389 (14%)
+  z <= -1.0 in 118 of 389 (30%)
+
+  Reading: if the maximal removal still leaves z near zero, the
+  similarity of these pairs is not carried by shared content
+  words at all (reading b); if it collapses them, the similarity
+  is distributed over several paragraphs (reading a).
+
+  paragraphs removed per pair: min 1 median 5 max 11
