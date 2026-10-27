@@ -68,6 +68,14 @@ SUPERSEDED = [
      "41–53%"),
     (r"句式模板检测器", "the withdrawn 'template detector' claim",
      "withdrawn"),
+    # v13 additions
+    (r"该位置的文本内容\*?\*?不参与", "withdrawn: the song-name pair",
+     "contributions small and model-dependent"),
+    (r"词元存在性", "withdrawn: the hand-picked-filler artefact", "withdrawn"),
+    (r"内容承载 / 情境承载", "the two-way typology, replaced by a ladder",
+     "承载位置的谱"),
+    (r"唯一超出量为负", "the v10 claim withdrawn in v11", "not unique"),
+    (r"−0\.018", "the v10 excess for the lyric pair", "z = −0.54 / −0.96"),
 ]
 
 # A hit is acceptable if the line (or a nearby line) marks it as history.

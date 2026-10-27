@@ -48,6 +48,14 @@ pilot_001/
 │  ├─ lyric_swap.py           ★歌词替换实验（换歌/中性填充/打乱/删掉 + 校准对照）
 │  ├─ swap_sensitivity.py     ★替换灵敏度对照（尺度无关的 z / 百分位）
 │  ├─ swap_robustness.py      ★替换稳健性（每案例 30 供体 × 2 种替换目标）
+│  ├─ swap_granularity.py     ★粒度阶梯（词/人名/删除/句/段 五级）
+│  ├─ ladder_principled.py    ★真 NER + 词向量替换 + 前 40 对扫描
+│  ├─ swap_ladder.py          ★供体来源阶梯（同作品→其他篇目→词袋）
+│  ├─ overlap_vs_similarity.py★成分分解（用词重叠解释多少相似度）
+│  ├─ fetch_external_donors.py★取《都柏林人》其他篇目作外部供体
+│  ├─ show_shared_words.py    打印每个案例实际共享的词
+│  ├─ show_donors.py          打印 30 个供体实际是哪些段落
+│  ├─ check_ner_and_embeddings.py  NER 与词向量矩阵可用性检查
 │  ├─ show_unit55.py          打印 unit 55 的精确文本与歌词边界
 │  ├─ doc_sync_audit.py       ★文档同步审计（AGENT.md §0 的两项自查，可作门禁）
 │  └─ lookup_unit.py          按片段号打印完整原文与段号（用于核对引文）
@@ -91,6 +99,11 @@ pilot_001/
 | `data/derived/lyric_swap.txt` | **★ 歌词替换实验（换歌/中性填充/打乱/删掉 + 两个校准对照）** |
 | `data/derived/swap_sensitivity.txt` | **★ 替换灵敏度对照（尺度无关的 z / 百分位）** |
 | `data/derived/swap_robustness.txt` | **★ 替换稳健性（30 供体 × 2 种替换目标 × 2 模型）** |
+| `data/derived/swap_granularity.txt` | **★ 粒度阶梯（五级）** |
+| `data/derived/ladder_principled.txt` | **★ 真 NER + 词向量替换 + 前 40 对扫描** |
+| `data/derived/swap_ladder.txt` | **★ 供体来源阶梯（五级取材）** |
+| `data/derived/overlap_vs_similarity.txt` | **★ 成分分解（本轮最重要）** |
+| `data/source/dubliners_other_stories.txt` | **外部供体来源（《都柏林人》其他 14 篇，公共领域）** |
 | `data/derived/sentence_validation.txt` | **★ 分句器验证（764 → 1023；在已定义的自动检查中未发现欠/过切分）** |
 | `data/derived/sentence_spotcheck.txt` | **★ 分句器人工抽查（随机样本、上下文、可疑模式）** |
 | `data/derived/ncd_reviewer_checks.txt` | **★ NCD 拼接方向 + 等长分箱检验** |
@@ -262,7 +275,7 @@ MiniLM / bge / TF-IDF 都判 **1/1023**，Jaccard 2/1023；
 **但长度残差校正后进入前 0.5%**（2,207 / 420,903）。
 即：**正是长度混淆把这对呼应藏了起来**，而不是 NCD 看不见内容。
 
-## 歌词替换实验（v9–v12）——"该位置的文本内容不参与"
+## 歌词替换实验（v9–v12，已被 v13 的粒度阶梯取代）
 
 **问题**：歌簇 (55,58) 是靠"歌"这个文本对象维系的吗？
 
@@ -372,6 +385,70 @@ MiniLM / bge / TF-IDF 都判 **1/1023**，Jaccard 2/1023；
 
 详见 `data/derived/swap_robustness.txt`。
 
+## v13：粒度阶梯、真 NER、词向量替换、全篇成分分解
+
+这一轮把"换整段"这个粗糙做法换掉了，并因此**更正了两处结论**。
+
+### 五级粒度阶梯
+
+| 级别 | 动作 |
+|---|---|
+| G1 | 只替换共享的**主题词**（句法、长度不动） |
+| G1b | 只替换共享的**人名**（spaCy NER 判定） |
+| G2 | 共享词**删除**，用**词向量选取**的填充词补回长度 |
+| G3 | 换掉**最共享的那一句** |
+| G5 | 换掉**整段**（旧做法） |
+
+| 案例 | G1 | G1b | G2 | G3 | G5 |
+|---|---|---|---|---|---|
+| 柠檬水 → 12 | **−2.31** | n/a | −2.45 | −2.41 | −2.21 |
+| 啜泣 → 71 | −1.44 | −1.68 | −2.09 | −1.96 | −1.64 |
+| **Michael Furey → 69** | **−0.25** | **+0.34** | −0.61 | **−1.80** | −2.13 |
+| 歌名 → 55 | +0.63 | −0.08 | −0.06 | −1.70 | −1.66 |
+| 歌词 → 58 | n/a | n/a | n/a | −0.26 | −0.62 |
+| 修道士 → 30 | n/a | n/a | n/a | **+0.30** | −0.06 |
+
+**关键**：粗粒度会给出**相反答案**——修道士那对句级 +0.30（无事发生）、
+整段 −0.06。**旧做法把它误判为"情境承载"。**
+
+### 两处更正
+
+| 项 | 旧 | 新 | 处置 |
+|---|---|---|---|
+| Michael Furey ↔ 69 | "内容承载"（G5 −2.13） | G1 **−0.25**、G3 −1.80 | **限定为句级承载** |
+| 歌名 ↔ 55 | G2 −1.44 → "词元存在性" | G2 **−0.06** | **撤回**（手挑填充词造成的） |
+
+### 人名与替换词不再靠启发式
+
+* 人名：`spaCy 3.8.15 / en_core_web_sm` 的 NER + PROPN。
+  旧的首字母大写启发式把 `academy`/`church`/`god`/`ireland` 当人名，
+  又漏掉 `Aunt Kate`/`Michael Furey` 等多词人名。
+* 替换词：从编码器**自己的词向量矩阵**（30,522 × 384）里取**离原词最远**、
+  长度相当、且不在搭档词汇中的词。G1 的替换与 G2 的填充同用此规则。
+
+### 供体来源不影响判读
+
+五级取材（同作品 → 同作品去人名 → **其他《都柏林人》篇目** → 本作品词袋 →
+语料词袋）给出**同样的列**。外部来源由 `fetch_external_donors.py` 从
+Project Gutenberg #2814 取《都柏林人》其他 14 篇（627 段 / 52,274 词）。
+
+### 全篇成分分解（本轮最重要）
+
+对**所有**非相邻对（gap ≥ 5，n = 2,701）：
+
+| 量 | MiniLM | bge |
+|---|---|---|
+| r(余弦, 共享实词数) | 0.374 | 0.471 |
+| r(余弦, Jaccard) | 0.425 | 0.523 |
+| **前 40 对超出"同重叠量"对照** | **+0.198** | **+0.098** |
+
+1. **"这两段像"不是"用词相同"的复述**——用词只解释 **18% / 27%** 的方差。
+2. **配平重叠后前 40 对仍明显更相似**——编码器看到了超出"用词相同"的东西。
+3. **而粒度阶梯说那个东西在句子层，不在词层。**
+
+⚠️ 扫描的目标段是按"最大重叠"选的，所以 `sh = 0` 被规则排除；
+补单元级检查后 **40 对里 0 对完全没有共享实词**。
+
 ## 数据与切分
 
 * 原文：`data/source/the_dead.txt`（Project Gutenberg 英文正文，UTF-8）。
@@ -454,6 +531,11 @@ python echo_matched_control.py   # 雪呼应的匹配对照
 python lyric_swap.py             # 歌词替换实验
 python swap_sensitivity.py       # 替换灵敏度对照（尺度无关）
 python swap_robustness.py        # 替换稳健性（30 供体 × 2 目标）
+python swap_granularity.py       # 粒度阶梯（五级）
+python fetch_external_donors.py  # 取外部供体（需联网，已缓存）
+python swap_ladder.py            # 供体来源阶梯
+python ladder_principled.py --scan 40   # 真 NER + 词向量替换 + 扫描
+python overlap_vs_similarity.py  # 成分分解
 python doc_sync_audit.py         # 文档同步审计（应输出 RESULT: PASS）
 python make_report_figures.py    # 报告用图
 python lookup_unit.py 2 73 39    # 打印指定片段的完整原文与段号

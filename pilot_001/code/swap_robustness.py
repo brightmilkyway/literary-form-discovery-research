@@ -148,8 +148,8 @@ def main():
             w(f"MODE: {mode}   MODEL: {mname}   (K = {K} donors per case)")
             w("=" * 78)
             w()
-            w(f"   {'swap':<18}{'partner':>8}{'cos0':>7}{'mean z':>8}{'sd':>7}"
-              f"{'min':>7}{'max':>7}{'< -1':>7}")
+            w(f"   {'swap':<18}{'partner':>8}{'cos0':>7}{'sh':>4}{'n':>4}"
+              f"{'mean z':>8}{'sd':>7}{'min':>7}{'max':>7}{'< -1':>7}")
             for (ua, kw, partner, label) in CASES:
                 p = motif_para(ua, kw)
                 u = units[ua]
@@ -163,12 +163,22 @@ def main():
                     repl_n = min(18, p.n_words)
                     keep_head = most_shared_window(pw, ptypes, repl_n)
 
-                # donor pool: distant, long enough, not the case unit
+                # donor pool: distant, long enough, and -- crucially --
+                # sharing no more content vocabulary with the partner than
+                # the paragraph being removed does.  Without this filter the
+                # replacement can INJECT related material instead of removing
+                # it, which biases the measurement toward "no damage".
+                max_share = len(content_types(p.text) & ptypes)
                 pool = [q for q in paras
                         if q.n_words >= max(repl_n, MIN_DONOR_WORDS)
-                        and abs(q.index - p.index) > MIN_DONOR_GAP]
+                        and abs(q.index - p.index) > MIN_DONOR_GAP
+                        and len(content_types(q.text) & ptypes) <= max_share]
                 if len(pool) < K:
-                    pool = [q for q in paras if q.n_words >= repl_n]
+                    # relax the distance requirement before relaxing overlap
+                    pool = [q for q in paras
+                            if q.n_words >= repl_n
+                            and q.index != p.index
+                            and len(content_types(q.text) & ptypes) <= max_share]
                 donors = rng.sample(pool, min(K, len(pool)))
 
                 variants = []
@@ -199,12 +209,17 @@ def main():
                 zs = np.array(zs)
                 zs = zs[~np.isnan(zs)]
                 frac = float((zs < -1).mean())
-                w(f"   {label:<18}{partner:>8}{cos0:>7.3f}{zs.mean():>8.2f}"
+                w(f"   {label:<18}{partner:>8}{cos0:>7.3f}{max_share:>4}"
+                  f"{len(donors):>4}{zs.mean():>8.2f}"
                   f"{zs.std():>7.2f}{zs.min():>7.2f}{zs.max():>7.2f}"
                   f"{frac*100:>6.0f}%")
             w()
             w("   cos0   = original cos(A,B)")
-            w("   mean z = mean over the K donors of the partner's z-score")
+            w("   sh     = content word types the REMOVED paragraph shares with")
+            w("            the partner; donors are constrained to share no more")
+            w("            than this, so the swap removes rather than injects")
+            w("   n      = number of donors actually available after the filter")
+            w("   mean z = mean over the donors of the partner's z-score")
             w("   < -1   = share of donors for which the partner is more than")
             w("            1 sd more damaged than the average unit")
             w()
