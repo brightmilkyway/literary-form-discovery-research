@@ -1,0 +1,108 @@
+==============================================================================
+LYRIC SWAP — replace only the song text in unit 55, nothing else
+==============================================================================
+
+unit 55: paras 320-327, 164 words
+the lyric is exactly paragraph 320 (18 words)
+
+   variant                                      words  chars
+   original                                        18     83
+   Bieber 'Baby'                                   18     78
+   Green Day 'Wake Me Up When September Ends'      18     89
+   Irish ballad 'The Minstrel Boy'                 18     81
+   neutral filler (non-lyric)                      18     92
+   original words, shuffled                        18     83
+   removed                                          0      0
+   calibration: 18 words of prose from elsewhere    18     96
+   calibration: same swap in a different paragraph    18     88
+   (all variants are held at the original's word count where possible,
+    so that length cannot explain a difference)
+
+------------------------------------------------------------------------------
+MODEL: MiniLM
+------------------------------------------------------------------------------
+   variant                                      cos(55,58)  mutual  centr.  rank
+   original                                          0.732       1   0.501      
+   Bieber 'Baby'                                     0.723       2   0.500      
+   Green Day 'Wake Me Up When September Ends'        0.726       2   0.493      
+   Irish ballad 'The Minstrel Boy'                   0.715       1   0.498      
+   neutral filler (non-lyric)                        0.723       2   0.517      
+   original words, shuffled                          0.713       1   0.506      
+   removed                                           0.707       2   0.528      
+   calibration: 18 words of prose from elsewhere      0.739       1   0.515      
+   calibration: same swap in a different paragraph      0.728       2   0.502      
+
+   top-5 partners of unit 55 under each variant:
+      original                                     [(58, 0.732), (48, 0.699), (57, 0.644), (56, 0.627), (32, 0.613)]
+      Bieber 'Baby'                                [(58, 0.723), (48, 0.699), (32, 0.637), (57, 0.613), (9, 0.613)]
+      Green Day 'Wake Me Up When September Ends'   [(58, 0.726), (48, 0.694), (32, 0.632), (13, 0.631), (31, 0.609)]
+      Irish ballad 'The Minstrel Boy'              [(58, 0.715), (48, 0.691), (13, 0.644), (32, 0.624), (36, 0.611)]
+      neutral filler (non-lyric)                   [(48, 0.732), (58, 0.723), (57, 0.657), (32, 0.653), (13, 0.642)]
+      original words, shuffled                     [(58, 0.713), (48, 0.696), (57, 0.622), (56, 0.619), (9, 0.613)]
+      removed                                      [(48, 0.734), (58, 0.707), (37, 0.657), (32, 0.649), (24, 0.631)]
+      calibration: 18 words of prose from elsewhere [(58, 0.739), (48, 0.72), (32, 0.677), (31, 0.664), (13, 0.629)]
+      calibration: same swap in a different paragraph [(58, 0.728), (48, 0.711), (57, 0.648), (56, 0.633), (32, 0.616)]
+
+   similarity to the other cluster members:
+      original                                     54:0.541 56:0.627 57:0.644 37:0.559 69:0.509 72:0.567 73:0.482
+      Bieber 'Baby'                                54:0.533 56:0.573 57:0.613 37:0.591 69:0.520 72:0.557 73:0.476
+      Green Day 'Wake Me Up When September Ends'   54:0.526 56:0.576 57:0.609 37:0.574 69:0.475 72:0.542 73:0.463
+      Irish ballad 'The Minstrel Boy'              54:0.538 56:0.565 57:0.587 37:0.566 69:0.514 72:0.569 73:0.462
+      neutral filler (non-lyric)                   54:0.604 56:0.605 57:0.657 37:0.572 69:0.494 72:0.573 73:0.499
+      original words, shuffled                     54:0.552 56:0.619 57:0.622 37:0.559 69:0.516 72:0.569 73:0.484
+      removed                                      54:0.580 56:0.594 57:0.590 37:0.657 69:0.540 72:0.624 73:0.540
+      calibration: 18 words of prose from elsewhere 54:0.553 56:0.585 57:0.614 37:0.618 69:0.499 72:0.570 73:0.482
+      calibration: same swap in a different paragraph 54:0.535 56:0.633 57:0.648 37:0.543 69:0.509 72:0.567 73:0.487
+
+------------------------------------------------------------------------------
+MODEL: bge
+------------------------------------------------------------------------------
+   variant                                      cos(55,58)  mutual  centr.  rank
+   original                                          0.817       1   0.696      
+   Bieber 'Baby'                                     0.821       1   0.701      
+   Green Day 'Wake Me Up When September Ends'        0.812       1   0.700      
+   Irish ballad 'The Minstrel Boy'                   0.817       1   0.702      
+   neutral filler (non-lyric)                        0.824       1   0.710      
+   original words, shuffled                          0.818       1   0.696      
+   removed                                           0.831       1   0.724      
+   calibration: 18 words of prose from elsewhere      0.838       1   0.723      
+   calibration: same swap in a different paragraph      0.815       1   0.698      
+
+   top-5 partners of unit 55 under each variant:
+      original                                     [(58, 0.817), (48, 0.8), (31, 0.791), (13, 0.786), (57, 0.766)]
+      Bieber 'Baby'                                [(58, 0.821), (48, 0.801), (31, 0.8), (13, 0.798), (29, 0.772)]
+      Green Day 'Wake Me Up When September Ends'   [(58, 0.812), (48, 0.805), (31, 0.793), (13, 0.786), (29, 0.757)]
+      Irish ballad 'The Minstrel Boy'              [(58, 0.817), (48, 0.809), (31, 0.791), (13, 0.785), (57, 0.76)]
+      neutral filler (non-lyric)                   [(58, 0.824), (48, 0.82), (31, 0.797), (13, 0.791), (56, 0.777)]
+      original words, shuffled                     [(58, 0.818), (48, 0.798), (31, 0.791), (13, 0.785), (56, 0.764)]
+      removed                                      [(58, 0.831), (48, 0.801), (75, 0.794), (72, 0.791), (27, 0.785)]
+      calibration: 18 words of prose from elsewhere [(58, 0.838), (31, 0.835), (48, 0.821), (13, 0.806), (32, 0.782)]
+      calibration: same swap in a different paragraph [(58, 0.815), (48, 0.81), (13, 0.792), (31, 0.789), (57, 0.771)]
+
+   similarity to the other cluster members:
+      original                                     54:0.748 56:0.765 57:0.766 37:0.703 69:0.691 72:0.750 73:0.680
+      Bieber 'Baby'                                54:0.753 56:0.747 57:0.758 37:0.728 69:0.702 72:0.736 73:0.663
+      Green Day 'Wake Me Up When September Ends'   54:0.749 56:0.744 57:0.757 37:0.719 69:0.694 72:0.750 73:0.677
+      Irish ballad 'The Minstrel Boy'              54:0.752 56:0.740 57:0.760 37:0.728 69:0.715 72:0.756 73:0.688
+      neutral filler (non-lyric)                   54:0.777 56:0.777 57:0.776 37:0.716 69:0.708 72:0.762 73:0.691
+      original words, shuffled                     54:0.746 56:0.764 57:0.762 37:0.704 69:0.691 72:0.743 73:0.673
+      removed                                      54:0.778 56:0.775 57:0.772 37:0.729 69:0.727 72:0.791 73:0.716
+      calibration: 18 words of prose from elsewhere 54:0.762 56:0.760 57:0.755 37:0.738 69:0.722 72:0.774 73:0.707
+      calibration: same swap in a different paragraph 54:0.740 56:0.769 57:0.771 37:0.699 69:0.700 72:0.755 73:0.685
+
+------------------------------------------------------------------------------
+NCD (zlib) — distance of (55,58) and its rank among all pairs
+------------------------------------------------------------------------------
+   variant                                       d(55,58)        rank  words
+   original                                         0.789          15    164
+   Bieber 'Baby'                                    0.776           5    164
+   Green Day 'Wake Me Up When September Ends'       0.786          10    164
+   Irish ballad 'The Minstrel Boy'                  0.784           8    164
+   neutral filler (non-lyric)                       0.784           8    164
+   original words, shuffled                         0.786          10    164
+   removed                                          0.768           4    146
+   calibration: 18 words of prose from elsewhere     0.789          17    164
+   calibration: same swap in a different paragraph     0.784           9    164
+
+   (the NCD column is length-dominated by construction, so a
+    length-matched swap should barely move it — that is the point)
