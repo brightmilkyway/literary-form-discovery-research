@@ -1,4 +1,4 @@
-﻿"""The 'song' cluster: is it just literal repetition?
+"""The 'song' cluster: is it just literal repetition?
 
 (55,58) is the only pair that survives every test in this pilot (mutual rank
 1 in MiniLM, 2 in bge).  The cheapest explanation is literal repetition: unit

@@ -1,4 +1,4 @@
-﻿"""Reviewer checks on NCD: concatenation order, and the 'template' claim.
+"""Reviewer checks on NCD: concatenation order, and the 'template' claim.
 
 Two criticisms addressed here.
 

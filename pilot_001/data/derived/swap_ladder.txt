@@ -1,0 +1,50 @@
+external donor source: 627 paragraphs of other Dubliners stories
+==============================================================================
+MODEL: MiniLM   (K = 10 donors per rung)
+==============================================================================
+
+   case                sh       L1       L2       L3       L4       L5
+                            mean z   mean z   mean z   mean z   mean z
+   the lyric            0    -0.57    -0.57    -0.41    -0.85    -0.52
+   Michael Furey        4    -0.45    -0.53    -0.44    -0.48    -0.70
+   the monks            0    -1.61    -1.63    -1.46    -1.67    -1.76
+   the lemonade         2    -2.19    -2.37    -1.92    -2.00    -2.12
+   sobbing              3    -1.97    -2.04    -2.09    -1.98    -1.74
+   the song name        5    -2.96    -2.88    -3.08    -2.95    -2.88
+
+   sh = content word types the REMOVED span shares with the partner
+   L1 another paragraph of The Dead
+   L2 as L1, no shared proper noun with the partner
+   L3 a paragraph of another Dubliners story (same author/book)
+   L4 The Dead's content words, shuffled
+   L5 the corpus's content words, shuffled
+
+   All rungs are length-matched and share <= sh content types with
+   the partner, so each removes rather than injects related
+   material.  The verdict is invariant if the column pattern holds
+   across the five rungs.
+
+==============================================================================
+MODEL: bge   (K = 10 donors per rung)
+==============================================================================
+
+   case                sh       L1       L2       L3       L4       L5
+                            mean z   mean z   mean z   mean z   mean z
+   the lyric            0    -0.93    -0.93    -0.77    -0.11    -0.76
+   Michael Furey        4    -1.23    -1.32    -1.19    -1.06    -1.14
+   the monks            0    -0.81    -0.86    -0.51    -1.61    -1.14
+   the lemonade         2    -2.86    -2.73    -2.28    -2.68    -2.40
+   sobbing              3    -1.91    -1.81    -2.00    -2.08    -2.30
+   the song name        5    -1.84    -1.90    -2.06    -1.94    -2.27
+
+   sh = content word types the REMOVED span shares with the partner
+   L1 another paragraph of The Dead
+   L2 as L1, no shared proper noun with the partner
+   L3 a paragraph of another Dubliners story (same author/book)
+   L4 The Dead's content words, shuffled
+   L5 the corpus's content words, shuffled
+
+   All rungs are length-matched and share <= sh content types with
+   the partner, so each removes rather than injects related
+   material.  The verdict is invariant if the column pattern holds
+   across the five rungs.

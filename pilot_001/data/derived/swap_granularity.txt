@@ -1,0 +1,49 @@
+==============================================================================
+MODEL: MiniLM   (K = 10 draws per granularity where applicable)
+==============================================================================
+
+   case                sh  n_sw        G1       G1b        G2        G3        G4        G5
+                                   mean z    mean z    mean z    mean z    mean z    mean z
+   the lyric            0     0      n/a      n/a      n/a     -0.37     -0.66     -0.81
+   Michael Furey        2     2     -1.19     -0.04     -0.11     -1.17     -1.51     -1.64
+   the monks            0     0      n/a      n/a      n/a      0.40      0.33     -0.06
+   the lemonade         1     1     -2.28      n/a     -2.60     -1.90     -2.72     -2.22
+   sobbing              3     3     -1.45     -1.71     -2.16     -1.68     -2.06     -1.67
+   the song name        2     2      0.55      0.05     -1.44     -1.32     -1.32     -1.30
+
+   sh   = content word TYPES the paragraph shares with the partner
+   n_sw = number of word OCCURRENCES acted on by G1/G2
+   G1 minimal-pair substitution of the shared words (syntax and
+      length preserved)
+   G2 the same words deleted, length preserved with filler
+   G3 the most shared sentence replaced
+   G4 the maximally-overlapping 18-word window replaced
+   G5 the whole paragraph replaced
+
+   n/a means the paragraph shares no content word with the partner,
+   so there is nothing to substitute or delete at word level.
+
+==============================================================================
+MODEL: bge   (K = 10 draws per granularity where applicable)
+==============================================================================
+
+   case                sh  n_sw        G1       G1b        G2        G3        G4        G5
+                                   mean z    mean z    mean z    mean z    mean z    mean z
+   the lyric            0     0      n/a      n/a      n/a     -0.64     -1.01     -0.97
+   Michael Furey        2     2     -0.55     -0.11     -0.68     -0.98     -1.95     -1.83
+   the monks            0     0      n/a      n/a      n/a     -0.03     -0.49     -1.57
+   the lemonade         1     1     -2.67      n/a     -2.65     -2.74     -2.75     -2.35
+   sobbing              3     3     -2.17     -1.70     -2.01     -1.53     -2.20     -1.52
+   the song name        2     2      0.28     -0.35     -1.50     -0.75     -0.21      0.11
+
+   sh   = content word TYPES the paragraph shares with the partner
+   n_sw = number of word OCCURRENCES acted on by G1/G2
+   G1 minimal-pair substitution of the shared words (syntax and
+      length preserved)
+   G2 the same words deleted, length preserved with filler
+   G3 the most shared sentence replaced
+   G4 the maximally-overlapping 18-word window replaced
+   G5 the whole paragraph replaced
+
+   n/a means the paragraph shares no content word with the partner,
+   so there is nothing to substitute or delete at word level.

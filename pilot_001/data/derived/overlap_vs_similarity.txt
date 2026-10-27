@@ -1,0 +1,30 @@
+==============================================================================
+IS SIMILARITY JUST SHARED VOCABULARY?   (all pairs with gap >= 5, n = 2701)
+==============================================================================
+
+   shared content word types per pair: min 0  median 7  max 29
+   Jaccard overlap                   : median 0.048
+
+   model      r(cos, #shared)   r(cos, Jaccard)   partial: cos~Jacc | len
+   MiniLM               0.374             0.425                     0.425
+   bge                  0.471             0.523                     0.522
+
+   (a high r means the encoder's similarity is largely a restatement
+    of 'these two units use the same words')
+
+   MiniLM: top-40 pairs share 11.1 content types on average; all non-adjacent pairs share 7.8
+   bge: top-40 pairs share 12.6 content types on average; all non-adjacent pairs share 7.8
+
+------------------------------------------------------------------------------
+DOES THE ENCODER SEE ANYTHING BEYOND OVERLAP?
+------------------------------------------------------------------------------
+   For each top-40 pair, compare its cosine with the mean cosine of
+   pairs having the SAME number of shared content types.
+
+   model         top-40 excess over overlap-matched mean
+   MiniLM                                         +0.198
+   bge                                            +0.098
+
+   A positive mean means the top pairs are more similar than other
+   pairs with the same amount of shared vocabulary - i.e. there is
+   something beyond overlap.
