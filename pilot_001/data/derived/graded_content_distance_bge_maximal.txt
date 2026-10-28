@@ -1,0 +1,46 @@
+==============================================================================
+GRADED CONTENT DISTANCE — does word meaning reach the passage vector?
+==============================================================================
+  model BAAI/bge-small-en-v1.5;  scope maximal;  K = 2
+  population: top 500 pairs with gap >= 5;  units 78
+
+  intervention: every content word of every paragraph of A that
+                shares any content word with B is replaced.
+                Function words, punctuation, word order, sentence
+                and paragraph breaks are held fixed.
+  replaced per pair: mean 116 content words of 216 tokens, across 4.6 paragraphs
+
+  CHECK — was the shared content actually destroyed?
+    (content-only cosine, v7's definition; lower = more destroyed)
+    level                before    after     drop
+    q=0.99 near           0.722    0.679    0.044
+    q=0.50 mid            0.722    0.656    0.066
+    q=0.05 far            0.722    0.646    0.077
+    q=0.00 furthest       0.722    0.627    0.095
+    SHUF order            0.722    0.728   -0.006
+
+  RESULT — the passage-level link
+    level                   z  cos to B    drop  rank of B  margin
+    (original)           0.00     0.792   0.000       13.9   0.048
+    q=0.99 near         -0.67     0.701   0.091       22.6   0.060
+    q=0.50 mid          -0.68     0.684   0.108       23.8   0.056
+    q=0.05 far          -0.72     0.677   0.115       24.6   0.055
+    q=0.00 furthest     -0.68     0.676   0.116       24.8   0.054
+    SHUF order          -0.38     0.740   0.052       18.8   0.060
+
+  DIAGNOSTIC — does the variant become generic?
+    (mean cosine to every other unit, excluding A)
+    level                before    after    shift
+    q=0.99 near           0.744    0.672   -0.072
+    q=0.50 mid            0.744    0.658   -0.086
+    q=0.05 far            0.744    0.652   -0.092
+    q=0.00 furthest       0.744    0.651   -0.094
+    SHUF order            0.744    0.701   -0.043
+
+  SUMMARY
+    level                  q=0.99        q=0.50        q=0.05        q=0.00          SHUF
+    z                       -0.67         -0.68         -0.72         -0.68         -0.38
+    raw drop to B           0.091         0.108         0.115         0.116         0.052
+    content drop            0.044         0.066         0.077         0.095        -0.006
+    mean rank of B           22.6          23.8          24.6          24.8          18.8
+    rank of B with no intervention: 13.9

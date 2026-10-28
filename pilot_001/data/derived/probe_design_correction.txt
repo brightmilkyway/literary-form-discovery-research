@@ -1,0 +1,26 @@
+==============================================================================
+WHAT THE v14 PROBE ACTUALLY DID TO A PASSAGE
+==============================================================================
+
+ORIGINAL
+------------------------------------------------------------------------------
+Gabriel laughed nervously and patted his tie reassuringly while Aunt Kate nearly doubled herself, so heartily did she enjoy the joke. The smile soon faded from Aunt Julia’s face and her mirthless eyes were directed towards her nephew’s face. After a pause she asked:
+
+v14 PROBE — every word replaced (function words included)
+------------------------------------------------------------------------------
+threads capsule collection buzz teams eta spp compartment prima fuels fault britten mckenzie narrowly nun grandma hike claw ridges quit kidd quit warped mesh morgan tess fuels growth tory buzz wire propeller anson cbn pumpkin delaney wire offended keith leach feared beaux claw babylon
+
+  function words surviving : 0 of 16
+
+CORRECTED — content words only (function words held fixed)
+------------------------------------------------------------------------------
+threads capsule collection and teams his spp compartment while fuels fault britten mckenzie narrowly so baptiste did she ridges the spin The warped mesh morgan from fuels benign tory and her launching anson were pumpkin delaney her enriched roast After a beaux she disused
+
+  content words replaced   : 28 of 28
+  function words surviving : 16 of 16
+
+Reading: the v14 probe left no grammar at all, so the claim that what
+survives its intervention is 'form - syntax, function words, register'
+was not supported by its own design.  The corrected run holds the
+function words fixed and moves only the content words, which is what
+the question requires.

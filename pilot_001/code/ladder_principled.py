@@ -101,10 +101,13 @@ class Replacer:
     """Pick the vocabulary word furthest from the target in the encoder's
     input-embedding space, at a comparable token length."""
 
-    def __init__(self, model_name: str):
-        from sentence_transformers import SentenceTransformer
+    def __init__(self, model_name: str, model=None):
+        if model is None:
+            from sentence_transformers import SentenceTransformer
 
-        m = SentenceTransformer(model_name)
+            m = SentenceTransformer(model_name)
+        else:
+            m = model                      # reuse an already-loaded model
         W = m[0].auto_model.get_input_embeddings().weight.detach().cpu().numpy()
         tok = m.tokenizer
         vocab = tok.get_vocab()
