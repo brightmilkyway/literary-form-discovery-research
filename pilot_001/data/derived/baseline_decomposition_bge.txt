@@ -1,0 +1,44 @@
+==============================================================================
+WHERE DOES THE HIGH BASELINE COME FROM?
+==============================================================================
+  model BAAI/bge-small-en-v1.5
+  all units cut the same way: 150-word groups, no paragraph split,
+  no story boundary crossed
+
+  populations
+    dead          78 units  (*The Dead*)
+    other        256 units  (14 other *Dubliners* stories)
+    scram_dead    60 units  (all words replaced, shape kept)
+    scram_other   60 units
+
+  word counts: dead min/median/max 152/175/452   other 103/182/401
+
+  MEAN PAIRWISE COSINE
+    population / comparison                       mean cos     n pairs
+    dead x dead (gap >= 5)                           0.721           -
+    dead x dead (all pairs)                          0.724           -
+    other x other, SAME story (gap >= 5)             0.730        1908
+    other x other, DIFFERENT story                   0.695       29848
+    other x other (all pairs)                        0.699           -
+    ---                                         
+    dead x other  (cross-story)                      0.690       19968
+    ---                                         
+    scram_dead x scram_dead                          0.856           -
+    scram_other x scram_other                        0.844           -
+    scram_dead x scram_other                         0.843           -
+    ---                                         
+    dead x scram_dead (real vs own scramble)         0.594           -
+    dead x scram_other                               0.605           -
+    other x scram_dead                               0.589           -
+
+  ANISOTROPY INDICATORS  (all vectors pointing one way -> cos-to-centroid
+  towards 1; participation ratio = effective dimensions used of 384)
+    population         cos to centroid   participation ratio
+    dead                         0.853                  31.8
+    other                        0.837                  49.3
+    scram_dead                   0.926                  29.2
+    scram_other                  0.920                  27.5
+
+  DOES LENGTH DRIVE IT?  (correlation of cosine with length difference)
+    dead             r(cos, |len_i - len_j|) = +0.144   (length sd 62.7 words)
+    other            r(cos, |len_i - len_j|) = +0.187   (length sd 56.3 words)

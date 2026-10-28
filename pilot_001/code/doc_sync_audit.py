@@ -56,11 +56,15 @@ DOCS = PILOT_DOCS + [p for p in REPO_DOCS if p.exists()]
 # Values that were superseded during the pilot.  Each entry is
 # (pattern, why it is superseded, what replaced it).
 SUPERSEDED = [
-    (r"\b764\b", "the broken splitter's sentence count", "1023"),
+    # NOTE: numeric patterns must not match inside decimals.  "764" is the old
+    # sentence count, but "0.764" is a cosine; "0.83" was the withdrawn form
+    # baseline, but "0.837" is a cosine.  Without the lookarounds the audit
+    # reports those as stale claims.
+    (r"(?<![\d.])764(?![\d])", "the broken splitter's sentence count", "1023"),
     (r"\b225 句", "the echo distance under the broken splitter", "290 句"),
     (r"句 534|句 759", "the echo sentence numbers under the broken splitter",
      "句 728 / 句 1018"),
-    (r"0\.83", "the 'form baseline' (placeholder artefact)", "0.712 / 0.618"),
+    (r"0\.83(?![\d])", "the 'form baseline' (placeholder artefact)", "0.712 / 0.618"),
     (r"\+0\.728", "the sentence-scale NCD confound before the splitter fix",
      "+0.661"),
     (r"53\.1%", "variance explained before the splitter fix", "43.7%"),
