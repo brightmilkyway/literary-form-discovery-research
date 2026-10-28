@@ -1,0 +1,46 @@
+==============================================================================
+GRADED CONTENT DISTANCE — does word meaning reach the passage vector?
+==============================================================================
+  model all-MiniLM-L6-v2;  scope maximal;  K = 2
+  population: top 500 pairs with gap >= 5;  units 78
+
+  intervention: every content word of every paragraph of A that
+                shares any content word with B is replaced.
+                Function words, punctuation, word order, sentence
+                and paragraph breaks are held fixed.
+  replaced per pair: mean 110 content words of 201 tokens, across 5.1 paragraphs
+
+  CHECK — was the shared content actually destroyed?
+    (content-only cosine, v7's definition; lower = more destroyed)
+    level                before    after     drop
+    q=0.99 near           0.491    0.414    0.077
+    q=0.50 mid            0.491    0.319    0.172
+    q=0.05 far            0.491    0.295    0.197
+    q=0.00 furthest       0.491    0.269    0.222
+    SHUF order            0.491    0.477    0.015
+
+  RESULT — the passage-level link
+    level                   z  cos to B    drop  rank of B  margin
+    (original)           0.00     0.622   0.000       13.8   0.103
+    q=0.99 near         -0.73     0.504   0.118       22.3   0.108
+    q=0.50 mid          -0.82     0.416   0.207       26.4   0.102
+    q=0.05 far          -0.81     0.392   0.230       27.6   0.109
+    q=0.00 furthest     -0.84     0.368   0.254       28.1   0.102
+    SHUF order          -0.47     0.543   0.080       18.3   0.116
+
+  DIAGNOSTIC — does the variant become generic?
+    (mean cosine to every other unit, excluding A)
+    level                before    after    shift
+    q=0.99 near           0.534    0.455   -0.079
+    q=0.50 mid            0.534    0.381   -0.152
+    q=0.05 far            0.534    0.360   -0.173
+    q=0.00 furthest       0.534    0.339   -0.195
+    SHUF order            0.534    0.473   -0.060
+
+  SUMMARY
+    level                  q=0.99        q=0.50        q=0.05        q=0.00          SHUF
+    z                       -0.73         -0.82         -0.81         -0.84         -0.47
+    raw drop to B           0.118         0.207         0.230         0.254         0.080
+    content drop            0.077         0.172         0.197         0.222         0.015
+    mean rank of B           22.3          26.4          27.6          28.1          18.3
+    rank of B with no intervention: 13.8

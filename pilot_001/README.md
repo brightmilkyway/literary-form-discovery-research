@@ -54,6 +54,8 @@ pilot_001/
 │  ├─ overlap_vs_similarity.py★成分分解（用词重叠解释多少相似度）
 │  ├─ scan_full_ladder.py     ★全篇扫描（规则定义的前 N 对 × 五级粒度）
 │  ├─ scan_none_probe.py      ★对"none"对做最大词法移除探针
+│  ├─ graded_content_distance.py ★语义距离梯度（只换内容词）+ SHUF 对照
+│  ├─ probe_design_correction.py 生成 v14 探针设计缺陷的实例证据
 │  ├─ fetch_external_donors.py★取《都柏林人》其他篇目作外部供体
 │  ├─ show_shared_words.py    打印每个案例实际共享的词
 │  ├─ show_donors.py          打印 30 个供体实际是哪些段落
@@ -108,6 +110,8 @@ pilot_001/
 | `data/derived/scan_full_ladder_minilm.txt` / `_bge.txt` | **★ 全篇扫描：承载位置分布（本轮最重要）** |
 | `data/derived/scan_none_probe_minilm.txt` / `_bge.txt` | **★ "none"对的最大词法移除探针** |
 | `data/derived/scan_full_ladder_minilm.csv` / `_bge.csv` | 逐对数据 |
+| `data/derived/graded_content_distance_minilm_maximal.txt` / `_bge_maximal.txt` | **★ 语义距离梯度（本轮最重要）** |
+| `data/derived/probe_design_correction.txt` | **★ v14 探针把虚词也换掉的实例证据** |
 | `data/source/dubliners_other_stories.txt` | **外部供体来源（《都柏林人》其他 14 篇，公共领域）** |
 | `data/derived/sentence_validation.txt` | **★ 分句器验证（764 → 1023；在已定义的自动检查中未发现欠/过切分）** |
 | `data/derived/sentence_spotcheck.txt` | **★ 分句器人工抽查（随机样本、上下文、可疑模式）** |
@@ -481,23 +485,74 @@ G3 −0.53 / −0.44；G5 −0.60 / −0.55。
 
 | | MiniLM | bge |
 |---|---|---|
-| 被替换的篇幅 | **94%** 的单元词数（中位 5 段） | 94% |
+| 被替换的篇幅 | **94%** 的单元**词元**（中位 5 段） | 94% |
 | 移除后 mean z | **−0.89** | **−0.65** |
 | z ≤ −1.5 | **15%** | **14%** |
 
-**把 94% 的词换成无关内容，这批对的相似性大部分还在。**
-所以它们**不由共享内容词承载**——而是**形式**（句法、虚词、语域）。
+**把 94% 的词元换成无关内容，这批对的相似性大部分还在。**
+
+### ⚠️ v15 更正：这里的"形式"解释已撤回
+
+v14 曾写"所以不由共享内容词承载——而是**形式**（句法、虚词、语域）"。
+**撤回。** 探针替换的是 `for w in words`——**每一个词**，虚词在内：
+`Gabriel laughed nervously and patted his tie reassuringly while Aunt Kate…`
+被换成 `threads capsule collection buzz teams eta spp disciplines prima fuels…`，
+**16 个虚词存活 0 个**。被摧毁的恰恰是句法与虚词，所以该干预
+**对"形式"没有提供任何证据**（完整实例见 `probe_design_correction.txt`）。
 
 ### 与 v7 撤回的关系
 
 v7 撤回的"0.83 形式基线"**依然撤回**（占位符设计人为制造了相同词元）。
-但**"编码器对形式敏感"这个方向现在有了设计正确的证据**。两者不矛盾：
-随机对的相似度随内容走（r = +0.78），**高相似对的大部分不随内容走**。
+v15 的更正使它更彻底：**v7 与 v14 两次尝试都没能证明"形式"承载了什么**，
+而且两次都缺同一个对照——**保留形式、只动内容**。那个对照见下一节。
 
 ### 一个关于我自己做法的方法学发现
 
 六个手挑案例里 **4 个可定位**，而总体里只有 **22–31%**。
 **按"有明显共享母题"挑案例，本身就会偏向可定位的对。**
+
+## v15：语义距离梯度——词义确实传到段落向量，但弱且很快饱和
+
+同 v14 的规则总体（前 500 对）。把 A 中所有与 B 共享实词的段落里的
+**每一个内容词**替换掉（平均 **110 / 116** 个，约 200 词元），
+**虚词、标点、词序、句读、段读全部钉死**；替换词按编码器**自己的词向量矩阵**
+的相似度分位取。`SHUF` 为对照：内容词在各自位置上互相打乱（**内容全留**）。
+
+| 级别 | cos→B（MiniLM） | 排名 | cos→B（bge） | 排名 |
+|---|---|---|---|---|
+| **原始** | **0.622** | **13.8** | **0.792** | **13.9** |
+| 近义 q=0.99 | 0.504 | 22.3 | 0.701 | 22.6 |
+| 中位 q=0.50 | 0.416 | 26.4 | 0.684 | 23.8 |
+| 远 q=0.05 | 0.392 | 27.6 | 0.677 | 24.6 |
+| **最远 q=0.00** | **0.368** | **28.1** | **0.676** | **24.8** |
+| SHUF 同词乱序 | 0.543 | 18.3 | 0.740 | 18.8 |
+
+**干预确实生效**（内容余弦跌幅单调）：0.077 → 0.172 → 0.197 → **0.222**；
+SHUF 只有 **0.015**（内容原封不动，符合设计）。
+
+### 三个结论
+
+1. **词义确实传到了**：到搭档的相似度随语义距离**单调下降**，
+   搭档排名**单调退化**（13.8→28.1 / 13.9→24.8）。**不能说"词义没体现"。**
+2. **但弱且不具选择性**：总跌幅里 **77% / 81% 是通用化**（变体同时远离所有
+   单元），**只有 19–23% 针对搭档**（0.059 / 0.022）。
+3. **而且很快饱和**：换成**近义词**已造成 0.039 / 0.019，
+   换成**最无关的词**只多 **0.020 / 0.003**。
+   **→ 相似性对"内容词被换掉了"敏感，对"换成多远"只弱敏感。**
+
+**词序也起作用，但更小**：SHUF 的搭档特异损伤 0.020 / 0.009，约为内容的 1/3。
+
+### 方法学修正
+
+`z` 是**选择性**指标，分母（其他单元跌幅的标准差）随干预变强而一起变大——
+所以**原始跌幅翻倍时 z 几乎不动**（本实验 −0.73→−0.84）。
+**只报 z 会低估强度**，必须同时报**原始跌幅**与**排名**。
+v14 的 "mean z −0.89" 因此不能单独用来下结论。
+
+### 仍未确定
+
+残留的载体是长度/排版、语域、对话结构，还是一个全局的"同一文本"成分？
+要分离它，需要一个**长度与标点匹配的随机文本**对照——下一轮该做的。
 
 ## 数据与切分
 
@@ -591,6 +646,10 @@ python scan_full_ladder.py --pairs 500 --K 2 \
     --model BAAI/bge-small-en-v1.5 --tag bge
 python scan_none_probe.py --tag minilm
 python scan_none_probe.py --tag bge --model BAAI/bge-small-en-v1.5
+python graded_content_distance.py --tag minilm --scope maximal
+python graded_content_distance.py --tag bge --scope maximal \
+    --model BAAI/bge-small-en-v1.5
+python probe_design_correction.py
 python doc_sync_audit.py         # 文档同步审计（应输出 RESULT: PASS）
 python make_report_figures.py    # 报告用图
 python lookup_unit.py 2 73 39    # 打印指定片段的完整原文与段号
