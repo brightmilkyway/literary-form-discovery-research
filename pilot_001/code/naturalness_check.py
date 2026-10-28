@@ -21,15 +21,15 @@ Why this exists
 Design
   Build the two poles from real data:
     real pole    centroid of the 78 real *The Dead* units
-    salad pole   centroid of word-scrambled copies (same token count and
+    scrambled pole   centroid of word-scrambled copies (same token count and
                  punctuation, all words replaced)
   Then, for every variant that v15 already encoded (read back from the
   checkpoint, no re-encoding), report
-    cos to the real pole, cos to the salad pole, and the naturalness
-    coordinate = cos(v, real) - cos(v, salad)
+    cos to the real pole, cos to the scrambled pole, and the naturalness
+    coordinate = cos(v, real) - cos(v, scrambled)
 
   If the content variants sit near the real pole, v15 stands.  If they have
-  slid towards the salad pole, part of the v15 effect is a naturalness shift
+  slid towards the scrambled pole, part of the v15 effect is a naturalness shift
   and that has to be said.
 
 Writes ``data/derived/naturalness_check_<tag>.txt``.
@@ -79,13 +79,13 @@ def main():
 
     base = enc([u.text for u in units])
     idx = list(range(len(units)))[:args.sample]
-    salad = enc([scramble(units[i].text, rep, rng) for i in idx])
+    scrambled = enc([scramble(units[i].text, rep, rng) for i in idx])
 
     real_pole = base.mean(axis=0)
     real_pole /= np.linalg.norm(real_pole) + 1e-12
-    salad_pole = salad.mean(axis=0)
-    salad_pole /= np.linalg.norm(salad_pole) + 1e-12
-    print(f"pole cosine (real vs salad): {float(real_pole @ salad_pole):+.3f}")
+    scrambled_pole = scrambled.mean(axis=0)
+    scrambled_pole /= np.linalg.norm(scrambled_pole) + 1e-12
+    print(f"pole cosine (real vs scrambled): {float(real_pole @ scrambled_pole):+.3f}")
 
     # read the variants back from the checkpoint
     starts = sorted(ckdir.glob("main_*.npy"))
@@ -105,48 +105,48 @@ def main():
     spec = np.array([delta[k, B_of[k]] for k in range(len(jobs))]) - dm
 
     cos_real = V @ real_pole
-    cos_salad = V @ salad_pole
-    nat = cos_real - cos_salad
+    cos_scram = V @ scrambled_pole
+    nat = cos_real - cos_scram
 
     base_real = base @ real_pole
-    base_salad = base @ salad_pole
+    base_scram = base @ scrambled_pole
 
     OUT = []
     def w(*a):
         OUT.append(" ".join(str(x) for x in a))
 
     w("=" * 78)
-    w("DID THE v15 INTERVENTION MOVE THE TEXT TOWARDS 'WORD SALAD'?")
+    w("DID THE v15 INTERVENTION MOVE THE TEXT TOWARDS SCRAMBLED WORDS?")
     w("=" * 78)
     w(f"  model {args.model};  scope {args.scope}")
     w(f"  real pole  = centroid of {args.sample} real *The Dead* units")
-    w(f"  salad pole = centroid of {args.sample} word-scrambled units")
-    w(f"  cosine between the two poles: {float(real_pole @ salad_pole):+.3f}")
+    w(f"  scrambled pole = centroid of {args.sample} word-scrambled units")
+    w(f"  cosine between the two poles: {float(real_pole @ scrambled_pole):+.3f}")
     w("")
     w("  where the ORIGINAL units sit:")
     w(f"    mean cos to real pole  : {base_real.mean():+.3f}")
-    w(f"    mean cos to salad pole : {base_salad.mean():+.3f}")
-    w(f"    naturalness coordinate : {(base_real - base_salad).mean():+.3f}")
+    w(f"    mean cos to scrambled pole : {base_scram.mean():+.3f}")
+    w(f"    naturalness coordinate : {(base_real - base_scram).mean():+.3f}")
     w("")
     w("  where each intervention level sits  (mean over all variants)")
-    w(f"    {'level':<18}{'cos real':>10}{'cos salad':>11}"
+    w(f"    {'level':<18}{'cos real':>10}{'cos scram':>11}"
       f"{'nat coord':>11}{'shift':>9}{'partner-specific':>18}")
-    w(f"    {'(original)':<18}{base_real.mean():>10.3f}{base_salad.mean():>11.3f}"
-      f"{(base_real - base_salad).mean():>11.3f}{0.0:>9.3f}"
+    w(f"    {'(original)':<18}{base_real.mean():>10.3f}{base_scram.mean():>11.3f}"
+      f"{(base_real - base_scram).mean():>11.3f}{0.0:>9.3f}"
       f"{0.0:>18.3f}")
     for lbl, _ in LEVELS:
         ks = [k for k, j in enumerate(jobs) if j[1] == lbl]
         if not ks:
             continue
         cr = float(cos_real[ks].mean())
-        cs = float(cos_salad[ks].mean())
-        shift = (cr - cs) - (base_real.mean() - base_salad.mean())
+        cs = float(cos_scram[ks].mean())
+        shift = (cr - cs) - (base_real.mean() - base_scram.mean())
         w(f"    {lbl:<18}{cr:>10.3f}{cs:>11.3f}{cr - cs:>11.3f}"
           f"{shift:>+9.3f}{spec[ks].mean():>18.3f}")
     w("")
     w("  READING")
     w("    'shift' is how far the naturalness coordinate moved, negative =")
-    w("    towards word salad.  Compare it with the partner-specific damage:")
+    w("    towards scrambled words.  Compare it with the partner-specific damage:")
     w("    if the damage scaled with the shift, the v15 effect would be a")
     w("    naturalness artefact.")
     w("")
@@ -155,12 +155,12 @@ def main():
     far = [k for k, j in enumerate(jobs) if j[1] == "q=0.00 furthest"]
     near = [k for k, j in enumerate(jobs) if j[1] == "q=0.99 near"]
     if shuf and far and near:
-        s_sh = (cos_real[shuf] - cos_salad[shuf]).mean() - \
-               (base_real.mean() - base_salad.mean())
-        s_fa = (cos_real[far] - cos_salad[far]).mean() - \
-               (base_real.mean() - base_salad.mean())
-        s_ne = (cos_real[near] - cos_salad[near]).mean() - \
-               (base_real.mean() - base_salad.mean())
+        s_sh = (cos_real[shuf] - cos_scram[shuf]).mean() - \
+               (base_real.mean() - base_scram.mean())
+        s_fa = (cos_real[far] - cos_scram[far]).mean() - \
+               (base_real.mean() - base_scram.mean())
+        s_ne = (cos_real[near] - cos_scram[near]).mean() - \
+               (base_real.mean() - base_scram.mean())
         w("    SHUF   (order destroyed, content kept) :")
         w(f"        naturalness shift {s_sh:+.3f}   partner-specific "
           f"{spec[shuf].mean():.3f}")

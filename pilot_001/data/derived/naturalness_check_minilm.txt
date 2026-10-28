@@ -1,18 +1,18 @@
 ==============================================================================
-DID THE v15 INTERVENTION MOVE THE TEXT TOWARDS 'WORD SALAD'?
+DID THE v15 INTERVENTION MOVE THE TEXT TOWARDS SCRAMBLED WORDS?
 ==============================================================================
   model all-MiniLM-L6-v2;  scope maximal
   real pole  = centroid of 78 real *The Dead* units
-  salad pole = centroid of 78 word-scrambled units
+  scrambled pole = centroid of 78 word-scrambled units
   cosine between the two poles: +0.412
 
   where the ORIGINAL units sit:
     mean cos to real pole  : +0.712
-    mean cos to salad pole : +0.293
+    mean cos to scrambled pole : +0.293
     naturalness coordinate : +0.418
 
   where each intervention level sits  (mean over all variants)
-    level               cos real  cos salad  nat coord    shift  partner-specific
+    level               cos real  cos scram  nat coord    shift  partner-specific
     (original)             0.712      0.293      0.418    0.000             0.000
     q=0.99 near            0.644      0.398      0.246   -0.172            -0.040
     q=0.50 mid             0.539      0.471      0.069   -0.350            -0.055
@@ -22,7 +22,7 @@ DID THE v15 INTERVENTION MOVE THE TEXT TOWARDS 'WORD SALAD'?
 
   READING
     'shift' is how far the naturalness coordinate moved, negative =
-    towards word salad.  Compare it with the partner-specific damage:
+    towards scrambled words.  Compare it with the partner-specific damage:
     if the damage scaled with the shift, the v15 effect would be a
     naturalness artefact.
 
