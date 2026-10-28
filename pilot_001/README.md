@@ -57,7 +57,9 @@ pilot_001/
 │  ├─ graded_content_distance.py ★语义距离梯度（只换内容词）+ SHUF 对照
 │  ├─ probe_design_correction.py 生成 v14 探针设计缺陷的实例证据
 │  ├─ baseline_decomposition.py ★基线分解（几何 vs 同一文本，跨故事对照）
-│  ├─ naturalness_check.py    ★检查 v15 的干预是否滑向"乱词"
+│  ├─ naturalness_check.py    ★检查 v15 的干预是否滑向乱词
+│  ├─ whitening_test.py       ★白化检验（各向异性 vs 文本自身结构）
+│  ├─ mlm_paraphrase.py       ★MLM 填空对照（词身份 vs 连贯性）
 │  ├─ fetch_external_donors.py★取《都柏林人》其他篇目作外部供体
 │  ├─ show_shared_words.py    打印每个案例实际共享的词
 │  ├─ show_donors.py          打印 30 个供体实际是哪些段落
@@ -116,6 +118,7 @@ pilot_001/
 | `data/derived/probe_design_correction.txt` | **★ v14 探针把虚词也换掉的实例证据** |
 | `data/derived/baseline_decomposition_minilm.txt` / `_bge.txt` | **★ 基线分解：几何 vs 同一文本（本轮最重要）** |
 | `data/derived/naturalness_check_minilm.txt` / `_bge.txt` | **★ v15 干预的自然度混淆检查** |
+| `data/derived/whitening_test_minilm.txt` / `_bge.txt` | **★ 白化检验（本轮最重要）** |
 | `data/source/dubliners_other_stories.txt` | **外部供体来源（《都柏林人》其他 14 篇，公共领域）** |
 | `data/derived/sentence_validation.txt` | **★ 分句器验证（764 → 1023；在已定义的自动检查中未发现欠/过切分）** |
 | `data/derived/sentence_spotcheck.txt` | **★ 分句器人工抽查（随机样本、上下文、可疑模式）** |
@@ -626,6 +629,44 @@ v14 的 "mean z −0.89" 因此不能单独用来下结论。
 v14 的干预不纯（换了虚词），v15 的干预也不纯（动了自然度）。
 **要彻底分离，需要语境上合理的替换——MLM 填空。这是下一轮。**
 
+## v17：白化检验——各向异性不是内容信号的藏身处
+
+把 ZCA 白化**在另外 14 篇的 256 个单元上拟合**，**应用到《死者》的 78 个单元**。
+拟合与评估分开，避免循环论证。
+
+| | MiniLM 原始 | MiniLM 白化 | bge 原始 | bge 白化 |
+|---|---|---|---|---|
+| r(cos, 共享实词数) | **+0.406** | **+0.214** | **+0.531** | **+0.162** |
+| top-40 超出配平基线 | +0.184 | **+0.351** | +0.074 | **+0.340** |
+| 《死者》内部相似度 | 0.494 | 0.132 | 0.721 | 0.161 |
+| 跨故事相似度 | 0.401 | 0.000 | 0.690 | −0.000 |
+| 参与率（《死者》） | 31.4 | **30.8** | 31.8 | **33.2** |
+| 参与率（拟合集） | 49.6 | 254.9 | 49.3 | 255.0 |
+
+### 四个结论
+
+1. **白化降低了词汇重叠的解释力**（r 0.406→0.214 / 0.531→0.162）。
+   若内容被各向异性埋住，白化应**提高** r——**结果相反**。
+   → **共享词汇这个信号本身就住在主导方向里**，去掉主导方向它就没了。
+2. **超出用词重叠的那部分反而更突出**（+0.184→+0.351 / +0.074→+0.340）。
+3. **《死者》的低有效维数白化后几乎不变**（31.4→30.8 / 31.8→33.2），
+   而拟合集升到 ~255。
+   → **约 31 维是文本自身的性质，不是编码器的几何。**
+4. **白化让两个编码器趋于一致**：原始差异巨大（0.494 vs 0.721），
+   **白化后几乎重合**（0.132 vs 0.161）。
+   → 白化去掉**模型特有的几何成分**，露出**模型无关的文本结构**。
+
+**稳健性**：ridge 从 `1e-1` 到 `1e-6` 五个数量级，结论不变。
+
+### 一条解释边界
+
+白化在其他 14 篇上拟合，所以“跨故事相似度 → 0”**部分是构造使然**。
+真正有意义的是**组内**数字（0.132 / 0.161）与拟合集的对比。
+
+### 可操作的推论
+
+**比较之前先白化**——去模型特有成分、让不同编码器对齐、让文本自身的结构更突出。
+
 ## 数据与切分
 
 * 原文：`data/source/the_dead.txt`（Project Gutenberg 英文正文，UTF-8）。
@@ -727,6 +768,9 @@ python baseline_decomposition.py --tag bge \
     --model BAAI/bge-small-en-v1.5
 python naturalness_check.py --tag minilm
 python naturalness_check.py --tag bge --model BAAI/bge-small-en-v1.5
+python whitening_test.py --tag minilm --sweep
+python whitening_test.py --tag bge \
+    --model BAAI/bge-small-en-v1.5 --sweep
 python doc_sync_audit.py         # 文档同步审计（应输出 RESULT: PASS）
 python make_report_figures.py    # 报告用图
 python lookup_unit.py 2 73 39    # 打印指定片段的完整原文与段号
