@@ -52,6 +52,8 @@ pilot_001/
 │  ├─ ladder_principled.py    ★真 NER + 词向量替换 + 前 40 对扫描
 │  ├─ swap_ladder.py          ★供体来源阶梯（同作品→其他篇目→词袋）
 │  ├─ overlap_vs_similarity.py★成分分解（用词重叠解释多少相似度）
+│  ├─ scan_full_ladder.py     ★全篇扫描（规则定义的前 N 对 × 五级粒度）
+│  ├─ scan_none_probe.py      ★对"none"对做最大词法移除探针
 │  ├─ fetch_external_donors.py★取《都柏林人》其他篇目作外部供体
 │  ├─ show_shared_words.py    打印每个案例实际共享的词
 │  ├─ show_donors.py          打印 30 个供体实际是哪些段落
@@ -102,7 +104,10 @@ pilot_001/
 | `data/derived/swap_granularity.txt` | **★ 粒度阶梯（五级）** |
 | `data/derived/ladder_principled.txt` | **★ 真 NER + 词向量替换 + 前 40 对扫描** |
 | `data/derived/swap_ladder.txt` | **★ 供体来源阶梯（五级取材）** |
-| `data/derived/overlap_vs_similarity.txt` | **★ 成分分解（本轮最重要）** |
+| `data/derived/overlap_vs_similarity.txt` | **★ 成分分解** |
+| `data/derived/scan_full_ladder_minilm.txt` / `_bge.txt` | **★ 全篇扫描：承载位置分布（本轮最重要）** |
+| `data/derived/scan_none_probe_minilm.txt` / `_bge.txt` | **★ "none"对的最大词法移除探针** |
+| `data/derived/scan_full_ladder_minilm.csv` / `_bge.csv` | 逐对数据 |
 | `data/source/dubliners_other_stories.txt` | **外部供体来源（《都柏林人》其他 14 篇，公共领域）** |
 | `data/derived/sentence_validation.txt` | **★ 分句器验证（764 → 1023；在已定义的自动检查中未发现欠/过切分）** |
 | `data/derived/sentence_spotcheck.txt` | **★ 分句器人工抽查（随机样本、上下文、可疑模式）** |
@@ -444,10 +449,55 @@ Project Gutenberg #2814 取《都柏林人》其他 14 篇（627 段 / 52,274 �
 
 1. **"这两段像"不是"用词相同"的复述**——用词只解释 **18% / 27%** 的方差。
 2. **配平重叠后前 40 对仍明显更相似**——编码器看到了超出"用词相同"的东西。
-3. **而粒度阶梯说那个东西在句子层，不在词层。**
+3. **v14 的全篇扫描把那个东西的所在定为**形式**：前 500 对里 69–78%
+   哪一级都不塌，且对它们做最大词法移除（换掉 94% 的词）后 mean z 仍只有
+   −0.89 / −0.65。
 
 ⚠️ 扫描的目标段是按"最大重叠"选的，所以 `sh = 0` 被规则排除；
 补单元级检查后 **40 对里 0 对完全没有共享实词**。
+
+## v14：全篇扫描——高相似对里只有 22–31% 能在单一级别定位
+
+把 v13 的五级粒度阶梯跑到**规则定义的前 500 对**（所有 gap ≥ 5 的对按余弦取前 500，
+无手挑）：
+
+| 承载位置 | MiniLM | bge |
+|---|---|---|
+| word | 67（13.4%） | 58（11.6%） |
+| name | 51（10.2%） | 24（4.8%） |
+| sentence | 15（3.0%） | 9（1.8%） |
+| paragraph | 21（4.2%） | 20（4.0%） |
+| **none（哪一级都不塌）** | **346（69.2%）** | **389（77.8%）** |
+
+各级别 mean z：G1 −0.41 / −0.40；**G1b −0.75 / −0.57**；G2 −0.72 / −0.61；
+G3 −0.53 / −0.44；G5 −0.60 / −0.55。
+
+**附带结果**：共享**人名**比共享**主题词**损伤更大（两模型一致）；
+`sh = 0` 只有 5/500（1%）。
+
+### "none" 到底是什么——最大词法移除探针
+
+对那 346 / 389 个 "none" 对，把 A 中**所有**与 B 共享实词的段落全部替换：
+
+| | MiniLM | bge |
+|---|---|---|
+| 被替换的篇幅 | **94%** 的单元词数（中位 5 段） | 94% |
+| 移除后 mean z | **−0.89** | **−0.65** |
+| z ≤ −1.5 | **15%** | **14%** |
+
+**把 94% 的词换成无关内容，这批对的相似性大部分还在。**
+所以它们**不由共享内容词承载**——而是**形式**（句法、虚词、语域）。
+
+### 与 v7 撤回的关系
+
+v7 撤回的"0.83 形式基线"**依然撤回**（占位符设计人为制造了相同词元）。
+但**"编码器对形式敏感"这个方向现在有了设计正确的证据**。两者不矛盾：
+随机对的相似度随内容走（r = +0.78），**高相似对的大部分不随内容走**。
+
+### 一个关于我自己做法的方法学发现
+
+六个手挑案例里 **4 个可定位**，而总体里只有 **22–31%**。
+**按"有明显共享母题"挑案例，本身就会偏向可定位的对。**
 
 ## 数据与切分
 
@@ -536,6 +586,11 @@ python fetch_external_donors.py  # 取外部供体（需联网，已缓存）
 python swap_ladder.py            # 供体来源阶梯
 python ladder_principled.py --scan 40   # 真 NER + 词向量替换 + 扫描
 python overlap_vs_similarity.py  # 成分分解
+python scan_full_ladder.py --pairs 500 --K 2 --tag minilm
+python scan_full_ladder.py --pairs 500 --K 2 \
+    --model BAAI/bge-small-en-v1.5 --tag bge
+python scan_none_probe.py --tag minilm
+python scan_none_probe.py --tag bge --model BAAI/bge-small-en-v1.5
 python doc_sync_audit.py         # 文档同步审计（应输出 RESULT: PASS）
 python make_report_figures.py    # 报告用图
 python lookup_unit.py 2 73 39    # 打印指定片段的完整原文与段号

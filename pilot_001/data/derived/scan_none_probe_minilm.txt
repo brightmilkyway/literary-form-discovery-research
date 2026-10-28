@@ -1,0 +1,18 @@
+==============================================================================
+PROBE OF THE 'none' PAIRS — maximal lexical removal (all-MiniLM-L6-v2)
+==============================================================================
+
+  pairs probed: 346 of 346
+  replaced, per pair: mean 5.3 paragraphs = 94% of the unit's words
+
+  mean z after maximal removal: -0.89
+  median z                    : -0.86
+  z <= -1.5 in 53 of 346 (15%)
+  z <= -1.0 in 144 of 346 (42%)
+
+  Reading: if the maximal removal still leaves z near zero, the
+  similarity of these pairs is not carried by shared content
+  words at all (reading b); if it collapses them, the similarity
+  is distributed over several paragraphs (reading a).
+
+  paragraphs removed per pair: min 1 median 5 max 11

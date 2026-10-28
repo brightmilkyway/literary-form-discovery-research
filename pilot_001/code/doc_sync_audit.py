@@ -76,6 +76,10 @@ SUPERSEDED = [
      "承载位置的谱"),
     (r"唯一超出量为负", "the v10 claim withdrawn in v11", "not unique"),
     (r"−0\.018", "the v10 excess for the lyric pair", "z = −0.54 / −0.96"),
+    # v14 additions
+    (r"句子层而非词层", "the v13 localisation claim, revised by the full scan",
+     "大部分不由内容词承载，而在形式上"),
+    (r"在句子层，不在词层", "the v13 localisation claim", "形式承载"),
 ]
 
 # A hit is acceptable if the line (or a nearby line) marks it as history.
