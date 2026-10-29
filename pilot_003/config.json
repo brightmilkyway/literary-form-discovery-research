@@ -1,0 +1,22 @@
+{
+  "checkpoint_count": 40,
+  "hash_features": 32768,
+  "local_paragraph_scales": [1, 4],
+  "permutation_iterations": 500,
+  "random_seed": 20261029,
+  "interpretive": {
+    "provider": "deepseek_official",
+    "base_url": "https://api.deepseek.com",
+    "model": "deepseek-flash",
+    "thinking": "disabled",
+    "temperature": 0.0,
+    "max_output_tokens": 300,
+    "response_format": "json",
+    "prompt_version": "pilot003-v1"
+  },
+  "predictive": {
+    "model": "distilbert/distilgpt2",
+    "stride": 512,
+    "device": "cpu"
+  }
+}

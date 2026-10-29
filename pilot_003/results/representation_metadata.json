@@ -1,0 +1,30 @@
+{
+  "status": "completed_representation_component",
+  "protocol": "protocol.md",
+  "source": "pilot_003/data/source/the_dead.txt",
+  "source_sha256": "b414bf48caef0b5e05d3e59fade37d6af86c589218679ace4a7edb2d9289e389",
+  "title_offset": 9,
+  "body_characters": 85683,
+  "body_words": 15732,
+  "paragraphs": 455,
+  "checkpoints": 40,
+  "representation_methods": [
+    "char_hash",
+    "word_hash"
+  ],
+  "representation_scales": [
+    "p1",
+    "p4",
+    "cumulative"
+  ],
+  "hash_features": 32768,
+  "permutation_iterations": 500,
+  "random_seed": 20261029,
+  "python": "3.12.13",
+  "numpy": "2.5.2",
+  "scipy": "1.18.0",
+  "scikit_learn": "1.9.1",
+  "interpretive_status": "separate component; see interpretation_summary.json",
+  "interpretive_requests": "pilot_003/data/derived/interpretation_requests.jsonl",
+  "elapsed_seconds": 9.262
+}

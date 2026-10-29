@@ -35,6 +35,7 @@
 |---|---|---|---|---|
 | 001 | James Joyce, *The Dead*（《死者》） | 句子 1023 / 段落 455 / 150 词组 78 | 已完成（v18；含 MLM 改写复核） | [报告](pilot_001/docs/pilot_001_report.md) · [候选清单](pilot_001/docs/candidate_findings.md) |
 | 002 | James Joyce, *The Dead*（《死者》） | 7 尺度 / 22 种尺度—相位切分 / 5 种表示 | 已完成（v1；含 100 次零模型校准） | [报告](pilot_002/docs/pilot_002_report.md) · [候选清单](pilot_002/docs/candidate_findings.md) |
+| 003 | James Joyce, *The Dead*（《死者》） | 40 个顺序检查点 / 预测、表示、解释三类响应 | 已完成（v1；解释响应 2 次重复） | [报告](pilot_003/docs/pilot_003_report.md) · [候选清单](pilot_003/docs/candidate_findings.md) |
 
 ---
 
@@ -177,11 +178,24 @@ python pilot_002/code/make_report.py
 python pilot_002/code/doc_sync_audit.py
 ```
 
+Pilot 003 的完整运行入口为：
+
+```bash
+python -m pytest pilot_003/tests -q
+python pilot_003/code/run_pipeline.py
+python pilot_003/code/interpretive.py run-deepseek --replicate 1
+python pilot_003/code/interpretive.py run-deepseek --replicate 2
+python pilot_003/code/analyze_interpretations.py
+python pilot_003/code/predictive.py
+python pilot_003/code/cross_dimension.py
+python pilot_003/code/doc_sync_audit.py
+```
+
 ---
 
 ## 引用
 
-若使用本仓库的方法学约定或 Pilot 001 / Pilot 002 的结果，请引用对应的预实验报告。
+若使用本仓库的方法学约定或 Pilot 001 / Pilot 002 / Pilot 003 的结果，请引用对应的预实验报告。
 原始方法出处见各实验 `protocol.md` 的文献列表
 （Hearst 1997；Cilibrasi & Vitányi 2005；Reimers & Gurevych 2019；
 Tukey 1977；Sui et al. 2023）。

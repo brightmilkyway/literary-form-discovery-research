@@ -1,0 +1,32 @@
+{
+  "runs": [
+    {
+      "replicate": 1,
+      "model": "deepseek-flash",
+      "checkpoints": 40,
+      "prompt_tokens": 420602,
+      "completion_tokens": 10747,
+      "total_tokens": 431349,
+      "mean_output_words": 188.45,
+      "outputs_within_120_180_words": 12
+    },
+    {
+      "replicate": 2,
+      "model": "deepseek-flash",
+      "checkpoints": 40,
+      "prompt_tokens": 420602,
+      "completion_tokens": 10716,
+      "total_tokens": 431318,
+      "mean_output_words": 186.45,
+      "outputs_within_120_180_words": 12
+    }
+  ],
+  "mean_adjacent_distance": 0.28751275200254806,
+  "mean_adjacent_distance_by_replicate": [
+    0.2896294989971771,
+    0.2853960050079191
+  ],
+  "adjacent_trajectory_pearson_between_first_two_runs": 0.5109872883538437,
+  "mean_repeat_distance": 0.2575251565707327,
+  "fraction_mean_adjacent_above_destination_repeat_distance": 0.7435897435897436
+}

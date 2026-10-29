@@ -1,0 +1,132 @@
+{
+  "representations": [
+    {
+      "method": "char_hash",
+      "scale": "p1",
+      "n_transitions": 39,
+      "mean_adjacent_distance": 0.891492157555338,
+      "sd_adjacent_distance": 0.0864313121466125,
+      "median_adjacent_distance": 0.9083729167327712,
+      "maximum_adjacent_distance": 1.0,
+      "maximum_checkpoint_id": "cp_031",
+      "maximum_word_fraction": 0.763348588863463,
+      "mean_all_pairs_percentile": 0.47974326143340223,
+      "observed_mean_adjacent_distance": 0.891492157555338,
+      "permutation_mean": 0.8957801610327877,
+      "permutation_sd": 0.009791161002691647,
+      "p_lower": 0.3193612774451098,
+      "p_upper": 0.6826347305389222,
+      "p_two_sided": 0.6387225548902196
+    },
+    {
+      "method": "char_hash",
+      "scale": "p4",
+      "n_transitions": 39,
+      "mean_adjacent_distance": 0.6565408006084861,
+      "sd_adjacent_distance": 0.1244611680936493,
+      "median_adjacent_distance": 0.6667548977837108,
+      "maximum_adjacent_distance": 0.9407647902009867,
+      "maximum_checkpoint_id": "cp_032",
+      "maximum_word_fraction": 0.8000254258835494,
+      "mean_all_pairs_percentile": 0.46887619422830684,
+      "observed_mean_adjacent_distance": 0.6565408006084861,
+      "permutation_mean": 0.6665923990779402,
+      "permutation_sd": 0.008542148354649743,
+      "p_lower": 0.11776447105788423,
+      "p_upper": 0.8842315369261478,
+      "p_two_sided": 0.23552894211576847
+    },
+    {
+      "method": "char_hash",
+      "scale": "cumulative",
+      "n_transitions": 39,
+      "mean_adjacent_distance": 0.007422491259243906,
+      "sd_adjacent_distance": 0.03215289587208352,
+      "median_adjacent_distance": 0.000567278035122909,
+      "maximum_adjacent_distance": 0.20120952947766468,
+      "maximum_checkpoint_id": "cp_002",
+      "maximum_word_fraction": 0.05447495550470379,
+      "mean_all_pairs_percentile": 0.13022423585803866,
+      "observed_mean_adjacent_distance": 0.007422491259243906,
+      "permutation_mean": 0.03085695435977669,
+      "permutation_sd": 0.0023380884531156755,
+      "p_lower": 0.001996007984031936,
+      "p_upper": 1.0,
+      "p_two_sided": 0.003992015968063872
+    },
+    {
+      "method": "word_hash",
+      "scale": "p1",
+      "n_transitions": 39,
+      "mean_adjacent_distance": 0.9175369726231167,
+      "sd_adjacent_distance": 0.07791992281824774,
+      "median_adjacent_distance": 0.9343909558259835,
+      "maximum_adjacent_distance": 1.0,
+      "maximum_checkpoint_id": "cp_013",
+      "maximum_word_fraction": 0.3228451563691838,
+      "mean_all_pairs_percentile": 0.5067631898617814,
+      "observed_mean_adjacent_distance": 0.9175369726231167,
+      "permutation_mean": 0.9214610185171166,
+      "permutation_sd": 0.009990637122155624,
+      "p_lower": 0.34930139720558884,
+      "p_upper": 0.6526946107784432,
+      "p_two_sided": 0.6986027944111777
+    },
+    {
+      "method": "word_hash",
+      "scale": "p4",
+      "n_transitions": 39,
+      "mean_adjacent_distance": 0.7186694071975914,
+      "sd_adjacent_distance": 0.11538150601524047,
+      "median_adjacent_distance": 0.7362636597726924,
+      "maximum_adjacent_distance": 0.9702624832454891,
+      "maximum_checkpoint_id": "cp_032",
+      "maximum_word_fraction": 0.8000254258835494,
+      "mean_all_pairs_percentile": 0.4583702682294232,
+      "observed_mean_adjacent_distance": 0.7186694071975914,
+      "permutation_mean": 0.7327089709166796,
+      "permutation_sd": 0.00988826858376018,
+      "p_lower": 0.07584830339321358,
+      "p_upper": 0.9261477045908184,
+      "p_two_sided": 0.15169660678642716
+    },
+    {
+      "method": "word_hash",
+      "scale": "cumulative",
+      "n_transitions": 39,
+      "mean_adjacent_distance": 0.008966835268557623,
+      "sd_adjacent_distance": 0.03696756296006479,
+      "median_adjacent_distance": 0.0007667989449947621,
+      "maximum_adjacent_distance": 0.23104610704658435,
+      "maximum_checkpoint_id": "cp_002",
+      "maximum_word_fraction": 0.05447495550470379,
+      "mean_all_pairs_percentile": 0.12848419186447355,
+      "observed_mean_adjacent_distance": 0.008966835268557623,
+      "permutation_mean": 0.03980348425530828,
+      "permutation_sd": 0.0028565100861386275,
+      "p_lower": 0.001996007984031936,
+      "p_upper": 1.0,
+      "p_two_sided": 0.003992015968063872
+    }
+  ],
+  "method_agreement": [
+    {
+      "scale": "p1",
+      "n_transitions": 39,
+      "pearson_r": 0.9139793989117037,
+      "spearman_rho": 0.8908140964284638
+    },
+    {
+      "scale": "p4",
+      "n_transitions": 39,
+      "pearson_r": 0.9598038997129542,
+      "spearman_rho": 0.9390688259109311
+    },
+    {
+      "scale": "cumulative",
+      "n_transitions": 39,
+      "pearson_r": 0.9996986923853833,
+      "spearman_rho": 0.9908906882591093
+    }
+  ]
+}
