@@ -1,0 +1,23 @@
+==============================================================================
+MLM PARAPHRASE — word identity vs lexical coherence
+==============================================================================
+  model all-MiniLM-L6-v2;  population top 300 pairs (gap >= 5)
+  MLM distilroberta-base;  replacements per pair mean 105
+
+  CHECK — was the content destroyed? (content-only cosine)
+    arm              before    after     drop
+    MLM-top1          0.512    0.441    0.071
+    MLM-top10         0.512    0.429    0.084
+    MLM-tail          0.512    0.296    0.217
+
+  RESULT
+    arm             cos to B    drop  rank of B  partner-specific
+    (original)         0.644   0.000       10.4             0.000
+    MLM-top1           0.518   0.126       21.0            -0.044
+    MLM-top10          0.502   0.143       22.7            -0.054
+    MLM-tail           0.374   0.270       30.8            -0.084
+
+  REFERENCE (v15, same population, embedding-quantile replacements)
+    q=0.99 near      partner-specific 0.039 / 0.019
+    q=0.00 furthest  partner-specific 0.059 / 0.022
+    SHUF (order)     partner-specific 0.020 / 0.009

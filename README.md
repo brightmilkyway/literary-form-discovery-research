@@ -33,7 +33,8 @@
 
 | 编号 | 作品 | 分析尺度 | 状态 | 报告 |
 |---|---|---|---|---|
-| 001 | James Joyce, *The Dead*（《死者》） | 句子 1023 / 段落 455 / 150 词组 78 | 已完成（两轮审稿修正） | [报告](pilot_001/docs/pilot_001_report.md) · [候选清单](pilot_001/docs/candidate_findings.md) |
+| 001 | James Joyce, *The Dead*（《死者》） | 句子 1023 / 段落 455 / 150 词组 78 | 已完成（v18；含 MLM 改写复核） | [报告](pilot_001/docs/pilot_001_report.md) · [候选清单](pilot_001/docs/candidate_findings.md) |
+| 002 | James Joyce, *The Dead*（《死者》） | 7 尺度 / 22 种尺度—相位切分 / 5 种表示 | 已完成（v1；含 100 次零模型校准） | [报告](pilot_002/docs/pilot_002_report.md) · [候选清单](pilot_002/docs/candidate_findings.md) |
 
 ---
 
@@ -166,11 +167,21 @@ python analyze_findings.py        # 汇总摘要与候选清单表
 
 各实验的 `README.md` 列出该实验的全部脚本与建议阅读顺序。
 
+Pilot 002 的完整运行入口为：
+
+```bash
+python -m pytest pilot_002/tests -q
+python pilot_002/code/run_pipeline.py
+python pilot_002/code/null_calibration.py --iterations 100
+python pilot_002/code/make_report.py
+python pilot_002/code/doc_sync_audit.py
+```
+
 ---
 
 ## 引用
 
-若使用本仓库的方法学约定或 Pilot 001 的结果，请引用对应的预实验报告。
+若使用本仓库的方法学约定或 Pilot 001 / Pilot 002 的结果，请引用对应的预实验报告。
 原始方法出处见各实验 `protocol.md` 的文献列表
 （Hearst 1997；Cilibrasi & Vitányi 2005；Reimers & Gurevych 2019；
 Tukey 1977；Sui et al. 2023）。

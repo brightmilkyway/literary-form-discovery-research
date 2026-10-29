@@ -1,0 +1,3 @@
+# Pilot 002 reuses the verified Pilot 001 environment.
+-r ../pilot_001/requirements.txt
+

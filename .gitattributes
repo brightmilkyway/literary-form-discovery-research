@@ -1,0 +1,7 @@
+/README.md text eol=lf
+/pilot_001/.gitignore text eol=lf
+/pilot_001/data/derived/README.md text eol=lf
+/pilot_001/data/derived/mlm_paraphrase_*.txt text eol=lf
+/pilot_002/** text eol=lf
+*.png binary
+*.npy binary

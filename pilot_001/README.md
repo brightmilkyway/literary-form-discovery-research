@@ -118,7 +118,8 @@ pilot_001/
 | `data/derived/probe_design_correction.txt` | **★ v14 探针把虚词也换掉的实例证据** |
 | `data/derived/baseline_decomposition_minilm.txt` / `_bge.txt` | **★ 基线分解：几何 vs 同一文本（本轮最重要）** |
 | `data/derived/naturalness_check_minilm.txt` / `_bge.txt` | **★ v15 干预的自然度混淆检查** |
-| `data/derived/whitening_test_minilm.txt` / `_bge.txt` | **★ 白化检验（本轮最重要）** |
+| `data/derived/whitening_test_minilm.txt` / `_bge.txt` | **★ 白化检验** |
+| `data/derived/mlm_paraphrase_minilm.txt` / `_bge.txt` | **★ MLM 改写对照（本轮最重要）** |
 | `data/source/dubliners_other_stories.txt` | **外部供体来源（《都柏林人》其他 14 篇，公共领域）** |
 | `data/derived/sentence_validation.txt` | **★ 分句器验证（764 → 1023；在已定义的自动检查中未发现欠/过切分）** |
 | `data/derived/sentence_spotcheck.txt` | **★ 分句器人工抽查（随机样本、上下文、可疑模式）** |
@@ -667,6 +668,58 @@ v14 的干预不纯（换了虚词），v15 的干预也不纯（动了自然度
 
 **比较之前先白化**——去模型特有成分、让不同编码器对齐、让文本自身的结构更突出。
 
+## v18：MLM 改写对照——词身份与连贯性各占约一半
+
+v15 的干预同时改变了“有哪些词”和“文本连不连贯”，
+v16 又证明它把文本推进了“乱词”区域——**两件事始终分不开**。
+
+这一轮用 `distilroberta-base` 做掩码填空，替换词取自**在原语境下的合理度排名**。
+位置、替换数量、所在段落**三臂完全相同**，**只有词的合理度不同**：
+
+| 臂 | 取法 |
+|---|---|
+| `MLM-top1` | 最合理的非原词（如 `laughed → smiled`） |
+| `MLM-top10` | 前十名里随机 |
+| `MLM-tail` | 排名 1000–3000 的词 |
+
+总体：规则定义的前 300 对（gap ≥ 5）；每对平均替换 **105** 个内容词。
+
+| 臂 | 内容余弦跌幅 | cos→B 跌幅 | B 的排名 | **搭档特异损伤** |
+|---|---|---|---|---|
+| 原始 | — | — | 10.4 / 18.3 | 0 |
+| `MLM-top1` | 0.071 / 0.031 | 0.126 / 0.072 | 21.0 / 26.0 | **0.044 / 0.016** |
+| `MLM-top10` | 0.084 / 0.040 | 0.143 / 0.084 | 22.7 / 26.8 | 0.054 / 0.020 |
+| `MLM-tail` | 0.217 / 0.089 | 0.270 / 0.132 | 30.8 / 33.9 | **0.084 / 0.033** |
+
+### 结论：各占约一半
+
+| | MiniLM | bge |
+|---|---|---|
+| **词身份**（连贯性保留时） | 0.044（**52%**） | 0.016（**48%**） |
+| **连贯性**（不连贯时多出的部分） | 0.040（**48%**） | 0.017（**52%**） |
+
+**两个模型都接近 50/50。**
+
+### 附带发现：词向量距离低估了“语境不合理”
+
+在**内容摧毁量几乎相同**的条件下：
+
+| | 内容跌幅 | 搭档特异损伤 |
+|---|---|---|
+| v15 `q=0.00` 最远（向量远） | 0.222 / 0.095 | 0.059 / 0.022 |
+| **`MLM-tail`（语境不合理）** | **0.217 / 0.089** | **0.084 / 0.033** |
+
+**同样换掉那么多内容，语境不合理的词损伤高约 1.4 倍。**
+这解释了 v15 为什么把连贯性低估成约 1/3——**v18 修好工具后修正到 1/2**。
+
+### 一条混淆（不掩盖）
+
+三臂的**内容摧毁量并不相同**（0.071 / 0.084 / 0.217），所以“各占一半”
+这个分解**仍有混淆**；真正干净的是**与 v15 在匹配内容摧毁量下的
+横向比较**（上面那条附带发现）。
+
+**这是本项目第一轮只动一个变量的干预**——v14 换了虚词、v15 动了自然度，两次都不纯。
+
 ## 数据与切分
 
 * 原文：`data/source/the_dead.txt`（Project Gutenberg 英文正文，UTF-8）。
@@ -771,6 +824,7 @@ python naturalness_check.py --tag bge --model BAAI/bge-small-en-v1.5
 python whitening_test.py --tag minilm --sweep
 python whitening_test.py --tag bge \
     --model BAAI/bge-small-en-v1.5 --sweep
+python mlm_paraphrase.py --pairs 300 --K 2 --batch 16
 python doc_sync_audit.py         # 文档同步审计（应输出 RESULT: PASS）
 python make_report_figures.py    # 报告用图
 python lookup_unit.py 2 73 39    # 打印指定片段的完整原文与段号

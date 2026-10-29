@@ -1,0 +1,17 @@
+{
+  "protocol": "protocol.md (frozen before first run)",
+  "source_sha256": "b414bf48caef0b5e05d3e59fade37d6af86c589218679ace4a7edb2d9289e389",
+  "representations_requested": [
+    "char_tfidf",
+    "word_tfidf",
+    "ncd",
+    "minilm_white",
+    "bge_white"
+  ],
+  "complete_five_representation_run": true,
+  "schemes": 22,
+  "matrices": 110,
+  "events": 44653,
+  "candidates": 2144,
+  "elapsed_seconds": 367.843
+}

@@ -8,6 +8,7 @@
 |---|---|---|
 | `results/figures/*.svg` | 与同名 `.png` 内容重复（矢量版），单个文件可达 2 万行 | `python code/make_report_figures.py` 与 `python code/run_all.py --only texttiling` |
 | `data/derived/texttiling_full.json` | TextTiling 的逐间隙完整曲线（5,270 行）；其**结论**已完整保存在 `results/tables/texttiling_boundaries.csv`、`texttiling_strongest_boundaries.csv` 与 `results_summary.json` 的 `texttiling.sweep` 中 | `python code/run_all.py --only texttiling`（约 6 秒） |
+| `data/derived/_ckpt/` | MLM 改写复核的编码检查点，体积大且可由脚本确定性重建；两种表示的可读结果分别保存在 `mlm_paraphrase_minilm.txt` 与 `mlm_paraphrase_bge.txt` | `python code/mlm_paraphrase.py` |
 
 因此，若要运行 `code/analyze_findings.py` 或 `code/verify_fixes.py`
 （二者会读取 `texttiling_full.json`），请先执行：
