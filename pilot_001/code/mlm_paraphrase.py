@@ -165,6 +165,16 @@ def main():
                     words[i] = pre + "<mask>" + post
                 texts.append(" ".join(words))
                 owners.append((pi, idx, q))
+            # Batch by length: a batch pads to its longest member, and the
+            # paragraphs range from a few tokens to a few hundred, so feeding
+            # them in reading order wastes most of the compute on padding.
+            order = sorted(range(len(texts)), key=lambda i: len(texts[i]))
+            texts = [texts[i] for i in order]
+            owners = [owners[i] for i in order]
+            n_batch = (len(texts) + args.batch - 1) // args.batch
+            print(f"    {len(texts)} paragraphs in {n_batch} batches, "
+                  f"lengths {len(texts[0].split())}.."
+                  f"{len(texts[-1].split())} words", flush=True)
 
             enc_b = tok(texts, return_tensors="pt", padding=True,
                         truncation=True, max_length=512)
@@ -172,12 +182,19 @@ def main():
             # batch needs ~20 GB, so each batch is consumed and released
             # immediately: only the masked positions are ever looked at.
             with torch.no_grad():
-                for a in range(0, len(texts), args.batch):
+                for bi, a in enumerate(range(0, len(texts), args.batch)):
+                    if bi % 25 == 0:
+                        print(f"      batch {bi+1}/{n_batch} "
+                              f"({time.time()-t0:.0f}s)", flush=True)
                     ids = enc_b["input_ids"][a:a + args.batch]
-                    out = model(input_ids=ids,
-                                attention_mask=enc_b["attention_mask"][
-                                    a:a + args.batch]).logits
-                    for k in range(out.shape[0]):
+                    am = enc_b["attention_mask"][a:a + args.batch]
+                    # The LM head is 768 x 50265, i.e. about half the cost of a
+                    # forward pass, and only the masked positions are ever read.
+                    # Run the encoder on the whole batch, then the head on the
+                    # masked positions only.
+                    hidden = model.roberta(input_ids=ids,
+                                           attention_mask=am).last_hidden_state
+                    for k in range(hidden.shape[0]):
                         row_i = a + k
                         pi, idx, q = owners[row_i]
                         row = tok.convert_ids_to_tokens(ids[k].tolist())
@@ -188,8 +205,9 @@ def main():
                                   f"{len(mask_pos)} vs {len(q)} at pair {pi} "
                                   f"para {idx}, skipping")
                             continue
-                        for pos, wi in zip(mask_pos, q):
-                            probs = torch.softmax(out[k, pos], dim=-1)
+                        logits = model.lm_head(hidden[k, mask_pos, :])
+                        for j, (pos, wi) in enumerate(zip(mask_pos, q)):
+                            probs = torch.softmax(logits[j], dim=-1)
                             top = torch.topk(probs, 3000)
                             ranked = [tok.convert_ids_to_tokens(int(x))
                                       for x in top.indices.tolist()]
@@ -217,7 +235,7 @@ def main():
                                 st = state[arm][(pi, idx)]
                                 pre, _, post = split_punct(st[wi])
                                 st[wi] = pre + pick + post
-                    del out
+                    del hidden
             del enc_b
             print(f"    forward passes done ({time.time()-t0:.0f}s)", flush=True)
 
@@ -300,7 +318,11 @@ def main():
         delta = Sv - row0
         dm = np.array([delta[k][ok[k]].mean() for k in range(len(jobs))])
         spec = np.array([delta[k, B_of[k]] for k in range(len(jobs))]) - dm
-        p_old = np.array([meta[j[0]]["cos0"] for j in jobs])
+        # the original cosine must come from THIS model's embeddings:
+        # meta["cos0"] was measured with MiniLM, which is what selected the
+        # pairs, and using it here would give bge a negative "drop".
+        p_old = np.array([float(base[A_of[k]] @ base[B_of[k]])
+                          for k in range(len(jobs))])
         p_new = np.array([float(V[k] @ base[B_of[k]])
                           for k in range(len(jobs))])
         c_old = np.array([float(cA[j[0]] @ cB[j[0]]) for j in jobs])
