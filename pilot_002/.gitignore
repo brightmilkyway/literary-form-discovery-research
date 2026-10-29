@@ -1,0 +1,13 @@
+# Regenerable large/intermediate artifacts
+data/derived/embeddings/
+data/derived/matrices/
+data/derived/units.json
+results/tables/geometry_events.csv
+results/figures/*.svg
+
+# Local caches
+.pytest_cache/
+__pycache__/
+*.py[cod]
+*.log
+
