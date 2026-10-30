@@ -2,7 +2,7 @@
   "status": "completed_representation_component",
   "protocol": "protocol.md",
   "source": "pilot_003/data/source/the_dead.txt",
-  "source_sha256": "b414bf48caef0b5e05d3e59fade37d6af86c589218679ace4a7edb2d9289e389",
+  "source_sha256": "13284c0070a518ed4f4c7d5cc857bc2bcdc11f229c3e042cc22e593c570a9f2d",
   "title_offset": 9,
   "body_characters": 85683,
   "body_words": 15732,

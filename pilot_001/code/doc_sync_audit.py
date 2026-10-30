@@ -24,12 +24,11 @@ import common as C
 
 PILOT = C.PILOT_DIR
 # The repository root may or may not be present next to the pilot: when this
-# script runs inside the authoring vault the repo-root files do not exist.
-# Probe a couple of likely locations instead of assuming one.
+# script runs inside an authoring vault the repo-root files do not exist.
+# Probe relative parent locations without embedding a contributor's local path.
 _CANDIDATE_ROOTS = [
     PILOT.parent,
     PILOT.parent.parent,
-    Path(r"D:\项目\literary-form-discovery-research"),
 ]
 REPO_ROOT = next(
     (r for r in _CANDIDATE_ROOTS

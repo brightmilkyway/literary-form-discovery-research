@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import hashlib
 import json
 from pathlib import Path
 
@@ -12,9 +11,9 @@ import common as C
 def main() -> None:
     problems: list[str] = []
     report = C.PILOT_DIR / "report.md"
-    canonical = C.PILOT_DIR / "docs" / "pilot_003_report.md"
-    if not canonical.exists() or report.read_bytes() != canonical.read_bytes():
-        problems.append("root and docs reports are not byte-identical")
+    duplicate = C.PILOT_DIR / "docs" / "pilot_003_report.md"
+    if duplicate.exists():
+        problems.append("duplicate report exists; pilot_003/report.md is canonical")
 
     root_readme = C.ROOT / "README.md"
     docs = {
@@ -41,8 +40,8 @@ def main() -> None:
     if root_readme.exists() and "| 003 | James Joyce" not in docs["root_README"]:
         problems.append("root README missing Pilot 003 index row")
 
-    expected_source = "b414bf48caef0b5e05d3e59fade37d6af86c589218679ace4a7edb2d9289e389"
-    actual_source = hashlib.sha256(C.SOURCE.read_bytes()).hexdigest()
+    expected_source = "13284c0070a518ed4f4c7d5cc857bc2bcdc11f229c3e042cc22e593c570a9f2d"
+    actual_source = C.source_sha256()
     if actual_source != expected_source:
         problems.append(f"source hash changed: {actual_source}")
 
@@ -66,7 +65,7 @@ def main() -> None:
             print(f"FAIL: {problem}")
         raise SystemExit(1)
     print("RESULT: PASS")
-    print("reports synchronized; current values present; source and 80 responses verified")
+    print("single report verified; current values present; source and 80 responses verified")
 
 
 if __name__ == "__main__":

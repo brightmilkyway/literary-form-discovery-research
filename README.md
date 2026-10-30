@@ -1,201 +1,132 @@
 # Literary Form Discovery
 
-**文学文本的组织形式探索 —— 计算方法的开放式预实验**
+**Open, reproducible experiments on how computational responses vary across literary form.**
 
-本仓库保存一系列**探索性**（而非假设验证性）预实验：在不预先标注主题、象征、
-叙事转折或"涌现结构"的前提下，用几种**归纳偏置不同**的现成方法，考察单部文学
-文本内部是否存在值得进一步文学解释的组织关系。
+[中文说明](README.zh-CN.md) · [Data sources](DATA_SOURCES.md) · [Citation](CITATION.cff) · [Licensing](#licensing)
 
-核心问题不是"算法能否发现文学结构"，而是两件更小、更可核查的事：
+## Research vision
 
-1. **经验发现**：哪些文本区域、远距离联系或多尺度分布模式，能从计算结果中被
-   清晰定位、复查、并在原文中找到位置？
-2. **理论对话**：这些候选发现使既有的作品研究或计算叙事学**多解释了什么、
-   少解释了什么**？
+This repository studies literary texts without treating an algorithmic output as a literary
+structure by default. Each pilot begins with position-preserving, label-free measurements and
+then asks a narrower question: which observations survive changes of scale, representation,
+segmentation, control design, or repeated model execution?
 
-**不做**：证明严格意义上的"涌现"；还原作者的创作过程；开发新算法；把无监督
-输出直接命名为文学结构。
+The goal is not to recover authorial intention, prove emergence, or equate an AI system with a
+human reader. The goal is to produce auditable empirical objects that can later enter literary
+interpretation without hiding their computational and experimental conditions.
 
-> ### 本仓库的硬规矩
->
-> **每一大轮实验/分析结束，必须先把受影响的文档改完，再报告结果。**
-> "改代码 + 跑脚本"不构成一轮的完成。
->
-> 需要同步的文件、常见遗漏、以及同步后必须做的两件自查（全文搜旧数字、
-> 逐项核对汇总表）见 **[`AGENT.md`](AGENT.md) §0**。
-> 这条规矩来自一次实际事故：报告的正文已按审稿意见撤回若干结论，
-> 而汇总表、README 索引与 `protocol.md` 仍写着旧版本，读者无法判断哪些是
-> 现行结论。
+## Experimental pilots
 
----
-
-## 预实验索引
-
-| 编号 | 作品 | 分析尺度 | 状态 | 报告 |
+| Pilot | Text | Main question | Status | Report |
 |---|---|---|---|---|
-| 001 | James Joyce, *The Dead*（《死者》） | 句子 1023 / 段落 455 / 150 词组 78 | 已完成（v18；含 MLM 改写复核） | [报告](pilot_001/docs/pilot_001_report.md) · [候选清单](pilot_001/docs/candidate_findings.md) |
-| 002 | James Joyce, *The Dead*（《死者》） | 7 尺度 / 22 种尺度—相位切分 / 5 种表示 | 已完成（v1；含 100 次零模型校准） | [报告](pilot_002/docs/pilot_002_report.md) · [候选清单](pilot_002/docs/candidate_findings.md) |
-| 003 | James Joyce, *The Dead*（《死者》） | 40 个顺序检查点 / 预测、表示、解释三类响应 | 已完成（v1；解释响应 2 次重复） | [报告](pilot_003/docs/pilot_003_report.md) · [候选清单](pilot_003/docs/candidate_findings.md) |
+| 001 | James Joyce, *The Dead* | Which local and non-local relations appear under segmentation, compression, and embedding methods? | Complete, v18 | [Report](pilot_001/docs/pilot_001_report.md) · [Findings](pilot_001/docs/candidate_findings.md) |
+| 002 | James Joyce, *The Dead* | Which matrix geometries persist across 7 scales, 22 scale/phase partitions, and 5 representations? | Complete, v1 | [Report](pilot_002/docs/pilot_002_report.md) · [Findings](pilot_002/docs/candidate_findings.md) |
+| 003 | James Joyce, *The Dead* | How do predictive, representational, and interpretive responses change over 40 prefix-ordered checkpoints? | Complete, v1 | [Report](pilot_003/report.md) · [Findings](pilot_003/docs/candidate_findings.md) |
 
----
+## Findings and limitations
 
-## 工作原则（由 Pilot 001 提出，待更多作品检验）
+The pilots support limited computational observations, not a single recovered literary map.
 
-**这些不是已经普遍成立的方法论定律。** 它们来自对**单部作品**的一次预实验：
-一部作品足以**暴露**某种风险，却不足以**证明**同一规则适用于所有文学材料。
-后续实验应当把它们当作**待检验的默认做法**：若某条在别的作品上不成立，
-记录反例并修订本节。
+- Scale can change a conclusion more than the choice between two similar encoders.
+- Surface-form observers may agree strongly while sharing the same lexical bias.
+- Cumulative-prefix representations can become mechanically smooth because adjacent inputs share
+  almost all prior text.
+- In Pilot 003, repeated temperature-zero interpretive responses varied almost as much as adjacent
+  checkpoints; isolated interpretation peaks are therefore not stable evidence.
+- Cross-dimensional agreement between surprisal, representation distance, and interpretation
+  distance was weak under rank correlation and does not support one common latent structure.
 
-### 研究过程的三个阶段（必须分开陈述）
+All findings remain specific to one literary work and the recorded experimental settings.
 
-1. **开放式发现阶段**：由通用计算表示（分段、压缩、句嵌入）产生候选现象，
-   **不使用任何文学标签**（主题、象征、叙事转折）。
-2. **针对性复核阶段**：候选现象出现**之后**，才可以针对它们使用特定词汇表、
-   目标片段、消融与替换对照。这一阶段**必然引入研究者的选择**。
-3. **解释阶段**：再决定哪些现象值得与既有文学研究对话。
+## Failure cases and revisions
 
-写报告时必须说明某个结论属于哪个阶段。**"没有预设文学标签"只适用于第一阶段**，
-不能用来描述整个流程。
+Failures and withdrawals are first-class results in this project.
 
-### 判定与对照
+- Pilot 001's first sentence segmentation silently merged quoted paragraphs; the affected analysis
+  was corrected and the failure retained in the report.
+- A claimed “form baseline” produced by replacing content words with one shared placeholder was
+  withdrawn: the placeholder itself created artificial similarity.
+- Several random-control designs saturated or failed to match length and lexical overlap.
+- Pilot 002's raw cross-observer persistence required a spatial-occupancy null calibration.
+- Pilot 003's JSON schema succeeded, but only 12 of 40 outputs per replicate followed the frozen
+  120–180-word limit.
 
-**判定标准：免校正的互为近邻排名。**
-"在 i 的一行里 j 排第几"与"在 j 的一行里 i 排第几"，取较差者。
-该标准不需要任何校正，因此绕开了下一条的缺陷。
+The repository rule is simple: a corrected or withdrawn claim remains visible as history and is
+never silently overwritten.
 
-**hub 校正有对称缺陷。** 行/列中心化会消除"中心片段"的膨胀，却**夸大
-"外围×外围"对**。任何 hub 校正的 top 列表都必须附带互为近邻检验，
-或报告两个单位的外围名次。
+## Methodological principles
 
-**消融类对照必须配"同等规模随机对照"，且必须检查对照是否饱和。**
-去掉任何词都会改变文本，因此"消融后指标下降"本身不构成证据；而且随机对照本身
-可能失效——Pilot 001 中三种零假设设计因此失败（一种在细尺度上**饱和**，
-一种被**离散度**污染，一种**不具区分力**）。消融时**删除**目标词，
-不要用同一个占位词**替换**：替换会在所有文本间人为制造相同词元，
-把"共享占位符"误读成"共享形式"。
+1. Preserve original text order and trace every unit back to character or word coordinates.
+2. Separate open discovery, targeted review, and literary interpretation.
+3. Freeze primary metrics before reading their results.
+4. Treat preprocessing and controls as components that require their own validation.
+5. Match wording strength to evidence: “computationally prominent” is not “statistically unusual.”
+6. Keep negative results, failed controls, and retractions in the evidence record.
+7. Never interpret model surprisal directly as human surprise, emotion, or reading difficulty.
 
-**探索中选出的配对，不能与一小批随机配对的最大值直接比较。**
-Pilot 001 的雪呼应就是这样被**过度陈述**的：对照只有不到 200 个有效样本、
-只按距离筛选、未匹配句长与词汇重叠、也未校正选择效应。
-**"计算上突出"与"统计上异常"是两件事**；前者可以报告，后者需要匹配对照
-或留出数据。
+The complete collaboration and evidence rules are in [AGENT.md](AGENT.md).
 
-### 预处理与实现的验证
+## Reproducibility
 
-**预处理步骤本身是需要验证的组件。**
-Pilot 001 首轮直接调用 `nltk.sent_tokenize`，得到 764 个"句子"，其中 **152 个
-（20%）含内部换行**——是多句块。原因是原文在段末写 `.”`（句点 + 弯引号），
-punkt 不把它当句末。**这个错误不产生任何报错**，却使整轮句子尺度的结论失真。
-因此：分句器、切分器、tokenizer 都必须报告单元数、边界检验、偏移回环检验，
-并保留可人工阅读的随机样本。
-
-**自动检查的"零错误"要限定措辞。**
-"未发现错误"只对**已定义的检查规则**成立，不等于"已证明全部边界正确"。
-过切分检查通常只覆盖预先列出的模式，偏移回环只证明切分能对应回原文。
-若要把切分精度作为方法学结论，需另行构建人工标注样本并报告一致性。
-
-**压缩距离的对称性是一个假设。**
-实际压缩器不满足 `C(xy) = C(yx)`。Pilot 001 中正/反拼接的矩阵相关 0.951，
-但**最近 10 对只重合 6/10**。报告 top 对时必须同时报告反向拼接的结果。
-
-### 尺度与表示
-
-**尺度是独立变量，可能比方法选择更能决定结论。**
-Pilot 001 中"雪的材料在六种表示下都不成集合"这一强负结果，被证明是
-150 词分析单元的**稀释效应**造成的假象：降到句子尺度后，那对逐字呼应的句子
-在两个编码器下都是全篇 1023 句中的第一近邻。
-**因此建议：在某一尺度上得到的负结果，先在更细尺度复核再作为结论。**
-（这是建议，不是定律——它本身也需要在别的作品上检验。）
-
-**句嵌入的相似度由内容驱动；被长度主导的是压缩距离。**
-Pilot 001 中一个用占位符替换实词的实验曾得出"存在 0.83 形式基线"的结论，
-后证明是占位符假象并撤回。改用**删除而非替换**的对照（form-only 删实词、
-content-only 删虚词）后：形式相似度高但几乎不变（0.712，sd 0.074），
-而原始余弦的变化由**内容**驱动（`r = +0.78`，对形式仅 `+0.18`）。
-绝对余弦值仍不可跨语料比较，但原因不是"形式基线"。
-
-**判读边界。**
-
-* 聚类、分段或高相似度 **≠** 文学结构；它们首先是待解释的计算现象。
-* 出版文本中的**位置**关系 **≠** 创作历史中的**时间**关系。
-* **没有正面发现也是有效结果**，但需要指出失败来自材料、表示、参数还是尺度。
-* 打乱片段顺序**不是**有效的距离矩阵对照（它不改变固定片段间的两两相似度）。
-
----
-
-## 目录约定
-
-```
-literary-form-discovery-research/
-├─ README.md               研究纲领、预实验索引、工作原则
-├─ AGENT.md                工作约定（含"每轮必须同步文档"的清单）
-└─ pilot_NNN_<slug>/
-   ├─ protocol.md          该实验的原始方案（研究问题、方法、交付、判读边界）
-   ├─ README.md            数据、切分、方法、运行方式
-   ├─ requirements.txt     固定版本
-   ├─ code/                可复现脚本（确定性，seed 固定）
-   ├─ data/
-   │  ├─ source/           原文（公共领域文本）
-   │  └─ derived/          中间产物：矩阵、参数、数值结果、可读摘要
-   ├─ results/
-   │  ├─ figures/          图（PNG；矢量 SVG 可再生，通常不入库）
-   │  └─ tables/           可追溯的 CSV
-   └─ docs/
-      ├─ candidate_findings.md   候选现象清单（含替代解释与待追问问题）
-      └─ pilot_NNN_report.md     研究报告
-```
-
-**入库原则**：保存人可核查的结果与图，**排除体积大且一条命令即可再生的中间产物**
-（如矢量图、逐间隙完整曲线）。每个实验的 `data/derived/README.md` 列出被排除的
-产物与确切的再生命令。
-
-**可复现性要求**：保存原文版本、切分规则、方法与模型版本、主要参数、
-关键数值结果与运行代码；随机种子固定并写入结果元数据。
-所有结论必须能追溯到具体的字符偏移、段号或句号。
-
----
-
-## 运行
+Each pilot pins its dependencies, records source hashes and random seeds, and documents which large
+artifacts are regenerated rather than committed.
 
 ```bash
-cd pilot_001
-python -m pip install -r requirements.txt
-cd code
-python run_all.py                 # 主流程
-python validate_against_nltk.py   # 与 NLTK 参考实现逐位对照（含 PASS/FAIL）
-python analyze_findings.py        # 汇总摘要与候选清单表
-```
-
-各实验的 `README.md` 列出该实验的全部脚本与建议阅读顺序。
-
-Pilot 002 的完整运行入口为：
-
-```bash
+# Pilot 002
 python -m pytest pilot_002/tests -q
 python pilot_002/code/run_pipeline.py
 python pilot_002/code/null_calibration.py --iterations 100
 python pilot_002/code/make_report.py
 python pilot_002/code/doc_sync_audit.py
-```
 
-Pilot 003 的完整运行入口为：
-
-```bash
+# Pilot 003 local components
 python -m pytest pilot_003/tests -q
 python pilot_003/code/run_pipeline.py
-python pilot_003/code/interpretive.py run-deepseek --replicate 1
-python pilot_003/code/interpretive.py run-deepseek --replicate 2
+python pilot_003/code/interpretive.py validate pilot_003/data/derived/deepseek_responses_r01.jsonl
+python pilot_003/code/interpretive.py validate pilot_003/data/derived/deepseek_responses_r02.jsonl
 python pilot_003/code/analyze_interpretations.py
 python pilot_003/code/predictive.py
 python pilot_003/code/cross_dimension.py
 python pilot_003/code/doc_sync_audit.py
 ```
 
----
+Pilot 003's DeepSeek calls are optional and require `DEEPSEEK_API_KEY`; the retained compact raw
+responses allow the published summaries to be audited without repeating paid API calls. See each
+pilot README for the complete workflow and model requirements.
 
-## 引用
+## Data and provenance
 
-若使用本仓库的方法学约定或 Pilot 001 / Pilot 002 / Pilot 003 的结果，请引用对应的预实验报告。
-原始方法出处见各实验 `protocol.md` 的文献列表
-（Hearst 1997；Cilibrasi & Vitányi 2005；Reimers & Gurevych 2019；
-Tukey 1977；Sui et al. 2023）。
+The literary source is derived from Project Gutenberg eBook #2814, *Dubliners*. Exact repository
+paths, SHA-256 fingerprints, extraction notes, upstream dates, and jurisdictional caveats are in
+[DATA_SOURCES.md](DATA_SOURCES.md). Third-party literary text is not relicensed under this
+repository's code or research-content licenses.
+
+## Repository layout
+
+```text
+.
+├─ README.md / README.zh-CN.md
+├─ DATA_SOURCES.md
+├─ AGENT.md
+├─ pilot_001/
+├─ pilot_002/
+└─ pilot_003/
+```
+
+## Citation
+
+Use the metadata in [CITATION.cff](CITATION.cff). Until an archived DOI is available, cite the
+repository and the specific pilot report, version, and commit or release tag used in your work.
+
+## Licensing
+
+- Source code is licensed under the [MIT License](LICENSE).
+- Original research prose, figures, and result tables are licensed under
+  [CC BY 4.0](LICENSE-CONTENT.md), unless a file says otherwise.
+- Literary source texts and raw third-party model outputs are excluded from those grants; see
+  [DATA_SOURCES.md](DATA_SOURCES.md) and [LICENSE-CONTENT.md](LICENSE-CONTENT.md).
+
+## Security and responsible disclosure
+
+Do not commit API keys or private datasets. Report a suspected exposed credential privately as
+described in [SECURITY.md](SECURITY.md).
