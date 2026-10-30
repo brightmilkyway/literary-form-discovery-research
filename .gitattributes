@@ -1,5 +1,15 @@
 /README.md text eol=lf
+/README.zh-CN.md text eol=lf
+/DATA_SOURCES.md text eol=lf
+/LICENSE text eol=lf
+/LICENSE-CONTENT.md text eol=lf
+/CITATION.cff text eol=lf
+/SECURITY.md text eol=lf
+/docs/** text eol=lf
+/tools/** text eol=lf
+/.github/** text eol=lf
 /pilot_001/.gitignore text eol=lf
+/pilot_001/data/source/*.txt text eol=lf
 /pilot_001/data/derived/README.md text eol=lf
 /pilot_002/** text eol=lf
 /pilot_003/** text eol=lf

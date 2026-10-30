@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this repository, cite the repository and the specific pilot report and release."
+title: "Literary Form Discovery: Reproducible Computational Pilots on The Dead"
+type: software
+authors:
+  - family-names: Yuan
+    given-names: Yuhao
+repository-code: "https://github.com/brightmilkyway/literary-form-discovery-research"
+url: "https://github.com/brightmilkyway/literary-form-discovery-research"
+version: 1.0.0
+date-released: 2026-10-30
+license: MIT
+keywords:
+  - digital humanities
+  - computational literary studies
+  - literary form
+  - surprisal
+  - text representation
+  - reproducible research

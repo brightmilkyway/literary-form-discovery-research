@@ -30,8 +30,8 @@ pilot_003/
 ```powershell
 python -m pytest pilot_003/tests -q
 python pilot_003/code/run_pipeline.py
-python pilot_003/code/interpretive.py run-deepseek --replicate 1
-python pilot_003/code/interpretive.py run-deepseek --replicate 2
+python pilot_003/code/interpretive.py validate pilot_003/data/derived/deepseek_responses_r01.jsonl
+python pilot_003/code/interpretive.py validate pilot_003/data/derived/deepseek_responses_r02.jsonl
 python pilot_003/code/analyze_interpretations.py
 python pilot_003/code/predictive.py
 python pilot_003/code/cross_dimension.py
@@ -76,8 +76,10 @@ python pilot_003/code/interpretive.py prepare
 python pilot_003/code/interpretive.py validate path/to/responses.jsonl
 ```
 
-校验通过才会生成 `data/derived/interpretation_runs.jsonl`。该文件同时保留原始输入、
-输出、模型标识、参数和记录时间。API 成本、数据治理和模型选择须在执行前另行确认。
+校验通过会按响应文件后缀生成 `data/derived/interpretation_runs_rNN.jsonl`。该文件同时
+保留原始输入、输出、模型标识、参数和记录时间。若需重新调用 API（而不是复核入库的
+响应），使用 `run-deepseek --replicate N`；API 成本、数据治理和模型选择须在执行前
+另行确认。
 
 ## 依赖与模型状态
 

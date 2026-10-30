@@ -1,0 +1,26 @@
+name: public-release-audit
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Public repository gate
+        run: python tools/public_release_audit.py
+      - name: Documentation sync gates
+        run: |
+          python pilot_001/code/doc_sync_audit.py
+          python pilot_002/code/doc_sync_audit.py
+          python pilot_003/code/doc_sync_audit.py

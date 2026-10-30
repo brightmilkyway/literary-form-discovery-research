@@ -49,7 +49,9 @@ def load_body() -> tuple[str, int]:
 
 
 def source_sha256() -> str:
-    return hashlib.sha256(SOURCE.read_bytes()).hexdigest()
+    raw = SOURCE.read_text(encoding="utf-8-sig")
+    canonical = raw.replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
 
 def paragraphs(body: str) -> list[Paragraph]:
