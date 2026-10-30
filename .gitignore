@@ -16,3 +16,10 @@ desktop.ini
 # Local scratch
 *.tmp
 *.log
+
+# Pilot 003 reproducible large/duplicate artifacts
+pilot_003/data/derived/checkpoints.json
+pilot_003/data/derived/interpretation_requests.jsonl
+pilot_003/data/derived/interpretation_runs_r*.jsonl
+pilot_003/results/tables/token_surprisal.csv
+pilot_003/results/figures/*.svg

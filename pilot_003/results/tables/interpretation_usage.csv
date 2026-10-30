@@ -1,0 +1,3 @@
+﻿replicate,model,checkpoints,prompt_tokens,completion_tokens,total_tokens,mean_output_words,outputs_within_120_180_words
+1,deepseek-flash,40,420602,10747,431349,188.45,12
+2,deepseek-flash,40,420602,10716,431318,186.45,12

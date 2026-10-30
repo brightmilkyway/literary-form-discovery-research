@@ -2,5 +2,7 @@
 /pilot_001/.gitignore text eol=lf
 /pilot_001/data/derived/README.md text eol=lf
 /pilot_002/** text eol=lf
+/pilot_003/** text eol=lf
+/.gitignore text eol=lf
 *.png binary
 *.npy binary

@@ -1,0 +1,21 @@
+{
+  "status": "completed",
+  "model_requested": "distilbert/distilgpt2",
+  "model_type": "gpt2",
+  "model_revision": "2290a62682d06624634c1f46a6ad5be0f47f38aa",
+  "tokenizer_class": "GPT2TokenizerFast",
+  "vocabulary_size": 50257,
+  "tokens_in_body": 22575,
+  "scored_tokens": 22574,
+  "first_token_unscored": true,
+  "context_length": 1024,
+  "stride": 512,
+  "context_tokens_min": 1,
+  "context_tokens_max": 1023,
+  "device": "cpu",
+  "torch": "2.14.1+cpu",
+  "transformers": "4.57.6",
+  "python": "3.12.13",
+  "source_sha256": "b414bf48caef0b5e05d3e59fade37d6af86c589218679ace4a7edb2d9289e389",
+  "elapsed_seconds": 211.66
+}
