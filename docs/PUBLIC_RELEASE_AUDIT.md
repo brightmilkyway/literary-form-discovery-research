@@ -15,7 +15,7 @@ and the files planned for the public-readiness change.
 | Pilot 003 PR | PR #12 squash-merged into `main` |
 | Remote feature branches | Three stale snapshot branches audited and deleted; only `main` remained before the public-readiness branch was created |
 | Secret-pattern history scan | 347 unique reachable blobs across all local and remote refs plus all commit messages scanned; 0 findings |
-| GitHub secret scanning | Unavailable while the repository was private; must be rechecked after visibility changes |
+| GitHub secret scanning | Enabled with push protection after publication; 0 alerts on 2026-10-30 |
 | Largest historical blob | 1.58 MiB; no GitHub large-file limit risk |
 | Author identities | `brightmilkyway@users.noreply.github.com` and `yuanyuhao2004@outlook.com`; repository owner explicitly accepted public attribution for both |
 | API credentials | No key found; Pilot 003 reads `DEEPSEEK_API_KEY` from the environment and does not persist it |
@@ -45,8 +45,9 @@ python pilot_002/code/doc_sync_audit.py
 python pilot_003/code/doc_sync_audit.py
 ```
 
-After changing visibility to public, recheck GitHub's secret-scanning endpoint and record the release
-tag and GitHub release URL in the release notes.
+Post-publication verification confirmed `main` as the default and only remote branch, Public
+visibility, secret scanning with push protection, and zero GitHub secret-scanning alerts. The release
+tag and GitHub release URL are recorded in the GitHub release itself.
 
 The two pytest directories must currently be invoked separately. Collecting both in one pytest
 process causes their identically named `test_core.py` modules to collide; this is a test-packaging
