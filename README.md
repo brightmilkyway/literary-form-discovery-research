@@ -130,3 +130,18 @@ repository and the specific pilot report, version, and commit or release tag use
 
 Do not commit API keys or private datasets. Report a suspected exposed credential privately as
 described in [SECURITY.md](SECURITY.md).
+
+
+## Related work
+
+This repository is one line of an ongoing thesis project on literary reading and computational
+evidence. Its conventions and its negative results also feed a separate, private study of how
+source-traceable critical reading rules change evidence selection, argumentation, and evaluation
+in a language model.
+
+- Current thesis repository: private, `brightmilkyway/literary-reading-intervention`.
+- Prior AI-literary-evaluation prototype: `brightmilkyway/AI_Literary_Evaluation` (archived).
+
+Nothing in this public repository was altered by that migration. The copy imported into the
+private repository keeps this repository's history and status unchanged; this repository remains
+the canonical public source.
