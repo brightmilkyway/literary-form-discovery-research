@@ -1,0 +1,38 @@
+PILOT 002 STRICT TOPOLOGY — v2
+========================================================================
+matrices: 110; null permutations per matrix: 100
+H0 total persistence: BH q<=0.05 in 94/110 matrices; mean z=-4.430
+H0 strong-feature count: BH q<=0.05 in 91/110 matrices; mean z=-3.848
+H0 maximum persistence: BH q<=0.05 in 0/110 matrices
+H1 total persistence: uncorrected p<=0.05 in 19/110; BH q<=0.05 in 0/110; mean z=1.154
+
+INTERPRETATION BOUNDARY
+The robust result is an H0 deficit relative to sequence permutation: the
+observed reading order contains fewer/less persistent isolated high-similarity
+islands, consistent with similarities being arranged into contiguous regions.
+No H1 excess survives correction across 110 matrices. H1 locations remain
+uncorrected candidates, not evidence of narrative cycles.
+
+TOP RECURRENT H0 BIRTH-CELL CLUSTERS
+H0C0001: 5625.0<->9225.0; matrices=31, scales=6, reps=4; mean lifetime=0.249; v1=C0002
+H0C0002: 5187.5<->14150.0; matrices=24, scales=5, reps=4; mean lifetime=0.249; v1=C0001
+H0C0003: 10275.0<->11512.0; matrices=19, scales=5, reps=4; mean lifetime=0.249; v1=C0058
+H0C0004: 2875.0<->8000.0; matrices=19, scales=4, reps=3; mean lifetime=0.249; v1=C0012
+H0C0005: 10200.0<->11612.5; matrices=18, scales=5, reps=5; mean lifetime=0.248; v1=C0058
+H0C0006: 600.0<->2175.0; matrices=16, scales=3, reps=5; mean lifetime=0.248; v1=C0008
+H0C0007: 4506.0<->6631.0; matrices=16, scales=5, reps=3; mean lifetime=0.248; v1=C0009
+H0C0008: 10150.0<->11350.0; matrices=15, scales=5, reps=4; mean lifetime=0.247; v1=C0007
+H0C0009: 6612.5<->11531.0; matrices=14, scales=5, reps=3; mean lifetime=0.247; v1=C0003
+H0C0010: 3275.0<->10800.0; matrices=13, scales=4, reps=3; mean lifetime=0.250; v1=C0017
+
+TOP RECURRENT H1 BIRTH-CELL CLUSTERS (UNCORRECTED)
+H1C0001: 13625.0<->14962.0; matrices=8, scales=4, reps=4; mean lifetime=0.156; v1=C0064
+H1C0002: 13650.0<->14662.0; matrices=7, scales=4, reps=4; mean lifetime=0.109; v1=C0049
+H1C0003: 1637.0<->6375.0; matrices=7, scales=3, reps=2; mean lifetime=0.112; v1=C0713
+H1C0004: 4906.0<->14381.0; matrices=6, scales=3, reps=4; mean lifetime=0.121; v1=C0821
+H1C0005: 1881.0<->11625.0; matrices=6, scales=3, reps=3; mean lifetime=0.154; v1=C0108
+H1C0006: 13881.0<->14681.0; matrices=6, scales=3, reps=1; mean lifetime=0.134; v1=C0150
+H1C0007: 4912.0<->14625.0; matrices=5, scales=3, reps=4; mean lifetime=0.122; v1=C0512
+H1C0008: 6200.0<->8050.0; matrices=5, scales=3, reps=4; mean lifetime=0.120; v1=C0134
+H1C0009: 5025.0<->14025.0; matrices=5, scales=4, reps=3; mean lifetime=0.098; v1=C1006
+H1C0010: 4725.0<->13987.0; matrices=5, scales=4, reps=3; mean lifetime=0.094; v1=C0310

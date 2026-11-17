@@ -20,7 +20,7 @@ interpretation without hiding their computational and experimental conditions.
 | Pilot | Text | Main question | Status | Report |
 |---|---|---|---|---|
 | 001 | James Joyce, *The Dead* | Which local and non-local relations appear under segmentation, compression, and embedding methods? | Complete, v18 | [Report](pilot_001/docs/pilot_001_report.md) · [Findings](pilot_001/docs/candidate_findings.md) |
-| 002 | James Joyce, *The Dead* | Which matrix geometries persist across 7 scales, 22 scale/phase partitions, and 5 representations? | Complete, v1 | [Report](pilot_002/docs/pilot_002_report.md) · [Findings](pilot_002/docs/candidate_findings.md) |
+| 002 | James Joyce, *The Dead* | Which matrix geometries persist across 7 scales, 22 scale/phase partitions, and 5 representations? | Complete, v2 (null-model calibration + strict topology) | [Report](pilot_002/docs/pilot_002_report.md) · [Findings](pilot_002/docs/candidate_findings.md) |
 | 003 | James Joyce, *The Dead* | How do predictive, representational, and interpretive responses change over 40 prefix-ordered checkpoints? | Complete, v1 | [Report](pilot_003/report.md) · [Findings](pilot_003/docs/candidate_findings.md) |
 
 ## Findings and limitations
@@ -77,6 +77,8 @@ python -m pytest pilot_002/tests -q
 python pilot_002/code/run_pipeline.py
 python pilot_002/code/null_calibration.py --iterations 100
 python pilot_002/code/make_report.py
+python pilot_002/code/topology.py --null-iterations 100
+python pilot_002/code/topology_report.py
 python pilot_002/code/doc_sync_audit.py
 
 # Pilot 003 local components
@@ -93,6 +95,12 @@ python pilot_003/code/doc_sync_audit.py
 Pilot 003's DeepSeek calls are optional and require `DEEPSEEK_API_KEY`; the retained compact raw
 responses allow the published summaries to be audited without repeating paid API calls. See each
 pilot README for the complete workflow and model requirements.
+
+Pilot 002 v2 separates "cross-scale recurrence" from topological persistence in the mathematical
+sense. The robust result of 2-D cubical persistent homology is that the original reading order
+contains significantly fewer `H0` connected islands than the sequence-permutation null model
+(94/110 matrices at BH q<=0.05, mean z = -4.430); no `H1` cycle survives multiple-comparison
+correction (0/110 at BH q<=0.05), so narrative cycles are not claimed as a finding.
 
 ## Data and provenance
 

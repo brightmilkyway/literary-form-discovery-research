@@ -10,6 +10,7 @@ sys.path.insert(0, str(CODE))
 
 import common as C
 import geometry as G
+import topology as T
 
 
 def test_partition_grid_and_roundtrip():
@@ -43,4 +44,25 @@ def test_remote_mask_uses_word_coordinates():
     mask = G.valid_remote_mask(units, 1000)
     assert not mask[0, 3]  # gap 250 < 300
     assert mask[0, 4]      # gap 350 >= 300
+
+
+def test_topology_landmarks_ignore_matrix_values():
+    indices = T.landmark_indices(1023, maximum=128)
+    assert len(indices) == 128
+    assert indices[0] == 0
+    assert indices[-1] == 1022
+    assert np.all(np.diff(indices) > 0)
+
+
+def test_cubical_h1_detects_a_synthetic_ring():
+    filtration = np.full((7, 7), 0.9)
+    filtration[2:5, 2] = 0.02
+    filtration[2:5, 4] = 0.02
+    filtration[2, 2:5] = 0.02
+    filtration[4, 2:5] = 0.02
+    filtration[3, 3] = 0.20
+    summary = T.cubical_summary(filtration)
+    assert summary["h1_count"] == 1
+    assert summary["h1_strong"] == 1
+    assert np.isclose(summary["h1_max"], 0.18)
 

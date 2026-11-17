@@ -36,7 +36,7 @@
 | 编号 | 作品 | 分析尺度 | 状态 | 报告 |
 |---|---|---|---|---|
 | 001 | James Joyce, *The Dead*（《死者》） | 句子 1023 / 段落 455 / 150 词组 78 | 已完成（v18；含 MLM 改写复核） | [报告](pilot_001/docs/pilot_001_report.md) · [候选清单](pilot_001/docs/candidate_findings.md) |
-| 002 | James Joyce, *The Dead*（《死者》） | 7 尺度 / 22 种尺度—相位切分 / 5 种表示 | 已完成（v1；含 100 次零模型校准） | [报告](pilot_002/docs/pilot_002_report.md) · [候选清单](pilot_002/docs/candidate_findings.md) |
+| 002 | James Joyce, *The Dead*（《死者》） | 7 尺度 / 22 种尺度—相位切分 / 5 种表示 | 已完成（v2；含零模型校准与严格拓扑） | [报告](pilot_002/docs/pilot_002_report.md) · [候选清单](pilot_002/docs/candidate_findings.md) |
 | 003 | James Joyce, *The Dead*（《死者》） | 40 个顺序检查点 / 预测、表示、解释三类响应 | 已完成（v1；解释响应 2 次重复） | [报告](pilot_003/report.md) · [候选清单](pilot_003/docs/candidate_findings.md) |
 
 ---
@@ -177,8 +177,15 @@ python -m pytest pilot_002/tests -q
 python pilot_002/code/run_pipeline.py
 python pilot_002/code/null_calibration.py --iterations 100
 python pilot_002/code/make_report.py
+python pilot_002/code/topology.py --null-iterations 100
+python pilot_002/code/topology_report.py
 python pilot_002/code/doc_sync_audit.py
 ```
+
+Pilot 002 v2 将「跨尺度复现」与数学意义上的拓扑持久性严格分开。二维 cubical
+persistent homology 的稳健结果是原文顺序中的 `H0` 连通岛显著少于顺序置换零模型
+（94/110 张矩阵在 BH q≤0.05 下，平均 z = −4.430）；`H1` 环在多重比较校正后没有保留
+（0/110），因此当前不把「叙事循环」列为发现。
 
 Pilot 003 的完整运行入口为：
 
