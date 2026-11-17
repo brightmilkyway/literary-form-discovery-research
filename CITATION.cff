@@ -7,8 +7,8 @@ authors:
     given-names: Yuhao
 repository-code: "https://github.com/brightmilkyway/literary-form-discovery-research"
 url: "https://github.com/brightmilkyway/literary-form-discovery-research"
-version: 1.0.0
-date-released: 2026-10-30
+version: 1.1.0
+date-released: 2026-11-17
 license: MIT
 keywords:
   - digital humanities
